@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(file /c/wamp64/www/pourcast/*)",
+      "Bash(npm --version)",
+      "Bash(npm create:*)",
+      "Bash(npx vite:*)"
+    ]
+  }
+}
