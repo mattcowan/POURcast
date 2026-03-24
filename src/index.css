@@ -1,0 +1,324 @@
+@import "tailwindcss";
+
+/* ===================================================
+   FONT FAMILIES — driven by data-font-family on <html>
+   =================================================== */
+
+/* Atkinson Hyperlegible from Google Fonts */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt23C1KxNDXMspQ1lPyU89-1h6ONRlW45G04pIo.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt73C1KxNDXMspQ1lPyU89-1h6ONRlW45G8WbcNki-h.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt43C1KxNDXMspQ1lPyU89-1h6ONRlW45G056qk.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt93C1KxNDXMspQ1lPyU89-1h6ONRlW45G8e6Ki_-Bh.woff2') format('woff2');
+}
+
+/* Default: Atkinson Hyperlegible */
+:root,
+[data-font-family="atkinson"] {
+  font-family: 'Atkinson Hyperlegible', system-ui, sans-serif;
+}
+
+[data-font-family="sans-serif"] {
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+
+[data-font-family="serif"] {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+[data-font-family="comic-sans"] {
+  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', cursive;
+}
+
+/* ===================================================
+   THEME SYSTEM — driven by data-theme attribute on <html>
+   =================================================== */
+
+/* --- Light (default) --- */
+:root,
+[data-theme="light"] {
+  --bg-primary: #fffff0;
+  --bg-surface: #fffff0;
+  --bg-surface-hover: #f5f5e6;
+  --bg-accent: #eef5ff;
+  --text-primary: #111111;
+  --text-secondary: #3a3a3a;
+  --text-muted: #5a5a5a;
+  --text-accent: #1d4ed8;
+  --text-on-accent: #fffff0;
+  --border-default: #ddddd0;
+  --border-strong: #c8c8bc;
+  --success-bg: #f0fdf4;
+  --success-border: #86efac;
+  --success-text: #166534;
+  --success-icon: #16a34a;
+  --error-bg: #fef2f2;
+  --error-border: #fca5a5;
+  --error-text: #991b1b;
+  --error-icon: #dc2626;
+  --warning-bg: #fffbeb;
+  --warning-border: #fcd34d;
+  --warning-text: #92400e;
+  --info-bg: #eff6ff;
+  --info-border: #93c5fd;
+  --info-text: #1e40af;
+  --focus-ring: #2563eb;
+  --link-color: #1d4ed8;
+  --link-hover: #1e3a8a;
+  --xp-color: #d97706;
+  --streak-color: #ea580c;
+  --pill-correct-bg: #dcfce7;
+  --pill-correct-text: #166534;
+  --pill-good-bg: #fef9c3;
+  --pill-good-text: #854d0e;
+  --pill-practice-bg: #ffedd5;
+  --pill-practice-text: #9a3412;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  color-scheme: light;
+}
+
+/* --- Dark --- */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-surface: #1e293b;
+  --bg-surface-hover: #334155;
+  --bg-accent: #1e3a5f;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #60a5fa;
+  --text-on-accent: #ffffff;
+  --border-default: #334155;
+  --border-strong: #475569;
+  --success-bg: #052e16;
+  --success-border: #166534;
+  --success-text: #86efac;
+  --success-icon: #4ade80;
+  --error-bg: #450a0a;
+  --error-border: #991b1b;
+  --error-text: #fca5a5;
+  --error-icon: #f87171;
+  --warning-bg: #451a03;
+  --warning-border: #92400e;
+  --warning-text: #fcd34d;
+  --info-bg: #172554;
+  --info-border: #1e40af;
+  --info-text: #93c5fd;
+  --focus-ring: #60a5fa;
+  --link-color: #60a5fa;
+  --link-hover: #93c5fd;
+  --xp-color: #fbbf24;
+  --streak-color: #fb923c;
+  --pill-correct-bg: #052e16;
+  --pill-correct-text: #86efac;
+  --pill-good-bg: #422006;
+  --pill-good-text: #fcd34d;
+  --pill-practice-bg: #431407;
+  --pill-practice-text: #fdba74;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  color-scheme: dark;
+}
+
+/* --- High Contrast Light --- */
+[data-theme="hc-light"] {
+  --bg-primary: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-surface-hover: #f0f0f0;
+  --bg-accent: #e8f0fe;
+  --text-primary: #000000;
+  --text-secondary: #1a1a1a;
+  --text-muted: #333333;
+  --text-accent: #0000cc;
+  --text-on-accent: #ffffff;
+  --border-default: #000000;
+  --border-strong: #000000;
+  --success-bg: #e6ffe6;
+  --success-border: #006600;
+  --success-text: #003300;
+  --success-icon: #006600;
+  --error-bg: #ffe6e6;
+  --error-border: #cc0000;
+  --error-text: #660000;
+  --error-icon: #cc0000;
+  --warning-bg: #fff5cc;
+  --warning-border: #996600;
+  --warning-text: #663300;
+  --info-bg: #e6f0ff;
+  --info-border: #0000cc;
+  --info-text: #000066;
+  --focus-ring: #000000;
+  --link-color: #0000cc;
+  --link-hover: #000066;
+  --xp-color: #996600;
+  --streak-color: #cc3300;
+  --pill-correct-bg: #ccffcc;
+  --pill-correct-text: #003300;
+  --pill-good-bg: #ffffcc;
+  --pill-good-text: #663300;
+  --pill-practice-bg: #ffe0cc;
+  --pill-practice-text: #662200;
+  --shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  color-scheme: light;
+}
+
+/* --- High Contrast Dark --- */
+[data-theme="hc-dark"] {
+  --bg-primary: #000000;
+  --bg-surface: #0a0a0a;
+  --bg-surface-hover: #1a1a1a;
+  --bg-accent: #001133;
+  --text-primary: #ffffff;
+  --text-secondary: #f0f0f0;
+  --text-muted: #cccccc;
+  --text-accent: #66b3ff;
+  --text-on-accent: #000000;
+  --border-default: #ffffff;
+  --border-strong: #ffffff;
+  --success-bg: #002200;
+  --success-border: #00cc00;
+  --success-text: #66ff66;
+  --success-icon: #00ff00;
+  --error-bg: #330000;
+  --error-border: #ff3333;
+  --error-text: #ff9999;
+  --error-icon: #ff3333;
+  --warning-bg: #332200;
+  --warning-border: #ffcc00;
+  --warning-text: #ffee99;
+  --info-bg: #000033;
+  --info-border: #6699ff;
+  --info-text: #99ccff;
+  --focus-ring: #ffffff;
+  --link-color: #66b3ff;
+  --link-hover: #99ccff;
+  --xp-color: #ffcc00;
+  --streak-color: #ff9933;
+  --pill-correct-bg: #003300;
+  --pill-correct-text: #66ff66;
+  --pill-good-bg: #333300;
+  --pill-good-text: #ffff66;
+  --pill-practice-bg: #331100;
+  --pill-practice-text: #ffcc66;
+  --shadow: 0 1px 3px rgba(255, 255, 255, 0.1);
+  color-scheme: dark;
+}
+
+/* ===================================================
+   FONT SIZE — driven by data-font-size
+   =================================================== */
+[data-font-size="large"] {
+  font-size: 112.5%; /* 18px base */
+}
+[data-font-size="largest"] {
+  font-size: 125%; /* 20px base */
+}
+
+/* ===================================================
+   LETTER SPACING — driven by data-letter-spacing
+   =================================================== */
+[data-letter-spacing="increased"] {
+  letter-spacing: 0.12em;
+}
+
+/* ===================================================
+   LINE HEIGHT — driven by data-line-height
+   =================================================== */
+[data-line-height="increased"] {
+  line-height: 2;
+}
+
+/* ===================================================
+   UNDERLINE LINKS — driven by data-underline-links
+   =================================================== */
+[data-underline-links="true"] a {
+  text-decoration: underline !important;
+  text-underline-offset: 3px;
+}
+
+/* ===================================================
+   REDUCE MOTION — manual override
+   =================================================== */
+[data-reduce-motion="reduce"] *,
+[data-reduce-motion="reduce"] *::before,
+[data-reduce-motion="reduce"] *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}
+
+/* OS-level prefers-reduced-motion (when set to "system") */
+@media (prefers-reduced-motion: reduce) {
+  [data-reduce-motion="system"] *,
+  [data-reduce-motion="system"] *::before,
+  [data-reduce-motion="system"] *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ===================================================
+   BASE STYLES — use CSS variables everywhere
+   =================================================== */
+body {
+  margin: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* Skip navigation link - visible only on focus */
+.skip-nav {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--text-accent);
+  color: var(--text-on-accent);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-nav:focus {
+  top: 0;
+}
+
+/* Focus indicators */
+:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* Interactive surface hover */
+.hover-surface:hover,
+.hover-surface:focus-visible {
+  background-color: var(--bg-surface-hover) !important;
+}

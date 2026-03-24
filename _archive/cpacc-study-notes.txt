@@ -1,0 +1,2498 @@
+CPACC Notes:
+-  It is currently estimated that over 16% of people have disabilities.
+
+MEDICAL MODEL
+	- The medical model considers disability as a health problem that affects individual people. It provides cure or management. It does not focus on society's responsibility for creating barriers.
+
+	- Medical treatment is vital for many people with disabilities, and can be lifesaving.
+
+	- The limitation of the medical module is that because it focuses on treating people, it does not address society's role in creating and eliminating barriers.
+
+	Examples: 
+	- A person whose lower let is amputated gets a prosthetic that allows them to walk and run.
+	- Someone with Type I diabetes uses an insulin pump to better regulate their blood sugar.
+
+SOCIAL MODEL
+	- The social model is concerned with equal access. It views society as responsible for creating disability since it creates barriers. And it is society's responsibility to remove those barriers.
+
+	- The social model emphasizes that people with disabilities have a right to participate in society.
+
+	- The model's focus on the disabling conditions in the environment and in society makes it clear that the barriers and challenges experienced by people with disabilities are not inevitable.
+
+	- Weakness: The social model of disability can downplay the biological and medical realities of disability.
+
+	Examples: 
+	- A person who uses a wheelchair is able to access all the floors of a building because it was designed to be accessible, with ramps outside and elevators inside.
+	- A student with dyslexia can use the audio version of a book instead of having to read it.
+	- A screen reader user can fully navigate a website because it was designed to meet the Web Content Accessibility Guidelines.
+
+BIOPHYSICAL MODEL
+	- The biopsychosocial model takes into account the physical, psychological, and social contexts in which people with disabilities live. It promotes an approach focused on the unique needs of the individual person, while also addressing systemic barriers and the interplay between a person's disability, their experience, and the environment.
+
+	STRENGTHS
+	- The biopsychosocial model promotes wellbeing across different systems and recognizes the importance of social and environmental factors.
+	- It promotes social support, which leads to better well-being for society overall.
+
+	WEAKNESS
+	- Because the model is more complex than the medical or social models, it can cause confusion about which aspects of someone's experience are due to which factors.
+
+	EXAMPLES
+	- An employee with ADHD has a low distraction environment and can relax and focus. This helps them to unleash their talents and be successful.
+	- In a Zoom session, the host provides directions about how people can participate, including the option of make themselves visible or not. This recognizes that people have legitimate reasons, including psychological, for participating as they prefer.
+	- A patient who was just diagnosed with a life-threatening disease has to find their way to an appointment in a different part of the hospital. They are under a great deal of stress. Because the hospital designed its wayfinding signs to be easily understood, the patient finds their way without having to concentrate too much on it.
+
+HUMAN RIGHTS MODEL
+	- The human rights model expands on the social model. It recognizes that people with disabilities have inherent, fundamental human rights that should be protected through legal and policy frameworks.
+
+	STRENGTHS
+	- The human rights model is grounded in international human rights law.
+	- It promotes the active participation of people with disabilities.
+
+	WEAKNESSES
+	- The human rights model does not provide direction on overcoming societal and environmental barriers.
+	- It overlooks the experience of disability.
+
+FUNCTIONAL SOLUTIONS MODEL
+	- The functional solutions model focuses on practical solutions for individual people. Its goal is to overcome functional limitations using assistive technology or adaptive strategies. It views disability as a practical problem to be solved.
+
+	Most accessibility professionals work within this model!!!
+
+	STRENGTHS
+	This module is focused on practical solutions for people with disabilities.
+
+	WEAKNESSES
+	Its focus on solutions for individual people limits its use for addressing larger systemic and social issues.
+
+	examples
+	A blind person uses a screen reader to access their computer.
+	A person with carpal tunnel syndrome uses a split keyboard to reduce pain.
+	A person with a spinal cord injury uses a wheelchair to move around.
+
+Social Identity / Cultural Affiliation Model
+	This model recognizes that disability may be fundamental to a person's identity.
+
+	Strengths
+	- Disability is accepted and can be a point of pride. It can be highly affirming for group members.
+	- Groups can also exert political power and act as change advocates.
+
+	Weaknesses
+	- People who don't fit the group's expectations can be alienated.
+	- Groups also alienate its members from society.
+
+	Example: 
+	- Members of the Deaf community consider themselves as part of a culture that includes its own language and customs. (An uppercase D in Deaf is used when referring to this community or its members.)
+
+Economic Model
+	- The economic model defines disability by a person’s ability or inability to work, and how much their impairment affects their productivity. It considers financial consequences for them, an employer, and the state. Consequences can include the person's loss of earnings, their costs for assistance, lower profits their employer, and state welfare payments.
+
+	Strengths
+	- The economic model recognizes that disability affects a person’s ability to work, and that they may need financial support and/or accommodations.
+
+	Weakness
+	- If a person doesn’t meet the legal threshold for disability, or if there is a dispute about their disability, they may not receive the support they need.
+
+	Example
+	- A person with a cognitive disability gets paid less than the standard minimum wage.
+	- A family qualifies for welfare payments since the parent stays home to take care of their disabled child.
+
+Charity Model
+	- The charity model regards people with disabilities as unfortunate and in need of help. It also views people who provide charity as benevolent contributors to a needy population.
+
+	STrengths
+	- The charity model can inspire people to contribute their time or resources to provide support to people with disabilities.
+	- It can sometimes be the only source of funding for certain needs, for example to study extremely rare diseases.
+
+	Weaknesses:
+	- People with disabilities can find this point of view offensive.
+	- Charity efforts tend to focus on short-term needs, neglecting more comprehensive and effective long-term solutions.
+
+Disabilities, Barriers, and Solutions
+	- Solutions
+		- Solutions are practical ways that anyone who is supportive of people with disabilities can ensure better accessibility. Whatever is being designed or offered should be done with consideration, to help people with disabilities access, use, and thrive with it.
+
+	- What are assistive technologies?
+		- Assistive technologies are products, devices, systems, or items used by people with disabilities to perform tasks which they could not do otherwise. When they are used with computers, assistive technologies are also called adaptive technologies or adaptive software. Some assistive technologies rely on the output of other “user agents” such as web browsers, text and voice browsers, multimedia players, and plug-ins.
+
+		- Not all assistive technologies are computer-based. For example, communication boards can be made of cardboard. White canes, to-do lists, labels, button hooks, and ear plugs are examples of low technology that are highly effective for various needs.
+
+	- Visual Disabilities
+		- Some vision loss.
+		- Loss of visual acuity.
+		- Increased or decreased sensitivity to specific or bright colors.
+		/ Complete or uncorrectable loss of vision in either or both eyes.
+
+
+		- At least 33 million people are blind, globally
+		- Leading cause of blindness is cataracts
+		- Second leading cause is Glaucoma
+		- Most people who are blind are over 50
+
+	- Color Vision Deficiency
+		- Red-green color vision defects in 8% of males and .5% of females
+		- blue yellow color vision defects in fewer than 1/10000 people
+
+	- Low Vision
+			- permanently reduced vision that cannot be corrected with glasses, lenses, medicine or surgery
+			- Usually needs magnifgication to read or distniguish details
+			- some ppl with low ision experience low contracts, so need high contrast text and graphics
+			- some also experience color vision deficiencies
+			- 246 million ppl globally, 3.5% of world's population
+			- about 90% of ppl with vision impairments live in low income settings
+
+		- Common barriers
+			- wayfinding that is visual only
+			- printed materials in print only
+			- sounds that mask informative sounds such as directional cues
+			- people who do not adequately describe navigation steps or visual information
+			pathways that include obstacles
+			- inadequate lighting
+			- text/images with low color contrast
+			- digital images that do not include meaningful alt text
+			- websites that do not work when using only a keyboard
+			- videos that do not prived text or audio alternatives, or an audio-description track
+
+	- Visual Disabilities Solutions
+		- Physical
+			- Raised tiles to indicate edges, pathways, stairs
+			- pathways free of obstacles
+			information in braile (most blind people do NOT know braile)
+			- tactile information
+			- large print
+			- high contrast colors
+			- do not rely on color alone to express meaning
+			- magnifiers
+
+		Digital
+			- provide contextually meaningful text alternatives for non-text info
+			- Make sure graphical design allows for magnificiation
+			- Use color combos with high contrast
+			- do not rely on color alone to convey meaning
+			- standard, consistent positioning and visual presentation of objects
+
+		Assistive Technologies
+			- screen readers, convert text and structural information to speech
+			- white canes, help people feel environment as they walk
+			- service animals, which help with navigation
+			- screen magnifiers
+			- refreshable braille displays
+			- speech input and voice output
+			- navigation apps with audio interface
+			- apps that can identify and describe objects and people
+			- apps that recognize and announce colors
+			- Virtual payment systems
+			- apps that read out the value of money
+			- alt text for images
+			- gesture input
+			- haptic feedback
+			- audio descriptions
+			- color and color contrast adjusting software
+			- screen filters
+
+		Screen reader
+			- typically include functions such as spelling, announcing which item on screen is being focused on, listing menus and headings
+			- most popular screen reader is JAWS, providing rich functionality
+			- other screen readers include NVDA (free), Apple VoiceOver, Microsoft Narrator, Andoid Talkback
+
+			Refreshable Braille Display 
+				- raises and lowers pins in braille cells
+				- tpically shows 80 characters from the screen at a time, changes as the person using it moves around screen
+				- price ranges from 3500 to 15000
+
+		Screen magnifier
+			- can be physical (attaching to monitor) or can be software
+
+
+AUditory Disabilities
+	- Deafness (total or near total loss of hearing)
+	- many, but not all, people who are deaf know sign language. For those born deaf, often sign language  is their native and most comfortable language. May feel less comfortable reading printed or digital text because it is a second language for them, and phonetic notation does not help comprehension. Those who lose hearing later in life may never learn sign language, and if they do learn it, they may not feel as comfortable speaking in sign and may prefer text.
+
+	Hard of hearing - most hoh people wear hearing aids. Hearing aid or FM system may help.
+
+	466 million people, or 6.1 percent of world population, are deaf or hard of hearing.
+
+	Common Barriers:
+		- people speaking quietly
+		- people speaking in large spaces without amplification
+		- lack of sign language interpretation
+		- environments that are loud or include competing sounds
+		- poor lighting, which prevents lip reading
+		- websites and other tech that require listening for understanding or speaking for interacting
+		- audio in videos and films presented without captions or transcripts
+		- media players that do not support captions, volume control, or ability to control size/colors of captions
+
+	 Auditory Disability Solutions:
+	 	Physical
+	 		- in a large space, use microphones
+	 		- provide sign language interpretation
+	 		- ensure space has good acoustics and lighting
+	 		- reduce ambient noise, for example, window glazing
+	 		- for doorbells, alarms, other alerts, provide visual alerts such as flashing lights
+
+	 	Digital
+	 		- captions/subtitles
+	 		- audio transcripts
+	 		- video conferencing supporting signing or CART
+	 		- haptic alerts/feedback
+	 		real time or live captioning (CART)
+
+	 Assisstive Technologies
+	 	- Hearing AIds
+	 	- Cochlear Implants
+	 	- Television Amplifiers
+	 	- Amplified Telephones
+	 	- Hearing aid compatible telephones
+	 	- TTY: Text Telephones
+	 	- Texting apps
+	 	- personal listening devices that connect to assisstive listening systems, such as Frequevcy Modulation (FM) and hearing loop systems
+	 	- Sound field systems, which make a speaker's voice clearer
+	 	- Noise cancelling headphones
+
+	 Captions/Transcripts/Audio Descriptions
+	 	Captions
+	 		- provide synchonized text description of audio. Generated automatically or entered manually.
+
+	 		Closed captions can be turned on/off
+
+	 		Open captions are burned into the video itself and cannot be removed or turned off
+
+	 		Goal of captions is to provide an experience equivatlent to listening to audio. Captions should include:
+	 			- all words spoken, even if offensive
+	 			- wordless vocalizations, like laughter, coughs, signs
+	 			- important sound effects or environmental sounds
+
+	 	Transcripts
+	 		- provide text record of audio, kept in a separate text file outside video player. Transcripts are suitable for recordings of people's speech
+
+	 	Audio Descriptions
+	 		- narrate a video recordings visual elements, like characters, costumes, actions, body language, setting, scene changes, and on-screen text. They supplement the regular audio track and are inserted into pauses in the dialogue
+
+	 		- Audio descriptions are especially helpful to people with visual disabilities or who are deaf-blind
+
+	 		- Creating audio descriptions requires special training to write and record a script that is then synchronized with video
+
+	 	- Closed captios usually do not include the audio description.
+
+	Deaf-blindness disability - includes both deafness and blindness - most deaf-blind people are neither completely deaf or completely blind, and retain some abilitiy to hear/see
+
+	Complexity of the lack of both senses - sensory inputs limited to touch, smell, taste. Touch is only method for complex communication. Deaf-blind person needs to learn braille to access text and tactile sign language (by feeling hands of other person signing) to access conversations. Incidence of deaf-blindness is low, .2% and 2% of world's population is deaf-blind.
+
+	Common barriers: 
+		- for printed materials, lack of braille
+		- for websites and other tech, lack of output to a braille keyboard
+		- lack of transcripts of video or audio materials made available in braille.
+		- lack of tactile sign language interpretation
+
+	Deaf Blindness solutions:
+		Physical
+		- tactile sign language
+		- tactile navigation aids
+		- printed materials converted to braille
+		- braille signage
+
+		Digital
+		- Information technology and content that meets accessibility standards
+		- Alternative Text
+		- Audio description
+		- Audio and Video transcripts
+
+		Assistive Technologies
+		- Deaf-blind communicator
+		- Environment detecting wearables
+		- White Cane
+		- Service animal
+
+Haptics
+	- haptics use vibrations or other tactile sensations to support communication between ppl and computers, other electronic devices, and their environment.
+	- Phone vibration
+	- especially helpful to ppl with hearing and visual disabilities
+
+Speech Disabilities
+	- range from mildly slurred speech to physical inability to speak. May be unrelated to their language capabilities, tehy may be able to read, write, and understand. Speech disorders can be caused by underlying disabilities. People may have
+		- inconsistent speech errors
+		- distorted sounds
+		- errors in tone, stress, or rhythm
+
+	Organic Speech Sound Disorders
+		- can be developmental or acquired. 
+			- Motor/Neurological
+				- Apraxia: occurs when brain has difficulty planning movements needed to speak.
+				- Dysarthria - occurs when person has difficulty controlling their speech muscles.
+
+			Structural
+				- Orofacial abnormalities, such as cleft palatte
+				- Strutural problems due to trauma or surgery
+
+			Sensory/perceptual
+				- Hearing Loss
+
+		Functional Speech Sound Disorders
+			- no known cause, include problems in:
+				- Articulation (errors producing clear & distinct sounds)
+				- Phonology (errors in correctly using sound patterns)
+
+		Aphasia
+			- language disorder resulting from neuroligac damage, including head trauma, brain tumor, infection, stroke, affects all use of language, not just speech, affects a person's abilitiy to produce or understand speech, including ability to read or write, may omit words, be unable to form sentences, or say what they mean. May also not recognize words or understand what is being said.
+
+		No speech
+			- mutism, can be caused by damage to brain and/or speech muscles, by emotional or physchological reasons, or combination of causes.
+
+			Neurogenic mutism is caused by brain injury, often the outcome of extreme forms of other organic speech or language disorders, including aphasia, apraxia, dysarthria.
+
+			Psychogenic mutism occurs when speech loss has psychological causes. Three types of psychogenic mutism:
+				- Elective mutism, person chooses not to speak.
+				- Selective mutism, person wants to but cannot speak due to anxiety
+				- Total mutism, person does not speak at all
+
+		Data highly varied, no statistics.
+
+		Common barriers for speech disabilities:
+			- Not enough time to communicate, access info, or respond
+			- Lack of alternatives for speech communication
+			- Other people not indicating that they need clarification of what a person has just said.
+
+
+	Speech Disability Solutions
+		Physical
+		- simple communication methods, including multiple options for communication
+		- increased understanding, patience, adaptations by persons when communicating
+		- Additional time to complete tasks
+		- Text based alternatives to speech to communicate
+		- Speech therapy
+
+	Digital
+		- Text to speech software
+		- Adequate time to complete tasks
+
+	Assistive technologies
+		- Augmentative and Alternative Communication (AAC) devices
+		- Spell check
+		- Communication board
+		- Word prediction software/features
+		- Text based alternatives to speech including writing & drawing
+
+	Augmentative and Alternative communication devices
+	- AAC, fall into following categories:
+		- single meaning pictures, simplest to use because they don't require literacy
+		- alphabet based systems (spelling and letter codes), require basic literacy
+		- semantic compaction (multi-meaning icons) - these systems involve short series (usually 1-2) symbols per word, training required
+
+	Mobility, Flexibility, Body Structure Disabilities
+		Mobility impairment includes:
+			- people with upper or lower limb loss or disability
+			- challenges with manual dexterity
+			- disability in co-ordination with different organs of the body
+			- broken skeletal structure
+
+			Physical and mobility impairments cause limitations in the independent, purposeful physical movement of a person's body or of one or more of their extremeties (may be temporary or permanent)
+
+			Disability in mobility can be congenital, acquired with age, or be the consequence of or caused by disease
+
+		Manual dexterity/fine motor control
+			- fine motor skills are intricate and detailed movements of the hand and wrist needed to manipulate, control and use objects, produce neat, legible handwriting, and dress independently. 
+
+			- fine motor skills involve the coordinated effors of brain and muscles, built on gross motor skills that allow us to make bigger movements. ppl with fine motor disabilities may have difficulty with:
+				- shoelaces, buttons or zippers
+				- writing and drawing
+				- using a keyboard
+				- picking up or manipulating small objects
+				- using both hands at the same time
+
+		Ambulation
+			- ability to walk
+			- perrson may be missing one or both limbs. Or they may have a permanently impaired or unsteady gait making it impossible or impractical to walk
+			- impairments may be caused by congenital conditions, disease, or injury, such as cerebral palsy, neuromuscular disorders, amputation, arthritis, and back injuries. People with abulation disabilities need to use an assistive device
+
+		Muscle fatigue
+			- non specific symptom characterized by progressive weakness and loss of muscle mass. Can include overwhelming sense of tiredness, lack of energy and feeling of exhaustion, soreness, and it relates to difficulty in performing voluntary tasks.
+
+			Muscle fatigue can occur in any part of the body. People may experience extreme tiredness or feelings of exhaustion, weakness, pain, twitching, trembling, a weak grip, or cramps.
+
+
+		Body Size/Shape
+			- Body size/shape disabilities caused by a variety of disorders that affect a person's stature, proportions, or shape. Examples include acromegaly, dwarfism, rheumatoid arthritis, and obesity.
+			- Orthopedit conditions, such as arthritis and joint mobility, can be the underlying cause. Other causes or co-occuring conditions include muscle weakness and fatigue, hearing loss, vision loss, cardiopulmonary disorders, and diabetes.
+
+		Demographics
+			- 11% of adults in US have mobility disabilities. Similar figures reported in Europe and Canada.
+
+		Common Barriers
+			- seating that is too small or wrong height
+			- high shelves and counters
+			- tables without knee or toe clearance
+			- products & environments that require standing
+			- appliances & controls out of reach or requiring touch instead of voice commands
+			- steps, threshholds, and other obstacles to gaining entry to a space
+			- tasks requiring fine motor skills, such as round doorknobs or small handles
+			- tasks requiring strength, like opening heavy doors
+			- body shaming/social discrimination
+
+		Mobility/flexibility/body structure solutions
+			- Physical:
+				- Universally designed entrances to buildings (level access, wide entrances)
+				- Ergonomic design and engineering of workstations
+				- Clearly defined, wide and unobstructed paths of travel, including turning
+				- Ensuring that objects in the physical environment provide enough space and size for reach and use regardless of user's body size, posture, or mobility.
+
+			- Digital:
+				- ensuring that clickable areas on a website or app are big enough to hit and not too close to each other
+				- ensure websites and apps meet the WCAG (web content accessibility guidelines) standard, so they work properly with assistive technologies
+
+			- Assistive technologies
+			 	- Physical
+			 		- walkers, canes, crutches
+			 		- wheelchairs, motorized scooters
+			 		- stair lifts
+			 		- elevators
+			 		- step ladders
+			 		- grab bars, railings, handle  bars
+			 		- prosthetics
+			 		- exoskeletons
+			 		- taller, shorter, wider chairs
+			 		- adaptive clothing
+			 		- large buttons, button hooks, and velcro closures
+			 		- reach extenders/grabbers
+
+			 	Digital
+			 		- switch devices that replace keyboards or mice (such as buttons and sip and puff devices)
+			 		- adaptive or customizable keyboards
+			 		- oversized mice or trackballs
+			 		- adjustable displays
+			 		- speech inputs
+			 		- eyetracking control
+			 		- bubble cursors
+			 		- mouth sticks
+			 		- head wands
+
+	Ergonomic design
+		- The design of products, systems, and environments so they fit people. When ergonomics include the needs of people with physical limitations in their design, it allows such people greater access and use. Examples include:
+			- bathtub with door allowing the user to step inside without having to step over the side
+			- computer mouse designed vertically rather than horizontally
+			- tabs on buttons and bottle cap to make them easier to open.
+
+			- non contact elecronic control would be an exmple of ergonomic design.
+			- lots of environmental fixes like handrails, etc. are ergonomic design
+
+	Cognitive disabilities
+		- Disabilities that affect a person's cognitive processes are common and frequently hidden from view. Vary from mild to so profound that the affected person needs a great degree of help with daily living. Can be genetic and occur on their own. Can result from a variety of conditions or injuries such as traumatic brain injury.
+
+		- cognitive processes are affected by both internal and external factors. Person's ability to take in and understand information in a certain situation depends on person's capacity as well as context.
+
+		Internal factors include impairments in one or more mental functions.
+
+		External factors include issues such as information overload, stress, sleep deprivation. Studies show stress has a highly disruptive impact on working memory for people with and without cognitive disabilites.
+
+		Intellectual Disability
+		- includes significant limitations in intellectual functioning (reasoning, learning, problem-solving) and adaptive behavior, covering a range of social and practical skills.
+		Intellectual disability criteria:
+			- IQ below 70-75
+			- Impairments in adaptive behavior, including skills needed to independtly manage daily tasks, social skills, communication skills, and skills needed to manage school or work.
+			- Condition manifests itself in childhood.
+
+			- estimated that 1-3% of global population, or about 200 million people, have intellectual disability.
+
+		Reading & Dyslexia
+			- Reading disabilities can include inability to perceive text or process meaning of words, phrases, and ideas. This disability may be the result of congenital difference, injury, delayed development, neurological or physical disability. Some specific reading disabilities have been identified and are regcognized by professionals by diagnosis, such as dyslexia. Often the diagnosis of a learning disability will include components of a reading impairment.
+
+			People who have dyslexia typically read at levels significantly lower than expected. Although the disorder varies from person to person, common characteristics include difficulty reading, phonological processing (the manipulation of sounds), spelling, and / or rapid visual-verbal responding. Recent studies have identified genes that may predispose someone to develop dyslexia.
+
+			Dyslexia is considered one of the most common language-based learning disabilities. It is the most common cause of reading, writing, and spelling difficulties. Of people with reading difficulties, 70-80% are likely to have some form of dyslexia. It is estimated that between 5-10% of the population has dyslexia, but this number can also be as high as 17%.
+
+		Dysgraphia
+
+			Dysgraphia is difficulty with handwriting and other fine motor skills, and can include difficulty expressing oneself in written language or in drawing.
+
+			Its prevalence is unknown.
+
+		Dyscalculia
+			Math and computational disability is known as dyscalculia. It impairs a person’s ability to understand communicate mathematics. Dyscalculia may be congenital or result from an injury, disease, or aging.
+
+			Common signs of dyscalculia include:
+				- Trouble grasping the meaning of quantities or concepts such as biggest vs smallest.
+				- Understanding that the number 5 is the same as the word five, and that these both mean five items.
+				- Remembering math facts, such as times tables.
+				- Counting money or making change.
+				- Estimating time.
+				- Judging speed or distance.
+				- Understanding the logic behind math.
+				- Difficulty remembering numbers while solving problems.
+
+				Demographics
+				- An estimated 3–6% of people have dyscalculia.
+
+		Attention Deficit Hyperactivity Disorder
+			ADHD is a developmental problem characterized by inattention, hyperactivity, and impulsivity. Children with ADHD are easily distracted by sights and sounds in their environment. Symptoms usually appear by age 7. While people do not outgrow this condition, they can learn to adapt.
+
+			The main symptoms of ADHD are:
+
+			- Inattention
+			- Distractibility
+			- Difficulty starting, organizing and finishing tasks
+			- Being forgetful
+			- Feeling restless and having difficulty controlling the feeling
+			- Difficulty staying seated
+			- Fidgeting
+			- Difficulty waiting for one's turn
+			- Talking too much
+			- Interrupting
+			- Demographics
+			Prevalence among children is estimated between 2 and 7%, and in adults around 4%.
+
+	Autism 
+		According to the World Health Organization, Autism spectrum disorder (ASD) refers to a range of complex brain developmental conditions. Common characteristics include impaired social behavior, communication, and language, a narrow range of interests, and repetitive behaviors.
+
+		ASD begins in childhood and tend to persist into adolescence and adulthood. In most cases, the conditions are apparent during the first 5 years of life. Individuals with ASD often present other co-occurring conditions, including epilepsy, depression, anxiety, and attention deficit hyperactivity disorder (ADHD). The level of intellectual functioning in individuals with ASD is extremely variable.
+
+		People with ASD may have:
+
+		- Sensory issues such as sensitivity to sound, smell, and light.
+		- Difficulty with verbal and non-verbal communication, such as in facial expressions, gestures and language, and understanding non-literal expressions.
+		- Challenges in social interactions, such as recognizing and expressing emotions. People with ASD may feel overwhelmed in social situations.
+		Demographics
+		- Approximately one in 100 people have ASD, and its prevalence is increasing.
+
+	Cognitive Disabilites Solutions
+		In General:
+		- Allow adequate time to prepare for tasks and take in new information
+		- In communications: check for understanding and give feedback
+		- Minimize background noises to support concentration e.g. while completing a task or communicating
+		- Provide structure and clear instructions in education and work environments
+		- Use plain language
+
+		Environmental improvements
+			Physical
+				-Provide dimmable lighting
+				- Reduce ambient noise
+				- Make it easy to find key rooms or spaces
+				- Design routes that are simple and intuitive
+				- Provide signs that are large, easy to understand, and in plain language
+				- Wayfinding should be simple with tactile, graphic, audible or architectural cues that are easy to follow
+			
+			Digital
+				- Simplify the content
+				- Simplify and carefully organize the interface
+				- Provide information through various means – text, audio, images
+				- Allow adequate time to complete tasks
+				- Highlight information that is most important for the user
+				- Enable personalized settings (e.g. for layout, time management, content)
+
+		Assistive Technologies
+			Physical Environment
+				- Organizers
+				- To do lists
+				- Reminders
+				- Highlighters
+				- Ear plugs
+				- Sunglasses
+				- Soft clothing and comfortable shoes
+				- Stim toys
+				- Photos and pictorial representations
+			Digital
+				- Smartpens
+				- Screen readers
+				- Text-to-speech software
+				- Software for highlighting text
+				- Bookmarking software
+				- Spelling and grammar checkers
+				- Productivity and time management apps
+
+	Voice Recognition Systems:
+		What are voice recognition systems?
+			Voice recognition systems allow people to use their voices to interact with and enter data on a computer or other device. For example:
+
+			- Apple Siri
+			- Dragon Naturally Speaking
+			- Windows Speech Recognition
+			- Google Assistant
+			- Amazon Alexa
+
+	Neurological Disabilities
+		- Neurological disabilities are impairments of the brain, spine, and the nerves that connect them. Several common ones are presented here.
+
+		Migraine
+			- Migraine disease is the world's second most common disability (after back pain). It was previously believed that migraine was caused by blood vessel dilation. The most current understanding is that a primary neuronal dysfunction causes changes both within and outside the brain. Recent research has shown that calcitonin-gene-related-peptides (CGRPs) play an important role in migraine, and several CGRP drugs have been developed to prevent and treat migraine. The disease is complex and not fully understood, and research is ongoing. 
+
+			- A number of factors can trigger migraine attacks, such as hormonal changes, alcohol, bright or flashing light, sleep changes, physical exertion, weather changes, certain medicines and foods, and others.
+
+			Migraine attacks include four phases:
+
+			- Prodrome: Signs that a migraine is going to occur, such as excessive yawning, mood changes, and food cravings
+			- Aura: Occurs for some people. Can include visual disturbance or vision loss, difficulty speaking, weakness or numbness 
+			- Attack: Pain usually on one side of the head, sensory sensitivities, nauseau or vomiting. Can last for hours or days, especially if untreated
+			- Postdrome: Usually lasts a day, and can include fatigue, confusion, and for people, elation
+			Demographics
+			- It is estimated that 14 - 15% of people globally have migraine disease.
+
+		Stroke
+			- A stroke occurs when there is an injury to the brain from a blood vessel that is blocked or has burst. When a person survives a stroke, they can recover completely or can experience lasting brain damage and disability. A stroke requires emergency care, where the goal of treatment is to avoid another stroke.
+
+			Common symptoms include:
+
+			- Aphasia (inability to understand or produce speech)
+			- Sudden confusion
+			- Sudden severe headache
+			- Difficulty seeing, in one or both eyes
+			- Sudden numbness or weakness in the face, arm, or leg
+			- Loss of coordination
+			Demographics
+			- Annually, about 15 million people globally experience a stroke.
+
+		Vestibular Disorders
+
+			- Vestibular disorders are problems with the vestibular structures within a person's inner ear or with their central nervous system. Typical symptoms are dizziness and vertigo. Some common causes include aging, injury, inflammation, and other neurological conditions. The odds of vestibular dysfunction increase with age.
+
+			Demographics
+			- Annually, between 15% - 20% of adults are affected by dizziness or vertigo.
+
+		Cerebral Palsy
+			Cerebral palsy (CP) is a group of disorders that affect nervous system functions such as movement, learning, hearing, seeing, and thinking. It is caused by injury to the developing brain.
+
+			Demographics
+			- Globally, about 17 million people have some form of cerebral palsy.
+
+		Multiple Sclerosis
+			- MS is a central nervous system disease, in which a person's immune system attacks the coating of their nerves. The breakdown causes communication problems between their brain and their body. The nerve coating damage can be permanent.
+
+			Common symptoms include:
+
+			- blurry vision
+			- cognitive problems
+			- limb weakness, tingling, or numbness
+			- unsteady gait
+			- trouble speaking
+
+			Demographics
+			- Globally, approximately 2.8 million people are estimated to live with MS.
+
+		Seizure
+			Seizure
+			- A seizure is a sudden, uncontrolled electrical disturbance in the brain. It can cause changes in behavior, movements, feelings, and consciousness. - If a person has two or more seizures or a tendency to have recurrent seizures, they have epilepsy.
+
+			- Seizures can range from mild to severe, including loss of consciousness. They usually begin in early childhood or late adulthood.
+
+			Depending on the type, symptoms during a seizure can include:
+
+			- Visual hallucinations
+			- An inability to speak
+			- Convulsions
+			- Falling down
+			- Biting the tongue
+			- Loss of control of the bladder or bowels
+
+			Demographics
+			Worldwide, about 65 million people (or 1 in 26) have seizure disorders.
+
+		Photosensitive Epilepsy
+			- Photosensitive epilepsy is a condition in which flashing or flickering lights or patterns cause seizures.
+
+			- Different people will be affected by lights at different flash or flicker rates. Lights that flash or flicker between 16 and 25 times a second are the most likely to trigger seizures. But some people are sensitive to rates as low as 3 or as high as 60 a second.
+
+			- Different people may be affected by different types of patterns. Patterns with a high contrast or that appear to move are more likely to trigger seizures. Video games, immersive amusement rides, and virtual reality applications are problematic.
+
+			Demographics
+			- About 5% of people with epilepsy have photosensitive epilepsy.
+
+			Please Note!
+			- People with other conditions, such as migraine and vestibular disorders, can also be triggered by flash, flicker, and patterns. It is best to simply avoid using such content.
+
+		Common Barriers for Neurological Disabilities:
+			- Technologies and spaces that present flashing, flicker, or patterns.
+			- Lack of a space to have or recover from a migraine or seizure.
+			- Overly bright lights, that frequently characterize public spaces.
+			- Lack of availability of emergency care for strokes.
+			- Under- and misdiagnosis of migraine.
+			- Inaccessible environments for people who use mobility devices.
+
+		Neurological Disability Solutions
+			Environmental Improvements
+				Physical
+					- In spaces that are over lit, lower the lighting to a comfortable level.
+					- Avoid flashing or flickering lights.
+					- Avoid patterns that give the illusion of movement.
+					- Avoid loud sounds.
+					- Provide quiet, private space for seizures or migraines.
+				Digital
+					- Do not require computer games or VR for participation.
+					- Avoid flashing or flickering lights.
+					- Avoid patterns that give the illusion of movement.
+					- Avoid loud sounds.
+
+			Assistive Technologies
+				- Anti-glare glasses
+				- Ear plugs
+				- Supportive gear and protective wear in case of falls
+				- Flicker-free monitors
+				- E ink monitors
+				- Green lights
+				- Seizure detection devices
+				- Service animals
+
+
+
+Psychological Disorders
+	- Psychological disabilities include impairments in a person’s perceptions, thoughts, feelings, mood, and behavior. These conditions can be occasional or long-lasting.
+
+	Psychological disabilities include:
+
+	- Anxiety disorders, including panic disorders, phobias
+	Mood disorders, including depression and bipolar disorder
+	- Psychotic disorders, including schizophrenia
+	- Anxiety Disorders
+	- According to the US National Institute of Mental Health, occasional anxiety is a normal part of life. Many people worry about things such as health, money, or family problems.
+
+	- Anxiety disorders involve more than temporary worry or fear. For people with an anxiety disorder, the anxiety does not go away and can get worse over time. The symptoms can interfere with daily activities such as job performance, schoolwork, and relationships.
+
+	Generalized Anxiety Disorder
+		- Generalized anxiety disorder (GAD) usually involves a persistent feeling of anxiety or dread that can interfere with daily life. It is not the same as occasionally worrying about things or experiencing anxiety due to stressful life events. People living with GAD experience frequent anxiety for months, if not years.
+
+		According to the US National Institute of Mental Health, symptoms include:
+
+		- Feeling restless, wound-up or on-edge
+		- Difficulty concentrating
+		- Being easily fatigued
+		- Having sleep problems
+		- Having headaches, muscle aches, stomachaches, or unexplained pains
+
+	Panic Disorder
+		- People with panic disorder have frequent and unexpected panic attacks.
+
+		- Panic attacks are sudden periods of intense fear, discomfort, or sense of losing control even when there is no clear danger or trigger. Not everyone who experiences a panic attack will develop panic disorder.
+		
+		 During a panic attack, a person may experience:
+		 
+			- Pounding or racing heart
+			- Sweating
+			- Trembling or tingling
+			- Chest pain
+			- Feelings of impending doom
+			- Feelings of being out of control
+	
+	Social Anxiety Disorder
+		- Social anxiety disorder is an intense, persistent fear of being watched and judged by others. For people with social anxiety disorder, the fear of social situations may feel so intense that it seems beyond their control. For some people, this fear may get in the way of going to work, attending school, or doing everyday things.
+
+		Symptoms of social anxiety include:
+
+		- Feeling very self-conscious, embarrassed, and awkward infront of others	
+		- Blushing, sweat	ing, trembling, rapid heart rate, or feeling like their mind is blank	
+		- Nausea
+		- Rigid posture, little eye contact, or speaking with an overly soft voice
+
+		Demographics
+		- The prevalence of anxiety disorders across the world varies from 2.5-7% by country. Anxiety is the most prevalent type of psychological disability.
+
+	Mood Disorders
+		- Mood disorders affect a person’s emotional state. Emotions may fluctuate between extreme sadness and extreme happiness or there may be prolonged periods of sadness and loss of interest in activities that were previously enjoyable.
+		- The most common mood disorders are depression, bipolar disorder, seasonal affective disorder, and self-harm.
+
+		Depression
+			- Depression includes symptoms of lowered mood or a loss of interest for at least 2 weeks, that affects daily activities. Depression is common and can affect anyone. Some common symptoms include:
+
+				- Feeling sad, worthless, or empty
+				- A loss of interest or pleasure in activities
+				- A change in eating habits, or sudden weight changes
+				- Isolating from friends and family
+				- Self-harm
+				- Thoughts of suicide
+
+		Bipolar Disorder
+
+			According to the UK National Health Service, bipolar disorder is a mental health condition characterized by extreme mood swings.
+
+			A person may experience episodes of depression and low energy and episodes of mania where they feel high and overactive. In contrast to ordinary mood swings, each episode of extreme mood may last for weeks. Both types of episodes may involve delusions, hallucinations and disturbed or illogical thinking.
+
+			Symptoms of depression include:
+
+			- Lack of energy
+			- Feeling sad, hopeless, or irritable
+			- Difficulty concentrating and remembering
+			- Difficulty sleeping
+
+			Symptoms of mania may include:
+
+			- Feeling full of energy, with great new ideas and important plans
+			- Feeling very happy or overjoyed
+			- Being easily distracted or agitated
+			- Making decisions or saying things that are out of character and that others see as being risky or harmful
+
+	Seasonal Affective Disorder
+		Seasonal affective disorder (SAD) occurs when a person feels depressed according to the season. It generally follows either a fall-winter or spring-summer pattern. In addition to those for depression, symptoms can include:
+
+		Winter-pattern:
+
+		- Oversleeping
+		- Overeating, especially carbohydrates
+		- Social withdrawal
+
+		Summer-pattern:
+
+		- Trouble sleeping
+		- Poor appetite
+		- Restlessness
+		- Agitation
+		- Anxiety
+		- Violence or aggressiveness
+
+	Self Harm
+		- Self-harm occurs when a person deliberately hurts themself. Most people who self harm use it as a coping mechanism.
+
+		Types of self harm can include:
+
+		- Cutting or puncturing one's skin
+		- Hitting or punching oneself
+		- Burning one's skin
+		- Breaking one's bones
+
+	Globally, about 1 in 8 people, or 970 million people, have a mood disorder.
+
+	Common Barriers for Mood Disorders:
+		- Limited availability and affordability of mental healthcare services
+		- Lack of knowledge among healthcare providers for accurate diagnoses and treatment
+		- Social stigma
+		- Lack of support for cognitive challenges
+		- Lack of support for emotional, behavioral or cognitive challenges at school
+
+	Psychological Disabilities Solutions
+		Environmental Improvements
+			Physical
+			- Allow extra time
+			- Provide quiet and calm
+			- Reduce distractions
+			- Simplify
+			- Use plain language
+			- Avoid overly bright light
+
+			Digital
+				- Simplify the content
+				- Simplify and carefully organize the interface
+				- Provide information through various means – text, audio, images
+				- Allow adequate time to complete tasks
+				- Highlight information that is most important for the user
+
+		Assistive Technologies
+			- Meditation
+			- Memory aids
+			- Apps to manage anxiety and mood
+			- Goal tracking apps
+			- Reminder apps
+			- White noise devices or apps
+			- Noise monitoring apps
+
+	Multiple or Complex Disabilities:
+		- People with complex disabilities have simultaneous disabilities that are severe enough that they cannot be accommodated in an educational program that is just for one disability.
+
+		Common characteristics:
+			- Impaired speech and communication skills
+			- Impaired mobility
+			- Needing help with everyday activities
+
+		Common Barriers:
+			- Education
+			- a lack of understanding of the complexity of a person's needs
+			- social isolation and discrimination
+
+		Multiple or Complex Disabilities Solutions:
+			Environmental Improvements
+				Physical:
+					- Extra Time
+					- Simplified Language
+					- Plain Language
+					- Reduced distractions
+					- Picture dictionaries
+					- Manipulatives
+					- Physical therapy
+					- Occupational therapy
+					- Speech therapy
+					- Assigned aids to assist with functioning
+
+				Digital
+					- Simplified interface and content
+					- Provide information through various means – text, audio, images
+					- Allow adequate time to complete tasks
+					- Highlight most important information
+
+			Assistive Technologies
+				- Augmentative and Alternative Communication (AAC) devices
+				- Hearing aids
+				- Sign language
+				- Memory aids
+				- Teacher's or personal assistant
+
+	What are Accomodations???
+		Accommodations are modifications to goods, services, or environments so that a person with a disability has equal access and can perform the same tasks as a person without a disability. They are individualized to the person and the situation.
+
+		Accommodations are protected by legislation, which varies by country. Formal accommodations require documentation from a licensed professional trained to diagnose a person's disability.
+
+		In general, an accommodation is not required if it places an undue burden or hardship on the organization being asked to provide it. If an accommodation poses significant difficulty or expense, or if it requires a fundamental alteration to the essential nature of the goods, service, or environment, then the organization does not need to provide an accommodation.
+
+
+
+		Examples in Education
+			Supports or services that help a student access the curriculum and demonstrate their learning:
+			- Extended time
+			- Being seated near the teacher
+			- Captioning or ASL interpretation
+			- A reader, scribe, or word processor for exams
+			- Materials in digital format, large print, or braille
+			- Calculators
+			- Assistive technologies
+
+		Examples in Workforce:
+			Supports or services that allow someone to apply for and perform a job or enjoy equal access to its benefits: 
+			- A ramp or elevator
+			- Lowering or raising a desk
+			- Materials in digital format, large print, or braille
+			- Assistive technologies
+			- Captions or sign language interpreters
+			- Service animals
+			- Adjusted schedule
+			- Working from home
+
+		Undue burden/hardship
+			- Significant diffulty or expense for organization being asked to provide accomodation
+
+		Fundamental Alteration
+			- accomodation so significant that it alters the essential nature of the goods, services, or environment
+
+		More than half of accomodations for disability cost nothing, and a typical one-time expenditure may equal $500
+
+		Service Animals
+			- Service animals are trained to support or perform tasks for people with sensory disabilities, a variety of diseases, and psychological disabilities.
+
+			- The most well-known service animals are seeing-eye dogs, which guide people who are blind through everyday obstacles, giving them more freedom. A couple other examples are dogs that are able to detect seizures or drops in blood sugar levels.
+
+
+	Demographics
+		People with disabilities are the world's largest minority group. According to the World Health Organization:
+
+		- An estimated 1.3 billion people experience significant disability. This represents 16% of the world’s population, or 1 in 6 of us.
+		- Persons with disabilities have twice the risk of developing conditions such as depression, asthma, diabetes, stroke, obesity or poor oral health.
+		- Persons with disabilities face many health inequities.
+		- Persons with disabilities find inaccessible and unaffordable transportation 15 times more difficult than for those without disabilities.
+		- Across the world, people with disabilities have poorer health outcomes, lower education achievement, less economic participation and higher rates of poverty than people without disabilities. This is partly because people with disabilities experience barriers in accessing services, including:
+
+			- healthcare
+			- education
+			- employment
+			- transportation
+			- information
+
+		These difficulties are exacerbated in disadvantaged communities and those that are in conflict zones or are otherwise unsafe.
+
+		According to the United Nations Fact Sheet on Persons with Disabilities:
+
+		- 80% of people with disabilities live in developing countries.
+		- In most OECD (Organisation for Econonomic Co-Operation and Development) countries, the incidence of disability is greater for women than for men.
+		- 90% of children with disabilities in developing countries do not attend school.
+		- The global literacy rate for adults with disabilities is as low as 3% and 1% for women with disabilities.
+		- Students with disabilities in higher education remain under-represented, although their numbers are rising.
+		- Unemployment among persons with disabilities is as high as 80% in some countries.
+
+		- Statistical data on disability is collected and categorized in different ways, so it is important to understand each study within its context.
+
+		There are also general limitations in the collection of statistical data on disabilities:
+
+		- Details about different disabilities are usually not included in census surveys.
+		- Disability terminology varies between countries, which makes it difficult to compare as conditions may be defined differently.
+		- Many people with disabilities have more than one disability and end up between defined groups.
+
+		Keep these factors in mind when analyzing and communicating statistics on disability. Despite these limitations, disability statistics can be useful as background information for interventions or for giving a sense of the scale of a specific issue.
+
+		Example Studies
+			- Data regarding functional status of ppl needs should be taken as a key input for public policy areas such as:
+				- health
+				- social protection
+				- housing
+				- transportation
+				- culture
+				- education
+				- employment
+
+			Disability statistics can highlight country and trend data in an attempt to answer questions like:
+				- how many ppl with disabilities live in each country, region or in the world?
+				- What are the percentages of people with different types of disabilities in different age groups?
+				- How many people with disabilities are employed?
+				- How much disposable income do people with disabilities have?
+				- How many people with disabilities are living in poverty?
+
+		Connection between poverty and disability
+			The first two goals of the United Nation's 2030 Agenda for Sustainable Development aim to end poverty and hunger for all persons with disabilities. Available data show that:
+
+			- The percentage of persons with disabilities living under the national or international poverty line is higher, and in some countries double, than that of persons without disabilities.
+			- In developed countries, the average percentage of persons with disabilities who are unable to afford a meal with protein every second day is almost double that of persons without disabilities.
+			- More women with disabilities than men with disabilities are in such a situation.
+			- Persons with disabilities and their households are more likely to not always have food to eat.
+			- Access to financial services such as banks is restricted by their lack of accessibility
+			- The World Bank estimates that 20% of the world's poorest people have some kind of disability.
+
+			Disability accentuates poverty because the systemic institutional, environmental, and attitudinal barriers that people with disabilities encounter in their daily lives result in entrenched social exclusion and lack of participation in society. This leads to:
+
+			- Discrimination, social marginalization, and isolation
+			- Insufficient access to:
+				- Education
+				- Adequate housing
+				- Nutritious food
+				- Clean water
+				- Basic sanitation
+				- Healthcare
+				- Credit
+				- Full participation in legal and political processes
+				- Preparation for meaningful inclusion in the workforce
+
+
+	Glasses are a boon to income
+		- article, drastic increase in earnings with new pair of reading glasses. 
+
+
+	Aging and Disability:
+		- people are more likely to acquire disability as they age.
+		- Age-related changes affect vision, hearing, muscular strength, bone strength, immunity, and nerve function.
+		- In countries with life expectancies over 70 years of age, people spend an average of 8 years living with disabilities.
+		- The longer a person lives with disabilities, the higher the cost of their healthcare.
+
+
+		Disability Etiquette
+			- set of guidelines on how to respectfully interact with and communicate about people with disabilities, treat them with respect, and refer to them
+			- Put people first
+			- Focus on whole person, not attributes of their body
+			- Ask ppl what their needs and preferences are
+
+		Inclusive Language
+			- Understanding other people's perspectives and being sensitive to language around disability demonstrates respect for people's dignity. As awareness and inclusion improve, terminology evolves. It is important to avoid terms which are offensive and outdated, and to know whether someone with a disability prefers person-first or disability-first language
+
+			The more common recommendation is to use people-first language. Doing so emphasizes the person, not the disability. For example, using the phrase “a person with a disability”, instead of “a disabled person," is considered respectful.
+
+			People-first language is the form used in the UN Convention on the Rights of Persons with Disabilities. It is also used in communications by G3ICT/IAAP in line with the UNCRPD.
+
+			Examples: 
+			- A person with / has a disability
+			- Someone who uses a wheelchair
+
+		Identity-First Language
+			- Some people with disabilities prefer to use identity-first, in this case their disability, language to refer to themselves. By placing their disability first, a person is indicating that it is a key part of their identity. Identity-first language is often used by self-advocates within disability communities.
+
+			Example Identity-First Terms:
+			- A disabled person
+			- A Deaf person (Deaf with a capital D indicates that a person identifies themself as part of the Deaf culture)
+
+			PLEASE ASK:
+			When talking to or about a person with a disability, ask them which they prefer.
+
+			ouTDATED AND OFFENSIVE TERMS:
+			Bias still exists, in attitudes and expressed in language.
+
+			AVOID:
+				- Handicapped
+				- Suffers from
+				- Invalid
+				- Crippled
+				- Deformed
+				- Brave
+				- Afflicted
+				- Inspiring
+
+			gENERAL gUIDELINES
+			- DO:
+				- Speak directly to the person.
+				- Offer assistance only if you have asked permission and it is accepted, and provide the help in the way the person asks you to — and don't be offended by a refusal.
+				- Treat people as individuals and treat adults as adults.
+				- Acknowledge someone's ability to make judgments and decisions on their own behalf.
+				- Follow a disabled person’s lead about discussing their disability; if they offer a detail, you can inquire.
+				- Do your best to interact with the person, not their disability.
+
+			- DON'T:
+				- Don’t speak to someone's assistant or service animal.
+				- Don’t make assumptions that someone wants your help, or take action without their request or acceptance.
+				- Treat people as individuals and treat adults as adults.	
+				- Don’t make assumptions about what someone can or cannot do.
+				- Don't assume someone isn't capable.
+				- Don't ask personal or medical questions, such as if they were born with a disability or any other personal details, unless they bring it up first.
+				- Don't worry about making mistakes — just ask.
+
+		Interacting with People with Mobility Disabilities:
+			Do:
+			 - ask someone if they prefer that you sit or stand
+			 - Keep paths free of barriers
+
+			Don't:
+				- never touch or move someone's wheelchair or assistive device without permission. Such devices are considered extensions of a person's body
+				- Don't speak to someone's assistant instead of directly to them.
+
+		Interacting with people with visual disabilities:
+		DO:
+		- tell them who you are, introduce other people who are there, and say where they are
+		- ask them if they wish to be warned about steps, doors, other obstacles
+		- Say clearly where their seat is
+		- Feel free to use common sayings such as 'see you tomorrow'
+
+		Don't:
+		- don't grab a person to guid them - let them take your arm
+		- Don't touch service animal without permission
+		- don't rely on facial expressions or gestures as a major part of your interaction
+		- don't speak to someone's assistant instead of them
+
+		Interacting w/People with Hearing or Speech Disabilities
+		Do:
+		 - Position yourself in their vision and attract their attention with light touch or wave if needed
+		 - ask person how they want to communicate, they may wish to lip-read, for example
+		 - Speak at normal pace and face the light
+		 - Be patient with people with speech impairments
+		 - Ask them to repeat if necessary, and tell them what you have understood so far
+
+		 Don't:
+		 - Don't shout at people who are d/Deaf or have a hearing impairment
+		 - Don't assume they cannot interact with you
+		 - Don't cover your mouth or turn away while speaking
+		 - Don't correct them or finish their sentences
+		 - If you don't understand, don't pretend you do
+
+		 Interacting with People with cognitive and neurological disabilities.
+		 Do:
+		 	- for cognitive, use language that is clear and concrete, give them time to respond
+		 	- if a person has a seizure lasting more than 5 minutes, call ambulance
+		 	- If someone just had a seizure, give them time alone afterward, as they may be disoriented or embarrassed
+
+		 Don't:
+		 	- don't be impatient. Repeat, speak more slowly, clarify as needed
+		 	- don't restrain their movements, and don't move the person
+		 	- Don't give anything to eat or drink until the person is recovered
+
+		 Interacting with people with Psychological Disabilities
+		 	- Speak calmly, offer to repeat info if person is upset
+		 	- Acknowledge the person's feelings and express care and concern
+
+		 	Don't:
+		 		- assume person cannot handle stress
+		 		- don't blame someone for their feelings
+
+User Centered Design		 	
+	User-centered design is an iterative process that puts people at the center of the design of products, services, and environments. (For convenience, we'll shorten the terms to "products.") The key goal of user-centered design is to understand users and the context in which they will use the product (such as in low light or sitting down), in order to create products that are highly usable and accessible.
+
+	Designers first research potential users of the product and any requirements, then design and test solutions. Test feedback becomes another type of research, as results are incorporated into the next design. The process continues until the product design is complete.
+
+	The four phases of user-centered design include:
+
+	- Understand the users and their context.
+	- Identify user and business requirements.
+	- Design a solution.
+	- Evaluate the solution against the context and requirements.
+
+	Products should be usable by everyone
+		Every product, service, or environment should be usable by people with disabilities. The most effective ways to create accessible products are to:
+
+		Include people with disabilities in every phase of requirements gathering, design, development, and testing.
+
+		Follow standards:
+		- Websites and other information communication technology should meet the Web Content Accessibility Guidelines, and the built environment should meet ISO 21542.
+
+	How to integrate accessibility into design
+		- Incorporate real (not theoretical) people in the design.
+		- Ensure everyone on a project understand the needs of people with disabilities.
+		- Include users with disabilities throughout the design process.
+		- Have users with disabilities evaluate accessibility.
+
+
+	Usability
+		Usability focuses on ease of use. Designers focus on three aspects:
+
+		- An interface should be easy to use.
+		- The design should make it easy for people to achieve their goal.
+		- An interface should be easy to learn so using it again is even easier.
+		- A highly usable product reduces cognitive load, which is the effort needed to think. Users should be able to achieve their goals quickly and without frustration or error.
+
+		Some ways of reducing cognitive load include:
+
+		- Using clear language.
+		- Providing only as much information as needed.
+		- Eliminating distractions.
+		- Simplifying the environment or user interface.
+		- Conducting user research to understand the target audience.
+		- Following accessibility and universal design standards.
+		- Accessibility is central to usability, since products should be designed to be as easy as possible for ALL the people who want to use them.
+
+	User Experience
+		User experience is concerned with the entire journey a person has with a product. It addresses every point of interaction a person has with it over time, including:
+
+		- Becoming aware of the product.
+		- Acquiring or accessing it.
+		- Using it for the first time.
+		- Using it subsequent times.
+		- Their feelings about it.
+
+	Benefits of Accessibility:
+		Accessibility enables people with disabilities to participate in society, in major life activities such as education and work, and in social activities that are needed for health and happiness.
+
+		Families, communities, and society benefit from the increased independence of more people, the contributions of people with a variety of abilities and disabilities, cost savings, and improvements to the built and digital world that increase access and usability for everyone. Schools, employers, groups, and organizations of all types also benefit from the increase in innovation and improvements to problem-solving brought by diversity through inclusion.
+
+
+	Personal and Societal Benefits of Accessibility
+		Benefits for People with Disabilities and their Families
+			- People are not isolated or hidden from society.
+			- Inclusion allows people with disabilities to participate in society and be valued as full citizens.
+			- Increased opportunities for employment lead to greater family income and wealth potential.
+			- Access to child care and education creates more opportunities and helps break the cycle of poverty.
+
+		Benefits to Society:
+
+			The Global Public Inclusive Infrastructure (GPII) describes the following benefits:
+				Increased independence strengthens society
+					An accessible, inclusive society is a strong society. Technologies that welcome everyone, everywhere, send a powerful message to each individual that we are all connected, and that our contributions are more valuable when they are more widely harvested and shared.
+
+
+				Society benefits Economically
+					Increasing the participation of people with disabilities in the workforce leads to an increase in taxpayers and a reduction of support costs. People who are more independent benefit the economy of a country in many ways. Even for the elderly, delaying the day they must move from living independently or with a spouse into supported living by as little as 6 months would save societies billions. And this does not count the cost of unpaid caregiving, which most often places a heavy burden on family resources and opportunities.
+
+					The increasing availability of assistive technologies reduces the societal cost of lower productivity.
+
+		Business Benefits of Accessibility
+			The key advantages excerpted here are copied from the World Wide Web Consortium's article, "The Business Case for Digital Accessibility." Although the focus is on digital products, the benefits can be applied to many types of products and services, and the digital marketing needed to reach customers.
+
+			"Business" here refers to any type of organization, including commercial, educational, non-profit, and governmental.
+
+			Accessibility drives innovation
+				Integrating accessibility removes architectural, digital, and social barriers that can get in the way of innovation. For example:
+
+				- Driverless cars, so promising for the independence of blind people, are projected to also help solve traffic fatalities and congestion.
+
+				- Research and development of the artificial retina project to help restore sight for participants who are blind may also help future robots with real-time image processing systems, effectively allowing them to "see."
+
+			Accessibility enhances brand
+				Businesses need to protect and enhance their brands. A clear commitment to accessibility can demonstrate that a business has a genuine sense of corporate social responsibility. Potential outcomes include:
+
+				- Enhanced reputation
+				- Increased sales
+				- Increased customer loyalty
+				- Improved workforce diversity
+
+			Accessibility increases market reach
+				The market for people with disabilities is large and growing as the global population ages. At least 16% of the world's population have a recognized disability. Globally, the extended market is estimated to have $6 trillion in annual disposable income. According to Microsoft, as accessibility features are included [in software], overall customer satisfaction improves.
+
+				For customers with disabilities, accessibility improvements are essential for equal access. However, accessibility provided options are useful to all customers in various situations. For example:
+					- People using mobile phones, smartwatches, smart TVs, and other devices with small screens and different input modes.
+					- People with temporary disabilities such as a broken arm or lost glasses.
+					- Challenging situations such as bright sunlight or noisy environments.
+
+			Accessibility Minimizes Legal Risk
+				As web use is woven into modern life all over the world, governments and regulators have mandated laws and policies that strengthen the rights of people with disabilities to participate in online digital information and services.
+
+				With legal risks increasing, smart businesses, particularly those with global activities, are creating accessibility policies and programs to mitigate risk to protect both their assets and their reputations.
+
+	Web Accessibility
+		The power of the Web is in its universality. Access by everyone regardless of disability is an essential aspect.
+		- Tim Berners-Lee, W3C Director and inventor of the World Wide Web
+
+		Web accessibility is the ability of a website to be easily navigated, used, and understood by people with disabilities. It combines web development and file creation standards with universal design practices.
+
+		According to the World Wide Web Consortium (W3C) Web Accessibility Initiative's Introduction to Web Accessibility:
+
+		Web accessibility means that websites, tools, and technologies are designed and developed so that people with disabilities can use them. More specifically, people must be able to perceive, understand, navigate, interact with, and contribute to the Web.
+
+	Other benefits of web accessibility
+		People without disabilities
+			Web accessibility also benefits people without disabilities, including:
+
+			- People using mobile phones and other devices with small screens and different input modes.
+			- Older people.
+			- People with temporary disabilities.
+			- People with situational limitations such as in bright sunlight.
+			- People using a slow Internet connection, or who have limited or expensive bandwidth.
+
+		Website Discoverability
+			Websites that meet the WCAG guidelines make themselves more easy to be found by search engines. There is overlap between the guidelines and SEO (search engine optimization) best practices. For example:
+
+			- Accurate page titles help people who use screen readers and describes the content to search engines.
+			- Captions are critical for people who are deaf or hard of hearing. Since the captions are text, they can be crawled by search engines.
+
+		Better Usability
+			User-centered design is good design. When websites are designed for accessibility, they improve usability for everyone. For example:
+
+			- Good color contrast makes text and images easier to see.
+			- Adequate spacing between lines of text increases readability.
+			- Plain language is easier to understand.
+
+
+	WCAG Overview and Structure
+		The Web Content Accessibility Guidelines (frequently referred to as WCAG, pronounced "WICK-ag") are an internationally accepted set of technical standards that explain how to make web content more accessible to people with disabilities.
+
+		The standards are created by the World Wide Web Consortium (W3C) through its Web Accessibility Initiative. They are intended for web and application developers and designers, content creators, policymakers, purchasing agents, teachers, and students.
+
+		The most current version is WCAG 2.2.
+
+		WCAG 2.0 remains approved as ISO standard ISO/IEC 40500.
+
+		The WCAG standards are organized into:
+
+		- Principles
+		- Guidelines
+		- Testable success criteria
+
+	WCAG Principles:
+	 	Web pages and applications must be:
+
+		- Perceivable (Available to a person's senses - sight, hearing, and / or touch)
+		- Operable (User interface components must work for people with disabilities)
+		- Understandable (The interface and content must be understandable)
+		- Robust (The content must be able to be interpreted by other user agents, eg web browsers, including assistive technologies)
+		You can remember the principles by the acronym: POUR.
+
+	WCAG Guidelines
+
+		Each principle is broken down into a number of guidelines. The guidelines are detailed and include testable success criteria.
+
+		For example, under the Perceivable principle, Guideline 1.1 requires providing text alternatives for non-text content, such as images and image buttons. This is needed so that people with visual, cognitive or other impairments and who use screen reading technology can perceive the content and function of such images.
+
+		High quality alternative text describes an image in context, making it meaningful for the person reading the text alternative.
+
+	3 Levels of Success Criteria
+		Each guideline includes success criteria, which are categorized into three levels:
+
+		A: Minimal accessibility.
+		AA ("double A"): Accessibility for most people. Most commonly used.
+		AAA ("triple A"): Highest level of accessibility.
+
+	WCAG Principle: Perceivable
+		Information and user interface components must be presented to users in ways they can perceive. In other words, it cannot be invisible to all of their senses.
+
+		- Provide text alternatives for any non-text content.
+		- Provide captions and other alternatives for multimedia.
+		- Create content that can be presented in different ways, including by assistive technologies, without losing meaning.
+		- Make it easier for users to see and hear content.
+
+	WCAG Principle: Operable
+		Users must be able to operate the interface. The interface cannot require interaction that a user cannot perform.
+
+		- Make all functionality available from a keyboard.
+		- Give users enough time to read and use content.
+		- Do not use content that causes seizures or physical reactions.
+		- Help users navigate and find content.
+		- Make it easier to use inputs other than keyboard.
+
+	WCAG Principle: Understandable
+		Users must be able to understand the information as well as the operation of the user interface. The content or operation cannot be beyond their understanding.
+
+		- Make text content readable and understandable.
+		- Make content appear and operate in predictable ways.
+		- Help users avoid and correct mistakes.
+
+	WCAG Principle: Robust
+		Content must be robust enough that it can be interpreted reliably by a wide variety of user agents, including assistive technologies. As technologies and users' tools evolve, the content should remain accessible.
+
+		- Maximize compatibility with current and future user tools.
+		- Correctly identify the name, role, and value of elements so they can be used by current and upcoming technologies.
+
+
+What is UNiversal Design?
+	The goal of universal design is to create products, services, and environments that meet the needs of everyone who uses them, minimizing or eliminating the need for adaptations or accommodations. Consider the fire alarm, which typically uses a piercing sound as its alert. Since people with hearing disabilities may not be able to hear the sound, the same alarm should also produce other alerts such as flashing lights, haptics, or text messages.
+
+	When products, services, and environments are not designed for universal use, a person with a disability may need individual accommodations so they can participate and accomplish the same tasks as someone without a disability.
+
+	The philosophy of universal design underlies or can be a synonym for:
+	- inclusive design
+	- design for all
+	- human-centered design
+	- lifespan design
+
+	The principles of universal design were first developed by architect Ronald Mace:
+
+	"The design of products and environments to be usable by all people, to the greatest extent possible, without the need for adaptation or specialized design"
+
+	Built Environment Accessibility
+		The goal of universal design for the built environment is to ensure the accessibility of:
+		- buildings
+		- public spaces
+		- transportation systems
+
+	Designing for accessibility saves costs
+		When creating physical spaces, it is important to consider the needs of all people in the design. The cost of not integrating UD into the initial design and construction stages of a building is often greater than its overall construction cost.
+
+	Rules and regulations
+		Rules and regulations vary among countries. Many countries have minimum building standards for design and construction, but simply complying with minimum standards usually results in the need for accommodations. Countries often have best practice UD guidelines to support their minimum standard to better support accessibility.
+
+		Some areas of focus in built environment accessibility include:
+			- Access into and out of buildings
+			- Inside buildings, including:
+				- movement and evacuation
+				- fixtures and furnishings
+				- accessibility of facilities
+				- signage
+			- Transportation, including: 
+				- access to different means of transportation
+				- routes
+				- the outdoor environment
+			- Policies, guidelines, and recommendations
+
+	Principle 1. Equitable Use
+		The design is useful and marketable to people with diverse abilities.
+
+		- Provide the same means of use for all users: identical whenever possible; equivalent when not.
+		- Avoid segregating or stigmatizing any users.
+		- Provisions for privacy, security, and safety should be equally available to all users.
+		- Make the design appealing to all users.
+
+		Examples
+			Physical
+				- Automated doors provide the same entry to people of all abilities.
+				- Curb cuts in sidewalks.
+
+			Digital
+				- Providing closed captions on videos.
+				- Using high contrast text.
+
+	Principle 2. Flexibility in Use
+		The design accommodates a wide range of individual preferences and abilities.
+
+		- Provide choice in methods of use.
+		- Accommodate right or left-handed access and use.
+		- Facilitate the user's accuracy and precision.
+		- Provide adaptability to the user's pace.
+
+		Examples
+			Physical
+				- Ambidextrous scissors can be used by both right- and left-handed people.
+				- A moving walkway in an airport can be used for walking or standing.
+			Digital
+				- Customizable dashboards.
+				- A form that allows a generous time to complete.
+
+	Principle 3. Simple and Intuitive Use
+		The use of the design is easy to understand, regardless of the user’s experience, knowledge, language skills, or current concentration level.
+			- Eliminate unnecessary complexity.
+			- Be consistent with user expectations and intuition.
+			- Accommodate a wide range of literacy and language skills.
+			- Arrange information consistent with its importance.
+
+		Examples
+			Physical
+			- A cup with a handle.
+			- IKEA instructions.
+
+			Digital
+			- The different parts of a web page are easy to locate and identify.
+			- Navigation elements are consistent throughout a website.
+			- Content is written in plain language.
+
+	Principle 4: Perceptible Information
+		The design communicates necessary information effectively to the user, regardless of ambient conditions or the user’s sensory abilities.
+
+		- Use different modes (pictorial, verbal, tactile) for redundant presentation of essential information.
+		- Provide adequate contrast between essential information.
+		- Differentiate elements in ways that can be described.
+		- Provide compatibility with a variety of techniques or devices used by people with sensory limitations.
+
+		Examples
+			Physical
+				- Redundant cueing in airports like voice communication and signage.
+				- Plastic credit and debit cards with cutouts to indicate which is which.
+
+			Digital
+				- Images provide contextually relevant alternative text.
+				- Adequate color contrast.
+
+	Principle 5: Tolerance for Error
+		The design minimizes hazards and the adverse consequences of accidental or unintended actions.
+
+		- Arrange elements to minimize hazards and errors.
+		- Provide warnings of hazards and errors.
+		- Provide fail-safe features.
+		- Discourage unconscious action in tasks that require vigilance.
+
+		Physical
+			- A double-cut key is easily inserted into a recessed keyhole either way.
+			- Power tools that prevent injuries.
+
+		Digital
+			- Supporting review and correction of information on a form before it is submitted.
+			- Using date pickers to ensure proper date format is used.
+
+	Principle 6: Low Physical Effort
+		The design can be used efficiently and comfortably and with a minimum of fatigue.
+
+		- Allow the user to maintain a neutral body position.
+		- Use reasonable operating forces.
+		- Minimize repetitive actions.
+
+		Examples
+			Physical
+				- Lever or loop handles on doors and faucets.
+				- Touch lamps operated without a switch.
+
+			Digital
+				- Voice activation.
+				- Keyboard shortcuts to minimize using a mouse.
+
+	Principle 7: Size & Approach for Use
+		Appropriate size and space are provided for approach, reach, manipulation, and use regardless of the user’s body size, posture, or mobility.
+
+		- Provide a clear line of sight to important elements for any seated or standing user.
+		- Make reach to all components comfortable for any seated or standing user.
+		- Accommodate variations in hand and grip size.
+		- Provide adequate space for the use of assistive devices or personal assistance.
+
+		Examples
+			Physical
+				- Wide gates at subway stations that accommodate all users.
+				- ATMs at a reachable height for people who use wheelchairs.
+
+			Digital
+				- Large target areas, of at least 75 pixels, for buttons on mobile apps.
+				- Large links and buttons, with plenty of space around them.
+				- A website visually highlights the most important information.
+
+
+	Universal Design for Learning
+		The three principles of Universal Design for Learning. 
+
+		Provide multiple means of engagement uses the brain's affective networks and addresses the "why" of learning. 
+
+		Provide multiple means of representation uses the recognition networks and addresses the "what" of learning. 
+
+		Provide multiple means of action and expression uses the strategic networks and addresses the "how" of learning.
+
+		Overview:
+		Universal design for learning (UDL) provides a framework for teaching that considers the diverse needs of learners. It is designed to remove learning barriers and create successful learners.
+
+		UDL asks teachers to provide variety in:
+
+		- Engaging and motivating learners.
+		- Presenting information.
+		- How learners demonstrate their knowledge.
+
+		# UDL Principles and Guidelines
+ 
+| | **Engagement** | **Representation** | **Action and Expression** |
+|---|---|---|---|
+| **Brain Networks** | Affective Networks | Recognition Networks | Strategic Networks |
+| **Answers the question** | The "why" of learning | The "what" of learning | The "how" of learning |
+| **Goal** | Learners are purposeful and motivated | Learners are resourceful and knowledgeable | Learners are strategic and goal-directed |
+| | **UDL Guidelines** | | |
+| **Access** | Provide options for recruiting interest | Provide options for perception | Provide options for physical action |
+| **Build** | Provide options for sustaining effort and persistence | Provide options for languages and symbols | Provide options for expression and communication |
+| **Internalize** | Provide options for self regulation | Provide options for comprehension | Provide options for executive functions |
+
+	# Multiple Means of Engagement
+
+	Our minds have three broad learning networks:
+
+		- Caring and prioritizing (Why am I learning this?)
+		- Recognition (What am I learning?)
+		- Skills and strategies (How can I learn this and show that I understand?)
+	For students to be enthusiastic about learning, and gain knowledge and skills, learning activities must be designed to help them do all three.
+
+	Learners vary in how they are motivated or engaged with learning. For example, some like spontaneity while others prefer routine.
+
+	The principle of providing multiple means of engagement taps into the caring and prioritizing network, and creates motivation for learning by getting learners challenged, excited, or interested
+
+	It answers the learner's question, "Why should I learn this?"
+
+	Teachers should provide options to:
+
+		- Spark excitement and curiosity for learning.
+		- Tackle challenges with focus and determination.
+		- Harness the power of emotions and motivation in learning.
+
+	Examples: 
+		- A choice of tasks so learners can find the challenges that interest them.
+		- Activities that are culturally and socially relevant.
+		- Activities that encourage self-reflection.
+
+	# Multiple Means of Representation
+		This principle taps into the mind's recognition network, and helps every learner perceive and make sense of the information being taught.
+
+		It answers the learner's question, "What am I learning?"
+
+		Learners differ in how they perceive and understand information. Those with disabilities or language or cultural differences in particular may need different ways of learning the information.
+
+		Teachers should provide options for:
+
+		- Information, so it doesn't depend on a single sense (sight, hearing, movement, or touch).
+		- Communicating in ways that create a shared understanding.
+		- Supporting comprehension.
+
+	# Multiple Means of Action and Expression
+		This principle taps into the skills and strategies network, and helps learners navigate the learning environment and express what they know.
+
+		It answers the learner's question, "How can I learn this and show that I understand?"
+
+		Learners vary in how they can navigate a learning environment and express their knowledge. For example, some may be able to express themselves well in writing but not in speech.
+
+		Teachers should provide options for:
+
+		- Accessible materials and tools.
+		- Creating and sharing ideas using tools that help attain learning goals.
+		- Developing and acting on plans to make the most of learning.
+
+		Examples:
+		- Multiple examples of novel solutions to a problem.
+		- Posting learning goals, objectives, and schedules.
+		- Providing options for students to show they understand a topic, for example by writing an article or by giving a talk.
+
+	# International Declarations and Conventions on Disability Rights
+		The purpose of the present Convention is to promote, protect and ensure the full and equal enjoyment of all human rights and fundamental freedoms by all persons with disabilities, and to promote respect for their inherent dignity.
+			- Article 1: The Convention on the Rights of Persons with Disabilities
+
+			Why have legal instruments?
+
+			Legal instruments can address the rights of people with disabilities at different levels. They may:
+
+			- Grant fundamental or human rights to every person.
+			- Prohibit discrimination based on disability.
+			- Directly address the rights of people with disabilities.
+			- The 1999 Inter-American Convention on the Elimination of All Forms of Discrimination Against Persons with Disabilities provides a clear definition of disability discrimination:
+
+			The term ‘discrimination against persons with disabilities’ means any distinction, exclusion, or restriction based on a disability, record of disability, condition resulting from a previous disability, or perception of disability, whether present or past, which has the effect or objective of impairing or nullifying the recognition, enjoyment, or exercise by a person with a disability of his or her human rights and fundamental freedoms.
+
+		The Universal Declaration of Human Rights
+			The Universal Declaration of Human Rights (UDHR) was drafted by the United Nations General Assembly in Paris in 1948, and produced a common standard of achievement for all peoples and nations. It was written by representatives from all regions of the world.
+
+			It is the first declaration that people have fundamental human rights that must be universally protected.
+
+			The declaration does not specify people with disabilities, but they are understood to be included in the concepts of "everyone," "all," and "no one."
+
+		The Convention on the Rights of Persons with Disabilities
+			The United Nations Convention on the Rights of Persons with Disabilities (CRPD) of 2006 is the first binding international human rights instrument that specifically protects the rights of people with disabilities. States that ratify (accept) the agreement must take steps to implement those rights.
+
+			In its introduction to The CRPD, The United Nation's Office of the High Commissioner for Human Rights states that:
+
+				The Convention follows decades of work by the United Nations to change attitudes and approaches to persons with disabilities. It takes to a new height the movement from viewing persons with disabilities as “objects” of charity, medical treatment and social protection towards viewing persons with disabilities as “subjects” with rights, who are capable of claiming those rights and making decisions for their lives based on their free and informed consent as well as being active members of society.
+
+				The Convention is intended as a human rights instrument with an explicit, social development dimension. It adopts a broad categorization of persons with disabilities and reaffirms that all persons with all types of disabilities must enjoy all human rights and fundamental freedoms. It clarifies and qualifies how all categories of rights apply to persons with disabilities and identifies areas where adaptations have to be made for persons with disabilities to effectively exercise their rights and areas where their rights have been violated, and where protection of rights must be reinforced.
+
+			Article 9 of the CRPD: Accessibility
+				Article 9 is concerned with accessibility. It begins:
+
+				To enable persons with disabilities to live independently and participate fully in all aspects of life, States Parties shall take appropriate measures to ensure to persons with disabilities access, on an equal basis with others, to the physical environment, to transportation, to information and communications, including information and communications technologies and systems, and to other facilities and services open or provided to the public, both in urban and in rural areas.
+
+
+		The Marrakest Treaty
+			The purpose of the Marrakesh Treaty to Facilitate Access to Published Works for Persons who are Blind, Visually Impaired, or Otherwise Print Disabled is to ensure that people who have vision or other print disabilities have access to books and other printed materials.
+
+			In its introduction to the treaty, the World Intellectual Property Organization states that:
+
+			The Marrakesh Treaty was adopted in 2013 in Marrakesh.
+
+			The Treaty was adopted in 2013, with the goal of ending the lack of books accessible to blind, visually impaired, and otherwise print disabled people. Since a major obstacle for making books available in accessible formats is copyright limitations, the Treaty creates a copyright exception. The exception allows the creation of accessible formats of copyrighted print materials for people with visual and other print disabilities. The treaty also allows the import and export of accessible format versions.
+
+			International Declarations and Conventions Review
+				UN Universal Declaration of Human Rights
+					1948
+					First declaration that all people have fundamental human rights.
+					Milestone in human rights history.
+
+				UN Convention on the Rights of Persons with Disabilities CRPD
+					2006
+					All persons with all types of disabilities must enjoy all human rights and fundamental freedoms.
+					Asks member states to protect the rights of people with disabilities.
+					Article 9 addresses accessibility.
+
+
+				Marrakesh Treaty
+					Seeks to make print materials accessible to people with vision and other print disabilities.
+					Adopted in 2013 in Marrakesh, Morocco.
+					Copyright exception allows the creation of accessible formats.
+
+
+	Regional, National, and Domain-Specific Interests.
+		- Disability Rights are Human Rights
+
+		Civil rights protections for people with disabilities have spread rapidly across many countries since the 1990s. The United States' groundbreaking Americans with Disabilities Act of 1990, which prohibits discrimination because of disability, provided the model for the United Nations Convention on the Rights of Persons with Disabilities (CRPD). In Europe, thirty-three countries have adopted some form of disability equality protections.
+
+		Along with the CRPD, the shift from the medical to the social model of disability is a main driver of the legal shift from a welfare or social security law model towards anti-discrimination or equality law. Disability rights laws challenge segregation and exclusion, usually by requiring social institutions such as governments, corporations, and schools to reduce or eliminate discrimination against people with disabilities.
+
+		Disability discrimination laws are considered a truly new development in disability policy around the world. Laws that treat disability as a discrimination category recognize that people with disabilities are people with rights, not people with problems.
+
+		Some disability civil rights laws include guidelines or checklists for measuring accessibility in such areas as architecture and the built environment, employment and the workplace, educational settings, retail venues, hospitality, and entertainment.
+
+		# Legal Approaches
+			The law has two approaches to granting rights to or accommodating the needs of people with disabilities in practice, reasonable accommodation (also called individual accommodation) and accessibility.
+
+			# Reasonable accommodation
+			Reasonable accommodation aims to ensure equal treatment on a case-by-case basis. The European Union's Employment Equality Directive provides a good description for reasonable accommodation in employment:
+
+			In order to guarantee compliance with the principle of equal treatment in relation to persons with disabilities, reasonable accommodation shall be provided. This means that employers shall take appropriate measures, where needed in a particular case, to enable a person with a disability to have access to, participate in, or advance in employment, or to undergo training, unless such measures would impose a disproportionate burden on the employer. This burden shall not be disproportionate when it is sufficiently remedied by measures existing within the framework of the disability policy of the Member State concerned.
+
+			# Accessibility
+
+			For accessibility, the conditions or requirements for using a product, service, or environment should be met regardless of a person’s disability status. Section 508 of the US Rehabilitation Act of 1973 follows this approach. It requires that federal departments and agencies developing, procuring, maintaining, or using electronic and information technology, ensure that the technology allows:
+
+			individuals with disabilities who are members of the public seeking information or services from a Federal department or agency to have access to and use of information and data that is comparable to the access to and use of the information and data by such members of the public who are not individuals with disabilities.
+
+		# European Union Directives
+			#Charter of Fundamental Rights
+			The Charter of Fundamental Rights of the European Union was declared in 2000, and came into force in 2009. It sets out the full range of civil, political, economic, and social rights of everyone living in the EU.
+
+			The Charter brings consistency and clarity to the rights established at different times and in different ways in the individual EU Member States, including:
+
+			- National constitutions
+			- The European Convention on Human Rights of 1950
+			- The European Social Charter of 1961
+
+			# Employment Equality Directive
+
+			In 2000, the European Union adopted the Employment Equality Directive, that prohibits disability discrimination in employment and occupation (as well as discrimination on some other grounds). All EU member states have implemented it in their national law. The directive requires reasonable accommodation for people with disabilities to guarantee equal treatment.
+
+		# African Instruments
+			African Charter on Human and People's Rights
+				The African Charter on Human and People’s Rights, adopted in 1981, recognizes the rights of all people. Although it does not specify disability when talking about non-discrimination, its provisions have been used to fight discrimination against people with disabilities and to provide equal protection.
+
+			African Disability Rights Protocol
+				In 2018, the African Union adopted a protocol to the Charter that focuses on safeguarding the human rights of people with disabilities. The African Disability Rights Protocol (ADRP) adds some details to the provisions of the CRPD such as providing specific provisions about armed conflicts and forced displacements, providing more extensive provisions on harmful practices, and listing some of the most common ones.The protocol came in force in 2024
+
+		# Inter-American Convention
+			The Inter-American Convention on the Elimination of All Forms of Discrimination Against Persons with Disabilities
+			
+			The Inter-American Convention on the Elimination of All Forms of Discrimination Against Persons with Disabilities was adopted in 1999 in Guatemala as the first regional, binding treaty that expressly prohibits discrimination against people with disabilities.
+
+		# US: Americans with Disabilities act of 1990
+			The Americans with Disabilities Act (ADA) is a US national civil rights law that puts in place protections for people with disabilities, similar to those provided on the basis of race, color, sex, national origin, age, and religion. It guarantees equal opportunities for people with disabilities in:
+
+			- public accommodations
+			- employment
+			- transportation
+			- state and local government services
+			- telecommunications
+
+		# Canada: Accessible Canada Act 2019
+			The Accessible Canada Act applies to government and federally regulated entities (eg., banks, insurance industry, public transportation, telecommunications industry etc). Because it aims to create a barrier free Canada by 2040, and can be expected to expand to non-regulated industries and private business.
+
+			Priority areas
+			- Employment
+			- The built environment
+			- Information and communication technologies (ICT)
+			- Communication other than ICT
+			- The procurement of goods, services, and facilities
+			- The design and delivery of programs and services
+			- Transportation
+
+
+		# UK: Equality Act 2010
+			The United Kingdom passed the national Equality Act 2010 in order to bring together and strengthen anti-discrimination laws. The Act provides people with improved protections from discrimination in the workplace and in society.
+
+			The Act requires “the exercise of certain functions to be with regard to the need to eliminate discrimination”. It prohibits discrimination based on protected characteristics, including disability. It protects against direct discrimination, discrimination arising from disability, and indirect discrimination.
+
+			It has various provisions directly related to the rights of people with disabilities, including the accessibility of transportation, accessibility for disabled students or restricting the circumstances in which employers can ask job applicants about disability or health.
+
+			Section 4: 
+			The following characteristics are protected characteristics:
+
+			- age
+			- disability
+			- gender reassignment
+			- marriage and civil partnership
+			- pregnancy and maternity
+			- race
+			- religion or belief
+			- sex
+			- sexual orientation
+
+		# Australia: Disability Discrimination Act of 1992
+			The Disability Discrimination Act makes it unlawful to discriminate on the basis of disability. In July 2025 the Australian Attorney-General's Department announced a comprehensive review to modernize and strengthen the Act.
+
+
+		# US Domain Specific Laws
+			Twenty-First Century Communications and Video Accessibility Act (CVAA) of 2010
+				- Updates federal communications law to increase access to modern communications for people with disabilities.
+				- Requires that all communications and video programming be accessible.
+
+			Air Carrier Access Amendments Act of 2017
+				- Protects the rights of passengers with disabilities in air transportation.
+				- Applies to all flights of U.S. airlines, and to flights to or from the United States by foreign airlines.
+
+			Accessibility of Web Information and Services of State and Local Government Entities of 2024
+				- Revises Title 2 of the Americans with Disabilities Act with accessibility standards for state and local governments’ digital content.
+
+		# EU Domain-Specific Laws
+			Audiovisual Media Services Directive of 2010
+				- Broadcasts and on-demand services must be continually made more accessible.
+				- Emergency information via audiovisual media services must be accessible.
+
+			eIDAS Regulation of 2014
+				- Trust services such as digital identity and authentication must be accessible.
+
+			European Electronic Communications Code of 2018
+				- Telecommunications must be accessible.
+
+
+		# EU / US Procurement Laws
+
+			Procurement laws help ensure that governments procure accessible products and services. The laws include the accessibility standards that products and services should meet.
+
+			European Union Public Procurement Directives
+				Became binding in 2016.
+
+				Technical specifications must take into account accessibility.
+				Can exclude economic operators which have violated social obligations, including accessibility.
+				Uses the EN 301 549 standard.
+
+			US Section 508
+				Requires accessibility for ICT developed, procured, maintained, or used by US federal agencies.
+				- Requires accessibility for federal employees.
+				- Uses WCAG criteria.
+
+	Applying Standards and Regulations to ICT
+		ICT accessibility is a critical issue for people with disabilities.
+
+			Most countries provide laws protecting the civil rights of disabled persons for homes, parks, businesses, and educational facilities. However, this has not been the case with information communication technology accessibility in all countries.
+
+			This lesson covers ICT laws and standards in the United States and the European Union.
+
+		US Laws and Standards
+			# Section 508
+			- In the United States, federal, state, and local government websites must meet Section 508. The 508 standard uses the Web Content Accessibility Guidelines (WCAG) 2.0 as the conformance standard.
+
+			- Section 508 applies only to government websites.
+
+			# Americans with Disabilities Act (ADA)
+
+			The ADA does not include any legal standards for website accessibility owned by business or non-profit organizations. Nevertheless, businesses and other organizations can be sued for lack of accessibility.
+
+			The ADA is enforced by the US Department of Justice, Civil Rights Division. In cases involving educational institutions, it is enforced by the US Department of Education, Office for Civil Rights.
+
+			Title II
+			Title II protects people with disabilities from discrimination in public places, including state and local government spaces and websites.
+
+			Title III
+			Title III prohibits discrimination based on disability in private places that welcome the public, including businesses, schools, places of recreation, offices, and medical buildings. E-commerce, organizational websites, and public mobile applications fall under Title III.
+
+			Businesses and other organizations can be sued under the ADA for the inaccessibility of their e-commerce and public websites, and mobile apps.
+
+		EU Laws and Standards
+			Web Accessibility Directive
+				The European Union Web Accessibility Directive, which took effect in September 2018, establishes minimum accessibility requirements for all public sector ICT. The Directive refers to the EN 301 549 standard, which aligns with WCAG 2.1 AA.
+
+				The Directive covers:
+
+				Websites, applications, and mobile apps
+				Downloadable documents
+
+			European Accessibility Act
+				The European Accessibility Act came into full force in 2025. It applies to both the public and privates sectors. The act mandates functional requirements for products and services identified as most important for people with disabilities, and includes a comprehensive set of minimum requirements for private businesses to ensure their products and services are accessible.
+
+			Accessibilty Statements
+				Accessibility Statements
+					Statements may be required, such as by the EU Web Accessibility Directive or the European Accessibility Act, or may be voluntary. 
+
+				Web Accessibility Directive
+					The directive affects the public sector. It requires public sector bodies to "provide and regularly update a ‘detailed, comprehensive and clear’ accessibility statement on their website or mobile application."
+
+				European Accessibility Act
+					The act affects the private sector. It requires private entities to include information assessing how their product or service meets accessibility requirements.
+
+				Voluntary Accessibility Statements
+					In instances where they are not required organizations may still wish to publish a statement, which can serve to to provide information on the accessibility of the product or service and demonstrate a commitment to accessibility. 
+
+			Accessibility Conformance Reports
+				Accessibility Conformance Reports
+					Conformance reports document the accessibility of a website or application against standards such as:
+
+					- WCAG
+					- EN 301 549 (specific to European Union)
+					- Section 508 (specific to public entities in the United States)
+					- They are used to demonstrate compliance with laws, in the ICT procurement process, and for internal reporting and product development.
+
+					Voluntary Product Accessibility Template (VPAT)
+						The VPAT is a commonly used template for documenting how well an ICT product meets accessibility standards. It is used internationally by both buyers and sellers. In the same way organizations require information security compliance reports, many require a VPAT as part of their procurement process.
+
+	Integrating ICT Accessibility Across the Organization
+		To be successful, ICT accessibility must be approached strategically and operationally as an integral and ongoing activity. Accessibility must be a program, not a project.
+
+		This lesson presents recommendations for designing and implementing organizational strategies for ICT accessibility. It also presents example maturity models, which provide methods for defining, managing, and measuring an organization’s performance in meeting ICT accessibility best practices.
+
+		Several models are available, and organizations should work with one that best meets their culture and needs.
+
+
+	W3C Web Accessibility Initiative Recommendations
+		The World Wide Web Consortium’s Web Accessibility Initiative provides detailed recommendations for planning, implementing, and sustaining an organizational ICT accessibility program.
+
+		1) Initiate
+			To succeed, a web accessibility effort must be well grounded in organizational culture, process, and practice. To do this, align accessibility with existing organizational approaches; develop and communicate clear, measurable objectives; and engage stakeholders to secure understanding and broad support throughout the organization.
+
+			- Learn the basics
+			- Explore the current environment
+			- Set objectives
+			- Develop the business case
+			- Raise awareness
+			- Gather support
+
+		2) Plan
+			Careful planning is critical to the effective implementation of any accessibility effort. It ensures a clear assessment of the required work, distribution of tasks, and continual follow-up on progress.
+
+			- Create an accessibility policy
+			- Assign responsibilities
+			- Determine budget and resources
+			- Review environment
+			- Review websites
+			- Establish a monitoring framework
+			- Engage with stakeholders
+
+		3) Implement
+			Weave accessibility implementation throughout the process to minimize overhead and improve the overall quality of the final outcome. Prioritize quick wins and communicate progress to increase commitment and develop a sense of accomplishment.
+
+			- Build skills and expertise
+			- Integrate goals into policies
+			- Assign tasks and support delivery
+			- Evaluate early and regularly
+			- Prioritize issues
+			- Track and communicate
+
+		4) Sustain
+			Keeping momentum helps with the accessibility maintenance for completed projects and builds on completed work for new projects. Regular reviews of content, organizational processes, and resources will help ensure that accessibility remains a priority and issues are identified. Developing a management reporting process will help ensure that it is clear where activity is required for follow-up work.
+
+			- Monitor websites
+			- Engage with stakeholders
+			- Track standards and legislation
+			- Adapt to new technologies
+			- Incorporate user feedback
+
+	Business Disability Forum Accessibility Maturity Model
+		The Business Disability Forum’s Technology Taskforce developed the Accessibility Maturity Model as a self-assessment tool to help organizations benchmark their progress in all aspects of accessibility. Accessibility is defined as ensuring that people living with a disability or who acquire a disability can apply for jobs with, be employed by, and do business with an organization. Organizations commit to implementing an inclusive technology strategy which accessibility in areas such as inclusive design in the development lifecycle, internal know-how, and consultations with people with disabilities.
+
+		Organizations make a public commitment to accessibility when they sign the Charter.
+
+		# Accessibility Maturity Model
+			To accompany the Accessible Technology Charter, the Technology Taskforce developed the Accessibility Maturity Model to track progress against the Charter’s ten points. An organization assesses its progress on a scale of 1 – 5:
+
+			- Informal. No documentation or process in place.
+			- Defined. Documented but not actioned or completed once.
+			- Repeatable. Process established and actioned consistently.
+			- Managed. Process monitored and improved; business as usual.
+			- Best practice. Innovate, improve, and share.
+
+	European Agency for Special Needs & Inclusive Education Guidelines
+		The European Agency for Special Needs & Inclusive Education has published guidelines for accessible information include an organizational implementation model, adapted here:
+
+		1) Policy
+			- Develop a long-term strategy that recognizes all aspects of disability.
+			- Publish an accessibility statement that includes a commitment to make your services and information accessible.
+			- Develop a procurement policy that covers accessibility compliance for Productsand services, including those for information production and dissemination.
+
+		2) Plan
+			- Develop an information accessibility plan that is detailed and ambitious, but realistic and covers small steps.
+			- Ensure the person or team responsible for the plan has authority and resources.
+
+		3) Practice
+			Provide awareness training for all staff and how accessibility applies to information.
+				- Provide training for content specialists on tools to make information accessible.
+				- Produce style guides and templates
+				- Update work processes to embed information accessibility
+				- Create information using the style guides and templates.
+				- Give external providers the Guidelines and requirements for compliance.
+				- Conduct accessibility testing before releasing any services or publishing any information.
+
+	Capability Maturity Model for Software, Adapted
+		The Capability Maturity Model, developed by Carnegie Mellon University, is an IT process improvement model that was initially designed for software development. It can also be used to measure an organization’s ICT accessibility maturity. Version 1.1 is adapted here to ICT accessibility:
+
+		Maturity Levels
+			Initial:
+			- Capability is ad hoc and unpredictable.
+			- The organization typically does not provide a stable environment for developing and maintaining accessible products, service, and information.
+
+			Repeatable:
+			- Policies are in place for managing projects and procedures for ICT accessibility.
+				Processes can be characterized as:
+				- Practiced
+				- Documented
+				- Enforced
+				- Trained
+				- Measured
+				- Able to improve
+
+			Defined:
+				- Standard processes for developing and maintaining ICT accessibility across the organization are documented, and these processes are integrated into a coherent whole.
+				- Processes are used, and changed as appropriate, to help the staff perform more effectively.
+
+			Managed: 
+				- The organization sets quantitative quality goals for products and processes.
+				- Processes include well-defined and consistent measurements.
+
+			Optimizing: 
+				- The entire organization is focused on continuous process improvement.
+				- The organization identifies weaknesses and strengthens the process proactively, with the goal of preventing the occurrence of defects.
+				- Innovations that exploit best practices are identified and transferred throughout the organization.
+
+	The Importance of Management Champions
+		Launching and sustaining an accessibility program requires champions from key areas across the organization. It is necessary to build champions’ understanding of accessibility so they can both understand the levels of accessibility within their area of responsibility and lead initiatives needed to improve capabilities.
+
+		Champions within the organization become advocates during the accessibility adoption plan and help sustain efforts by engaging their teams, building awareness and skills, and evangelizing accessibility. Champions help:
+
+		- Build a vision and align implementation strategies
+		- Sustain ongoing commitment and collaboration
+		- Support the programmatic integration of accessibility throughout organizational processes, making clear the distinction between it and discreet accessibility projects
+		- Lead the adoption of an accessibility maturity model
+
+	Evaluating for Accessibility:
+		Testing is critical to the design and development of accessible ICT, and practices must be built into an organization’s accessibility approach. The W3C recommends evaluating early and throughout the design and development process. It is easier and less costly to find and address accessibility issues early.
+
+		The following recommendations are compiled from recommendations by the W3C and other organizations.
+
+		- Ensure the product or service is fit for its purpose.
+		- Design for usability by people with disabilities.
+		- Use a born accessible approach to design.
+		- Create reusable design and code libraries that help developers code for accessibility.
+		- Use quality assurance tools, methods, and protocols including accessibility evaluation tools. Do not rely solely on automated checkers, as they only catch about 25% of defects. Human evaluation is critical to ensuring the product or service created is accessible.
+		- Perform formative, summative, and continuous evaluations. Test throughout the project lifecycle and any time new content is added or code is updated.
+		- Include people with disabilities in evaluations.
+		- If there are gaps in your organization’s capabilities, use outside expert analysis and consultation until you build up in-house expertise.
+
+	Recruiting and Hiring
+		Recruiting and Including People with Disabilities
+			- Include your organization’s disability inclusion statement in job postings and on the recruitment pages of your website.
+			- Post job openings on disability-focused job boards
+			- Ensure your organization’s recruitment website and all postings are accessible
+			- Promote your organization at disability-focused job fairs
+			- Ensure your facilities are accessible to applicants and employees, and that you provide reasonable accommodations including assistive technologies
+			- Educate all employees, especially managers, on working with employees with disabilities
+			- Ensure hiring and supervising managers understand their obligations for accessibility and the organizational benefits that an employee with disabilities brings to the workplace
+
+		Recruiting People with Digital Accessibility Skills
+			Carefully define the specific skills candidates must have. Depending on the position, skills may include:
+				- Design using CSS, HTML, and JavaScript
+				- Development using frameworks and libraries
+				- Accessibility testing using evaluation tools, keyboard testing
+				- Ability to use and test with screen reader software
+				- Ability to create, test, and remediate digital files such as documents and presentations
+				- Knowledge of standards such as WCAG and PDF / UA
+
+			Post positions on industry job sites and with professional networks such as
+			- IAAP Career Center
+			- a11yjobs Digital Accessibility Job Board
+			- Professional groups
+			- Professional discussion groups and mailing lists
+
+		Communication Management Strategies
+			Ensure the messages your organization delivers internally and externally are accessible. Your organization should:
+				- Publish accessibility standards for communications
+				- Provide training to communicators on using people first and plain language
+				- Ensure documents are accessible
+				- Ensure websites and all the media types it contains or references are accessible
+				- Caption and describe videos and other time-based communications
+				- Design for how people use assistive technologies
+
+		Legal and Public Relations Implications
+			Organizations may have legal obligations to ensure their products and services, and information about them, are accessible to people with disabilities. Further, there are positive public relations gains to be had, as the market for accessible solutions is large and customer satisfaction is directly tied to a product's success.
+
+			In a large organization, public relations staff should consult with legal or risk and compliance before publishing accessibility information about the organization.
+
+			In small organizations, people in roles of responsibility should seek guidance from laws and policies.
+
+			Recommendations:
+
+			- Become familiar with relevant standards and laws
+			- Assess your organization’s legal liability
+			- Ensure the organization has and is following an ICT accessibility plan
+			- Ensure the plan includes documenting how products and services meet accessibility standards
+			- Capitalize on the positive public relations that accessibility brings to your organization
+
+		Procurement Best Practices
+			Purchasing ICT solutions that are usable by everyone in your organization and by your customers is a key component of an ICT accessibility program. There are numerous benefits of procuring accessible products. Among others, products that are designed for universal use cost less over time since they do not require adaptation or redesign; they are a large factor in providing a welcoming and inclusive environment, improving productivity since they are more usable, and reducing legal risk.
+
+			Setting accessibility requirements when purchasing a product or service, or when contracting a supplier to develop or design something from scratch, is important. Large companies or groups of companies, as well as public sector agencies who procure handle large budgets, which means that well-developed accessibility requirements may impact large parts of the market.
+
+			Best practices include:
+
+			- Verifying product accessibility claims
+			- Verifying a vendor’s accessibility expertise and capacity
+			- Requiring product accessibility in contractual agreements
+			- Periodically reviewing a vendor’s product accessibility roadmap for adherence
+			- Leveraging the organization’s procurement policies and requirements to influence vendors
+
+
+
+Practice Exam Questions: 
+	Which model of disability states that people become disabled when an environment or technology presents barriers?
+		A: Social Model
+
+	Which model of disability considers disability as a health problem that affects individual people? This model does not focus on society's responsibility for creating barriers.
+		A: Medical Model
+
+	This model of disability recognizes that people with disabilities have fundamental human rights and should be free from discrimination.
+		A: Human Rights Model
+
+	Someone can express their thoughts well when they speak, but has difficulty when they write. Which disability does this characterize?
+		A: Dysgraphia
+
+	A child is struggling to keep score of a football game. They are having trouble counting and adding numbers. Which disability are they likely to have?
+		A: Dyscalcula
+
+	A child who has normal or above average intelligence but who struggles with reading most likely has which disability?
+		A: Dyslexia
+
+	Flickering or flashing content can cause a serious reaction in people with which type of disability?
+		A: Epilepsy
+
+	A daycare teacher notices that a child is extremely sensitive to sound, smell, and light, and shows little interest in classroom activities or other children. This child is displaying characteristics of which disability?
+		A: Autism Spectrum Disorder
+
+	A person whose sensory inputs are limited to touch, smell, and taste has which disability?
+		A: Deaf-blindness
+
+	Which assistive technology uses vibrations or other tactile sensations to support communication between people and computers, other electronic devices, and their environment?
+		A: Haptics
+
+	Which workplace accommodation would most benefit a person with a mobility, flexibility, or body structure disability?
+		A: Ergonomic Design of their Workstation
+
+	A webpage designer uses light blue text on a white background. This poor color contrast would most affect people with which disability?
+		A: Low Vision
+
+	Using a microphone when presenting in a large room would most benefit people with which disability?
+		A: Hard of Hearing
+
+	A person's first language is French Sign Language (LSF), but they have also learned how to read lips to help when communicating with people who can hear. Which disability do this person most likely have?
+		A: Deafness
+
+	A bar graph that only uses color to show data creates the greatest barrier to people with which disability?
+		A: Color Vision Deficiency
+
+	An example of a reasonable accommodation for a student with anxiety when they take a test is:
+		A: More time provided to complete a test
+
+	Which disability is characterized by the inability to grip objects and use fine motor skills?
+		A: Mobility - this was tough, other anwers were seizure, speech, psychological
+
+	Cerebral palsy can create multiple disabilities such as visual, learning, hearing, speech, epilepsy, and intellectual disabilities. It is a:
+		A: Neurological Disability
+
+	A person with obsessive compulsive disorder picks their skin and has scars that make them feel embarrassed. Their specially trained dog recognizes skin picking as a cue to bring them a dog brush. Being given the brush is a reminder that grooming the dog is a non-harmful alternative behavior to skin picking. Which type of animal does this person have?
+		A: Service dog
+
+	A person with which disability type would be best served by haptic alerts (such as buzzing) on their iPhone?
+		A: Auditory
+
+	A voice output communication aid with eye tracking is an example of which type of assistive technology?
+		A: Augmentative and Altenative Communication
+
+	This assistive technology is for computer users whose vision loss prevents them from seeing the screen or navigating with a mouse. It provides speech and braille output.
+		A: JAWS (this was tough, other answers were dragon, sip-and-puff, VOCA. I knew sip and puff wouldn't be answer but I have to look up what dragon and VOCA are)
+
+	In an online course, the instructor describes all the visual information on slides. This lets them avoid using which assistive technology or adaptive strategy?
+		A: Audio Descriptions
+
+	A person with low vision needs to follow the cursor and enlarge the text and graphics on a computer screen. Which assistive technology would they use?
+		A: Screen Magnifier
+
+	For interpersonal communication, a person with deaf-blindness uses tactile sign language. Which other method would they also most likely use?
+		A: Refreshable Braille Display (had to think, input/output switches was one I pondered, other two didn't make sense. I need to look up the reasoning behind why someone would use input/output switches )
+
+	People with which type of disability benefit the most from listening to text being read aloud by text-to-speech software?:
+		A: Cognitive Disabilities. I got this wrong because I said Psychological, I think I was thinking ADHD might be a psychological disability...but dyslexia, ADHD, autism are all cognitive disabilities.
+
+	Which assistive technology describes the speech and other sounds on a video, and usually appears at the bottom of the screen?
+		A: Captions. Audio descriptions, transcripts, screen reading were other options, but I knew the difference between those and captions.
+
+	Which assistive technology do most people who are hard of hearing use?
+		A: Hearing Aids
+
+	A software application that highlights a paragraph of text in yellow, then reads each word aloud while highlighting it in blue would be an assistive technology that most benefits people with which type of disability?
+		A: Dyslexia
+
+	A device that takes in text and reads it out using a synthesized voice is an Augmentative and Alternative Communication (AAC) technology that most benefits which disability type?
+		A: Speech. I answered Vision, I wasn't thinking about this from the point of view that this person might be typing out their own text for it to be read using the synthesized voice, synthesized voice should be the key here...
+
+	Assistive technologies such as head-wands, mouth sticks, sip-and-puff switches, and eye trackers are designed for which type of disability?
+		A: Mobility
+
+	Which assistive technology allows people who are blind or partially sighted to read the text on a computer screen?
+		A: Screen Reader. (I had answered screen magnifier, this was a stupid thing on my part, I read the partially sighted and answered too fast without thinking of the entirety of the text)
+
+	For which disability type is voice recognition software such as Dragon intended?
+		A: Motor
+
+	What do the first two goals of the United Nation's 2030 Agenda for Sustainable Development aim to end for people with disabilities?
+		A: Poverty and Hunger. (Other answers were poverty and discrimination, isolation and exclusion, clean water and sanitation. Official explanation: The percentage of persons with disabilities living in poverty is higher, sometimes double, than that of persons without disabilities. In developed countries, the average percentage of persons with disabilities who are unable to afford a meal with protein every second day is almost double that of persons without disabilities.)
+
+	According to the World Health Organization, cataracts are the leading cause of blindness globally. They account for approximately half of all cases. The second leading cause of blindness is:
+		A: Glaucoma. (I was pretty confident in this and got it right, but other answers were diabetic retinopathy, age-related macular degeneration, corneal opacities.)
+
+	As people age, which common economic problem do they face?
+		A: Higher healthcare costs
+
+	What percentage of people in the world have some type of disability?
+		A: 16% (other answers different percentages, but this is one to know.)
+
+
+	When speaking to a deaf person who is using a sign language interpreter, you should:
+		A: Speak to the deaf person
+
+	Someone is sitting in a wheelchair. Which is the most appropriate way of referring to them?
+		A: A person in a wheelchair (other answers had patronizing language)
+
+	You notice a person with crutches leaning on a door and adjusting their mobility devices for balance, and you believe they are struggling. What should you do?
+		A: Ask the person if they would like help opening the door (others had some issues, one 'open the door for them since they are struggling' seemed reasonable but I know it wasn't the right answer)
+
+	Which concept refers to providing practical measures in the workplace that create access for someone, and is required when barriers have not or cannot be removed?
+		A: Individual Accomodation (I was looking for 'Reasonable Accomodation' but it was not available. Two of the answers could be ruled out because they were philosophies of design, and 'accessibility conformance' did not sound right)
+
+	What might be a reasonable accommodation for someone taking a test?
+		A: Tape record responses for later transcription by another person (other answers I ruled out because they all seemed like they might provide an advantage)
+
+	The main difference between accommodation and inclusive design is:
+		A: Accommodation requires a request and needs assessment (ruled out inverse of this question and that either was 'required by law in all cases')
+
+	Which personal benefit is supported by increased opportunities for employment?
+		A: Greater family incomme and weath potential ('personal' benefit was a good clue here, increased innovation, improved corporate social responsibility, minimized legal risk are all business benefits)
+
+	Which of the following example meets the universal design principle of low physical effort?
+		A: Automatic soap dispensers
+
+	When profit-driven businesses create accessibility policies and programs to protect their assets and reputations, which type of risk are they trying to minimize?
+		A: Legal Risk (Accomodation risk was an alternate answer. )
+
+	For a society, increasing the participation of people with disabilities in the workforce leads to an increase in the number of taxpayers and the reduction of support costs. Which type of societal benefit is this?
+		A: Economic (Independence was another option, but since this was mostly economic went with that)
+
+	Accessible websites and services demonstrate corporate social responsibility. Which key business benefit does corporate social responsibility support?
+		A: Brand Enhancement
+
+	Captions make videos:
+		A: Perceivable. (I had answered 'Robust' because I thought they might already be perceivable to people without an auditory disability but that was incorrect thinking. Other options were operable and understandable)
+
+
+	Which is an example of a person without a disability who benefits from web accessibility?
+		A: Someone using their phone in bright sunlight (other options were all examples of people with disabilities)
+
+
+	By asking teachers to provide multiple ways of presenting information and learning activities, and how students demonstrate their knowledge, what does Universal Design for Learning emphasize?
+		A: Flexibility (accessibility was an option but flex made the most sense)
+
+	There is a great degree of individual variation in how learners can be motivated to learn. Some are highly motivated by spontaneity, for example, whereas others prefer routine. Which UDL principle is concerned with motivating learners?
+		A: Provide multiple means of engagement (all other answers were 'provide multiple means...')
+
+	Which UDL principle taps into the "how" of learning?
+		A: Provide multiple means of action and expression
+
+	The Web Content Accessibility Guidelines are an internationally accepted set of technical standards that explain how to make web content more accessible to people with disabilities. The standards are created by the World Wide Web Consortium (W3C) through its Web Accessibility Initiative. They are intended for web and application developers and designers, content creators, policymakers, purchasing agents, teachers, and students. The success criteria are categorized into three levels. Which level is the most commonly used?
+		A: 'AA' (A lower tier, AAA highest tier, I'm not sure A+ is a tier)
+
+	Information and user interface components must be presented to users in ways they can perceive. Which is the best example of making information perceptible?
+		A: Provide text alternatives for any non-text context
+
+	Which WCAG principle is concerned with ensuring someone be able to understand the information presented as well as the interface?
+		A: Understandable (I answered perceivable. Other answers were operable and rubust. Full explanation: Understandable. Users must be able to understand the information as well as the operation of the user interface. The content or operation cannot be beyond their understanding. This includes: making text content readable and understandable, making content appear and operate in predictable ways, and helping users avoid and correct mistakes.)
+
+	A person who cannot use a mouse to navigate a website must have full access to the site's interactive elements using the keyboard. Which WCAG principle addresses their need?
+		A: Operable
+
+	Which WCAG principle requires that content can be rendered in both current and future technologies (eg, wearables, virtual reality)?
+		A: Robust
+
+	WCAG is a set of standards for:
+		A: Making web content accessible (I answered 'web content accessibility guidelines'. Official explanation: Making web content accessible. According to the World Wide Web Consortium (W3C) Web Accessibility Initiative's Introduction to Web Accessibility: Web accessibility means that websites, tools, and technologies are designed and developed so that people with disabilities can use them. More specifically, people must be able to perceive, understand, navigate, interact with, and contribute to the Web.)
+
+	The principles of Universal Design for Learning recognize the need for variety to meet the needs of many types of learners. The principles focus on providing multiple means of:
+		Engagement, Representation, and Action & Expression
+
+	The goal of universal design for the built environment is to ensure the accessibility of multiple environments. Which is an example of such an environment?
+		A: Transportation Systems (only other one I even considered for a second was compatible environments)
+
+	What is the first phase of the user-centered design process?
+		A: Understand the users and their context
+
+	Which is an effective way to integrate accessibility into design?
+		A: Have users with disabilities evaluate accessibility
+
+	A person is trying to buy tickets online to a football game, but the interface is complicated and confusing, so they give up. The usability of the website is poor. What is the key focus of usability?
+		A: Ease of use (this was tricky for a sec because really, the whole question was just the last question to me)
+
+	Increased opportunities for employment lead to which personal benefit of accessibility?
+		A: Greater family income and wealth potential (this was a repeat question I think, just in a diff section of the test. 'greater innovation' was an option but didn't fit, that's a corporate/cultural/societal benefit mostly)
+
+	A person with limited mobility relies on their Alexa voice activated device to control the lights in their house. Which principle of universal design is illustrated by this example?
+		A: Low Physical Effort
+
+	A new store is being planned. The store's web team has been asked to design a website that will make online ordering as easy as possible. What is the best methodology the team can use to ensure people can easily use the site?
+		A: User-centered Design (I answered 'WCAG Design' but it was User-centered design. User-centered design is an iterative process that puts people at the center of the design of products, services, and environments.)
+
+	Including people with disabilities in every phase of product design and development is a best practice for ensuring the product is accessible. What is the other best practice?
+		A: Follow Standards (only other one I considered was 'stress test' but I didn't think they'd actually do that...)
+
+	Usability overlaps with accessibility when:
+		A: intended audience includes people with disabilities
+
+	Curb cuts were designed for people who use wheelchairs. They are also used by people pushing strollers and carts. Which universal design principle is represented by curb cuts?
+		A: Equitable use ('low physical effort','size and space for approach and use' were examples of wrong answers)
+
+	The set of principles for curriculum development that give students equal opportunities to learn is known as:
+		A: Universal Design for Learning
+
+	Which UDL principle is concerned with the brain's affective network and the "why" of learning?
+		A: Multiple means of engagement. I got this wrong, answered multiple means of action and expression. The multiple means of engagement principle is concerned with getting learners engaged and staying motivated. It answers the learner's question, "Why should I learn this?"
+
+	Learners differ in how they perceive and comprehend information. Those with disabilities or language or cultural differences may need different ways of learning the information. Which UDL principle asks teachers to provide options that help learners perceive and make sense of the information being taught?
+		A: Provide multiple means of representation
+
+	When a teacher provides options for students to show they know a topic, for example by writing an article or by giving a talk, which Universal Design for Learning principle are they using?
+		A: Provide multiple means of action and expression
+
+	Some students in an art class are right-handed and others are left-handed. They are all given the same type of ambidextrous scissor to use. The scissor design follows which principle of universal design?
+		A: Flexibility in use
+
+	Accessibility requirements for ICT support diversity. They have a broad range of benefits for users of all abilities including:
+		A) people with low literacy or not fluent in the language (was thinking ICT meant symbols?)
+
+	Which accessibility practice most enhances usability by lowering the cognitive load for users of all abilities?
+		A) Using clear language
+
+	Which design discipline is concerned with a person's entire journey a person has with a product, environment, or service?
+		A) User Experience. I had answered universal design because I was thinking about lifecycle of a product, but User experience. User experience is concerned with the entire journey a person has with a product. It addresses every point of interaction a person has with it over time, including: 1. Becoming aware of the product. 2. Acquiring or accessing it. 3. Using it for the first time. 4. Using it subsequent times. 5. Their feelings about it.
+
+	A main difference between UDL and WCAG is:
+		A) WCAG is a set of standards for making web content accessible.
+
+
+	A person who is blind navigates their computer using only the keyboard. Making all functionality available from a keyboard is part of which WCAG principle?
+		A) Operable
+
+	Which was the first international agreement to declare that people have fundamental human rights that must be universally protected?
+		A) Universal Declaration of Human Rights
+
+	Which is the first binding international human rights instrument that specifically protects the rights of people with disabilities?
+		A) Convention on the rights of persons with disabilities
+
+	Which of the following is a legally binding treaty that requires access to published works for persons who are blind, visually impaired, or otherwise print disabled?
+		A) The Marrakesh Treaty
+
+	Which of the following represents a shift from viewing those with disabilities as people in need of charity to people with rights?
+		A) Convention on the Rights of Persons with Disabilities
+
+	Which legal instrument sets out the full range of civil, political, economic, and social rights of everyone living in the European Union?
+		A) Charter of Fundamental Rights (another answer I considered was 'Convention on the Rights of EU Citizens' but I didn't remember reading about that one)
+
+	Which US national civil rights law puts in place protections for people with disabilities, and guarantees equal opportunities for them?
+		A) Americans with Disabilities Act (ADA). American Convention on Disability Act was another option, but I knew it was ADA, just had to know the abbreviation.
+
+	Which Canadian law currently applies government and federally regulated entities, but aims to make the country barrier free by 2040?
+		A) Accessible Canada Act
+
+	Which UK law provides people with improved protections from discrimination in the workplace and society?
+		A) Equality Act 2010
+
+	Which US domain-specific law requires that all communications and video programming be accessible?
+		A) 21st Century Communications and Video Accessibily Act (I answered Rehabilitation Act of 1973 because I thought that's where section 508 came from)
+
+
+	Per US law Section 504 of the Rehabilitation Act, giving a student a distraction-free place to study and take tests, modifying the test format, or providing extra time are examples of which type of accommodation?
+		A) Reasonable Accomodation
+
+	Which EU law prohibits disability discrimination in employment and occupation?
+		A) Employment Equality Directive (others were workplace equality act, equal opportunity directive, disability equality act. I was pretty sure on this based on reasoning, but not 100% confident in the answer, if answers weren't provided I don't think I could have come up with that string of text on my own)
+
+	Which European Union directive mandates functional requirements for ensuring the products and services of public, private, and non-profit entities are accessible?	
+		A) European Accessibility Act (other options were EU Disability directive, Europeat Accessibility Directive, EU ICT Directive...but I thought this one sounded the most reasonable, and I think I have run into it before)
+
+	Since the VPAT was designed for the US federal government procurement process, why do private businesses and organizations use it?
+		A) The VPAT provides an effective template for documenting ICT accessibility (tbh I need to know what VPAt is, I skipped this question then read the next question and concluded it must be related to ICT, which I also need to get more familiar with)
+
+	Which tool is designed to help an organization assesses its ICT accessibility progress?	
+		A) Maturity Model (I incorrectly answered VPAT. full explanation: Maturity model. Maturity models provide methods for defining, managing, and measuring an organization’s performance in meeting ICT accessibility best practices.)
+
+	Which is the best maturity model?
+		A) 'The one that best meets an organizations culture and needs'. I had answered 'Business Disability Forum Accesibility Maturity Model' incorrectly but thought about answering the correct answer, leaned against it because I was thinking it had to be a universal rule instead of relative, I was wrong.
+
+	In which way does an organization's management help launch and sustain an accessibility program?
+		A) Builds a vision and aligns implementation with organizational strategies (other answers I considered: is responsible for operational details, has the relationships in place to ensure success)
+
+	When planning a successful ICT accessibility program, efforts must be well grounded in:
+		A) Organizations culture, process, and practices (other answers were integrating goals into policies, adapting to new technologies, risk management)
+
+	What is an effective way to recruit people with disabilities to work in an organization?
+		- Post job openings on disability-focused job boards
+
+	As part of integrating ICT accessibility across an organization, which of the following is a procurement best practice?
+		- Verify product accessibility claims (others were publish it design standards, ensure your vendor policies are accessible - but I thought I rememberd reading about the correct answer)
+
+	Which activity is critical to the design and development of accessible ICT?
+		A) Testing. Ones I considered were repeatable processes, code libraries, but I thought testing must be included. Had to come back to this one. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Left off: Regional, National, Domain-Specific Instruments: https://iaap.edunext.io/courses/course-v1:IAAP+2024+2024/courseware/b85f8397a555490fb04dac47eede44d0/7d19149d088e43d4af4d18a148e146e2/?child=first
