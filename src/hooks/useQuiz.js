@@ -26,6 +26,8 @@ export function useQuiz() {
   }, []);
 
   const submitAnswer = useCallback((selectedIndex) => {
+    if (feedback !== null) return; // Guard against double submissions
+
     const question = questions[currentIndex];
     const isCorrect = selectedIndex === question.correct;
 
@@ -36,7 +38,7 @@ export function useQuiz() {
     }
 
     setFeedback({ isCorrect, selected: selectedIndex });
-  }, [questions, currentIndex]);
+  }, [questions, currentIndex, feedback]);
 
   const nextQuestion = useCallback(() => {
     if (currentIndex < questions.length - 1) {

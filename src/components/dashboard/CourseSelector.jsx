@@ -16,6 +16,7 @@ export default function CourseSelector({ activeCourse, onSelect }) {
         return (
           <button
             key={id}
+            id={`${id}-tab`}
             role="tab"
             aria-selected={isActive}
             aria-controls={`${id}-panel`}

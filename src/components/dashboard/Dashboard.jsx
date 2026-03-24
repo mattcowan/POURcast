@@ -20,45 +20,51 @@ export default function Dashboard({ cpaccDomains, wasDomains, stats }) {
 
   usePageFocus(headingRef);
 
-  const domains = activeCourse === 'cpacc' ? cpaccDomains : wasDomains;
-  const { title, subtitle } = COURSE_INFO[activeCourse];
-
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
       <CourseSelector activeCourse={activeCourse} onSelect={setActiveCourse} />
 
-      <div
-        id={`${activeCourse}-panel`}
-        role="tabpanel"
-        aria-label={title}
-      >
-        <div className="text-center mb-8">
-          <h1
-            ref={headingRef}
-            tabIndex={-1}
-            className="text-3xl font-bold mb-2"
-            style={{ color: 'var(--text-primary)' }}
-          >
-            {title}
-          </h1>
-          <p style={{ color: 'var(--text-muted)' }}>
-            {subtitle}
-          </p>
-        </div>
+      {Object.entries(COURSE_INFO).map(([courseKey, { title, subtitle }]) => {
+        const isActive = activeCourse === courseKey;
+        const courseDomains = courseKey === 'cpacc' ? cpaccDomains : wasDomains;
 
-        <section aria-label="Study domains">
-          <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-secondary)' }}>Domains</h2>
-          <div className="space-y-4">
-            {domains.map((domain) => (
-              <DomainCard
-                key={domain.id}
-                domain={domain}
-                domainStats={stats.domainStats?.[domain.id]}
-              />
-            ))}
+        return (
+          <div
+            key={courseKey}
+            id={`${courseKey}-panel`}
+            role="tabpanel"
+            aria-labelledby={`${courseKey}-tab`}
+            hidden={!isActive}
+          >
+            <div className="text-center mb-8">
+              <h1
+                ref={isActive ? headingRef : null}
+                tabIndex={-1}
+                className="text-3xl font-bold mb-2"
+                style={{ color: 'var(--text-primary)' }}
+              >
+                {title}
+              </h1>
+              <p style={{ color: 'var(--text-muted)' }}>
+                {subtitle}
+              </p>
+            </div>
+
+            <section aria-label="Study domains">
+              <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-secondary)' }}>Domains</h2>
+              <div className="space-y-4">
+                {courseDomains.map((domain) => (
+                  <DomainCard
+                    key={domain.id}
+                    domain={domain}
+                    domainStats={stats.domainStats?.[domain.id]}
+                  />
+                ))}
+              </div>
+            </section>
           </div>
-        </section>
-      </div>
+        );
+      })}
     </div>
   );
 }

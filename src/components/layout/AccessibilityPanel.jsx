@@ -42,11 +42,15 @@ export default function AccessibilityPanel() {
   const [isOpen, setIsOpen] = useState(false);
   const panelRef = useRef(null);
   const buttonRef = useRef(null);
+  const dialogRef = useRef(null);
   const { prefs, updatePref, resetPrefs } = useAccessibility();
 
-  // Close on Escape
+  // Close on Escape, focus dialog on open
   useEffect(() => {
     if (!isOpen) return;
+
+    // Move focus into dialog on open
+    dialogRef.current?.focus();
 
     function handleKeyDown(e) {
       if (e.key === 'Escape') {
@@ -75,7 +79,7 @@ export default function AccessibilityPanel() {
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
-        aria-haspopup="true"
+        aria-haspopup="dialog"
         aria-label="Accessibility settings"
         className="p-2 rounded-lg transition-colors"
         style={{
@@ -88,6 +92,8 @@ export default function AccessibilityPanel() {
 
       {isOpen && (
         <div
+          ref={dialogRef}
+          tabIndex={-1}
           role="dialog"
           aria-label="Accessibility preferences"
           className="absolute right-0 top-full mt-2 w-80 rounded-xl border-2 p-5 shadow-lg z-50 max-h-[80vh] overflow-y-auto"

@@ -21,7 +21,7 @@ export default function QuizView({ quiz, domains, onUpdateStats }) {
   useEffect(() => {
     if (quiz.isComplete) {
       const percentage = Math.round((quiz.score / quiz.totalQuestions) * 100);
-      onUpdateStats(quiz.domain.id, percentage);
+      onUpdateStats(quiz.domain.id, percentage, quiz.score);
       navigate('/results');
     }
   }, [quiz.isComplete, quiz.score, quiz.totalQuestions, quiz.domain, navigate, onUpdateStats]);

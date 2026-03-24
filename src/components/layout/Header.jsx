@@ -83,9 +83,13 @@ function StatsPopover({ stats }) {
   const [isOpen, setIsOpen] = useState(false);
   const popoverRef = useRef(null);
   const buttonRef = useRef(null);
+  const dialogRef = useRef(null);
 
   useEffect(() => {
     if (!isOpen) return;
+
+    // Move focus into dialog on open
+    dialogRef.current?.focus();
 
     function handleKeyDown(e) {
       if (e.key === 'Escape') {
@@ -114,7 +118,7 @@ function StatsPopover({ stats }) {
         ref={buttonRef}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
-        aria-haspopup="true"
+        aria-haspopup="dialog"
         aria-label="Your stats"
         className="p-2 rounded-lg transition-colors"
         style={{
@@ -127,6 +131,8 @@ function StatsPopover({ stats }) {
 
       {isOpen && (
         <div
+          ref={dialogRef}
+          tabIndex={-1}
           role="dialog"
           aria-label="Your progress"
           className="absolute right-0 top-full mt-2 w-56 rounded-xl border-2 p-4 shadow-lg z-50"

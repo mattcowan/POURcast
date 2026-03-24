@@ -9,7 +9,7 @@ export default function AppShell({ stats, children }) {
           Skip to main content
         </a>
         <Header stats={stats} />
-        <main id="main-content" className="flex-1">
+        <main id="main-content" className="flex-1" tabIndex={-1}>
           {children}
         </main>
         <footer

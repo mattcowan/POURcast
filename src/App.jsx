@@ -21,11 +21,16 @@ const CPACC_DOMAINS = [domain1, domain2, domain3];
 const WAS_DOMAINS = [wasDomain1, wasDomain2];
 const ALL_DOMAINS = [...CPACC_DOMAINS, ...WAS_DOMAINS];
 
+const DOMAINS_BY_COURSE = {
+  cpacc: CPACC_DOMAINS,
+  was: WAS_DOMAINS,
+};
+
 const INITIAL_STATS = {
   version: 1,
   xp: 0,
   streak: 0,
-  completedDomains: { cpacc: 0 },
+  completedDomains: { cpacc: 0, was: 0 },
   domainStats: {},
   lastStudyDate: null,
 };
@@ -35,20 +40,23 @@ export default function App() {
   const quiz = useQuiz();
 
   const updateStats = useCallback(
-    (domainId, percentage) => {
+    (domainId, percentage, score) => {
       setStats((prev) => {
         const domainHistory = prev.domainStats?.[domainId]?.history || [];
         const newHistory = [...domainHistory, percentage].slice(-10);
 
-        // Check if this unlocks the next domain
-        const domainIndex = ALL_DOMAINS.findIndex((d) => d.id === domainId);
-        let completedCount = prev.completedDomains?.cpacc || 0;
+        // Find which course this domain belongs to and track completion within that course
+        const domain = ALL_DOMAINS.find((d) => d.id === domainId);
+        const courseId = domain?.courseId || 'cpacc';
+        const courseDomains = DOMAINS_BY_COURSE[courseId] || [];
+        const domainIndex = courseDomains.findIndex((d) => d.id === domainId);
+        let completedCount = prev.completedDomains?.[courseId] || 0;
         if (percentage >= 60 && domainIndex >= 0 && domainIndex >= completedCount) {
           completedCount = domainIndex + 1;
         }
 
-        // Calculate XP
-        const xpGained = quiz.score * 10;
+        // Calculate XP from passed-in score
+        const xpGained = score * 10;
 
         // Update streak
         const today = new Date().toDateString();
@@ -62,7 +70,7 @@ export default function App() {
           lastStudyDate: today,
           completedDomains: {
             ...prev.completedDomains,
-            cpacc: Math.max(completedCount, prev.completedDomains?.cpacc || 0),
+            [courseId]: Math.max(completedCount, prev.completedDomains?.[courseId] || 0),
           },
           domainStats: {
             ...prev.domainStats,
@@ -71,7 +79,7 @@ export default function App() {
         };
       });
     },
-    [quiz.score, setStats]
+    [setStats]
   );
 
   return (
