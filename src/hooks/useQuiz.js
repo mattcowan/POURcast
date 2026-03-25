@@ -8,7 +8,7 @@ const QUESTIONS_PER_LESSON = 10;
  * so the answer data stays consistent with the new option order.
  */
 function shuffleOptions(question) {
-  // Build an array of indices [0,1,2,3] and shuffle them
+  // Build an array of indices for all options and shuffle them
   const indices = question.options.map((_, i) => i);
   const shuffledIndices = shuffle(indices);
 
