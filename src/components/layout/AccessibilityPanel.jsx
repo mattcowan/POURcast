@@ -11,9 +11,9 @@ const THEMES = [
 
 const FONT_FAMILIES = [
   { value: 'atkinson', label: 'Atkinson Hyperlegible' },
-  { value: 'sans-serif', label: 'Sans-serif' },
-  { value: 'serif', label: 'Serif' },
-  { value: 'comic-sans', label: 'Comic Sans' },
+  { value: 'sans-serif', label: 'Inter' },
+  { value: 'serif', label: 'Lora' },
+  { value: 'comic-sans', label: 'Comic Neue' },
 ];
 
 const FONT_SIZES = [
@@ -96,7 +96,7 @@ export default function AccessibilityPanel() {
           tabIndex={-1}
           role="dialog"
           aria-label="Accessibility preferences"
-          className="absolute right-0 top-full mt-2 w-80 rounded-xl border-2 p-5 shadow-lg z-50 max-h-[80vh] overflow-y-auto"
+          className="absolute right-0 top-full mt-2 w-96 rounded-xl border-2 p-5 shadow-lg z-50 max-h-[80vh] overflow-y-auto"
           style={{
             backgroundColor: 'var(--bg-surface)',
             borderColor: 'var(--border-default)',
@@ -144,9 +144,9 @@ export default function AccessibilityPanel() {
                 >
                   <span style={{
                     fontFamily: value === 'atkinson' ? "'Atkinson Hyperlegible', sans-serif"
-                      : value === 'serif' ? 'Georgia, serif'
-                      : value === 'comic-sans' ? "'Comic Sans MS', cursive"
-                      : 'system-ui, sans-serif'
+                      : value === 'serif' ? "'Lora', Georgia, serif"
+                      : value === 'comic-sans' ? "'Comic Neue', 'Comic Sans MS', cursive"
+                      : "'Inter', system-ui, sans-serif"
                   }}>
                     {label}
                   </span>
@@ -250,7 +250,7 @@ function OptionButton({ selected, onClick, children, className = '' }) {
     <button
       onClick={onClick}
       aria-pressed={selected}
-      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-base font-medium transition-colors border-2 ${className}`}
+      className={`flex items-center gap-2 px-3 py-2 rounded-lg text-base font-medium transition-colors border-2 text-left ${className}`}
       style={{
         backgroundColor: selected ? 'var(--bg-accent)' : 'var(--bg-surface)',
         borderColor: selected ? 'var(--text-accent)' : 'var(--border-default)',

@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { usePageFocus } from '../../hooks/usePageFocus';
 import DomainCard from './DomainCard';
+import MissedBankCard from './MissedBankCard';
 import CourseSelector from './CourseSelector';
 
 const COURSE_INFO = {
@@ -14,7 +15,7 @@ const COURSE_INFO = {
   },
 };
 
-export default function Dashboard({ cpaccDomains, wasDomains, stats }) {
+export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank, onStartReview }) {
   const headingRef = useRef(null);
   const [activeCourse, setActiveCourse] = useState('cpacc');
 
@@ -49,6 +50,19 @@ export default function Dashboard({ cpaccDomains, wasDomains, stats }) {
                 {subtitle}
               </p>
             </div>
+
+            {missedBank && (() => {
+              const missedCount = missedBank.getMissedIds(courseKey).length;
+              return missedCount > 0 ? (
+                <section aria-label="Missed questions review" className="mb-6">
+                  <MissedBankCard
+                    courseId={courseKey}
+                    count={missedCount}
+                    onStartReview={onStartReview}
+                  />
+                </section>
+              ) : null;
+            })()}
 
             <section aria-label="Study domains">
               <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-secondary)' }}>Domains</h2>

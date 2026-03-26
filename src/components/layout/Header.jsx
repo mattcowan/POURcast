@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookOpen, GraduationCap, Trophy, Star, Flame } from 'lucide-react';
+import { BookOpen, GraduationCap, Trophy, Star, Flame, Dumbbell } from 'lucide-react';
 import AccessibilityPanel from './AccessibilityPanel';
 
 export default function Header({ stats }) {
@@ -21,7 +21,7 @@ export default function Header({ stats }) {
           aria-label="POURcast home"
         >
           <GraduationCap size={28} aria-hidden="true" />
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-0.5">
             <span className="text-lg font-bold leading-tight">POURcast</span>
             <span
               className="hidden sm:inline text-base leading-tight"
@@ -37,7 +37,7 @@ export default function Header({ stats }) {
             <ul className="flex items-center gap-2 list-none m-0 p-0">
               <li>
                 <NavLink to="/" active={isHome} label="Practice">
-                  <BookOpen size={16} aria-hidden="true" />
+                  <Dumbbell size={16} aria-hidden="true" />
                 </NavLink>
               </li>
               <li>

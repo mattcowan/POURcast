@@ -41,8 +41,9 @@ export function useQuiz() {
   const [score, setScore] = useState(0);
   const [missedQuestions, setMissedQuestions] = useState([]);
   const [isComplete, setIsComplete] = useState(false);
+  const [isReview, setIsReview] = useState(false);
 
-  const startQuiz = useCallback((domainData, retryQuestions = null) => {
+  const startQuiz = useCallback((domainData, retryQuestions = null, reviewMode = false) => {
     const pool = retryQuestions || domainData.questions;
     const shuffled = shuffle(pool);
     const selected = shuffled.slice(0, Math.min(shuffled.length, QUESTIONS_PER_LESSON))
@@ -54,6 +55,7 @@ export function useQuiz() {
     setMissedQuestions([]);
     setFeedback(null);
     setIsComplete(false);
+    setIsReview(reviewMode);
   }, []);
 
   const submitAnswer = useCallback((selectedIndex) => {
@@ -88,11 +90,13 @@ export function useQuiz() {
     setMissedQuestions([]);
     setFeedback(null);
     setIsComplete(false);
+    setIsReview(false);
   }, []);
 
   return {
     domain,
     questions,
+    isReview,
     currentQuestion: questions[currentIndex] || null,
     currentIndex,
     totalQuestions: questions.length,

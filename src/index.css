@@ -37,6 +37,89 @@
   src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt93C1KxNDXMspQ1lPyU89-1h6ONRlW45G8e6Ki_-Bh.woff2') format('woff2');
 }
 
+/* Inter from Google Fonts */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2');
+}
+
+/* Lora from Google Fonts */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/lora/v37/0QIhMX1D_JOuMw_LIftL.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Lora';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/lora/v37/0QIhMX1D_JOuMw_LIftL.woff2') format('woff2');
+}
+
+/* Comic Neue from Google Fonts */
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/comicneue/v9/4UaHrEJDsxBrF37olUeD96rp5w.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/comicneue/v9/4UaErEJDsxBrF37olUeD_xHM8pxULg.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/comicneue/v9/4UaFrEJDsxBrF37olUeD96_Z5btx.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Comic Neue';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url('https://fonts.gstatic.com/s/comicneue/v9/4UaarEJDsxBrF37olUeD96_RXp5kLCND.woff2') format('woff2');
+}
+
 /* Default: Atkinson Hyperlegible */
 :root,
 [data-font-family="atkinson"] {
@@ -44,15 +127,15 @@
 }
 
 [data-font-family="sans-serif"] {
-  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', system-ui, sans-serif;
 }
 
 [data-font-family="serif"] {
-  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-family: 'Lora', Georgia, serif;
 }
 
 [data-font-family="comic-sans"] {
-  font-family: 'Comic Sans MS', 'Comic Sans', 'Chalkboard SE', cursive;
+  font-family: 'Comic Neue', 'Comic Sans MS', cursive;
 }
 
 /* ===================================================
@@ -62,17 +145,18 @@
 /* --- Light (default) --- */
 :root,
 [data-theme="light"] {
-  --bg-primary: #fffff0;
-  --bg-surface: #fffff0;
-  --bg-surface-hover: #f5f5e6;
+  --bg-primary: #faf9f6;
+  --bg-surface: #faf9f6;
+  --bg-surface-hover: #f0efec;
   --bg-accent: #eef5ff;
-  --text-primary: #111111;
+  --text-primary: #222222;
   --text-secondary: #3a3a3a;
   --text-muted: #5a5a5a;
   --text-accent: #1d4ed8;
-  --text-on-accent: #fffff0;
-  --border-default: #ddddd0;
-  --border-strong: #c8c8bc;
+  --text-on-accent: #faf9f6;
+  --btn-accent: #1d4ed8;
+  --border-default: #d8d7d4;
+  --border-strong: #c4c3c0;
   --success-bg: #f0fdf4;
   --success-border: #86efac;
   --success-text: #166534;
@@ -113,6 +197,7 @@
   --text-muted: #94a3b8;
   --text-accent: #60a5fa;
   --text-on-accent: #ffffff;
+  --btn-accent: #2563eb;
   --border-default: #334155;
   --border-strong: #475569;
   --success-bg: #052e16;
@@ -155,6 +240,7 @@
   --text-muted: #333333;
   --text-accent: #0000cc;
   --text-on-accent: #ffffff;
+  --btn-accent: #0000cc;
   --border-default: #000000;
   --border-strong: #000000;
   --success-bg: #e6ffe6;
@@ -197,6 +283,7 @@
   --text-muted: #cccccc;
   --text-accent: #66b3ff;
   --text-on-accent: #000000;
+  --btn-accent: #66b3ff;
   --border-default: #ffffff;
   --border-strong: #ffffff;
   --success-bg: #002200;
@@ -248,8 +335,9 @@
 /* ===================================================
    LINE HEIGHT — driven by data-line-height
    =================================================== */
-[data-line-height="increased"] {
-  line-height: 2;
+[data-line-height="increased"] p,
+[data-line-height="increased"] li {
+  line-height: 2 !important;
 }
 
 /* ===================================================
@@ -300,7 +388,7 @@ body {
   left: 0;
   z-index: 100;
   padding: 0.75rem 1.5rem;
-  background: var(--text-accent);
+  background: var(--btn-accent);
   color: var(--text-on-accent);
   font-weight: 600;
   text-decoration: none;

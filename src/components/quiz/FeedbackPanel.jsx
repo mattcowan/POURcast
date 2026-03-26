@@ -90,7 +90,7 @@ export default function FeedbackPanel({ question, feedback, onNext }) {
         onClick={onNext}
         className="mt-4 w-full py-3 px-6 font-semibold rounded-xl transition-colors"
         style={{
-          backgroundColor: 'var(--text-accent)',
+          backgroundColor: 'var(--btn-accent)',
           color: 'var(--text-on-accent)',
         }}
       >
