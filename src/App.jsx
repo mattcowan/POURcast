@@ -2,6 +2,7 @@ import { useCallback, lazy, Suspense } from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import { useLocalStorage } from './hooks/useLocalStorage';
 import { useQuiz } from './hooks/useQuiz';
+import { useMissedBank } from './hooks/useMissedBank';
 import { AccessibilityProvider } from './hooks/useAccessibility.jsx';
 import AppShell from './components/layout/AppShell';
 import Dashboard from './components/dashboard/Dashboard';
@@ -35,9 +36,21 @@ const INITIAL_STATS = {
   lastStudyDate: null,
 };
 
+function getQuestionsByIds(ids, domains) {
+  const idSet = new Set(ids);
+  const questions = [];
+  for (const domain of domains) {
+    for (const q of domain.questions) {
+      if (idSet.has(q.id)) questions.push(q);
+    }
+  }
+  return questions;
+}
+
 export default function App() {
   const [stats, setStats] = useLocalStorage('pourcast-stats', INITIAL_STATS);
   const quiz = useQuiz();
+  const missedBank = useMissedBank();
 
   const updateStats = useCallback(
     (domainId, percentage, score) => {
@@ -82,6 +95,20 @@ export default function App() {
     [setStats]
   );
 
+  const startReview = useCallback((courseId) => {
+    const missedIds = missedBank.getMissedIds(courseId);
+    const questions = getQuestionsByIds(missedIds, ALL_DOMAINS);
+    if (questions.length === 0) return false;
+    const reviewDomain = {
+      id: `review-${courseId}`,
+      courseId,
+      title: 'Missed Questions Review',
+      questions,
+    };
+    quiz.startQuiz(reviewDomain, null, true);
+    return true;
+  }, [missedBank, quiz]);
+
   return (
     <AccessibilityProvider>
     <HashRouter>
@@ -96,7 +123,15 @@ export default function App() {
           <Routes>
             <Route
               path="/"
-              element={<Dashboard cpaccDomains={CPACC_DOMAINS} wasDomains={WAS_DOMAINS} stats={stats} />}
+              element={
+                <Dashboard
+                  cpaccDomains={CPACC_DOMAINS}
+                  wasDomains={WAS_DOMAINS}
+                  stats={stats}
+                  missedBank={missedBank}
+                  onStartReview={startReview}
+                />
+              }
             />
             <Route
               path="/quiz/:domainId"
@@ -105,6 +140,7 @@ export default function App() {
                   quiz={quiz}
                   domains={ALL_DOMAINS}
                   onUpdateStats={updateStats}
+                  missedBank={missedBank}
                 />
               }
             />

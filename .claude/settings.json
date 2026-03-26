@@ -4,7 +4,9 @@
       "Bash(file /c/wamp64/www/pourcast/*)",
       "Bash(npm --version)",
       "Bash(npm create:*)",
-      "Bash(npx vite:*)"
+      "Bash(npx vite:*)",
+      "WebFetch(domain:webaim.org)",
+      "WebFetch(domain:fonts.googleapis.com)"
     ]
   }
 }

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Trophy, RotateCcw, Home, AlertCircle } from 'lucide-react';
 import { usePageFocus } from '../../hooks/usePageFocus';
@@ -10,7 +10,18 @@ export default function SuccessScreen({ quiz }) {
 
   usePageFocus(headingRef);
 
-  const { score, totalQuestions, missedQuestions, domain } = quiz;
+  const { score, totalQuestions, missedQuestions, domain, isComplete, isReview } = quiz;
+
+  useEffect(() => {
+    if (!isComplete || !domain) {
+      navigate('/');
+    }
+  }, [isComplete, domain, navigate]);
+
+  if (!isComplete || !domain) {
+    return null;
+  }
+
   const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
   const passed = percentage >= 60;
   const xpGained = score * 10;
@@ -21,14 +32,14 @@ export default function SuccessScreen({ quiz }) {
 
   function handleRetryMissed() {
     if (domain && missedQuestions.length > 0) {
-      quiz.startQuiz(domain, missedQuestions);
+      quiz.startQuiz(domain, missedQuestions, isReview);
       navigate(`/quiz/${domain.id}`);
     }
   }
 
   function handleRetryAll() {
     if (domain) {
-      quiz.startQuiz(domain);
+      quiz.startQuiz(domain, null, isReview);
       navigate(`/quiz/${domain.id}`);
     }
   }
@@ -111,7 +122,7 @@ export default function SuccessScreen({ quiz }) {
           onClick={handleRetryAll}
           className="w-full py-3 px-6 font-semibold rounded-xl transition-colors flex items-center justify-center gap-2"
           style={{
-            backgroundColor: 'var(--text-accent)',
+            backgroundColor: 'var(--btn-accent)',
             color: 'var(--text-on-accent)',
           }}
         >

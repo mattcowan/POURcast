@@ -67,7 +67,7 @@ export default function KnowledgeHome() {
             className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
             style={{
               backgroundColor: testFilter === value ? 'var(--bg-surface)' : 'transparent',
-              color: testFilter === value ? 'var(--text-accent)' : 'var(--text-muted)',
+              color: testFilter === value ? 'var(--text-accent)' : 'var(--text-secondary)',
               boxShadow: testFilter === value ? 'var(--shadow)' : 'none',
             }}
           >
@@ -200,7 +200,7 @@ function TopicRow({ topic }) {
                 className="px-2 py-0.5 rounded-full text-base font-medium"
                 style={{
                   backgroundColor: 'var(--bg-surface)',
-                  color: 'var(--text-muted)',
+                  color: 'var(--text-secondary)',
                   border: '1px solid var(--border-default)',
                 }}
               >
@@ -210,7 +210,7 @@ function TopicRow({ topic }) {
           </div>
         )}
       </div>
-      <p className="text-base mt-0.5 line-clamp-1" style={{ color: 'var(--text-muted)' }}>{topic.summary}</p>
+      <p className="text-base mt-0.5 line-clamp-1" style={{ color: 'var(--text-secondary)' }}>{topic.summary}</p>
     </Link>
   );
 }

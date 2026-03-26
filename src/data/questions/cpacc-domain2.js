@@ -519,7 +519,7 @@ export const domain2 = {
     },
     {
       id: 230,
-      question: "IMPORTANT DISTINCTION: A web page displays text in a very small font size that is hard to see. Is this a Perceivable or Understandable issue?",
+      question: "A web page displays text in a very small font size that is hard to see. Is this a Perceivable or Understandable issue?",
       options: [
         "Perceivable — the user cannot adequately detect or sense the content",
         "Understandable — the user cannot comprehend the content",
@@ -539,7 +539,7 @@ export const domain2 = {
     },
     {
       id: 231,
-      question: "IMPORTANT DISTINCTION: Content is presented in a language the user does not speak. Under WCAG, which principle does identifying the language of a page fall under?",
+      question: "Content is presented in a language the user does not speak. Under WCAG, which principle does identifying the language of a page fall under?",
       options: [
         "Understandable — Guideline 3.1 (Readable)",
         "Perceivable — Guideline 1.3 (Adaptable)",
@@ -1189,7 +1189,7 @@ export const domain2 = {
     },
     {
       id: 265,
-      question: "TRICKY: A teacher allows students to choose between writing an essay, creating a video, or giving an oral presentation to demonstrate their understanding. Which UDL principle does this BEST represent?",
+      question: "A teacher allows students to choose between writing an essay, creating a video, or giving an oral presentation to demonstrate their understanding. Which UDL principle does this BEST represent?",
       options: [
         "Multiple Means of Action & Expression — providing options for HOW students demonstrate learning",
         "Multiple Means of Engagement — providing options for WHY students are motivated",
@@ -1209,7 +1209,7 @@ export const domain2 = {
     },
     {
       id: 266,
-      question: "TRICKY: A teacher lets students choose their own topics for a research project based on their personal interests. Which UDL principle does this BEST represent?",
+      question: "A teacher lets students choose their own topics for a research project based on their personal interests. Which UDL principle does this BEST represent?",
       options: [
         "Multiple Means of Engagement — tapping into personal interest to motivate learning",
         "Multiple Means of Action & Expression — letting students choose how to demonstrate learning",
@@ -1229,7 +1229,7 @@ export const domain2 = {
     },
     {
       id: 267,
-      question: "TRICKY: A teacher provides a checklist, a rubric, and a goal-setting worksheet to help students plan their assignments. Which UDL principle does this BEST represent?",
+      question: "A teacher provides a checklist, a rubric, and a goal-setting worksheet to help students plan their assignments. Which UDL principle does this BEST represent?",
       options: [
         "Multiple Means of Action & Expression — supporting strategic planning and executive function",
         "Multiple Means of Engagement — motivating students through self-regulation",
@@ -1249,7 +1249,7 @@ export const domain2 = {
     },
     {
       id: 268,
-      question: "TRICKY: A teacher provides collaborative group activities and options for students to work independently. Which UDL principle does this BEST represent?",
+      question: "A teacher provides collaborative group activities and options for students to work independently. Which UDL principle does this BEST represent?",
       options: [
         "Multiple Means of Engagement — providing options for sustaining effort and collaboration",
         "Multiple Means of Action & Expression — providing different ways to complete tasks",
@@ -1309,7 +1309,7 @@ export const domain2 = {
     },
     {
       id: 271,
-      question: "TRICKY: A student who is motivated to learn but struggles with how to organize and submit their work is having difficulty with which UDL area?",
+      question: "A student who is motivated to learn but struggles with how to organize and submit their work is having difficulty with which UDL area?",
       options: [
         "Action & Expression — the strategic network for planning and executing",
         "Engagement — the affective network for motivation",
@@ -1349,7 +1349,7 @@ export const domain2 = {
     },
     {
       id: 273,
-      question: "TRICKY: A teacher offers students badges, progress tracking, and choice of difficulty levels to keep them motivated throughout a course. Which UDL principle is PRIMARY here?",
+      question: "A teacher offers students badges, progress tracking, and choice of difficulty levels to keep them motivated throughout a course. Which UDL principle is PRIMARY here?",
       options: [
         "Multiple Means of Engagement — sustaining effort and self-regulation through motivation strategies",
         "Multiple Means of Action & Expression — providing different ways to interact with the course",

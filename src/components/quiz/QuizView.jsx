@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { useAnnounce } from '../../hooks/useAnnounce';
@@ -6,10 +6,18 @@ import QuizCard from './QuizCard';
 import FeedbackPanel from './FeedbackPanel';
 import ProgressBar from './ProgressBar';
 
-export default function QuizView({ quiz, domains, onUpdateStats }) {
+export default function QuizView({ quiz, domains, onUpdateStats, missedBank }) {
   const { domainId } = useParams();
   const navigate = useNavigate();
   const announce = useAnnounce();
+  const hasHandledCompletion = useRef(false);
+
+  // Reset completion guard when a new quiz starts
+  useEffect(() => {
+    if (!quiz.isComplete) {
+      hasHandledCompletion.current = false;
+    }
+  }, [quiz.isComplete]);
 
   useEffect(() => {
     const domain = domains.find((d) => d.id === domainId);
@@ -19,12 +27,30 @@ export default function QuizView({ quiz, domains, onUpdateStats }) {
   }, [domainId, domains, quiz]);
 
   useEffect(() => {
-    if (quiz.isComplete) {
+    if (quiz.isComplete && !hasHandledCompletion.current) {
+      hasHandledCompletion.current = true;
+
       const percentage = Math.round((quiz.score / quiz.totalQuestions) * 100);
-      onUpdateStats(quiz.domain.id, percentage, quiz.score);
+      const courseId = quiz.domain.courseId || 'cpacc';
+
+      // Update missed bank: add newly missed, remove correctly answered
+      if (missedBank) {
+        const missedIds = quiz.missedQuestions.map((q) => q.id);
+        const missedIdSet = new Set(missedIds);
+        const allIds = quiz.questions.map((q) => q.id);
+        const correctIds = allIds.filter((id) => !missedIdSet.has(id));
+        missedBank.addMissed(courseId, missedIds);
+        missedBank.removeMissed(courseId, correctIds);
+      }
+
+      // Update stats (skip domain stats for review quizzes)
+      if (!quiz.isReview) {
+        onUpdateStats(quiz.domain.id, percentage, quiz.score);
+      }
+
       navigate('/results');
     }
-  }, [quiz.isComplete, quiz.score, quiz.totalQuestions, quiz.domain, navigate, onUpdateStats]);
+  }, [quiz.isComplete, quiz.score, quiz.totalQuestions, quiz.questions, quiz.missedQuestions, quiz.domain, quiz.isReview, navigate, onUpdateStats, missedBank]);
 
   useEffect(() => {
     if (quiz.currentQuestion) {
@@ -48,6 +74,7 @@ export default function QuizView({ quiz, domains, onUpdateStats }) {
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-6">
+      <h1 className="sr-only">{quiz.domain?.title || 'Quiz'}</h1>
       <div className="flex items-center gap-4 mb-6">
         <button
           onClick={() => {

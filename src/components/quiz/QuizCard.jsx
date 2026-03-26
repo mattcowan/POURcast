@@ -43,10 +43,18 @@ export default function QuizCard({ question, questionIndex, totalQuestions, feed
 
   function getOptionSymbol(state, optionIndex) {
     if (state === 'correct') {
-      return <CheckCircle size={20} style={{ color: 'var(--success-icon)', flexShrink: 0 }} aria-label="Correct answer" />;
+      return (
+        <span className="w-7 h-7 flex items-center justify-center flex-shrink-0">
+          <CheckCircle size={20} style={{ color: 'var(--success-icon)' }} aria-label="Correct answer" />
+        </span>
+      );
     }
     if (state === 'wrong') {
-      return <XCircle size={20} style={{ color: 'var(--error-icon)', flexShrink: 0 }} aria-label="Your incorrect selection" />;
+      return (
+        <span className="w-7 h-7 flex items-center justify-center flex-shrink-0">
+          <XCircle size={20} style={{ color: 'var(--error-icon)' }} aria-label="Your incorrect selection" />
+        </span>
+      );
     }
     const letter = String.fromCharCode(65 + optionIndex);
     return (
