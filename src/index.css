@@ -165,9 +165,9 @@
   --error-border: #fca5a5;
   --error-text: #991b1b;
   --error-icon: #dc2626;
-  --warning-bg: #fffbeb;
-  --warning-border: #fcd34d;
-  --warning-text: #92400e;
+  --warning-bg: #fef3e2;
+  --warning-border: #c2791a;
+  --warning-text: #7c3a0e;
   --info-bg: #eff6ff;
   --info-border: #93c5fd;
   --info-text: #1e40af;
@@ -294,9 +294,9 @@
   --error-border: #ff3333;
   --error-text: #ff9999;
   --error-icon: #ff3333;
-  --warning-bg: #332200;
-  --warning-border: #ffcc00;
-  --warning-text: #ffee99;
+  --warning-bg: #3d1e00;
+  --warning-border: #d4850f;
+  --warning-text: #f5b563;
   --info-bg: #000033;
   --info-border: #6699ff;
   --info-text: #99ccff;

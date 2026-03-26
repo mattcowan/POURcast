@@ -26,9 +26,9 @@ export default function MissedBankCard({ courseId, count, onStartReview }) {
           <RotateCcw size={20} className="text-white" aria-hidden="true" />
         </div>
         <div className="flex-1">
-          <h3 className="font-bold" style={{ color: 'var(--warning-text)' }}>
+          <h2 className="font-bold" style={{ color: 'var(--warning-text)' }}>
             Missed Questions
-          </h3>
+          </h2>
           <p className="text-base" style={{ color: 'var(--warning-text)' }}>
             {count} question{count !== 1 ? 's' : ''} to review
           </p>
