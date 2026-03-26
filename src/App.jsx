@@ -98,7 +98,7 @@ export default function App() {
   const startReview = useCallback((courseId) => {
     const missedIds = missedBank.getMissedIds(courseId);
     const questions = getQuestionsByIds(missedIds, ALL_DOMAINS);
-    if (questions.length === 0) return;
+    if (questions.length === 0) return false;
     const reviewDomain = {
       id: `review-${courseId}`,
       courseId,
@@ -106,6 +106,7 @@ export default function App() {
       questions,
     };
     quiz.startQuiz(reviewDomain, null, true);
+    return true;
   }, [missedBank, quiz]);
 
   return (

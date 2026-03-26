@@ -5,8 +5,9 @@ export default function MissedBankCard({ courseId, count, onStartReview }) {
   const navigate = useNavigate();
 
   function handleClick() {
-    onStartReview(courseId);
-    navigate(`/quiz/review-${courseId}`);
+    if (onStartReview(courseId) !== false) {
+      navigate(`/quiz/review-${courseId}`);
+    }
   }
 
   return (

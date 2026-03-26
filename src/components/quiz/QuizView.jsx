@@ -36,8 +36,9 @@ export default function QuizView({ quiz, domains, onUpdateStats, missedBank }) {
       // Update missed bank: add newly missed, remove correctly answered
       if (missedBank) {
         const missedIds = quiz.missedQuestions.map((q) => q.id);
+        const missedIdSet = new Set(missedIds);
         const allIds = quiz.questions.map((q) => q.id);
-        const correctIds = allIds.filter((id) => !missedIds.includes(id));
+        const correctIds = allIds.filter((id) => !missedIdSet.has(id));
         missedBank.addMissed(courseId, missedIds);
         missedBank.removeMissed(courseId, correctIds);
       }

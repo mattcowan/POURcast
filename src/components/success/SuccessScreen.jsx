@@ -10,7 +10,7 @@ export default function SuccessScreen({ quiz }) {
 
   usePageFocus(headingRef);
 
-  const { score, totalQuestions, missedQuestions, domain, isComplete } = quiz;
+  const { score, totalQuestions, missedQuestions, domain, isComplete, isReview } = quiz;
 
   useEffect(() => {
     if (!isComplete || !domain) {
@@ -32,14 +32,14 @@ export default function SuccessScreen({ quiz }) {
 
   function handleRetryMissed() {
     if (domain && missedQuestions.length > 0) {
-      quiz.startQuiz(domain, missedQuestions);
+      quiz.startQuiz(domain, missedQuestions, isReview);
       navigate(`/quiz/${domain.id}`);
     }
   }
 
   function handleRetryAll() {
     if (domain) {
-      quiz.startQuiz(domain);
+      quiz.startQuiz(domain, null, isReview);
       navigate(`/quiz/${domain.id}`);
     }
   }

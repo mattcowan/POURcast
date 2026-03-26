@@ -37,36 +37,20 @@
   src: url('https://fonts.gstatic.com/s/atkinsonhyperlegible/v11/9Bt93C1KxNDXMspQ1lPyU89-1h6ONRlW45G8e6Ki_-Bh.woff2') format('woff2');
 }
 
-/* Inter from Google Fonts */
+/* Inter from Google Fonts (variable font) */
 @font-face {
   font-family: 'Inter';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 400 700;
   font-display: swap;
   src: url('https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7.woff2') format('woff2');
-}
-
-/* Lora from Google Fonts */
+/* Lora from Google Fonts (variable font) */
 @font-face {
   font-family: 'Lora';
   font-style: normal;
-  font-weight: 400;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Lora';
-  font-style: normal;
-  font-weight: 700;
+  font-weight: 400 700;
   font-display: swap;
   src: url('https://fonts.gstatic.com/s/lora/v37/0QIvMX1D_JOuMwr7Iw.woff2') format('woff2');
 }
@@ -74,15 +58,7 @@
 @font-face {
   font-family: 'Lora';
   font-style: italic;
-  font-weight: 400;
-  font-display: swap;
-  src: url('https://fonts.gstatic.com/s/lora/v37/0QIhMX1D_JOuMw_LIftL.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: 'Lora';
-  font-style: italic;
-  font-weight: 700;
+  font-weight: 400 700;
   font-display: swap;
   src: url('https://fonts.gstatic.com/s/lora/v37/0QIhMX1D_JOuMw_LIftL.woff2') format('woff2');
 }
