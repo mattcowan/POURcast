@@ -1,10 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
-import { CheckCircle, XCircle, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState, useRef, useEffect, useMemo } from 'react';
+import { CheckCircle, XCircle, ChevronDown, ChevronUp, Flag } from 'lucide-react';
 import { getEncouragement } from '../../utils/encouragement';
 import TopicLinks from './TopicLinks';
 
-export default function FeedbackPanel({ question, feedback, onNext }) {
+export default function FeedbackPanel({ question, feedback, onNext, isFlagged, onToggleFlag }) {
   const [showExplanation, setShowExplanation] = useState(false);
+  const [showNoteInput, setShowNoteInput] = useState(false);
+  const [noteText, setNoteText] = useState('');
+  const noteInputRef = useRef(null);
   const panelRef = useRef(null);
   const { isCorrect, selected } = feedback;
 
@@ -12,7 +15,7 @@ export default function FeedbackPanel({ question, feedback, onNext }) {
     panelRef.current?.focus();
   }, []);
 
-  const encouragement = isCorrect ? getEncouragement() : null;
+  const encouragement = useMemo(() => isCorrect ? getEncouragement() : null, [isCorrect]);
   const allTopicLinks = question.topicLinks || [];
 
   return (
@@ -85,6 +88,108 @@ export default function FeedbackPanel({ question, feedback, onNext }) {
         slugs={allTopicLinks}
         label={isCorrect ? 'Dive deeper:' : 'Learn more about these topics:'}
       />
+
+      {onToggleFlag && (
+        <div className="mt-4">
+          {!isFlagged && !showNoteInput && (
+            <button
+              onClick={() => {
+                setShowNoteInput(true);
+                setTimeout(() => noteInputRef.current?.focus(), 0);
+              }}
+              aria-pressed={false}
+              className="flex items-center gap-2 py-2 px-3 rounded-lg text-base font-medium transition-colors border-2 bg-transparent cursor-pointer"
+              style={{
+                borderColor: 'var(--info-border)',
+                color: 'var(--info-text)',
+              }}
+            >
+              <Flag size={16} aria-hidden="true" />
+              Flag this question
+            </button>
+          )}
+
+          {!isFlagged && showNoteInput && (
+            <div className="flex flex-col gap-2">
+              <label
+                htmlFor="flag-note"
+                className="text-base font-medium"
+                style={{ color: 'var(--info-text)' }}
+              >
+                Why are you flagging this? (optional)
+              </label>
+              <input
+                ref={noteInputRef}
+                id="flag-note"
+                type="text"
+                maxLength={100}
+                value={noteText}
+                onChange={(e) => setNoteText(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter') {
+                    onToggleFlag(noteText.trim() || null);
+                    setShowNoteInput(false);
+                    setNoteText('');
+                  }
+                }}
+                placeholder="e.g., Seems like WAS material"
+                className="py-2 px-3 rounded-lg text-base border-2"
+                style={{
+                  borderColor: 'var(--info-border)',
+                  backgroundColor: 'var(--bg-surface)',
+                  color: 'var(--text-primary)',
+                }}
+              />
+              <div className="flex gap-2">
+                <button
+                  onClick={() => {
+                    onToggleFlag(noteText.trim() || null);
+                    setShowNoteInput(false);
+                    setNoteText('');
+                  }}
+                  className="flex items-center gap-2 py-2 px-3 rounded-lg text-base font-medium transition-colors border-0 cursor-pointer"
+                  style={{
+                    backgroundColor: 'var(--info-border)',
+                    color: '#fff',
+                  }}
+                >
+                  <Flag size={16} aria-hidden="true" />
+                  Flag
+                </button>
+                <button
+                  onClick={() => {
+                    setShowNoteInput(false);
+                    setNoteText('');
+                  }}
+                  className="py-2 px-3 rounded-lg text-base font-medium transition-colors border-2 bg-transparent cursor-pointer"
+                  style={{
+                    borderColor: 'var(--border-default)',
+                    color: 'var(--text-muted)',
+                  }}
+                >
+                  Cancel
+                </button>
+              </div>
+            </div>
+          )}
+
+          {isFlagged && (
+            <button
+              onClick={() => onToggleFlag()}
+              aria-pressed={true}
+              className="flex items-center gap-2 py-2 px-3 rounded-lg text-base font-medium transition-colors border-2 cursor-pointer"
+              style={{
+                borderColor: 'var(--info-border)',
+                backgroundColor: 'var(--info-bg)',
+                color: 'var(--info-text)',
+              }}
+            >
+              <Flag size={16} aria-hidden="true" fill="currentColor" />
+              Flagged
+            </button>
+          )}
+        </div>
+      )}
 
       <button
         onClick={onNext}

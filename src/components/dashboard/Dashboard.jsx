@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { usePageFocus } from '../../hooks/usePageFocus';
 import DomainCard from './DomainCard';
 import MissedBankCard from './MissedBankCard';
+import FlaggedBankCard from './FlaggedBankCard';
 import CourseSelector from './CourseSelector';
 
 const COURSE_INFO = {
@@ -15,7 +16,7 @@ const COURSE_INFO = {
   },
 };
 
-export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank, onStartReview }) {
+export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank, flaggedBank, onStartReview }) {
   const headingRef = useRef(null);
   const [activeCourse, setActiveCourse] = useState('cpacc');
 
@@ -59,6 +60,18 @@ export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank,
                     courseId={courseKey}
                     count={missedCount}
                     onStartReview={onStartReview}
+                  />
+                </section>
+              ) : null;
+            })()}
+
+            {flaggedBank && (() => {
+              const flaggedCount = flaggedBank.getFlaggedCount(courseKey);
+              return flaggedCount > 0 ? (
+                <section aria-label="Flagged questions review" className="mb-6">
+                  <FlaggedBankCard
+                    courseId={courseKey}
+                    count={flaggedCount}
                   />
                 </section>
               ) : null;
