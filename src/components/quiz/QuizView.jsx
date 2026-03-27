@@ -6,7 +6,7 @@ import QuizCard from './QuizCard';
 import FeedbackPanel from './FeedbackPanel';
 import ProgressBar from './ProgressBar';
 
-export default function QuizView({ quiz, domains, onUpdateStats, missedBank }) {
+export default function QuizView({ quiz, domains, onUpdateStats, missedBank, flaggedBank }) {
   const { domainId } = useParams();
   const navigate = useNavigate();
   const announce = useAnnounce();
@@ -105,6 +105,18 @@ export default function QuizView({ quiz, domains, onUpdateStats, missedBank }) {
           question={quiz.currentQuestion}
           feedback={quiz.feedback}
           onNext={quiz.nextQuestion}
+          isFlagged={flaggedBank?.isFlagged(quiz.domain?.courseId || 'cpacc', quiz.currentQuestion?.id)}
+          onToggleFlag={(note) => {
+            const courseId = quiz.domain?.courseId || 'cpacc';
+            const qId = quiz.currentQuestion?.id;
+            if (flaggedBank?.isFlagged(courseId, qId)) {
+              flaggedBank.unflagQuestion(courseId, qId);
+              announce('Question unflagged');
+            } else {
+              flaggedBank.flagQuestion(courseId, qId, note);
+              announce('Question flagged');
+            }
+          }}
         />
       )}
     </div>
