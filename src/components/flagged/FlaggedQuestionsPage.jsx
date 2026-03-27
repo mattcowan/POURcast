@@ -23,10 +23,11 @@ export default function FlaggedQuestionsPage({ flaggedBank, domains }) {
   const questions = getQuestionsByIds(flaggedIds, domains);
 
   // Build a lookup: question ID → domain title
+  const flaggedIdSet = new Set(flaggedIds);
   const domainByQuestionId = {};
   for (const domain of domains) {
     for (const q of domain.questions) {
-      if (flaggedIds.includes(q.id)) {
+      if (flaggedIdSet.has(q.id)) {
         domainByQuestionId[q.id] = domain.title;
       }
     }
@@ -141,7 +142,7 @@ export default function FlaggedQuestionsPage({ flaggedBank, domains }) {
             ))}
           </ul>
 
-          {questions.length > 1 && (
+          {questions.length > 0 && (
             <button
               onClick={handleClearAll}
               className="mt-6 w-full py-3 px-6 font-medium rounded-xl transition-colors border-2 bg-transparent cursor-pointer"
