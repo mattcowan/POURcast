@@ -16,6 +16,7 @@ import { domain3 } from './data/questions/cpacc-domain3';
 import { wasDomain1 } from './data/questions/was-domain1';
 import { wasDomain2 } from './data/questions/was-domain2';
 import { getQuestionsByIds } from './utils/getQuestionsByIds';
+import { getLocalDateString, getYesterdayDateString } from './utils/localDate';
 
 const KnowledgeHome = lazy(() => import('./components/knowledge/KnowledgeHome'));
 const TopicPage = lazy(() => import('./components/knowledge/TopicPage'));
@@ -64,16 +65,27 @@ export default function App() {
         // Calculate XP from passed-in score
         const xpGained = score * 10;
 
-        // Update streak
-        const today = new Date().toDateString();
+        // Update streak (consecutive days only)
+        const today = getLocalDateString();
+        const yesterday = getYesterdayDateString();
         const isNewDay = prev.lastStudyDate !== today;
-        const streak = isNewDay ? (prev.streak || 0) + 1 : prev.streak || 0;
+        let streak = prev.streak || 0;
+        if (isNewDay) {
+          streak = prev.lastStudyDate === yesterday ? streak + 1 : 1;
+        }
+
+        // Track recent lesson
+        const recentLessons = [
+          ...(prev.recentLessons || []),
+          { domainId, courseId, percentage, date: today },
+        ].slice(-10);
 
         return {
           ...prev,
           xp: (prev.xp || 0) + xpGained,
           streak,
           lastStudyDate: today,
+          recentLessons,
           completedDomains: {
             ...prev.completedDomains,
             [courseId]: Math.max(completedCount, prev.completedDomains?.[courseId] || 0),

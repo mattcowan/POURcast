@@ -1,8 +1,9 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useMemo } from 'react';
 import { usePageFocus } from '../../hooks/usePageFocus';
 import DomainCard from './DomainCard';
 import MissedBankCard from './MissedBankCard';
 import FlaggedBankCard from './FlaggedBankCard';
+import RecentActivity from './RecentActivity';
 import CourseSelector from './CourseSelector';
 
 const COURSE_INFO = {
@@ -21,6 +22,13 @@ export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank,
   const [activeCourse, setActiveCourse] = useState('cpacc');
 
   usePageFocus(headingRef);
+
+  const allDomains = useMemo(() => [...cpaccDomains, ...wasDomains], [cpaccDomains, wasDomains]);
+  const domainTitles = useMemo(() => {
+    const map = {};
+    for (const d of allDomains) map[d.id] = d.title;
+    return map;
+  }, [allDomains]);
 
   return (
     <div className="max-w-2xl mx-auto px-4 py-8">
@@ -51,6 +59,11 @@ export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank,
                 {subtitle}
               </p>
             </div>
+
+            <RecentActivity
+              recentLessons={(stats.recentLessons || []).filter((l) => l.courseId === courseKey)}
+              domainTitles={domainTitles}
+            />
 
             {missedBank && (() => {
               const missedCount = missedBank.getMissedIds(courseKey).length;

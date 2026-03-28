@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookOpen, GraduationCap, Trophy, Star, Flame, Dumbbell } from 'lucide-react';
+import { BookOpen, GraduationCap, Trophy, Star, Flame, Dumbbell, TrendingUp } from 'lucide-react';
 import AccessibilityPanel from './AccessibilityPanel';
 
 export default function Header({ stats }) {
@@ -168,8 +168,49 @@ function StatsPopover({ stats }) {
               </div>
             </div>
           </div>
+          <TrendDots recentLessons={stats.recentLessons} />
         </div>
       )}
+    </div>
+  );
+}
+
+function TrendDots({ recentLessons }) {
+  if (!recentLessons || recentLessons.length === 0) return null;
+
+  const recent = recentLessons.slice(-5);
+  const avg = Math.round(recent.reduce((sum, l) => sum + l.percentage, 0) / recent.length);
+
+  function getDotColor(pct) {
+    if (pct >= 80) return 'var(--success-icon)';
+    if (pct >= 60) return 'var(--xp-color)';
+    return 'var(--error-icon)';
+  }
+
+  return (
+    <div
+      className="mt-3 pt-3"
+      style={{ borderTop: '1px solid var(--border-default)' }}
+    >
+      <div className="flex items-center gap-2 mb-2">
+        <TrendingUp size={14} style={{ color: 'var(--text-muted)' }} aria-hidden="true" />
+        <span className="text-base font-medium" style={{ color: 'var(--text-muted)' }}>
+          Recent trend
+        </span>
+      </div>
+      <div className="flex items-center gap-1.5 mb-1" aria-hidden="true">
+        {recent.map((l, i) => (
+          <span
+            key={i}
+            className="w-3 h-3 rounded-full"
+            style={{ backgroundColor: getDotColor(l.percentage) }}
+          />
+        ))}
+      </div>
+      <p className="text-base" style={{ color: 'var(--text-muted)' }}>
+        Avg: <strong style={{ color: 'var(--text-primary)' }}>{avg}%</strong>
+        {' '}(last {recent.length})
+      </p>
     </div>
   );
 }
