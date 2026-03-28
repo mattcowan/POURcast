@@ -16,6 +16,7 @@ import { domain3 } from './data/questions/cpacc-domain3';
 import { wasDomain1 } from './data/questions/was-domain1';
 import { wasDomain2 } from './data/questions/was-domain2';
 import { getQuestionsByIds } from './utils/getQuestionsByIds';
+import { getLocalDateString, getYesterdayDateString } from './utils/localDate';
 
 const KnowledgeHome = lazy(() => import('./components/knowledge/KnowledgeHome'));
 const TopicPage = lazy(() => import('./components/knowledge/TopicPage'));
@@ -65,8 +66,8 @@ export default function App() {
         const xpGained = score * 10;
 
         // Update streak (consecutive days only)
-        const today = new Date().toDateString();
-        const yesterday = new Date(Date.now() - 86400000).toDateString();
+        const today = getLocalDateString();
+        const yesterday = getYesterdayDateString();
         const isNewDay = prev.lastStudyDate !== today;
         let streak = prev.streak || 0;
         if (isNewDay) {
@@ -76,7 +77,7 @@ export default function App() {
         // Track recent lesson
         const recentLessons = [
           ...(prev.recentLessons || []),
-          { domainId, courseId, percentage, date: new Date().toISOString().slice(0, 10) },
+          { domainId, courseId, percentage, date: today },
         ].slice(-10);
 
         return {

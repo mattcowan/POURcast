@@ -1,4 +1,5 @@
 import { TrendingUp } from 'lucide-react';
+import { getLocalDateString, getYesterdayDateString } from '../../utils/localDate';
 
 function getScoreColor(percentage) {
   if (percentage >= 80) return 'var(--success-icon)';
@@ -7,10 +8,8 @@ function getScoreColor(percentage) {
 }
 
 function formatRelativeDate(dateStr) {
-  const today = new Date().toISOString().slice(0, 10);
-  const yesterday = new Date(Date.now() - 86400000).toISOString().slice(0, 10);
-  if (dateStr === today) return 'Today';
-  if (dateStr === yesterday) return 'Yesterday';
+  if (dateStr === getLocalDateString()) return 'Today';
+  if (dateStr === getYesterdayDateString()) return 'Yesterday';
   const date = new Date(dateStr + 'T00:00:00');
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }

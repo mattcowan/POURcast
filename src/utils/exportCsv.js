@@ -3,8 +3,12 @@
  * Internal quotes are doubled per RFC 4180.
  */
 function escapeField(value) {
-  const str = String(value ?? '');
-  if (str.includes(',') || str.includes('"') || str.includes('\n')) {
+  let str = String(value ?? '');
+  // Neutralize formula injection for spreadsheet apps
+  if (/^[=+\-@]/.test(str)) {
+    str = '\t' + str;
+  }
+  if (str.includes(',') || str.includes('"') || str.includes('\n') || str.includes('\t')) {
     return `"${str.replace(/"/g, '""')}"`;
   }
   return str;
