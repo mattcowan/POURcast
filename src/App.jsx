@@ -64,16 +64,27 @@ export default function App() {
         // Calculate XP from passed-in score
         const xpGained = score * 10;
 
-        // Update streak
+        // Update streak (consecutive days only)
         const today = new Date().toDateString();
+        const yesterday = new Date(Date.now() - 86400000).toDateString();
         const isNewDay = prev.lastStudyDate !== today;
-        const streak = isNewDay ? (prev.streak || 0) + 1 : prev.streak || 0;
+        let streak = prev.streak || 0;
+        if (isNewDay) {
+          streak = prev.lastStudyDate === yesterday ? streak + 1 : 1;
+        }
+
+        // Track recent lesson
+        const recentLessons = [
+          ...(prev.recentLessons || []),
+          { domainId, courseId, percentage, date: new Date().toISOString().slice(0, 10) },
+        ].slice(-10);
 
         return {
           ...prev,
           xp: (prev.xp || 0) + xpGained,
           streak,
           lastStudyDate: today,
+          recentLessons,
           completedDomains: {
             ...prev.completedDomains,
             [courseId]: Math.max(completedCount, prev.completedDomains?.[courseId] || 0),

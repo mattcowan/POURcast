@@ -1,9 +1,10 @@
 import { useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { ArrowLeft, Flag, Trash2 } from 'lucide-react';
+import { ArrowLeft, Flag, Trash2, Download } from 'lucide-react';
 import { usePageFocus } from '../../hooks/usePageFocus';
 import { useAnnounce } from '../../hooks/useAnnounce';
 import { getQuestionsByIds } from '../../utils/getQuestionsByIds';
+import { downloadCsv } from '../../utils/exportCsv';
 
 const COURSE_LABELS = {
   cpacc: 'CPACC',
@@ -44,6 +45,19 @@ export default function FlaggedQuestionsPage({ flaggedBank, domains }) {
     announce('All flagged questions cleared.');
   }
 
+  function handleExport() {
+    const today = new Date().toISOString().slice(0, 10);
+    const headers = ['Question ID', 'Course', 'Domain', 'Question', 'Flag Note'];
+    const rows = questions.map((q) => [
+      String(q.id),
+      courseLabel,
+      domainByQuestionId[q.id] || '',
+      q.question,
+      entries[q.id] || '',
+    ]);
+    downloadCsv(`pourcast-flagged-${courseId}-${today}.csv`, headers, rows);
+  }
+
   const courseLabel = COURSE_LABELS[courseId] || courseId;
 
   return (
@@ -60,11 +74,21 @@ export default function FlaggedQuestionsPage({ flaggedBank, domains }) {
         <h1
           ref={headingRef}
           tabIndex={-1}
-          className="text-2xl font-bold"
+          className="text-2xl font-bold flex-1"
           style={{ color: 'var(--text-primary)' }}
         >
           Flagged Questions — {courseLabel}
         </h1>
+        {questions.length > 0 && (
+          <button
+            onClick={handleExport}
+            aria-label="Export flagged questions as CSV"
+            className="p-2 rounded-lg transition-colors border-0 bg-transparent cursor-pointer"
+            style={{ color: 'var(--text-muted)' }}
+          >
+            <Download size={20} aria-hidden="true" />
+          </button>
+        )}
       </div>
 
       {questions.length === 0 ? (
