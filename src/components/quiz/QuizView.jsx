@@ -11,6 +11,7 @@ export default function QuizView({ quiz, domains, onUpdateStats, missedBank, fla
   const navigate = useNavigate();
   const announce = useAnnounce();
   const hasHandledCompletion = useRef(false);
+  const isInitialMount = useRef(true);
 
   // Reset completion guard when a new quiz starts
   useEffect(() => {
@@ -21,9 +22,13 @@ export default function QuizView({ quiz, domains, onUpdateStats, missedBank, fla
 
   useEffect(() => {
     const domain = domains.find((d) => d.id === domainId);
-    if (domain && (!quiz.domain || quiz.domain.id !== domainId)) {
+    // On initial mount, also restart if the previous quiz for this domain is stale (already complete)
+    const isStaleCompletion = isInitialMount.current && quiz.isComplete;
+    if (domain && (!quiz.domain || quiz.domain.id !== domainId || isStaleCompletion)) {
+      hasHandledCompletion.current = true; // block stale completion effect
       quiz.startQuiz(domain);
     }
+    isInitialMount.current = false;
   }, [domainId, domains, quiz]);
 
   useEffect(() => {

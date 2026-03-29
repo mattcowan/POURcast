@@ -26,6 +26,7 @@ HashRouter (`/#/path`) — required for Apache subdirectory hosting at `/pourcas
 - `/results` — Post-quiz results
 - `/learn` — The Study Shelf (knowledge base home)
 - `/learn/:slug` — Individual topic page
+- `/activity` — Recent activity log (all completed lessons)
 
 KnowledgeHome and TopicPage are lazy-loaded via `React.lazy()`.
 
