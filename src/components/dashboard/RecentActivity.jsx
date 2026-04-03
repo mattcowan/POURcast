@@ -14,15 +14,19 @@ function formatRelativeDate(dateStr) {
   return date.toLocaleDateString('en-US', { month: 'short', day: 'numeric' });
 }
 
-export default function RecentActivity({ recentLessons, domainTitles }) {
+export default function RecentActivity({ recentLessons, domainTitles, title, sectionLabel }) {
   if (!recentLessons || recentLessons.length === 0) return null;
 
   const lessons = [...recentLessons].reverse();
   const avg = Math.round(lessons.reduce((sum, l) => sum + l.percentage, 0) / lessons.length);
   const best = Math.max(...lessons.map((l) => l.percentage));
 
+  const showHeader = title !== null;
+  const headingText = title || 'Recent Activity';
+  const ariaLabel = sectionLabel || headingText;
+
   return (
-    <section aria-label="Recent activity" className="mb-6">
+    <section aria-label={ariaLabel} className="mb-6">
       <div
         className="rounded-2xl border-2 overflow-hidden"
         style={{
@@ -30,12 +34,14 @@ export default function RecentActivity({ recentLessons, domainTitles }) {
           backgroundColor: 'var(--bg-surface)',
         }}
       >
-        <div className="flex items-center gap-2 px-5 pt-4 pb-2">
-          <TrendingUp size={18} style={{ color: 'var(--text-accent)' }} aria-hidden="true" />
-          <h2 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
-            Recent Activity
-          </h2>
-        </div>
+        {showHeader && (
+          <div className="flex items-center gap-2 px-5 pt-4 pb-2">
+            <TrendingUp size={18} style={{ color: 'var(--text-accent)' }} aria-hidden="true" />
+            <h2 className="text-base font-bold" style={{ color: 'var(--text-primary)' }}>
+              {headingText}
+            </h2>
+          </div>
+        )}
 
         <ul className="px-5 pb-2" role="list">
           {lessons.map((lesson, i) => (

@@ -83,6 +83,8 @@ export default function ActivityPage({ stats, allDomains }) {
                 <RecentActivity
                   recentLessons={lessons}
                   domainTitles={domainTitles}
+                  title={null}
+                  sectionLabel={`${label} recent activity`}
                 />
               </div>
             );
