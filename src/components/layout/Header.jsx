@@ -169,6 +169,9 @@ function StatsPopover({ stats }) {
             </div>
           </div>
           <TrendDots recentLessons={stats.recentLessons} />
+          {stats.recentLessons && stats.recentLessons.length > 0 && (
+            <ActivityLink onNavigate={() => setIsOpen(false)} />
+          )}
         </div>
       )}
     </div>
@@ -211,6 +214,34 @@ function TrendDots({ recentLessons }) {
         Avg: <strong style={{ color: 'var(--text-primary)' }}>{avg}%</strong>
         {' '}(last {recent.length})
       </p>
+    </div>
+  );
+}
+
+function ActivityLink({ onNavigate }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div
+      className="mt-3 pt-3"
+      style={{ borderTop: '1px solid var(--border-default)' }}
+    >
+      <Link
+        to="/activity"
+        onClick={onNavigate}
+        className="flex items-center gap-2 px-2 py-1.5 rounded-lg text-base font-medium no-underline transition-colors"
+        style={{
+          color: 'var(--text-accent)',
+          backgroundColor: hovered ? 'var(--bg-surface-hover)' : 'transparent',
+        }}
+        onMouseEnter={() => setHovered(true)}
+        onMouseLeave={() => setHovered(false)}
+        onFocus={() => setHovered(true)}
+        onBlur={() => setHovered(false)}
+      >
+        <TrendingUp size={16} aria-hidden="true" />
+        View all activity
+      </Link>
     </div>
   );
 }

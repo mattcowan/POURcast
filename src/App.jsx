@@ -21,6 +21,7 @@ import { getLocalDateString, getYesterdayDateString } from './utils/localDate';
 const KnowledgeHome = lazy(() => import('./components/knowledge/KnowledgeHome'));
 const TopicPage = lazy(() => import('./components/knowledge/TopicPage'));
 const FlaggedQuestionsPage = lazy(() => import('./components/flagged/FlaggedQuestionsPage'));
+const ActivityPage = lazy(() => import('./components/activity/ActivityPage'));
 
 const CPACC_DOMAINS = [domain1, domain2, domain3];
 const WAS_DOMAINS = [wasDomain1, wasDomain2];
@@ -163,6 +164,15 @@ export default function App() {
                 <FlaggedQuestionsPage
                   flaggedBank={flaggedBank}
                   domains={ALL_DOMAINS}
+                />
+              }
+            />
+            <Route
+              path="/activity"
+              element={
+                <ActivityPage
+                  stats={stats}
+                  allDomains={ALL_DOMAINS}
                 />
               }
             />
