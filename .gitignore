@@ -1,6 +1,6 @@
 node_modules/
 dist/
-public/fonts/
+src/assets/fonts/
 .env
 .env.local
 *.log

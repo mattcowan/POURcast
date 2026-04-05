@@ -10,7 +10,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/pourcast/fonts/atkinson-hyperlegible-400-normal.woff2') format('woff2');
+  src: url('./assets/fonts/atkinson-hyperlegible-400-normal.woff2') format('woff2');
 }
 
 @font-face {
@@ -18,7 +18,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/pourcast/fonts/atkinson-hyperlegible-700-normal.woff2') format('woff2');
+  src: url('./assets/fonts/atkinson-hyperlegible-700-normal.woff2') format('woff2');
 }
 
 @font-face {
@@ -26,7 +26,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/pourcast/fonts/atkinson-hyperlegible-400-italic.woff2') format('woff2');
+  src: url('./assets/fonts/atkinson-hyperlegible-400-italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -34,7 +34,7 @@
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('/pourcast/fonts/atkinson-hyperlegible-700-italic.woff2') format('woff2');
+  src: url('./assets/fonts/atkinson-hyperlegible-700-italic.woff2') format('woff2');
 }
 
 /* Inter — self-hosted (variable font) */
@@ -43,7 +43,7 @@
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/pourcast/fonts/inter-400-700-normal.woff2') format('woff2');
+  src: url('./assets/fonts/inter-400-700-normal.woff2') format('woff2');
 }
 
 /* Lora — self-hosted (variable font) */
@@ -52,7 +52,7 @@
   font-style: normal;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/pourcast/fonts/lora-400-700-normal.woff2') format('woff2');
+  src: url('./assets/fonts/lora-400-700-normal.woff2') format('woff2');
 }
 
 @font-face {
@@ -60,7 +60,7 @@
   font-style: italic;
   font-weight: 400 700;
   font-display: swap;
-  src: url('/pourcast/fonts/lora-400-700-italic.woff2') format('woff2');
+  src: url('./assets/fonts/lora-400-700-italic.woff2') format('woff2');
 }
 
 /* Comic Neue — self-hosted */
@@ -69,7 +69,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('/pourcast/fonts/comic-neue-400-normal.woff2') format('woff2');
+  src: url('./assets/fonts/comic-neue-400-normal.woff2') format('woff2');
 }
 
 @font-face {
@@ -77,7 +77,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url('/pourcast/fonts/comic-neue-700-normal.woff2') format('woff2');
+  src: url('./assets/fonts/comic-neue-700-normal.woff2') format('woff2');
 }
 
 @font-face {
@@ -85,7 +85,7 @@
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/pourcast/fonts/comic-neue-400-italic.woff2') format('woff2');
+  src: url('./assets/fonts/comic-neue-400-italic.woff2') format('woff2');
 }
 
 @font-face {
@@ -93,7 +93,7 @@
   font-style: italic;
   font-weight: 700;
   font-display: swap;
-  src: url('/pourcast/fonts/comic-neue-700-italic.woff2') format('woff2');
+  src: url('./assets/fonts/comic-neue-700-italic.woff2') format('woff2');
 }
 
 /* Default: Atkinson Hyperlegible */
