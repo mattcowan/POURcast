@@ -437,43 +437,43 @@ export const domain1 = {
     },
     {
       id: 122,
-      question: "Approximately what percentage of males have color vision deficiency (color blindness)?",
+      question: "A data analyst creates a dashboard that uses only red and green to distinguish 'failing' vs. 'passing' metrics — no labels, icons, or patterns. Which user group is MOST likely to face a barrier, and why?",
       options: [
-        "1%",
-        "4%",
-        "8%",
-        "15%"
+        "People with color vision deficiency — red-green is the most common type, affecting roughly 8% of males",
+        "People who are deaf — they cannot hear alert sounds that accompany the colors",
+        "People with motor disabilities — the color-coded elements are difficult to click",
+        "People with cognitive disabilities — dashboards are inherently too complex"
       ],
-      correct: 2,
-      explanation: "Approximately 8% of males have some form of color vision deficiency. The much lower rate in females (about 0.5%) is because the most common types are linked to the X chromosome.",
+      correct: 0,
+      explanation: "Red-green color vision deficiency is the most common type, affecting approximately 8% of males and 0.5% of females. Relying solely on red vs. green with no other visual indicators (labels, icons, patterns) makes the information inaccessible to this significant group. WCAG requires that color is not the only means of conveying information.",
       wrongExplanations: {
-        0: "1% significantly underestimates the prevalence of color vision deficiency in males.",
-        1: "4% is lower than the actual prevalence of approximately 8% in males.",
-        3: "15% significantly overestimates the prevalence of color vision deficiency in males."
+        1: "Deafness relates to audio barriers, not visual color distinctions. Even if alerts accompanied the colors, the core issue is the visual-only color coding.",
+        2: "Motor disabilities affect interaction with controls, not the ability to perceive color differences in a display.",
+        3: "While cognitive load is a real concern, the specific barrier described — relying solely on red vs. green — is a color vision deficiency issue, not a general complexity issue."
       },
-      topicLinks: ['color-vision-deficiency'],
+      topicLinks: ['color-vision-deficiency', 'visual-disabilities'],
       difficulty: 'medium',
-      tags: ['disability-types', 'visual', 'statistics']
+      tags: ['disability-types', 'visual', 'scenario']
     },
     {
       id: 123,
-      question: "What is the approximate prevalence of color vision deficiency in females?",
+      question: "Color vision deficiency affects approximately 8% of males but only 0.5% of females. What is the PRIMARY reason for this large difference, and what does it mean for design?",
       options: [
-        "0.5%",
-        "4%",
-        "8%",
-        "12%"
+        "The most common forms are X-linked recessive — males need only one affected X chromosome, so designers must assume a significant portion of any audience is affected",
+        "Females have better-developed retinal cones due to hormonal differences, so accessibility guidelines only need to consider male users",
+        "Color vision deficiency is a learned condition that develops more in males due to environmental factors",
+        "Males are more likely to report symptoms, so the actual rates are probably equal"
       ],
       correct: 0,
-      explanation: "Approximately 0.5% of females have color vision deficiency, compared to about 8% of males. The lower rate in females is because the most common forms are X-linked recessive traits, requiring two affected X chromosomes in females.",
+      explanation: "Red-green color vision deficiency is X-linked recessive. Males (XY) need only one affected X chromosome, while females (XX) need two. This genetic basis means the prevalence is real and consistent — roughly 1 in 12 males. Designers must ensure color is never the sole means of conveying information, since a significant minority of any audience will be affected.",
       wrongExplanations: {
-        1: "4% is much higher than the actual prevalence of approximately 0.5% in females.",
-        2: "8% is the prevalence rate for males, not females.",
-        3: "12% is far higher than the actual prevalence in either sex."
+        1: "The difference is genetic (X-linked), not hormonal. Accessibility guidelines apply universally — the point is that color-only coding fails for a significant portion of ALL audiences.",
+        2: "Color vision deficiency is a genetic condition, not an environmentally learned one. The prevalence difference is due to X-linked inheritance patterns.",
+        3: "The difference is well-documented through clinical testing and reflects genuine genetic prevalence, not reporting bias."
       },
-      topicLinks: ['color-vision-deficiency'],
+      topicLinks: ['color-vision-deficiency', 'visual-disabilities'],
       difficulty: 'medium',
-      tags: ['disability-types', 'visual', 'statistics']
+      tags: ['disability-types', 'visual', 'scenario']
     },
     {
       id: 124,
@@ -635,7 +635,7 @@ export const domain1 = {
         1: "People with hearing disabilities use hearing aids, cochlear implants, and captions — not AAC devices, which assist with speech production.",
         3: "While some people with cognitive disabilities may also use AAC, the primary purpose of AAC is to address speech and communication limitations."
       },
-      topicLinks: ['aac', 'speech-disabilities', 'assistive-technology'],
+      topicLinks: ['aac', 'aac-devices', 'speech-disabilities', 'assistive-technology'],
       difficulty: 'medium',
       tags: ['disability-types', 'speech', 'assistive-technology', 'emphasis']
     },
@@ -1133,23 +1133,23 @@ export const domain1 = {
     // =============================================
     {
       id: 156,
-      question: "JAWS (Job Access With Speech) is a screen reader PRIMARILY used by people with:",
+      question: "A screen reader like JAWS navigates a web page by building an 'accessibility tree' from the page's code. Which element of web development is MOST critical for screen readers to work correctly?",
       options: [
-        "Motor disabilities",
-        "Hearing disabilities",
-        "Visual disabilities (blindness)",
-        "Speech disabilities"
+        "Semantic HTML — proper headings, landmarks, and labels give the accessibility tree meaningful structure",
+        "Visual CSS styling — screen readers interpret colors and fonts to determine content importance",
+        "JavaScript animations — screen readers need motion cues to understand page transitions",
+        "High-resolution images — screen readers analyze image pixels to describe visual content"
       ],
-      correct: 2,
-      explanation: "JAWS is a screen reader that converts on-screen text to synthesized speech or braille output. It is primarily used by people who are blind or have severe visual impairments to access computers and the web.",
+      correct: 0,
+      explanation: "Screen readers like JAWS rely on the accessibility tree, which is built from semantic HTML structure — headings (h1-h6), landmarks (nav, main, aside), form labels, alt text, and ARIA attributes. Without proper semantics, the accessibility tree is flat and unusable. CSS styling, animations, and image resolution are irrelevant to screen reader navigation.",
       wrongExplanations: {
-        0: "People with motor disabilities typically use alternative input devices (switches, voice recognition) rather than screen readers like JAWS.",
-        1: "People with hearing disabilities need visual accommodations (captions, sign language), not audio-based screen readers.",
-        3: "People with speech disabilities use AAC devices for communication, not screen readers. JAWS produces speech output but is not an assistive technology for speech disabilities."
+        1: "Screen readers do not interpret CSS visual styling. Colors, fonts, and layout are invisible to them — only the semantic structure of the HTML matters.",
+        2: "JavaScript animations are visual effects. Screen readers cannot interpret motion. In fact, excessive animations can be problematic for users with vestibular or cognitive disabilities.",
+        3: "Screen readers cannot analyze image pixels. They rely entirely on text alternatives (alt attributes) provided by the developer."
       },
-      topicLinks: ['screen-readers', 'jaws', 'assistive-technology'],
-      difficulty: 'easy',
-      tags: ['assistive-technology', 'emphasis']
+      topicLinks: ['screen-readers', 'assistive-technology'],
+      difficulty: 'medium',
+      tags: ['assistive-technology', 'scenario']
     },
     {
       id: 157,
@@ -1267,7 +1267,7 @@ export const domain1 = {
         2: "People with motor disabilities need alternative input devices, not braille displays which require fine touch sensation.",
         3: "People with speech disabilities use AAC devices, not braille displays."
       },
-      topicLinks: ['braille-displays', 'assistive-technology'],
+      topicLinks: ['braille-displays', 'refreshable-braille', 'assistive-technology'],
       difficulty: 'easy',
       tags: ['assistive-technology']
     },
@@ -1327,7 +1327,7 @@ export const domain1 = {
         2: "Converting speech to text describes real-time captioning or speech-to-text technology, not hearing loops.",
         3: "Translating speech into sign language would require a sign language interpreter or avatar, not a hearing loop."
       },
-      topicLinks: ['hearing-aids', 'hearing-loops', 'assistive-technology'],
+      topicLinks: ['hearing-aids', 'hearing-loops', 'hearing-assistive-tech', 'assistive-technology'],
       difficulty: 'medium',
       tags: ['assistive-technology']
     },
@@ -1367,7 +1367,7 @@ export const domain1 = {
         2: "AAC devices are for speech disabilities and switch access is for motor disabilities — neither addresses blindness.",
         3: "Voice recognition is for motor disabilities (input), and screen magnifiers are for low vision. Neither is the primary AT for blindness."
       },
-      topicLinks: ['screen-readers', 'braille-displays', 'assistive-technology'],
+      topicLinks: ['screen-readers', 'braille-displays', 'refreshable-braille', 'assistive-technology'],
       difficulty: 'medium',
       tags: ['assistive-technology', 'emphasis']
     },
@@ -1387,7 +1387,7 @@ export const domain1 = {
         1: "People with hearing disabilities need to receive audio in alternative formats, not generate speech. VOCAs generate speech for the user.",
         3: "While some people with cognitive disabilities may also have speech limitations, VOCAs are specifically AT for speech disabilities."
       },
-      topicLinks: ['aac', 'voca', 'speech-disabilities', 'assistive-technology'],
+      topicLinks: ['aac', 'aac-devices', 'voca', 'speech-disabilities', 'assistive-technology'],
       difficulty: 'medium',
       tags: ['assistive-technology', 'emphasis']
     },
@@ -1407,7 +1407,7 @@ export const domain1 = {
         2: "This incorrectly assigns all three technologies. JAWS is for visual (not hearing), Dragon is for motor (not speech), and AAC is for speech (not visual).",
         3: "This incorrectly assigns all three technologies. JAWS is for visual (not speech), Dragon is for motor (not cognitive), and AAC is for speech (not motor)."
       },
-      topicLinks: ['screen-readers', 'voice-recognition', 'aac', 'assistive-technology'],
+      topicLinks: ['screen-readers', 'voice-recognition', 'aac', 'aac-devices', 'assistive-technology'],
       difficulty: 'hard',
       tags: ['assistive-technology', 'emphasis']
     },
@@ -1427,7 +1427,7 @@ export const domain1 = {
         2: "Cochlear implants require surgery to place the internal component; hearing aids are the non-surgical, external devices.",
         3: "Cochlear implants are typically for severe to profound hearing loss, not mild hearing loss. Hearing aids are used for the full range of hearing loss."
       },
-      topicLinks: ['cochlear-implants', 'hearing-aids', 'assistive-technology'],
+      topicLinks: ['cochlear-implants', 'hearing-aids', 'hearing-assistive-tech', 'assistive-technology'],
       difficulty: 'medium',
       tags: ['assistive-technology']
     },
@@ -1467,29 +1467,29 @@ export const domain1 = {
         2: "A screen magnifier requires usable vision, and audio enhancement requires hearing — neither is accessible for a deaf-blind person.",
         3: "Hearing loops require hearing, and captions require vision — neither is accessible for a deaf-blind person."
       },
-      topicLinks: ['braille-displays', 'deaf-blindness', 'assistive-technology'],
+      topicLinks: ['braille-displays', 'refreshable-braille', 'deaf-blindness', 'assistive-technology'],
       difficulty: 'hard',
       tags: ['assistive-technology', 'scenario']
     },
     {
       id: 173,
-      question: "Which of the following is NOT a screen reader?",
+      question: "Assistive technologies can be grouped into categories based on the type of barrier they address. Which grouping CORRECTLY matches the AT category to its purpose?",
       options: [
-        "JAWS",
-        "NVDA",
-        "Dragon NaturallySpeaking",
-        "VoiceOver"
+        "Output AT (screen readers, braille displays) makes digital content perceivable; Input AT (switches, eye trackers, voice recognition) makes interfaces operable",
+        "Output AT (voice recognition, sip-and-puff) lets users control devices; Input AT (screen readers, captions) presents content to users",
+        "Sensory AT (screen magnifiers, hearing aids) addresses cognitive barriers; Motor AT (JAWS, NVDA) addresses physical barriers",
+        "All assistive technologies serve the same purpose — they make content perceivable to users with any type of disability"
       ],
-      correct: 2,
-      explanation: "Dragon NaturallySpeaking is voice recognition software (speech input), not a screen reader (speech output). JAWS, NVDA, and VoiceOver are all screen readers that convert visual content to speech for blind users.",
+      correct: 0,
+      explanation: "AT can be categorized by function: Output AT (screen readers, braille displays, screen magnifiers) makes content perceivable by converting it to accessible formats. Input AT (switches, sip-and-puff, eye trackers, voice recognition like Dragon) provides alternative ways to operate interfaces. Understanding these categories helps match the right AT to the right barrier.",
       wrongExplanations: {
-        0: "JAWS (Job Access With Speech) is one of the most widely used commercial screen readers.",
-        1: "NVDA (NonVisual Desktop Access) is a free, open-source screen reader for Windows.",
-        3: "VoiceOver is Apple's built-in screen reader for macOS and iOS devices."
+        1: "This reverses the categories. Voice recognition and sip-and-puff are input technologies (alternatives to keyboard/mouse). Screen readers are output technologies (they present content in accessible formats).",
+        2: "Screen magnifiers address visual (sensory) barriers, but JAWS and NVDA are screen readers that also address visual barriers — not motor/physical barriers. The categories here are incorrectly matched.",
+        3: "Different AT serves very different purposes. A screen reader addresses visual barriers, while a switch device addresses motor barriers. One-size-fits-all is not how AT works."
       },
-      topicLinks: ['screen-readers', 'voice-recognition', 'assistive-technology'],
-      difficulty: 'medium',
-      tags: ['assistive-technology', 'emphasis']
+      topicLinks: ['screen-readers', 'switch-devices', 'assistive-technology'],
+      difficulty: 'hard',
+      tags: ['assistive-technology']
     },
     {
       id: 174,
@@ -1507,29 +1507,29 @@ export const domain1 = {
         1: "A hearing aid amplifies sound for people with hearing loss; it does not help someone who cannot produce speech.",
         3: "A screen magnifier enlarges visual content for people with low vision; it does not address speech production."
       },
-      topicLinks: ['aac', 'voca', 'speech-disabilities', 'assistive-technology'],
+      topicLinks: ['aac', 'aac-devices', 'voca', 'speech-disabilities', 'assistive-technology'],
       difficulty: 'easy',
       tags: ['assistive-technology', 'scenario', 'emphasis']
     },
     {
       id: 175,
-      question: "Which of the following statements about assistive technologies is INCORRECT?",
+      question: "A person with ALS (amyotrophic lateral sclerosis) has limited speech AND limited motor control. They need to both browse the web and communicate with others. Which combination of AT would BEST address both needs?",
       options: [
-        "Screen readers convert visual content to speech or braille for blind users",
-        "AAC devices help people with speech disabilities communicate",
-        "Dragon NaturallySpeaking is a screen reader used by blind people",
-        "Sip-and-puff devices allow people with severe motor disabilities to control computers"
+        "Eye-tracking input device paired with a screen reader and AAC software — eye tracking provides input, the screen reader makes content accessible, and AAC enables communication",
+        "Dragon NaturallySpeaking paired with a hearing aid — voice recognition provides input and the hearing aid handles output",
+        "A standard keyboard with a screen magnifier — magnification solves all access barriers",
+        "Captions and a sip-and-puff device — captions make all content accessible and sip-and-puff handles input"
       ],
-      correct: 2,
-      explanation: "Dragon NaturallySpeaking is NOT a screen reader — it is voice recognition software used primarily by people with motor disabilities. Screen readers (JAWS, NVDA, VoiceOver) are the AT used by blind people.",
+      correct: 0,
+      explanation: "ALS often affects both speech and motor function. Eye tracking provides an alternative input method that requires minimal physical movement. A screen reader makes web content perceivable as audio or braille. AAC software with eye-gaze control enables communication. This combination addresses the intersection of motor and speech barriers — an important example of how people with complex needs may use multiple AT together.",
       wrongExplanations: {
-        0: "This statement is correct: screen readers do convert visual content to speech or braille output for blind users.",
-        1: "This statement is correct: AAC devices are designed to help people with speech disabilities communicate.",
-        3: "This statement is correct: sip-and-puff devices detect breath patterns to control computers and wheelchairs for users with severe motor disabilities."
+        1: "Dragon NaturallySpeaking requires clear speech input, which would not work for someone with limited speech due to ALS. A hearing aid addresses hearing loss, which is not the barrier described.",
+        2: "A standard keyboard requires motor control that someone with ALS may lack. Screen magnification addresses low vision, which is not the barrier described.",
+        3: "Captions address hearing barriers for audio/video content, not general web browsing. While sip-and-puff could work for input, it alone doesn't address communication or content output needs."
       },
-      topicLinks: ['voice-recognition', 'screen-readers', 'assistive-technology'],
+      topicLinks: ['switch-devices', 'screen-readers', 'aac-devices', 'assistive-technology'],
       difficulty: 'hard',
-      tags: ['assistive-technology', 'emphasis']
+      tags: ['assistive-technology', 'scenario']
     },
 
     // =============================================
@@ -1537,23 +1537,23 @@ export const domain1 = {
     // =============================================
     {
       id: 176,
-      question: "According to the World Health Organization, approximately what percentage of the global population has a disability?",
+      question: "People with disabilities are often described as 'the world's largest minority group.' What does this framing imply for organizations designing products and services?",
       options: [
-        "5%",
-        "10%",
-        "16%",
-        "25%"
+        "With roughly 16% of the global population affected, accessibility is not a niche concern — it impacts a significant portion of any audience and should be integrated from the start",
+        "Since it is the largest minority, accommodations should only be provided when specifically requested by disabled users",
+        "The large number means most disabilities are minor and do not require design changes",
+        "Organizations should focus on the majority (non-disabled users) first, then add accessibility features later if budget allows"
       ],
-      correct: 2,
-      explanation: "The WHO estimates that approximately 16% of the global population — about 1.3 billion people — lives with some form of significant disability. This makes people with disabilities the world's largest minority group.",
+      correct: 0,
+      explanation: "The WHO estimates approximately 16% of the global population (about 1.3 billion people) lives with some form of disability. Framing this as 'the world's largest minority' highlights that accessibility affects a significant share of every audience — not a small edge case. This supports the business and ethical case for building accessibility in from the beginning rather than treating it as an afterthought.",
       wrongExplanations: {
-        0: "5% significantly underestimates the global disability prevalence according to WHO data.",
-        1: "10% was an older estimate; the WHO's more recent data indicates approximately 16%.",
-        3: "25% overestimates the current WHO estimate of approximately 16%."
+        1: "Waiting for requests is the accommodation model, not inclusive design. The large prevalence actually supports proactive inclusion rather than reactive accommodations.",
+        2: "Disability prevalence includes the full spectrum — from significant to moderate impact. A 16% prevalence rate means design barriers affect a large, diverse group with varied needs.",
+        3: "This describes the 'bolt-on' approach, which is more expensive and less effective than inclusive design. The high prevalence supports building accessibility into the design process from the start."
       },
-      topicLinks: ['disability-demographics', 'disability-statistics'],
+      topicLinks: ['disability-demographics'],
       difficulty: 'medium',
-      tags: ['demographics', 'statistics']
+      tags: ['demographics', 'scenario']
     },
     {
       id: 177,
@@ -1571,7 +1571,7 @@ export const domain1 = {
         2: "'The blind man' leads with the disability label rather than the person.",
         3: "'Handicapped' is considered outdated and offensive terminology, and 'handicapped people' is not people-first language."
       },
-      topicLinks: ['people-first-language', 'disability-etiquette'],
+      topicLinks: ['people-first-language', 'inclusive-language', 'disability-etiquette'],
       difficulty: 'easy',
       tags: ['etiquette', 'language']
     },
@@ -1591,7 +1591,7 @@ export const domain1 = {
         2: "No country mandates identity-first language by law; it is a matter of community preference and respect.",
         3: "Medical professionals do not mandate identity-first language; language preferences are driven by disability communities themselves."
       },
-      topicLinks: ['identity-first-language', 'disability-etiquette', 'deaf-culture'],
+      topicLinks: ['identity-first-language', 'inclusive-language', 'disability-etiquette', 'deaf-culture'],
       difficulty: 'medium',
       tags: ['etiquette', 'language']
     },
@@ -1631,9 +1631,292 @@ export const domain1 = {
         1: "Pretending to understand leads to miscommunication and is disrespectful; honest clarification is always better.",
         3: "Speaking to a companion instead of the person directly is patronizing and denies their autonomy."
       },
-      topicLinks: ['disability-etiquette', 'aac', 'interaction-guidelines'],
+      topicLinks: ['disability-etiquette', 'aac', 'aac-devices', 'interaction-guidelines'],
       difficulty: 'easy',
       tags: ['etiquette']
+    },
+    // =============================================
+    // KNOWLEDGE BASE GAPS & UNDERREPRESENTED TOPICS (181-194)
+    // =============================================
+    {
+      id: 181,
+      question: "A speech-language pathologist is evaluating AAC options for a young child with cerebral palsy who has limited fine motor control but can point with a closed fist. Which AAC solution is MOST appropriate as a starting point?",
+      options: [
+        "A high-tech eye-gaze speech-generating device",
+        "A low-tech picture communication board with large symbols the child can indicate by pointing",
+        "A standard keyboard with word prediction software",
+        "No AAC should be introduced until the child develops natural speech"
+      ],
+      correct: 1,
+      explanation: "AAC solutions range from low-tech (picture boards, alphabet boards, symbol cards) to high-tech (speech-generating devices with eye tracking). Best practice is to start with the simplest effective option. Since this child can point, a large-symbol picture board matches their current motor abilities while building communication skills. More complex technology can be introduced later as needs evolve.",
+      wrongExplanations: {
+        0: "Eye-gaze devices are powerful but are typically recommended when a person cannot reliably use their hands or other body parts to make selections. Since this child can point, a simpler solution is more appropriate to start with.",
+        2: "A standard keyboard requires fine motor skills that this child lacks due to limited fine motor control. This would create a barrier rather than support communication.",
+        3: "Withholding AAC is harmful. Research consistently shows that AAC does not prevent speech development — it supports communication and can actually facilitate speech. Early AAC intervention is recommended."
+      },
+      topicLinks: ['aac-devices', 'speech-disabilities'],
+      difficulty: 'medium',
+      tags: ['assistive-technology', 'aac']
+    },
+    {
+      id: 182,
+      question: "Eye-gaze AAC technology tracks a user's eye movements to select words or symbols on a screen, which are then spoken aloud by the device. For which group of people is this technology MOST critical?",
+      options: [
+        "People with mild hearing loss who need amplification",
+        "People with conditions like ALS or severe cerebral palsy who cannot reliably use their hands or voice",
+        "People with dyslexia who need reading support",
+        "People with low vision who need screen magnification"
+      ],
+      correct: 1,
+      explanation: "Eye-gaze AAC technology is most critical for people who have intact cognitive and visual abilities but cannot use their hands, body, or voice to communicate — such as people with ALS (amyotrophic lateral sclerosis), locked-in syndrome, or severe cerebral palsy. For these individuals, eye movement may be their only reliable voluntary motor control, making eye-gaze technology a lifeline for communication.",
+      wrongExplanations: {
+        0: "People with hearing loss benefit from hearing assistive technologies like hearing aids, cochlear implants, or hearing loops — not eye-gaze AAC devices, which are designed for speech output, not sound amplification.",
+        2: "People with dyslexia benefit from text-to-speech tools, adjustable fonts, and reading support software. Eye-gaze AAC is designed for people who cannot speak or use their hands, not for reading difficulties.",
+        3: "People with low vision benefit from screen magnifiers and large displays. Eye-gaze AAC is a communication tool for people who cannot speak, not a visual accommodation."
+      },
+      topicLinks: ['aac-devices', 'mobility-disabilities'],
+      difficulty: 'easy',
+      tags: ['assistive-technology', 'aac']
+    },
+    {
+      id: 183,
+      question: "You are helping plan an accessible conference. The venue needs to accommodate attendees who are deaf or hard of hearing during keynote presentations in a large auditorium. Which combination of accommodations provides the MOST comprehensive access?",
+      options: [
+        "Providing printed copies of all slides before each session",
+        "Installing a hearing loop (induction loop) system, providing an FM system option, and arranging CART (Communication Access Realtime Translation) captioning",
+        "Placing speakers closer to the front rows so sound is louder",
+        "Asking all presenters to speak slowly and face the audience"
+      ],
+      correct: 1,
+      explanation: "Comprehensive hearing access at events requires multiple complementary systems: hearing loops transmit audio directly to telecoil-equipped hearing aids, FM systems provide wireless transmission for other hearing device users, and CART provides real-time text captioning for people who are deaf or do not use hearing aids. Together, these serve the widest range of needs — no single solution works for everyone.",
+      wrongExplanations: {
+        0: "Printed slides help but do not provide access to the spoken content of presentations, audience questions, or real-time discussion. They are a supplement, not a primary accommodation.",
+        2: "Louder sound does not help people who are deaf and provides minimal benefit for hearing aid users, who need cleaner signal delivery (like hearing loops) rather than just more volume. It may also be uncomfortably loud for others.",
+        3: "While speaking clearly and facing the audience helps some lip-readers, this alone is vastly insufficient. Most people cannot rely on lip reading alone, and it does nothing for people who are fully deaf."
+      },
+      topicLinks: ['hearing-assistive-tech', 'auditory-disabilities'],
+      difficulty: 'hard',
+      tags: ['assistive-technology', 'hearing']
+    },
+    {
+      id: 184,
+      question: "A software development team is building a mobile banking app. Which feature BEST supports users who are deaf or hard of hearing when the app needs to alert them about important account activity?",
+      options: [
+        "An audio alarm that plays at maximum volume",
+        "Visual alerts (screen flash, banner notification) combined with haptic/vibration feedback",
+        "A voice call to the user's phone number",
+        "Sending alerts only by postal mail for security"
+      ],
+      correct: 1,
+      explanation: "For users who are deaf or hard of hearing, alerts must use non-auditory channels. Visual alerts (screen flashes, color-coded banners, on-screen notifications) combined with haptic feedback (vibration) ensure that important information reaches the user through sight and touch. This multi-sensory approach follows the principle of not relying on any single sense for critical information.",
+      wrongExplanations: {
+        0: "Audio-only alerts, even at high volume, are inaccessible to people who are deaf. Volume increases do not help when a person cannot perceive sound. Alerts must be available through non-auditory channels.",
+        2: "A voice call is audio-based and inaccessible to people who are deaf. Even for hard-of-hearing users, phone calls can be difficult. Text-based and visual notifications are far more accessible.",
+        3: "Postal mail is far too slow for time-sensitive account alerts and does not leverage the real-time notification capabilities that mobile devices offer through visual and haptic channels."
+      },
+      topicLinks: ['hearing-assistive-tech', 'auditory-disabilities'],
+      difficulty: 'easy',
+      tags: ['assistive-technology', 'hearing']
+    },
+    {
+      id: 185,
+      question: "Why are refreshable braille displays considered essential assistive technology for people who are deaf-blind, rather than simply an alternative to screen readers?",
+      options: [
+        "Braille displays are cheaper than screen readers",
+        "Braille displays produce larger text that is easier to read",
+        "Screen readers produce audio output, which is inaccessible to someone who is also deaf — braille displays convert digital text to tactile output that does not rely on hearing",
+        "Braille displays work without electricity, making them more portable"
+      ],
+      correct: 2,
+      explanation: "For deaf-blind users, the combination of vision loss and hearing loss eliminates both visual and auditory channels for receiving information. Screen readers output information as synthesized speech — useless if the person cannot hear. Refreshable braille displays solve this by converting digital text into tactile braille characters that can be read by touch, making them not just preferred but essential for deaf-blind computer access.",
+      wrongExplanations: {
+        0: "Refreshable braille displays are actually quite expensive (often $3,000–$15,000). Cost is not the reason they are essential for deaf-blind users — the reason is that they provide tactile output when both audio and visual output are inaccessible.",
+        1: "Braille displays do not produce larger text; they produce raised tactile dots in braille patterns. Their importance for deaf-blind users is about providing a tactile channel, not about text size.",
+        3: "Refreshable braille displays are electronic devices that require power. Their essentialness for deaf-blind users is about providing a tactile output channel, not about portability or power requirements."
+      },
+      topicLinks: ['refreshable-braille', 'deaf-blindness'],
+      difficulty: 'medium',
+      tags: ['assistive-technology', 'deaf-blindness']
+    },
+    {
+      id: 186,
+      question: "How do a screen reader and a refreshable braille display work together to provide access to digital content?",
+      options: [
+        "The braille display replaces the screen reader entirely and reads web pages on its own",
+        "The screen reader processes the digital content and sends text to the braille display, which raises and lowers pins to form braille characters line by line",
+        "The braille display converts speech from the screen reader into braille",
+        "The screen reader translates braille input from the user into text on screen"
+      ],
+      correct: 1,
+      explanation: "Screen readers and refreshable braille displays work as a team: the screen reader software (like JAWS or NVDA) interprets the digital content — reading the page structure, text, and interactive elements. It then sends this text to the braille display, which has rows of small pins that raise and lower to form braille characters. The user reads each line by touch, and can navigate forward through the content. The screen reader does the processing; the braille display provides the tactile output.",
+      wrongExplanations: {
+        0: "A braille display cannot process web pages or digital content on its own. It is an output device that depends on a screen reader to interpret the content and send it text to display in braille.",
+        2: "The braille display does not convert audio speech into braille. It receives text data directly from the screen reader software, which sends the content as text — not as audio — to the display.",
+        3: "While braille displays can serve as input devices (with braille keys), the question asks about how they provide access to content. The primary relationship is that the screen reader sends content to the braille display for tactile reading."
+      },
+      topicLinks: ['refreshable-braille', 'screen-readers'],
+      difficulty: 'medium',
+      tags: ['assistive-technology', 'braille']
+    },
+    {
+      id: 187,
+      question: "A person's available sensory inputs are limited to touch, smell, and taste. They cannot see or hear. Which type of disability does this person MOST likely have?",
+      options: [
+        "A visual disability only",
+        "An auditory disability only",
+        "Deaf-blindness — a combined vision and hearing loss",
+        "A cognitive disability affecting sensory processing"
+      ],
+      correct: 2,
+      explanation: "When a person cannot use either vision or hearing, leaving only touch, smell, and taste as sensory channels, this describes deaf-blindness — a combined loss of both vision and hearing. Deaf-blindness is considered its own distinct disability category because the combination creates unique challenges far beyond what either condition alone would cause. Communication and information access must rely entirely on tactile methods.",
+      wrongExplanations: {
+        0: "A visual disability alone would leave hearing intact, meaning the person could still receive information through sound, speech, and audio. The scenario describes loss of both distance senses.",
+        1: "An auditory disability alone would leave vision intact, meaning the person could still see, read text, and use visual information. The scenario describes loss of both vision and hearing.",
+        3: "Sensory processing disorders affect how the brain interprets sensory input, not whether the senses themselves function. The scenario describes a person who lacks both visual and auditory input entirely, pointing to deaf-blindness."
+      },
+      topicLinks: ['deaf-blindness', 'multiple-disabilities'],
+      difficulty: 'medium',
+      tags: ['disability-types', 'deaf-blindness']
+    },
+    {
+      id: 188,
+      question: "Which of the following is a recognized communication method used by people who are deaf-blind?",
+      options: [
+        "Standard American Sign Language performed at a distance across a room",
+        "Tactile sign language, where the deaf-blind person places their hands over the signer's hands to feel the signs being formed",
+        "Written notes in standard print held up for the person to read",
+        "Audio recordings played through headphones at high volume"
+      ],
+      correct: 1,
+      explanation: "Tactile sign language (also called hand-over-hand signing) is a key communication method for deaf-blind people. The deaf-blind person places their hands over the signer's hands to feel the shape, movement, and position of each sign. Other methods include print on palm (tracing letters on the person's palm), close-range sign language (for those with some remaining vision), and communication through refreshable braille devices.",
+      wrongExplanations: {
+        0: "Standard sign language performed at a distance requires vision to see the signs. A person who is deaf-blind cannot visually perceive signs across a room. Tactile or close-range methods are needed instead.",
+        2: "Standard print requires vision to read. A person who is deaf-blind cannot read printed notes visually. Tactile methods like braille, print-on-palm, or tactile sign language are used instead.",
+        3: "Audio recordings require hearing to perceive. A person who is deaf-blind cannot access information through auditory channels, even at high volume. Tactile methods must be used."
+      },
+      topicLinks: ['deaf-blindness'],
+      difficulty: 'medium',
+      tags: ['disability-types', 'deaf-blindness', 'communication']
+    },
+    {
+      id: 189,
+      question: "As people age, they frequently acquire multiple disabilities simultaneously — such as declining vision, hearing loss, reduced mobility, and cognitive changes. Why is this pattern particularly important for accessibility planning?",
+      options: [
+        "Because older adults do not use technology, so accessibility does not apply to them",
+        "Because age-related changes are always minor and do not require accommodations",
+        "Because the growing aging population means that designing for single disabilities is insufficient — products and environments must address multiple, intersecting access needs",
+        "Because aging is a medical problem that should be solved before worrying about accessibility"
+      ],
+      correct: 2,
+      explanation: "Aging commonly brings multiple simultaneous changes: presbyopia (age-related vision loss), presbycusis (age-related hearing loss), reduced dexterity and mobility, and sometimes cognitive changes. With the global population aging rapidly, accessibility planning must account for these intersecting needs. A person may need larger text AND captioned audio AND simplified navigation simultaneously. Designing only for single, isolated disabilities misses the reality of how many people actually experience disability.",
+      wrongExplanations: {
+        0: "This is a harmful myth. Older adults are increasingly active technology users. In many countries, internet use among people over 65 has grown dramatically. Accessibility is highly relevant to this population.",
+        1: "Age-related changes can significantly impact daily functioning. Vision loss may prevent reading standard text, hearing loss may prevent following conversations, and mobility changes may prevent using stairs. These are not minor issues.",
+        3: "Framing aging purely as a medical problem to be 'solved' reflects the medical model's limitations. Accessible design (a social model approach) ensures that environments and products work for people as they age, regardless of medical intervention."
+      },
+      topicLinks: ['disability-demographics', 'multiple-disabilities'],
+      difficulty: 'hard',
+      tags: ['demographics', 'aging', 'disability-types']
+    },
+    {
+      id: 190,
+      question: "An employer notices that several older employees are struggling with the company's new small-screen digital tools due to vision and dexterity changes. A manager suggests sending all employees over 55 to occupational health for assessment. How would applying the social model of disability change this approach?",
+      options: [
+        "The social model would agree that the employees need medical assessment to determine their limitations",
+        "The social model would suggest the employees retire early since they cannot keep up with technology",
+        "The social model would focus on redesigning the digital tools to be usable by people with varying vision and dexterity — making the tools adapt to the users, not the other way around",
+        "The social model would recommend providing separate, older technology only for employees over 55"
+      ],
+      correct: 2,
+      explanation: "The social model of disability locates the problem in the environment, not the person. Rather than treating age-related changes as a medical problem requiring individual assessment (medical model thinking), the social model asks: why are these tools designed so that they exclude people with common vision and dexterity variations? The solution is to redesign tools with adjustable text size, sufficient contrast, and flexible input methods — benefiting all users, not just older employees.",
+      wrongExplanations: {
+        0: "Sending employees for medical assessment treats the employees as the problem (medical model). The social model instead asks what barriers the tools themselves create and how to remove those barriers.",
+        1: "Suggesting retirement because of inaccessible tools is discriminatory and reflects neither the social model nor good practice. The social model says the tools should change, not the people.",
+        3: "Providing separate, older technology is segregation, not inclusion. The social model advocates for universal design — making the same tools work for everyone through flexible design, rather than creating separate systems."
+      },
+      topicLinks: ['social-model', 'medical-model', 'disability-demographics'],
+      difficulty: 'hard',
+      tags: ['disability-models', 'aging', 'scenarios']
+    },
+    {
+      id: 191,
+      question: "During a business meeting, you need to communicate with a deaf colleague through a sign language interpreter. Where should you direct your eye contact and speech?",
+      options: [
+        "Look at and speak to the interpreter, since they are conveying your message",
+        "Look at and speak directly to your deaf colleague, as you would with any other person in the conversation",
+        "Alternate your gaze equally between the interpreter and your deaf colleague",
+        "Look down at your notes to avoid making anyone uncomfortable"
+      ],
+      correct: 1,
+      explanation: "When speaking through a sign language interpreter, always look at and speak directly to the deaf person — not the interpreter. Say 'Do you agree with the proposal?' not 'Ask them if they agree.' The interpreter is a communication facilitator, not a participant in the conversation. Directing your attention to the deaf person shows respect, acknowledges their presence as an equal participant, and follows standard disability etiquette.",
+      wrongExplanations: {
+        0: "Speaking to the interpreter rather than the deaf person treats the deaf individual as if they are not present in the conversation. It is disrespectful and excludes them from direct interaction. The interpreter is a tool for communication, not the conversation partner.",
+        2: "While it might seem polite, alternating gaze treats the interpreter as a co-participant rather than a facilitator. Standard etiquette is to maintain focus on the deaf person, just as you would look at anyone you are speaking with.",
+        3: "Avoiding eye contact entirely disengages from the conversation and can make the deaf person feel ignored or that you are uncomfortable with them. Direct, natural eye contact is appropriate and respectful."
+      },
+      topicLinks: ['disability-etiquette'],
+      difficulty: 'easy',
+      tags: ['etiquette', 'deaf', 'communication']
+    },
+    {
+      id: 192,
+      question: "You see a person using crutches approaching a heavy door that appears difficult to open. What is the MOST appropriate response according to disability etiquette?",
+      options: [
+        "Rush ahead to open the door without saying anything",
+        "Ignore the situation entirely because offering help might be offensive",
+        "Ask the person if they would like assistance before acting",
+        "Open the door and hold it while loudly announcing that you are helping"
+      ],
+      correct: 2,
+      explanation: "The cornerstone of disability etiquette is respecting autonomy. The correct approach is to ask before helping — a simple 'Would you like me to get the door?' respects the person's right to accept or decline. Many people with disabilities have developed effective techniques for managing daily tasks and may not need or want help. Asking first treats them as capable adults who can make their own decisions.",
+      wrongExplanations: {
+        0: "Rushing to help without asking assumes the person cannot manage and removes their choice. It can be startling, patronizing, or may interfere with a technique they have for managing doors. Always ask first.",
+        1: "Ignoring someone who might benefit from assistance is not respectful — it is avoidant. There is nothing offensive about a polite offer of help. The key is asking rather than assuming, and accepting their answer gracefully.",
+        3: "Opening the door while loudly announcing your help draws unnecessary attention and can be embarrassing. A quiet offer, followed by quiet assistance if accepted, is far more respectful of the person's dignity."
+      },
+      topicLinks: ['disability-etiquette', 'mobility-disabilities'],
+      difficulty: 'easy',
+      tags: ['etiquette', 'scenarios']
+    },
+    {
+      id: 193,
+      question: "Which of the following phrases is considered inappropriate and should be AVOIDED when discussing disability, and why?",
+      options: [
+        "'Person with a disability' — because it is overly formal",
+        "'Wheelchair user' — because it mentions the assistive device",
+        "'Suffers from cerebral palsy' — because it frames disability as inherent suffering and positions the person as a victim",
+        "'Deaf person' — because it uses identity-first language"
+      ],
+      correct: 2,
+      explanation: "'Suffers from' implies that disability is inherently tragic, painful, and defined by suffering. It positions the person as a victim rather than someone who simply has a different experience of the world. Similarly, terms like 'wheelchair-bound' (implies imprisonment rather than mobility), 'handicapped' (outdated and considered offensive by many), and 'special needs' (euphemistic othering) should be avoided. Preferred alternatives: 'has cerebral palsy,' 'uses a wheelchair,' 'person with a disability,' 'accessibility needs.'",
+      wrongExplanations: {
+        0: "'Person with a disability' is widely accepted people-first language and is not overly formal. It is recommended by many disability organizations and style guides as a respectful default.",
+        1: "'Wheelchair user' is preferred language. It accurately describes someone who uses a wheelchair as a tool for mobility. The term to avoid is 'wheelchair-bound,' which implies the person is trapped or confined.",
+        3: "'Deaf person' is widely embraced by the Deaf community as identity-first language. Many Deaf individuals prefer this because deafness is central to their cultural identity. It is not considered inappropriate."
+      },
+      topicLinks: ['inclusive-language', 'disability-etiquette'],
+      difficulty: 'medium',
+      tags: ['inclusive-language', 'etiquette']
+    },
+    {
+      id: 194,
+      question: "A style guide team is debating whether to mandate people-first language ('person with autism') or identity-first language ('autistic person') across all company communications. What does current best practice in inclusive language recommend?",
+      options: [
+        "Always use people-first language in every situation because it is universally preferred",
+        "Always use identity-first language because it is more modern and progressive",
+        "Avoid mentioning disability entirely to prevent causing offense",
+        "Recognize that both forms are valid — some communities prefer identity-first (the Deaf community, many autistic people) while others prefer people-first — and default to the individual's or community's stated preference"
+      ],
+      correct: 3,
+      explanation: "There is no single correct form that works for all disability communities. The Deaf community widely prefers 'Deaf person' (identity-first) because deafness is a cultural identity. Many autistic self-advocates prefer 'autistic person' because they view autism as integral to who they are. Others prefer people-first language ('person with a disability') to emphasize personhood before diagnosis. Best practice is to learn community preferences, respect individual preferences when known, and use people-first language as a safe default when preferences are unknown.",
+      wrongExplanations: {
+        0: "Mandating people-first language ignores the strong preferences of communities like the Deaf community and many autistic self-advocates who find people-first language distancing or even offensive to their identity. One-size-fits-all mandates are not inclusive.",
+        1: "Mandating identity-first language ignores that many people with disabilities prefer people-first language. Neither form is universally preferred, and claiming one is 'more progressive' oversimplifies a nuanced cultural conversation.",
+        2: "Avoiding disability language entirely erases disabled people from the conversation and can contribute to stigma through silence. Disability is not a negative thing that should be hidden — using respectful, appropriate language is far better than avoidance."
+      },
+      topicLinks: ['inclusive-language'],
+      difficulty: 'hard',
+      tags: ['inclusive-language', 'etiquette']
     }
   ]
 };

@@ -69,6 +69,12 @@ export default function QuizCard({ question, questionIndex, totalQuestions, feed
 
   function handleKeyDown(e) {
     if (hasAnswered) return;
+    const key = e.key.toLowerCase();
+    const letterIndex = key.charCodeAt(0) - 97; // a=0, b=1, c=2, d=3
+    if (letterIndex >= 0 && letterIndex < question.options.length) {
+      onAnswer(letterIndex);
+      return;
+    }
     const num = parseInt(e.key, 10);
     if (num >= 1 && num <= question.options.length) {
       onAnswer(num - 1);
@@ -89,7 +95,6 @@ export default function QuizCard({ question, questionIndex, totalQuestions, feed
       <div role="group" aria-label="Answer options" className="space-y-3">
         {question.options.map((option, i) => {
           const state = getOptionState(i);
-          const keyHint = i + 1;
           return (
             <button
               key={i}
@@ -100,14 +105,13 @@ export default function QuizCard({ question, questionIndex, totalQuestions, feed
             >
               {getOptionSymbol(state, i)}
               <span className="flex-1">{option}</span>
-              {!hasAnswered && (
-                <kbd
-                  className="hidden sm:inline text-base px-1.5 py-0.5 rounded font-mono"
-                  style={{ backgroundColor: 'var(--bg-surface-hover)', color: 'var(--text-muted)' }}
-                >
-                  {keyHint}
-                </kbd>
-              )}
+              <kbd
+                className="hidden sm:inline text-base px-1.5 py-0.5 rounded font-mono"
+                style={{ backgroundColor: 'var(--bg-surface-hover)', color: 'var(--text-muted)', opacity: hasAnswered ? 0.4 : 1 }}
+                aria-hidden="true"
+              >
+                {i + 1}
+              </kbd>
             </button>
           );
         })}

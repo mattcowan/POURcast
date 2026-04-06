@@ -12,42 +12,42 @@ export const domain3 = {
 
     {
       id: 301,
-      question: "What year was the Universal Declaration of Human Rights (UDHR) adopted by the United Nations?",
+      question: "Why is the Universal Declaration of Human Rights (UDHR) considered foundational to disability rights, even though it does not specifically mention disability?",
       options: [
-        "1948",
-        "1966",
-        "1975",
-        "1990"
+        "It established that ALL human beings are born free and equal in dignity and rights — a universal principle that later treaties like the CRPD built upon",
+        "It was the first document to define accessibility requirements for buildings and technology",
+        "It created the legal enforcement mechanism used to prosecute disability discrimination worldwide",
+        "It specifically listed disability as a protected category alongside race and gender"
       ],
       correct: 0,
-      explanation: "The UDHR was adopted by the UN General Assembly on December 10, 1948. It is the foundational international human rights document and has influenced numerous subsequent treaties and laws.",
+      explanation: "The UDHR (1948) declared universal human rights for all people without distinction. While it did not specifically mention disability, its universal principles — equality, dignity, non-discrimination — became the foundation on which later disability-specific instruments like the CRPD were built. Understanding this lineage helps explain why disability rights are framed as human rights.",
       wrongExplanations: {
-        1: "1966 is when the International Covenants on Civil and Political Rights and on Economic, Social and Cultural Rights were adopted — not the UDHR.",
-        2: "1975 is the year the UN Declaration on the Rights of Disabled Persons was adopted, not the UDHR.",
-        3: "1990 is the year the Americans with Disabilities Act was signed into law in the United States, not the UDHR adoption year."
+        1: "The UDHR addresses broad human rights principles, not specific accessibility requirements. Technical accessibility standards came much later through instruments like WCAG and the CRPD.",
+        2: "The UDHR is a declaration, not a legally binding treaty with enforcement mechanisms. Enforcement of disability rights varies by country through domestic laws and specific treaties.",
+        3: "The UDHR does not explicitly list disability as a protected category. It uses the language 'without distinction of any kind,' which has been interpreted to include disability."
       },
-      topicLinks: ['udhr'],
-      difficulty: 'easy',
+      topicLinks: ['udhr', 'crpd'],
+      difficulty: 'medium',
       tags: ['legal-international']
     },
     {
       id: 302,
-      question: "Article 1 of the Universal Declaration of Human Rights states that:",
+      question: "The CRPD (2006) represented a major shift in how disability is viewed internationally. Which statement BEST describes this shift?",
       options: [
-        "All human beings are born free and equal in dignity and rights",
-        "Everyone has the right to education without discrimination",
-        "States shall ensure accessibility of public services",
-        "No one shall be subjected to arbitrary detention"
+        "From viewing people with disabilities as objects of charity and medical treatment to recognizing them as rights-holders entitled to full participation in society",
+        "From a legal framework to a purely medical classification system for disabilities",
+        "From international cooperation to each country independently defining disability without guidance",
+        "From including disability in general human rights to removing disability from the human rights framework entirely"
       ],
       correct: 0,
-      explanation: "Article 1 of the UDHR declares that 'All human beings are born free and equal in dignity and rights.' This foundational principle underpins all subsequent human rights instruments, including those addressing disability rights.",
+      explanation: "The CRPD marked a paradigm shift from the charity/medical model — where people with disabilities were seen as needing help or 'fixing' — to a human rights model where they are recognized as rights-holders. This aligns with the social model by placing responsibility on society to remove barriers rather than expecting individuals to overcome them.",
       wrongExplanations: {
-        1: "While education rights are addressed in the UDHR (Article 26), this is not the text of Article 1.",
-        2: "Accessibility of public services is addressed in instruments like the CRPD, not in Article 1 of the UDHR.",
-        3: "Arbitrary detention is addressed in Article 9 of the UDHR, not Article 1."
+        1: "The shift was in the opposite direction — AWAY from purely medical frameworks and toward a rights-based approach that views disability through a social lens.",
+        2: "The CRPD actually strengthened international cooperation and established shared standards. It is the most comprehensive binding international treaty on disability rights.",
+        3: "The CRPD reinforced and expanded the inclusion of disability within human rights frameworks — it did not remove it."
       },
-      topicLinks: ['udhr'],
-      difficulty: 'easy',
+      topicLinks: ['crpd', 'human-rights-model', 'social-model'],
+      difficulty: 'medium',
       tags: ['legal-international']
     },
     {
@@ -217,23 +217,23 @@ export const domain3 = {
 
     {
       id: 311,
-      question: "The Americans with Disabilities Act (ADA) was signed into law in which year?",
+      question: "An employee with a mobility disability is denied a promotion at a private company with 50 employees, and believes it was due to disability discrimination. Which US law MOST directly protects them in this situation?",
       options: [
-        "1990",
-        "1973",
-        "1986",
-        "2001"
+        "Title I of the ADA — which prohibits employment discrimination by private employers with 15 or more employees",
+        "Section 508 of the Rehabilitation Act — which requires accessible information technology",
+        "The 21st Century Communications and Video Accessibility Act — which requires accessible communications technology",
+        "The Air Carrier Access Act — which protects airline passengers with disabilities"
       ],
       correct: 0,
-      explanation: "The ADA was signed into law on July 26, 1990, by President George H.W. Bush. It is the most comprehensive civil rights law prohibiting discrimination against people with disabilities in the United States.",
+      explanation: "Title I of the ADA prohibits disability discrimination in employment (hiring, firing, advancement, compensation) by private employers with 15 or more employees. This is the primary law protecting employees from disability-based discrimination in the private sector. Section 508 covers federal ICT, the CVAA covers communications technology, and the ACAA covers air travel.",
       wrongExplanations: {
-        1: "1973 is the year the Rehabilitation Act was passed, which includes Section 504 and later Section 508 — not the ADA.",
-        2: "1986 does not correspond to any major US disability legislation. The ADA was signed in 1990.",
-        3: "2001 is not the year the ADA was enacted. By 2001, the ADA had already been in effect for over a decade."
+        1: "Section 508 requires federal agencies and their contractors to make ICT accessible. It does not address employment discrimination in the private sector.",
+        2: "The CVAA requires that communications services and video programming be accessible to people with disabilities. It does not cover employment discrimination.",
+        3: "The Air Carrier Access Act specifically covers discrimination against airline passengers with disabilities, not workplace discrimination."
       },
       topicLinks: ['ada'],
-      difficulty: 'easy',
-      tags: ['legal-national']
+      difficulty: 'medium',
+      tags: ['legal-national', 'scenario']
     },
     {
       id: 312,
@@ -642,23 +642,23 @@ export const domain3 = {
     },
     {
       id: 332,
-      question: "When a vendor completes a VPAT, the resulting document is called:",
+      question: "A procurement team receives a vendor's Accessibility Conformance Report (ACR) claiming their product 'Supports' all WCAG 2.1 AA criteria. Why should the team NOT rely solely on this document?",
       options: [
-        "An Accessibility Conformance Report (ACR)",
-        "A WCAG Audit Certificate",
-        "A Section 508 Compliance License",
-        "An Accessibility Impact Assessment"
+        "ACRs are self-reported by vendors and may not reflect actual user experience — independent testing with assistive technologies and users with disabilities is also needed",
+        "ACRs are only valid for Section 508, not WCAG, so they are irrelevant to web accessibility",
+        "Only government agencies can read or interpret ACRs, so private companies cannot use them",
+        "ACRs expire after 30 days and must be renewed with each software update"
       ],
       correct: 0,
-      explanation: "When a vendor fills out a VPAT (the template), the resulting document is called an Accessibility Conformance Report (ACR). The ACR details the product's level of conformance with relevant accessibility standards.",
+      explanation: "A VPAT/ACR is a self-reported document — the vendor fills it out themselves. While it is a valuable procurement tool, it has limitations: vendors may overstate conformance, testing methodology varies, and the report is a snapshot that may not cover all use cases. Best practice is to supplement ACR review with independent testing, including testing with actual assistive technologies and users with disabilities.",
       wrongExplanations: {
-        1: "There is no official document called a 'WCAG Audit Certificate.' The completed VPAT is an Accessibility Conformance Report.",
-        2: "There is no 'Section 508 Compliance License.' The VPAT produces an Accessibility Conformance Report that documents conformance levels.",
-        3: "An 'Accessibility Impact Assessment' is not the standard name for a completed VPAT. The correct term is Accessibility Conformance Report (ACR)."
+        1: "Modern VPAT templates (like the ITI VPAT 2.x) include columns for WCAG 2.x, Section 508, and EN 301 549. ACRs are widely used for web accessibility evaluation, not only Section 508.",
+        2: "ACRs are publicly available documents that any organization — government or private — can request and use for procurement decisions.",
+        3: "ACRs do not have a fixed expiration date. However, they can become outdated as products change, which is why they should be reviewed periodically."
       },
-      topicLinks: ['vpat'],
-      difficulty: 'medium',
-      tags: ['management', 'procurement']
+      topicLinks: ['vpat', 'procurement-accessibility'],
+      difficulty: 'hard',
+      tags: ['management', 'procurement', 'scenario']
     },
     {
       id: 333,
@@ -762,23 +762,23 @@ export const domain3 = {
     },
     {
       id: 338,
-      question: "A VPAT is specifically designed for reporting conformance of:",
+      question: "A procurement officer is evaluating two software products for accessibility. Vendor A provides an ACR showing 'Supports' for all criteria. Vendor B provides an ACR showing 'Partially Supports' for some criteria but includes detailed remediation plans and user testing data. What is the BEST course of action?",
       options: [
-        "Information and communication technology (ICT) products and services",
-        "Physical buildings and architectural features",
-        "Employment hiring practices",
-        "Transportation vehicles and infrastructure"
+        "Investigate further — request demonstrations with assistive technologies, review both vendors' testing methodology, and consider Vendor B's transparency as a positive indicator",
+        "Choose Vendor A immediately since 'Supports' is always better than 'Partially Supports'",
+        "Reject both vendors because neither achieved 'Not Applicable' for all criteria",
+        "Ignore the ACRs entirely since they have no value in procurement decisions"
       ],
       correct: 0,
-      explanation: "The VPAT (Voluntary Product Accessibility Template) is specifically designed for ICT accessibility conformance reporting. It covers software, hardware, web content, electronic documents, and other ICT products and services against standards like Section 508, WCAG, and EN 301 549.",
+      explanation: "A blanket 'Supports' claim should be investigated — it may indicate superficial self-assessment. A vendor that honestly reports 'Partially Supports' with remediation plans and user testing data may actually demonstrate greater accessibility maturity. Best procurement practice involves requesting AT demonstrations, reviewing testing methodology, and evaluating the vendor's commitment to ongoing accessibility improvement.",
       wrongExplanations: {
-        1: "Physical building accessibility is assessed through architectural reviews and ADA compliance inspections, not VPATs.",
-        2: "Employment hiring practices are governed by laws like Title I of the ADA. VPATs address ICT product accessibility, not HR practices.",
-        3: "Transportation accessibility is governed by laws like the ADA and the Air Carrier Access Act. VPATs are for ICT products, not vehicles."
+        1: "A 'Supports' claim is only as reliable as the testing behind it. Without verifying methodology, a 'Supports' claim may be less trustworthy than a transparent 'Partially Supports' with detailed evidence.",
+        2: "'Not Applicable' means a criterion does not apply to the product — it is not a measure of quality. Rejecting products based on this misunderstanding would eliminate viable options.",
+        3: "ACRs are a valuable starting point in procurement. While they should not be the sole factor, they provide standardized information that helps compare products."
       },
-      topicLinks: ['vpat'],
-      difficulty: 'medium',
-      tags: ['management', 'procurement']
+      topicLinks: ['vpat', 'procurement-accessibility'],
+      difficulty: 'hard',
+      tags: ['management', 'procurement', 'scenario']
     },
     {
       id: 339,
@@ -819,6 +819,606 @@ export const domain3 = {
       topicLinks: ['maturity-models'],
       difficulty: 'hard',
       tags: ['management']
+    },
+    {
+      id: 341,
+      question: "A new Chief Accessibility Officer has been hired at a large enterprise. Their first priority is to establish a long-term accessibility program. Which approach is MOST likely to succeed?",
+      options: [
+        "Building a shared accessibility vision aligned with the organization's existing strategic goals and securing executive sponsorship",
+        "Immediately auditing every product for WCAG conformance before taking any other action",
+        "Hiring a large accessibility team and delegating all responsibility to them",
+        "Purchasing the most expensive automated testing tool available"
+      ],
+      correct: 0,
+      explanation: "Management's most important role in launching accessibility efforts is building a shared vision and aligning it with the organization's broader strategic goals. Executive sponsorship ensures the program has authority, resources, and longevity. Without strategic alignment, accessibility initiatives often remain isolated projects rather than sustainable programs.",
+      wrongExplanations: {
+        1: "While auditing is valuable, jumping directly to audits without first establishing vision, strategy, and executive buy-in results in findings that lack organizational support for remediation.",
+        2: "Centralizing all accessibility responsibility in a dedicated team creates a silo. Accessibility must be integrated across the organization — it's everyone's responsibility, not just a specialist team's.",
+        3: "Tools are important but are only one component. Without vision, strategy, and organizational commitment, even the best tools will not create a sustainable accessibility program."
+      },
+      topicLinks: ['maturity-models', 'w3c-wai'],
+      difficulty: 'medium',
+      tags: ['management']
+    },
+    {
+      id: 342,
+      question: "An organization has purchased accessibility testing tools and written an accessibility policy, but products continue to ship with significant barriers. What is the MOST likely root cause?",
+      options: [
+        "The testing tools are outdated",
+        "The accessibility efforts are not grounded in the organization's culture, processes, and everyday practices",
+        "The policy document is too short",
+        "The organization needs to hire more accessibility specialists"
+      ],
+      correct: 1,
+      explanation: "Accessibility tools and policies alone are insufficient. For accessibility to succeed, it must be embedded in the organization's culture, integrated into existing workflows, and reflected in daily practices. When accessibility remains separate from how people actually work, it is easily bypassed or forgotten — regardless of available tools or written policies.",
+      wrongExplanations: {
+        0: "While outdated tools can be a problem, even the best tools won't help if the organization's culture and processes don't support accessibility. Tools are only as effective as the practices surrounding them.",
+        2: "Policy length is not the issue. A short, well-integrated policy that is part of everyday processes is far more effective than a lengthy policy that no one follows.",
+        3: "More specialists may help, but if accessibility is not woven into the organization's culture and processes, specialists become bottlenecks rather than enablers."
+      },
+      topicLinks: ['maturity-models'],
+      difficulty: 'medium',
+      tags: ['management']
+    },
+    {
+      id: 343,
+      question: "A company's HR department wants to improve recruitment of people with disabilities. Which strategy is MOST effective?",
+      options: [
+        "Adding a general diversity statement to existing job postings",
+        "Posting positions on disability-focused job boards, partnering with disability employment organizations, and ensuring the application process itself is accessible",
+        "Only recruiting from universities with disability services offices",
+        "Waiting for candidates with disabilities to apply through normal channels"
+      ],
+      correct: 1,
+      explanation: "Effective disability recruitment requires proactive, multi-pronged strategies: posting on disability-focused job boards (such as AbilityJobs or Getting Hired), partnering with disability employment organizations, and critically, ensuring the entire application process — from the job posting to the online form to the interview — is fully accessible. A passive approach will miss qualified candidates.",
+      wrongExplanations: {
+        0: "A general diversity statement is a starting point but not an effective recruitment strategy on its own. Proactive outreach and accessible processes are needed to actually reach and include candidates with disabilities.",
+        2: "Limiting recruitment to specific universities is unnecessarily restrictive and misses many qualified candidates with disabilities who may come from other educational paths or career backgrounds.",
+        3: "A passive approach assumes people with disabilities will find and navigate existing channels, which may themselves contain barriers. Proactive outreach is essential."
+      },
+      topicLinks: ['disability-demographics', 'disability-etiquette'],
+      difficulty: 'easy',
+      tags: ['management']
+    },
+    {
+      id: 344,
+      question: "During a software procurement process, a vendor provides a VPAT/ACR claiming full WCAG 2.1 AA conformance. What is the BEST procurement practice?",
+      options: [
+        "Accept the VPAT at face value and proceed with purchase",
+        "Reject the vendor because VPATs are unreliable documents",
+        "Verify the claims by requesting assistive technology demonstrations, reviewing the vendor's testing methodology, and conducting independent testing",
+        "Only check whether the vendor has an accessibility statement on their website"
+      ],
+      correct: 2,
+      explanation: "Best procurement practice requires verification, not blind trust. VPATs/ACRs are self-reported documents and their quality varies enormously. Responsible procurement involves requesting live demonstrations with assistive technologies, understanding how the vendor conducted testing, and ideally conducting independent evaluation. This ensures the product actually meets users' needs.",
+      wrongExplanations: {
+        0: "Accepting self-reported claims without verification is a common procurement mistake. VPATs are only as reliable as the testing behind them, and many contain inaccurate or overly optimistic assessments.",
+        1: "VPATs/ACRs are valuable tools in the procurement process when used correctly. They provide a standardized format for comparing products — the key is to verify the claims rather than dismiss them entirely.",
+        3: "An accessibility statement is a positive signal but is not evidence of actual product accessibility. It does not replace the need for hands-on verification of accessibility claims."
+      },
+      topicLinks: ['vpat', 'procurement-accessibility'],
+      difficulty: 'easy',
+      tags: ['procurement']
+    },
+    {
+      id: 345,
+      question: "A development team relies solely on automated accessibility testing tools and considers their product accessible because it passes all automated checks. Why is this approach insufficient?",
+      options: [
+        "Automated tools can only detect approximately 30-40% of potential accessibility issues; manual testing with assistive technologies and involving users with disabilities are essential for comprehensive coverage",
+        "Automated tools are always wrong and should never be used",
+        "Automated tools are only needed for mobile applications, not web applications",
+        "Manual testing is only needed when the project has extra budget"
+      ],
+      correct: 0,
+      explanation: "Automated testing tools are valuable but limited — they can typically detect only about 30-40% of accessibility issues (such as missing alt text or color contrast failures). Many critical issues — like whether alt text is meaningful, whether keyboard navigation order is logical, or whether a screen reader experience makes sense — require human judgment, manual testing with assistive technologies, and usability testing with people with disabilities.",
+      wrongExplanations: {
+        1: "Automated tools are valuable and efficient for catching certain categories of issues. The problem is relying on them exclusively, not using them at all.",
+        2: "Automated tools are relevant for all platforms including web, mobile, and desktop. The distinction is not about platform but about the inherent limitations of automation.",
+        3: "Manual testing and user involvement are fundamental requirements for accessibility, not budget-dependent nice-to-haves. Skipping manual testing leads to inaccessible products regardless of automated test results."
+      },
+      topicLinks: ['maturity-models', 'procurement-accessibility'],
+      difficulty: 'medium',
+      tags: ['testing']
+    },
+    {
+      id: 346,
+      question: "A mid-sized company has one passionate developer who informally helps colleagues fix accessibility issues and occasionally presents at team meetings about inclusive design. What term BEST describes this role, and how should the organization support it?",
+      options: [
+        "This person is acting as an accessibility champion; the organization should formally recognize the role, provide dedicated time, and connect them with a network of champions across teams",
+        "This person is overstepping their role boundaries and should focus only on their assigned development tasks",
+        "This person should be promoted to Chief Accessibility Officer immediately",
+        "This informal approach is the ideal model — formalizing it would add unnecessary bureaucracy"
+      ],
+      correct: 0,
+      explanation: "Accessibility champions are advocates within their teams who build awareness, provide guidance, and help integrate accessibility into daily work. The most effective programs formally recognize champions, allocate dedicated time for the role, provide training and resources, and create a network so champions can support each other and share knowledge across the organization.",
+      wrongExplanations: {
+        1: "Accessibility champion activities — peer education, team guidance, awareness-building — are valuable organizational contributions, not distractions. Organizations benefit enormously from distributed accessibility advocacy.",
+        2: "While this person's passion is valuable, the champion role and the CAO role are different. A CAO sets organizational strategy; a champion advocates at the team level. Both are needed but they serve different functions.",
+        3: "While organic advocacy is a great starting point, formalizing the champion role with dedicated time, training, and organizational support makes it sustainable and effective rather than dependent on one person's volunteer effort."
+      },
+      topicLinks: ['maturity-models', 'w3c-wai'],
+      difficulty: 'medium',
+      tags: ['management']
+    },
+    {
+      id: 347,
+      question: "An organization has assessed itself at Level 1 (Initial/Ad hoc) on an accessibility maturity model. Accessibility efforts are reactive and depend on individual initiative rather than organizational process. What are the MOST appropriate next steps?",
+      options: [
+        "Immediately attempt to reach Level 5 (Optimizing) by implementing all best practices at once",
+        "Establish a formal accessibility policy, assign responsibility to specific roles, and begin integrating accessibility checkpoints into existing processes",
+        "Maintain the current approach since Level 1 is acceptable for most organizations",
+        "Focus exclusively on purchasing automated testing tools"
+      ],
+      correct: 1,
+      explanation: "Moving from Level 1 (ad hoc/reactive) to Level 2 (Planned/Managed) requires establishing foundational structures: a formal policy, assigned responsibilities, and initial integration into existing processes. Maturity models are designed for incremental progress — each level builds on the previous one. Trying to skip levels is unrealistic and unsustainable.",
+      wrongExplanations: {
+        0: "Maturity models are designed for incremental improvement. Attempting to jump from Level 1 to Level 5 ignores the foundational work needed at each stage and is likely to fail. Sustainable progress requires building on each level sequentially.",
+        2: "Level 1 indicates that accessibility is reactive and person-dependent rather than systematic. This is not a sustainable or effective approach. Organizations should always strive to move beyond ad hoc efforts toward structured processes.",
+        3: "While tools can help, purchasing tools without foundational processes, policies, and assigned responsibilities won't move the organization forward. Tools support processes — they don't replace them."
+      },
+      topicLinks: ['maturity-models'],
+      difficulty: 'medium',
+      tags: ['management']
+    },
+    {
+      id: 348,
+      question: "A company completed a major accessibility remediation project last year and fixed all known issues. Management considers accessibility 'done' and has dissolved the accessibility team. Why is this approach problematic?",
+      options: [
+        "It is fine — once all issues are fixed, accessibility maintenance is unnecessary",
+        "Accessibility is a continuous process, not a one-time project; without ongoing governance, new barriers will inevitably be introduced as products evolve",
+        "The only problem is that the team was dissolved — the 'done' mindset is correct",
+        "Remediation projects are never effective, so the effort was wasted regardless"
+      ],
+      correct: 1,
+      explanation: "Accessibility requires continuous improvement, not one-time compliance. Products evolve — new features are added, content changes, technologies update — and each change can introduce new barriers. Without ongoing testing, training, governance, and integration into development processes, accessibility degrades over time. A sustainable approach treats accessibility as an ongoing practice, not a project with an end date.",
+      wrongExplanations: {
+        0: "Accessibility is never 'done.' Every product update, content change, and new feature has the potential to introduce barriers. Ongoing attention is essential.",
+        2: "Both elements are problematic. The 'done' mindset misunderstands accessibility as a one-time fix, and dissolving the team removes the capacity for ongoing governance. The mindset and the structural change are both issues.",
+        3: "Remediation projects can be very effective at addressing existing barriers. The problem is treating remediation as a one-time event rather than part of an ongoing accessibility practice."
+      },
+      topicLinks: ['maturity-models', 'w3c-wai'],
+      difficulty: 'easy',
+      tags: ['management']
+    },
+    {
+      id: 349,
+      question: "A procurement officer selected a collaboration tool based on the vendor's VPAT claiming 'Supports' for all WCAG criteria. After deployment, screen reader users report they cannot navigate the tool's main interface. What should the organization do?",
+      options: [
+        "Tell the screen reader users to use a different tool while keeping the current one for everyone else",
+        "Assume the screen reader users are using their assistive technology incorrectly",
+        "Engage the vendor to remediate the barriers, establish testing benchmarks, and update procurement processes to include hands-on assistive technology testing for future purchases",
+        "Accept the situation since the VPAT indicated conformance"
+      ],
+      correct: 2,
+      explanation: "When deployed products fail to meet their claimed accessibility, organizations should work with the vendor to remediate issues (potentially using contractual accessibility requirements), establish benchmarks for verification, and critically, improve procurement processes to prevent recurrence. This means adding hands-on assistive technology testing as part of future evaluation — not just relying on vendor self-reports.",
+      wrongExplanations: {
+        0: "Providing a separate tool for people with disabilities is a segregated, unequal solution that violates accessibility principles. The goal is equal access to the same tools everyone uses.",
+        1: "Blaming users rather than investigating the product is inappropriate. When multiple users report consistent barriers, the product — not the users — is the problem.",
+        3: "A VPAT/ACR is a self-reported document. When real-world experience contradicts it, the user experience takes precedence. The organization has a responsibility to ensure actual accessibility, not just paperwork conformance."
+      },
+      topicLinks: ['vpat', 'procurement-accessibility'],
+      difficulty: 'hard',
+      tags: ['procurement']
+    },
+    {
+      id: 350,
+      question: "A software company wants to integrate accessibility into their development lifecycle rather than treating it as a final-stage QA check. Which approach BEST achieves this?",
+      options: [
+        "Adding accessibility requirements to user stories, conducting design reviews for accessibility, including accessibility in code reviews, and testing throughout development — not just before release",
+        "Hiring an accessibility consultant to review the finished product before each release",
+        "Adding an accessibility testing sprint at the end of each development cycle",
+        "Training only the QA team on accessibility testing"
+      ],
+      correct: 0,
+      explanation: "True SDLC integration means accessibility is addressed at every phase: requirements include accessibility criteria, designs are reviewed for accessibility before development begins, code reviews check accessibility implementation, and testing happens throughout — not just at the end. This 'shift left' approach catches issues early when they are cheaper and easier to fix.",
+      wrongExplanations: {
+        1: "A consultant review before release is still a final-stage check. Issues found at this point are expensive to fix and may delay releases. Accessibility needs to be integrated throughout development, not bolted on at the end.",
+        2: "A dedicated accessibility sprint at the end of the cycle is better than nothing but still treats accessibility as a separate final step. Issues found at this stage require rework. Integration throughout the cycle is more effective and efficient.",
+        3: "Training only QA limits accessibility to a testing concern. Designers, developers, content creators, and product managers all need accessibility knowledge to prevent barriers from being created in the first place."
+      },
+      topicLinks: ['maturity-models', 'w3c-wai'],
+      difficulty: 'medium',
+      tags: ['management']
+    },
+    {
+      id: 351,
+      question: "An organization is drafting its first public accessibility statement. Which components are MOST important to include?",
+      options: [
+        "The organization's conformance target, known limitations, contact information for reporting barriers, and a commitment to ongoing improvement",
+        "Only a statement that the organization complies with all applicable laws",
+        "A complete technical audit report with all WCAG success criteria listed",
+        "A disclaimer stating the organization is not responsible for accessibility barriers"
+      ],
+      correct: 0,
+      explanation: "An effective accessibility statement should include: the accessibility standard being targeted (e.g., WCAG 2.1 AA), known limitations or areas of non-conformance with plans for remediation, clear contact information so users can report barriers and request accommodations, and an organizational commitment to continuous improvement. Transparency builds trust with users.",
+      wrongExplanations: {
+        1: "A vague legal compliance statement provides no useful information to users. It does not tell them what standard is being met, what limitations exist, or how to get help when they encounter barriers.",
+        2: "A full technical audit report is too detailed for a public-facing accessibility statement. The statement should be user-friendly and actionable, summarizing conformance status and providing clear channels for feedback.",
+        3: "A disclaimer denying responsibility for barriers is the opposite of what an accessibility statement should convey. The purpose is to demonstrate commitment, transparency, and accountability — not to deflect responsibility."
+      },
+      topicLinks: ['w3c-wai', 'maturity-models'],
+      difficulty: 'easy',
+      tags: ['management']
+    },
+    {
+      id: 352,
+      question: "A team is preparing a business case for accessibility investment to present to their executive board. Which argument is MOST comprehensive and compelling?",
+      options: [
+        "Accessibility helps the organization avoid lawsuits",
+        "Accessibility benefits include expanding market reach to over 1 billion people with disabilities globally, improving usability for all users, strengthening brand reputation, driving innovation, and reducing legal risk — while also being the right thing to do",
+        "Accessibility is required by law so there is no choice",
+        "Accessibility will be handled by the existing QA team at no additional cost"
+      ],
+      correct: 1,
+      explanation: "The strongest business case connects multiple dimensions: market opportunity (1+ billion people with disabilities worldwide, plus aging populations), usability improvements that benefit all users (curb-cut effect), brand and reputation benefits, innovation drivers, legal risk reduction, and the ethical imperative. Framing accessibility only as legal compliance or risk avoidance undersells its value.",
+      wrongExplanations: {
+        0: "Legal risk avoidance is a valid but narrow argument. Leading with lawsuits frames accessibility negatively as a cost center rather than positively as a value creator. A comprehensive business case includes legal risk as one factor among many.",
+        2: "While legal requirements exist, framing accessibility purely as a legal obligation suggests minimum compliance rather than strategic investment. This approach typically results in the bare minimum effort and misses broader benefits.",
+        3: "This underestimates the investment needed and frames accessibility as having zero cost. While leveraging existing teams is smart, accessibility requires training, tools, process changes, and ongoing commitment — presenting it as 'free' undermines credibility."
+      },
+      topicLinks: ['disability-demographics', 'maturity-models'],
+      difficulty: 'medium',
+      tags: ['management']
+    },
+    {
+      id: 353,
+      question: "In an organization with a mature accessibility program, a product manager says, 'Accessibility is the accessibility team's job — my team just builds features.' What is the BEST response?",
+      options: [
+        "The product manager is correct — accessibility specialists should handle all accessibility work",
+        "Accessibility is everyone's responsibility: product managers define accessible requirements, designers create inclusive designs, developers implement accessible code, and QA tests for accessibility — the accessibility team provides guidance and governance, not all the work",
+        "Only developers are responsible for accessibility since it involves code changes",
+        "Accessibility only matters during the testing phase, so it is QA's responsibility"
+      ],
+      correct: 1,
+      explanation: "In a mature accessibility program, every role has accessibility responsibilities. Product managers include accessibility in requirements. Designers ensure inclusive design patterns. Developers write semantic, accessible code. Content creators write accessible content. QA tests with assistive technologies. The accessibility team provides expertise, training, governance, and guidance — but does not do all the work themselves.",
+      wrongExplanations: {
+        0: "Centralizing all accessibility work in a specialist team creates a bottleneck that cannot scale. It also removes accountability from the teams creating the products, which is where accessibility needs to be integrated.",
+        2: "Accessibility spans the entire product development process. Developers implement accessibility, but if requirements don't include it and designs don't support it, developers cannot retrofit it effectively.",
+        3: "Testing is important but is only one phase. If accessibility is only addressed in testing, barriers discovered at that point require costly rework. Accessibility must be considered from requirements through design, development, and testing."
+      },
+      topicLinks: ['maturity-models', 'w3c-wai'],
+      difficulty: 'easy',
+      tags: ['management']
+    },
+    {
+      id: 354,
+      question: "The W3C WAI suggests organizations follow a phased approach to implementing accessibility. An organization has already initiated accessibility awareness and is now developing an organizational accessibility policy with assigned roles. Which WAI implementation phase are they in?",
+      options: [
+        "Initiate",
+        "Plan",
+        "Implement",
+        "Sustain"
+      ],
+      correct: 1,
+      explanation: "The W3C WAI organizational implementation phases are: Initiate (build awareness, assess current state), Plan (develop policy, assign responsibilities, create plan), Implement (execute the plan, build capability, integrate into processes), and Sustain (monitor, continuously improve, adapt). Developing policy and assigning roles are key activities of the Plan phase.",
+      wrongExplanations: {
+        0: "The Initiate phase focuses on learning about accessibility, building initial awareness, and assessing the current state of accessibility in the organization. This organization has moved beyond initiation into active planning.",
+        2: "The Implement phase involves executing the accessibility plan, building organizational capability, and integrating accessibility into development and procurement processes. This organization is still developing its plan, not yet executing it.",
+        3: "The Sustain phase focuses on monitoring progress, continuous improvement, and adapting the accessibility program over time. This phase comes after implementation is underway, not during initial planning."
+      },
+      topicLinks: ['w3c-wai', 'maturity-models'],
+      difficulty: 'medium',
+      tags: ['management']
+    },
+    {
+      id: 355,
+      question: "An organization is planning accessibility training for its teams. Which approach to training is MOST effective?",
+      options: [
+        "Role-specific, ongoing training — designers learn inclusive design patterns, developers learn semantic HTML and ARIA, content creators learn accessible writing, and managers learn accessibility strategy and policy",
+        "A single annual company-wide presentation covering WCAG guidelines",
+        "Sending only the accessibility team to external conferences",
+        "Providing access to an online accessibility course and leaving it optional for all employees"
+      ],
+      correct: 0,
+      explanation: "Effective accessibility training is role-specific (each role needs different knowledge and skills), practical (with hands-on exercises relevant to actual work), and ongoing (not a one-time event). Designers need different training than developers, who need different training than content creators or managers. Regular refreshers and updates keep knowledge current.",
+      wrongExplanations: {
+        1: "A single annual presentation lacks the depth, specificity, and frequency needed to build real accessibility skills. Different roles need different training content, and annual delivery is insufficient for building lasting competency.",
+        2: "While the accessibility team benefits from conferences, limiting training to specialists does not build the broad organizational capability needed. Every team member who creates products needs relevant accessibility training.",
+        3: "Optional training results in low participation, especially among those who most need it. Making training role-specific and integrating it into professional development signals organizational commitment and ensures coverage."
+      },
+      topicLinks: ['w3c-wai', 'maturity-models'],
+      difficulty: 'easy',
+      tags: ['management']
+    },
+    {
+      id: 356,
+      question: "Consider three scenarios: (A) A federal government agency launches a new internal employee portal. (B) A private company's commercial website is inaccessible to customers. (C) A telecom company's video service lacks closed captions. Under US law, which law PRIMARILY applies to each scenario?",
+      options: [
+        "A: Section 508, B: ADA (Title III), C: CVAA",
+        "A: ADA, B: Section 508, C: CVAA",
+        "A: CVAA, B: ADA, C: Section 508",
+        "A: Section 508, B: CVAA, C: ADA"
+      ],
+      correct: 0,
+      explanation: "Section 508 applies to federal government ICT (Scenario A — federal employee portal). The ADA Title III covers public accommodations including commercial websites (Scenario B — private company's website). The CVAA (21st Century Communications and Video Accessibility Act) covers advanced communications and video programming (Scenario C — telecom video service). Each law has a distinct scope based on the entity type and technology involved.",
+      wrongExplanations: {
+        1: "The ADA does not primarily govern federal agency ICT — that is Section 508's domain. Section 508 does not apply to private companies — the ADA covers their public-facing services.",
+        2: "The CVAA does not apply to federal agency portals, and Section 508 does not govern commercial telecom services. Each law has a specific scope that doesn't match these assignments.",
+        3: "While Section 508 correctly applies to scenario A, the CVAA covers communications/video technology (not general commercial websites), and the ADA covers public accommodations (not telecom video services specifically)."
+      },
+      topicLinks: ['section-508', 'ada', 'cvaa'],
+      difficulty: 'hard',
+      tags: ['legal']
+    },
+    {
+      id: 357,
+      question: "A colleague confuses Section 504 and Section 508 of the Rehabilitation Act. How would you BEST explain the distinction?",
+      options: [
+        "Section 504 prohibits disability discrimination in any program receiving federal funding, while Section 508 specifically requires federal ICT (information and communications technology) to be accessible",
+        "Section 504 covers web accessibility and Section 508 covers physical accessibility",
+        "Section 504 applies only to education and Section 508 applies only to employment",
+        "Both sections cover exactly the same requirements but Section 508 is newer"
+      ],
+      correct: 0,
+      explanation: "Section 504 is a broad civil rights provision that prohibits discrimination on the basis of disability in any program or activity receiving federal financial assistance. Section 508 is more specific — it requires that electronic and information technology developed, procured, maintained, or used by federal agencies be accessible to people with disabilities. They are related but have distinct scopes.",
+      wrongExplanations: {
+        1: "This is incorrect in both directions. Section 504 covers discrimination broadly (not just web), and Section 508 covers ICT accessibility (not physical accessibility).",
+        2: "Section 504 is not limited to education — it covers any federally funded program or activity. Section 508 is not limited to employment — it covers all federal ICT. Both have broader scope than these narrow characterizations suggest.",
+        3: "The sections have fundamentally different scopes. Section 504 addresses disability discrimination broadly in federally funded programs, while Section 508 specifically addresses ICT accessibility in federal agencies. They are complementary, not duplicative."
+      },
+      topicLinks: ['section-508', 'ada'],
+      difficulty: 'medium',
+      tags: ['legal']
+    },
+    {
+      id: 358,
+      question: "An employee with a visual impairment requests screen reader-compatible software to perform their job duties. The employer argues that the cost is too high. Under disability rights law, what standard determines whether this accommodation must be provided?",
+      options: [
+        "The employer must provide any accommodation the employee wants, regardless of cost",
+        "The employer must provide reasonable accommodation unless they can demonstrate it would cause 'undue hardship' — significant difficulty or expense relative to the organization's size and resources",
+        "The employer has no obligation to provide accommodations for technology",
+        "The accommodation only needs to be provided if it costs less than $500"
+      ],
+      correct: 1,
+      explanation: "Disability rights laws (such as the ADA in the US, the Equality Act in the UK, and the CRPD internationally) require employers to provide reasonable accommodations. The 'undue hardship' or 'undue burden' standard considers factors such as the cost relative to the organization's overall budget and resources, the nature of the organization, and the impact on operations. A large corporation would have a much harder time claiming undue hardship than a small business.",
+      wrongExplanations: {
+        0: "The obligation is for 'reasonable' accommodation, not unlimited accommodation. Accommodations that would cause genuine undue hardship — significant difficulty or expense relative to organizational resources — may not be required.",
+        2: "Disability rights laws explicitly cover technology accommodations in the workplace. Employers are required to provide accessible tools and technologies as reasonable accommodations when needed for job performance.",
+        3: "There is no fixed dollar threshold for reasonable accommodation. The determination depends on the specific circumstances, including the employer's size, financial resources, and the nature of the accommodation needed."
+      },
+      topicLinks: ['ada', 'crpd'],
+      difficulty: 'medium',
+      tags: ['legal']
+    },
+    {
+      id: 359,
+      question: "What is the key difference in scope between the EU Web Accessibility Directive and the European Accessibility Act (EAA)?",
+      options: [
+        "The Web Accessibility Directive applies to public sector websites and mobile apps, while the EAA extends accessibility requirements to private sector products and services including e-commerce, banking, and transportation",
+        "They cover the same scope but the EAA replaced the Directive",
+        "The Web Accessibility Directive covers the private sector and the EAA covers the public sector",
+        "The EAA only applies to physical products, not digital services"
+      ],
+      correct: 0,
+      explanation: "The EU Web Accessibility Directive (2016) requires public sector body websites and mobile applications to be accessible. The European Accessibility Act (2019, with member state implementation by 2025) significantly broadens scope to include private sector products and services: computers, smartphones, e-commerce, banking services, e-books, transportation ticketing, and more. Together they create comprehensive public and private sector coverage.",
+      wrongExplanations: {
+        1: "The EAA did not replace the Web Accessibility Directive — both are in force simultaneously. They complement each other by covering different sectors (public vs. expanded private sector).",
+        2: "This reverses the actual scope. The Web Accessibility Directive targets public sector bodies, and the EAA extends requirements to the private sector.",
+        3: "The EAA covers both physical products (computers, smartphones, payment terminals) and digital services (e-commerce, banking, e-books). Its scope is deliberately broad to cover the entire user experience."
+      },
+      topicLinks: ['eu-accessibility'],
+      difficulty: 'hard',
+      tags: ['legal']
+    },
+    {
+      id: 360,
+      question: "How does the European standard EN 301 549 relate to WCAG?",
+      options: [
+        "EN 301 549 is a completely separate standard with no connection to WCAG",
+        "EN 301 549 incorporates WCAG 2.1 Level AA requirements for web content and extends accessibility requirements to non-web ICT such as software, hardware, and documents",
+        "EN 301 549 replaces WCAG in Europe",
+        "WCAG is a European standard that EN 301 549 is based on"
+      ],
+      correct: 1,
+      explanation: "EN 301 549 is the harmonized European standard for ICT accessibility. For web content, it directly incorporates WCAG 2.1 Level AA success criteria (in its Chapter/Clause 9). But EN 301 549 goes beyond web content to cover software (Chapter 11), documents (Chapter 10), hardware (Chapter 8), and other ICT. It serves as the technical standard referenced by the EU Web Accessibility Directive and the European Accessibility Act.",
+      wrongExplanations: {
+        0: "EN 301 549 directly incorporates WCAG for its web content requirements. They are closely connected — the relationship is intentional and explicit.",
+        2: "EN 301 549 does not replace WCAG — it incorporates WCAG for web content while adding requirements for other ICT types. WCAG remains the foundational web accessibility standard globally.",
+        3: "WCAG is a W3C international standard, not a European standard. EN 301 549 is the European standard that incorporates WCAG and extends its principles to other ICT types."
+      },
+      topicLinks: ['en-301-549', 'eu-accessibility'],
+      difficulty: 'medium',
+      tags: ['legal']
+    },
+    {
+      id: 361,
+      question: "The Charter of Fundamental Rights of the European Union includes provisions relevant to disability. Which statement BEST describes its coverage?",
+      options: [
+        "It only addresses accessibility of websites",
+        "It prohibits discrimination on grounds including disability and recognizes the right of persons with disabilities to benefit from measures designed to ensure their independence, social and occupational integration, and participation in community life",
+        "It exclusively covers employment discrimination",
+        "It applies only to people with physical disabilities, not cognitive or sensory disabilities"
+      ],
+      correct: 1,
+      explanation: "The EU Charter of Fundamental Rights (Article 21) prohibits discrimination on various grounds including disability, and (Article 26) recognizes the right of persons with disabilities to benefit from measures ensuring their independence, social and occupational integration, and participation in the life of the community. It provides a broad rights framework that underpins more specific EU directives and regulations.",
+      wrongExplanations: {
+        0: "The Charter covers fundamental rights broadly, not just website accessibility. It addresses non-discrimination, independence, social integration, and community participation — far beyond any single technology domain.",
+        2: "While employment non-discrimination is included, the Charter's disability provisions extend to independence, social integration, and community participation — covering life well beyond the workplace.",
+        3: "The Charter does not distinguish between disability types. Its protections apply to all persons with disabilities, including physical, sensory, cognitive, intellectual, and psychosocial disabilities."
+      },
+      topicLinks: ['eu-accessibility', 'crpd'],
+      difficulty: 'hard',
+      tags: ['legal']
+    },
+    {
+      id: 362,
+      question: "What is the scope of the EU Employment Equality Directive as it relates to disability?",
+      options: [
+        "It covers accessibility of consumer products and services",
+        "It establishes a general framework for equal treatment in employment and occupation, prohibiting disability discrimination in areas such as hiring, working conditions, promotion, and vocational training",
+        "It only applies to public sector employers",
+        "It sets technical accessibility standards for workplace software"
+      ],
+      correct: 1,
+      explanation: "The EU Employment Equality Directive (2000/78/EC) establishes a general framework for combating discrimination on several grounds, including disability, specifically in the context of employment and occupation. It covers hiring, working conditions, advancement, vocational training, and membership in worker organizations. Member states must implement it through national legislation, including provisions for reasonable accommodation.",
+      wrongExplanations: {
+        0: "The Employment Equality Directive focuses on employment and occupation, not consumer products and services. Consumer-facing accessibility is addressed by other instruments like the European Accessibility Act.",
+        2: "The Directive applies to both public and private sector employers. It establishes minimum standards for equal treatment across all employment contexts in EU member states.",
+        3: "The Directive addresses discrimination and equal treatment principles, not technical accessibility specifications. Technical standards for ICT are covered by EN 301 549."
+      },
+      topicLinks: ['eu-accessibility', 'national-disability-laws'],
+      difficulty: 'hard',
+      tags: ['legal']
+    },
+    {
+      id: 363,
+      question: "What is the primary goal of the Accessible Canada Act, and what is its scope?",
+      options: [
+        "It applies to all Canadian businesses and requires WCAG AAA conformance",
+        "It aims to create a barrier-free Canada by 2040, applying to federally regulated entities including federal government, telecommunications, banking, and transportation sectors",
+        "It only applies to Canadian government websites",
+        "It requires all Canadian provinces to adopt identical accessibility standards"
+      ],
+      correct: 1,
+      explanation: "The Accessible Canada Act (2019) sets an ambitious goal of a barrier-free Canada by 2040. Its scope covers federally regulated entities — the federal government, Crown corporations, and federally regulated private sector organizations in areas such as banking, telecommunications, and inter-provincial transportation. It addresses barriers across employment, the built environment, ICT, communication, procurement, and program/service delivery.",
+      wrongExplanations: {
+        0: "The Act applies to federally regulated entities, not all Canadian businesses. Provincial and territorial organizations are covered by their own accessibility legislation (such as Ontario's AODA). It also does not specify WCAG AAA as a requirement.",
+        2: "The Act's scope is much broader than websites. It covers employment practices, built environments, ICT, communications, procurement, and service delivery across all federally regulated entities.",
+        3: "Canada's accessibility framework involves both federal and provincial/territorial legislation. The Accessible Canada Act does not require provinces to adopt identical standards — provinces like Ontario (AODA) and Manitoba have their own accessibility laws."
+      },
+      topicLinks: ['national-disability-laws'],
+      difficulty: 'medium',
+      tags: ['legal']
+    },
+    {
+      id: 364,
+      question: "How does the UK Equality Act 2010 protect people with disabilities?",
+      options: [
+        "It only prevents discrimination in education settings",
+        "It protects against discrimination in employment, education, access to goods and services, housing, and public functions, and requires reasonable adjustments to remove barriers for disabled people",
+        "It only applies to physical disabilities in the workplace",
+        "It sets specific technical standards for website accessibility"
+      ],
+      correct: 1,
+      explanation: "The UK Equality Act 2010 provides comprehensive protection against discrimination on the basis of disability (among other protected characteristics) across multiple areas of life: employment, education, access to goods and services, housing, transport, and public functions. Crucially, it includes a duty to make 'reasonable adjustments' — proactive steps to remove or reduce barriers that put disabled people at a substantial disadvantage.",
+      wrongExplanations: {
+        0: "The Equality Act's scope extends far beyond education. It covers employment, goods and services, housing, transport, public functions, and more. Education is just one of many protected areas.",
+        2: "The Act covers all types of disability (physical, sensory, cognitive, mental health, learning disabilities) and applies across many settings beyond the workplace, including services, education, housing, and public functions.",
+        3: "The Equality Act establishes legal principles of non-discrimination and reasonable adjustments — it does not set technical standards. Technical accessibility standards (like WCAG) are referenced as ways to help meet Equality Act obligations."
+      },
+      topicLinks: ['national-disability-laws'],
+      difficulty: 'easy',
+      tags: ['legal']
+    },
+    {
+      id: 365,
+      question: "Article 9 of the CRPD addresses accessibility. How has this article influenced national laws around the world?",
+      options: [
+        "It has had no influence because the CRPD is non-binding",
+        "It has served as a framework and catalyst for countries to develop or strengthen their own accessibility laws, with many nations aligning domestic legislation with CRPD principles after ratification",
+        "It replaced all national accessibility laws upon each country's ratification",
+        "It only influenced laws in European countries"
+      ],
+      correct: 1,
+      explanation: "CRPD Article 9 requires states parties to take appropriate measures to ensure persons with disabilities have access to the physical environment, transportation, information and communications technologies, and other facilities and services. After ratifying the CRPD, many countries have developed or updated domestic legislation to align with its principles — examples include the Accessible Canada Act, India's Rights of Persons with Disabilities Act, and updates to EU accessibility directives.",
+      wrongExplanations: {
+        0: "While the CRPD's enforcement mechanisms vary, it has been highly influential as a framework for domestic legislation. Countries that ratify the CRPD commit to aligning their laws with its principles, and many have done so — making its influence substantial and concrete.",
+        2: "The CRPD does not replace national laws — it establishes principles that countries implement through their own domestic legislation. Each country adapts CRPD principles to their legal system and context.",
+        3: "The CRPD's influence is global, not just European. Countries across Asia, Africa, the Americas, and Oceania have developed or strengthened accessibility laws following CRPD ratification."
+      },
+      topicLinks: ['crpd', 'national-disability-laws'],
+      difficulty: 'hard',
+      tags: ['legal']
+    },
+    {
+      id: 366,
+      question: "The W3C WAI publishes three complementary sets of guidelines: WCAG, ATAG, and UAAG. A company builds a content management system (CMS) that authors use to create websites. Which guideline set is MOST relevant to the CMS itself?",
+      options: [
+        "WCAG — Web Content Accessibility Guidelines",
+        "ATAG — Authoring Tool Accessibility Guidelines",
+        "UAAG — User Agent Accessibility Guidelines",
+        "WAI-ARIA — Accessible Rich Internet Applications"
+      ],
+      correct: 1,
+      explanation: "ATAG (Authoring Tool Accessibility Guidelines) applies to tools used to create web content — including CMSs, website builders, code editors, and social media platforms. ATAG has two parts: Part A ensures the authoring tool itself is accessible to authors with disabilities, and Part B ensures the tool helps produce accessible content. WCAG applies to the web content produced, and UAAG applies to browsers and media players (user agents).",
+      wrongExplanations: {
+        0: "WCAG applies to the web content that is produced by the CMS, not to the CMS tool itself. The websites authors create with the CMS should conform to WCAG, but the CMS as an authoring tool falls under ATAG.",
+        2: "UAAG applies to user agents — software that retrieves and presents web content to users, such as browsers, media players, and browser extensions. A CMS is an authoring tool, not a user agent.",
+        3: "WAI-ARIA is a technical specification for making dynamic web content more accessible through additional semantics. It is not a guideline set for evaluating tools — it is an implementation technology."
+      },
+      topicLinks: ['w3c-wai'],
+      difficulty: 'medium',
+      tags: ['standards']
+    },
+    {
+      id: 367,
+      question: "What did WCAG 2.1 add beyond WCAG 2.0, and what was new in WCAG 2.2?",
+      options: [
+        "WCAG 2.1 added success criteria addressing mobile accessibility, low vision, and cognitive disabilities; WCAG 2.2 added criteria including focus appearance, dragging movements, and accessible authentication",
+        "WCAG 2.1 only added mobile-specific criteria; WCAG 2.2 completely replaced the POUR framework",
+        "WCAG 2.1 and 2.2 made no substantive changes — they only reorganized existing 2.0 criteria",
+        "WCAG 2.1 added cognitive accessibility criteria; WCAG 2.2 removed all mobile-related criteria"
+      ],
+      correct: 0,
+      explanation: "WCAG 2.1 (2018) added 17 new success criteria addressing gaps in mobile/touch accessibility (e.g., Orientation, Pointer Cancellation), low vision (e.g., Reflow, Text Spacing), and cognitive/learning disabilities (e.g., Input Purpose). WCAG 2.2 (2023) added 9 more criteria including Focus Appearance, Dragging Movements, Accessible Authentication, and Redundant Entry — further addressing cognitive accessibility and interaction patterns. Both versions are backward-compatible with WCAG 2.0.",
+      wrongExplanations: {
+        1: "WCAG 2.1 addressed mobile, low vision, AND cognitive accessibility — not just mobile. WCAG 2.2 built upon the existing POUR framework (Perceivable, Operable, Understandable, Robust) — it did not replace it.",
+        2: "Both versions added substantive new success criteria. WCAG 2.1 added 17 new criteria and WCAG 2.2 added 9 new criteria, addressing real gaps in the original WCAG 2.0 coverage.",
+        3: "WCAG 2.1 addressed mobile, low vision, and cognitive accessibility (not just cognitive). WCAG 2.2 did not remove any criteria — each WCAG version is a superset of the previous version, maintaining backward compatibility."
+      },
+      topicLinks: ['w3c-wai'],
+      difficulty: 'hard',
+      tags: ['standards']
+    },
+    {
+      id: 368,
+      question: "WCAG is a W3C recommendation, not a law. Yet it has legal force in many countries. How does this happen?",
+      options: [
+        "WCAG automatically becomes law in every country when published",
+        "Countries and regulations reference or incorporate WCAG into their legal frameworks — for example, Section 508 references WCAG through EN 301 549, the EU Web Accessibility Directive references EN 301 549 which incorporates WCAG, and many national laws directly reference WCAG 2.1 AA",
+        "WCAG only has legal force in the United States",
+        "WCAG becomes law only through court decisions, not through legislation"
+      ],
+      correct: 1,
+      explanation: "WCAG gains legal force when governments reference it in legislation, regulation, or policy. This happens worldwide: the US Section 508 refresh incorporated WCAG 2.0 AA criteria, the EU Web Accessibility Directive references EN 301 549 (which incorporates WCAG), Canada's accessibility standards reference WCAG, and many other countries directly cite WCAG 2.1 AA in their accessibility laws. This 'incorporation by reference' model makes WCAG the de facto global standard with legal weight.",
+      wrongExplanations: {
+        0: "WCAG does not automatically become law — it requires active incorporation by governments through legislation, regulation, or policy. Each country decides whether and how to reference WCAG in their legal framework.",
+        2: "WCAG has legal force or is referenced in laws across many countries, including the US, EU member states, Canada, Australia, Israel, and many others. Its influence is global, not limited to any single country.",
+        3: "While courts have sometimes referenced WCAG, its primary path to legal force is through legislative and regulatory action — governments explicitly referencing WCAG in their accessibility laws and standards."
+      },
+      topicLinks: ['w3c-wai', 'section-508', 'eu-accessibility'],
+      difficulty: 'hard',
+      tags: ['standards']
+    },
+    {
+      id: 369,
+      question: "When reading the WCAG specification, what is the difference between normative and non-normative (informative) content?",
+      options: [
+        "Normative content (success criteria, conformance requirements) defines what MUST be met for conformance; non-normative content (Understanding documents, Techniques) provides guidance and examples but is not required",
+        "Normative content is optional best practice; non-normative content is required",
+        "All WCAG content is normative and equally required for conformance",
+        "Non-normative content is outdated material kept for historical reference only"
+      ],
+      correct: 0,
+      explanation: "In WCAG, normative content includes the success criteria, conformance requirements, and definitions — this is what must be satisfied for conformance. Non-normative (informative) content includes the Understanding documents (explaining intent and benefits), Techniques (specific implementation approaches), and How to Meet guides. These informative resources are invaluable for implementation but are not requirements — there may be multiple valid ways to meet each success criterion.",
+      wrongExplanations: {
+        1: "This reverses the relationship. Normative content defines mandatory requirements; non-normative content provides optional guidance. Conformance is measured against normative content only.",
+        2: "WCAG explicitly distinguishes normative from non-normative content. Only the normative portions (success criteria, conformance requirements, definitions) are required for conformance claims.",
+        3: "Non-normative content is actively maintained and updated. The Understanding documents and Techniques are regularly revised to reflect current best practices, new technologies, and improved implementation approaches."
+      },
+      topicLinks: ['w3c-wai'],
+      difficulty: 'hard',
+      tags: ['standards']
+    },
+    {
+      id: 370,
+      question: "A developer is building a custom interactive component (a star rating widget) that has no native HTML equivalent. What is WAI-ARIA's role in this situation, and when is ARIA appropriate to use?",
+      options: [
+        "ARIA should be used on every HTML element to improve accessibility",
+        "ARIA should never be used — only native HTML elements are accessible",
+        "ARIA bridges the gap when native HTML semantics are insufficient; for this custom widget, ARIA roles, states, and properties communicate the component's purpose and state to assistive technologies — but native HTML should always be preferred when available",
+        "ARIA replaces the need for keyboard accessibility and focus management"
+      ],
+      correct: 2,
+      explanation: "WAI-ARIA (Accessible Rich Internet Applications) provides a way to add semantic information to custom widgets and dynamic content when native HTML elements do not convey the needed role, state, or property information. For a star rating widget, ARIA might convey the rating role, current value, and range. However, the first rule of ARIA is: if a native HTML element can do the job, use it instead. ARIA adds semantics but does not add behavior — keyboard interaction and focus management must still be implemented separately.",
+      wrongExplanations: {
+        0: "Adding ARIA to every element often makes accessibility worse, not better. Redundant ARIA (e.g., adding role='button' to a <button>) is unnecessary, and incorrect ARIA creates confusing experiences for assistive technology users. ARIA should only be used when needed.",
+        1: "While native HTML should always be the first choice, complex custom widgets sometimes require ARIA to communicate their semantics to assistive technologies. ARIA exists precisely for cases where HTML alone is insufficient.",
+        3: "ARIA communicates semantics (roles, states, properties) to assistive technologies but does not provide behavior. Keyboard interaction, focus management, and event handling must all be implemented separately in JavaScript. ARIA complements these efforts — it does not replace them."
+      },
+      topicLinks: ['w3c-wai'],
+      difficulty: 'easy',
+      tags: ['standards']
     }
   ]
 };
