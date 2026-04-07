@@ -68,12 +68,15 @@ export default function QuizCard({ question, questionIndex, totalQuestions, feed
   }
 
   function handleKeyDown(e) {
-    if (hasAnswered) return;
+    if (hasAnswered || e.ctrlKey || e.metaKey || e.altKey) return;
+
     const key = e.key.toLowerCase();
-    const letterIndex = key.charCodeAt(0) - 97; // a=0, b=1, c=2, d=3
-    if (letterIndex >= 0 && letterIndex < question.options.length) {
-      onAnswer(letterIndex);
-      return;
+    if (/^[a-z]$/.test(key)) {
+      const letterIndex = key.charCodeAt(0) - 97; // a=0, b=1, c=2, d=3
+      if (letterIndex >= 0 && letterIndex < question.options.length) {
+        onAnswer(letterIndex);
+        return;
+      }
     }
     const num = parseInt(e.key, 10);
     if (num >= 1 && num <= question.options.length) {

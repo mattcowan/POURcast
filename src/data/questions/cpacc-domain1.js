@@ -1836,7 +1836,7 @@ export const domain1 = {
       },
       topicLinks: ['social-model', 'medical-model', 'disability-demographics'],
       difficulty: 'hard',
-      tags: ['disability-models', 'aging', 'scenarios']
+      tags: ['disability-models', 'aging', 'scenario']
     },
     {
       id: 191,
@@ -1876,7 +1876,7 @@ export const domain1 = {
       },
       topicLinks: ['disability-etiquette', 'mobility-disabilities'],
       difficulty: 'easy',
-      tags: ['etiquette', 'scenarios']
+      tags: ['etiquette', 'scenario']
     },
     {
       id: 193,
