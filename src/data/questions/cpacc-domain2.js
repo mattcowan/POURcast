@@ -1109,23 +1109,23 @@ export const domain2 = {
     // ==========================================
     {
       id: 261,
-      question: "How many core principles does Universal Design for Learning (UDL) have?",
+      question: "Universal Design (UD) has 7 principles for the physical and digital environment, while Universal Design for Learning (UDL) has 3 principles for education. What is the KEY difference in their focus?",
       options: [
-        "3",
-        "4",
-        "7",
-        "5"
+        "UD focuses on making products, environments, and services usable by all people; UDL focuses on how learners engage with, perceive, and express knowledge in educational settings",
+        "UD applies only to physical buildings; UDL applies only to digital technology",
+        "UD is a legally binding standard; UDL is just an optional suggestion for teachers",
+        "UD was developed for people without disabilities; UDL was developed only for people with disabilities"
       ],
       correct: 0,
-      explanation: "UDL has 3 core principles: Multiple Means of Engagement, Multiple Means of Representation, and Multiple Means of Action & Expression.",
+      explanation: "Universal Design aims to make products, environments, and services usable by the widest range of people (7 principles like equitable use, flexibility, simplicity). UDL specifically addresses education through 3 principles: Engagement (the why), Representation (the what), and Action & Expression (the how). Both share the philosophy of proactive inclusion, but their scope and application differ.",
       wrongExplanations: {
-        1: "4 is the number of WCAG principles (POUR), not UDL principles.",
-        2: "7 is the number of Universal Design principles, not UDL principles.",
-        3: "UDL has 3 principles, not 5."
+        1: "UD applies to both physical and digital environments (e.g., curb cuts AND website design). UDL applies to curriculum design, which can include digital tools but is not limited to technology.",
+        2: "Neither UD nor UDL is a legally binding standard in most jurisdictions. Both are frameworks and principles that guide inclusive design practice.",
+        3: "Both UD and UDL are designed to benefit ALL people, not just those with disabilities. The core philosophy of both is that designing for diversity benefits everyone."
       },
-      topicLinks: ['universal-design-learning'],
-      difficulty: 'easy',
-      tags: ['udl']
+      topicLinks: ['universal-design-learning', 'universal-design-principles'],
+      difficulty: 'medium',
+      tags: ['udl', 'universal-design']
     },
     {
       id: 262,
@@ -1149,43 +1149,43 @@ export const domain2 = {
     },
     {
       id: 263,
-      question: "Which UDL principle addresses the 'WHAT' of learning — how content and information are presented?",
+      question: "A science teacher provides the same lesson content as a recorded lecture, a written article with diagrams, and an interactive simulation. Students can use any or all formats. Which UDL principle is the teacher applying, and which brain network does it engage?",
       options: [
-        "Multiple Means of Representation",
-        "Multiple Means of Engagement",
-        "Multiple Means of Action & Expression",
-        "Multiple Means of Communication"
+        "Multiple Means of Representation — the recognition network (the 'what' of learning), because content is presented in multiple formats",
+        "Multiple Means of Engagement — the affective network (the 'why' of learning), because students are given choices that motivate them",
+        "Multiple Means of Action & Expression — the strategic network (the 'how' of learning), because students interact with the content",
+        "This is Universal Design, not UDL, because it involves technology"
       ],
       correct: 0,
-      explanation: "Multiple Means of Representation addresses the 'what' of learning — the recognition network. It involves providing information in multiple formats (text, audio, visual) so all learners can access the content.",
+      explanation: "Providing the same content in multiple formats (audio lecture, text with visuals, interactive simulation) is Representation — the 'what' of learning. It engages the brain's recognition network, which processes how we perceive and comprehend information. The key is that the CONTENT stays the same; only the FORMAT varies. This helps learners with different sensory abilities, language backgrounds, and learning preferences all access the same knowledge.",
       wrongExplanations: {
-        1: "Engagement addresses the 'why' of learning — motivation and interest, not how content is presented.",
-        2: "Action & Expression addresses the 'how' of learning — how learners demonstrate knowledge, not how content is presented to them.",
-        3: "Multiple Means of Communication is not one of the three UDL principles."
+        1: "Engagement is about motivation and interest — the 'why' of learning. While choice can be motivating, the core action here is presenting content in multiple formats, which is Representation. If students were choosing topics by interest, that would be Engagement.",
+        2: "Action & Expression is about how students DEMONSTRATE knowledge (writing an essay vs. giving a talk vs. creating a video). Here, students are receiving content in different formats, not demonstrating their own learning.",
+        3: "UDL absolutely involves technology. UDL is a framework for curriculum design that can use any medium — digital or analog. The three formats described are a classic UDL Representation strategy."
       },
       topicLinks: ['universal-design-learning'],
-      difficulty: 'easy',
-      tags: ['udl', 'representation']
+      difficulty: 'medium',
+      tags: ['udl', 'representation', 'scenario']
     },
     {
       id: 264,
-      question: "Which UDL principle addresses the 'HOW' of learning — how learners demonstrate what they know?",
+      question: "A student is highly motivated and understands the course material well, but struggles with organizing their work, managing time, and following multi-step instructions. Which UDL principle MOST directly addresses these executive function challenges?",
       options: [
-        "Multiple Means of Action & Expression",
-        "Multiple Means of Engagement",
-        "Multiple Means of Representation",
-        "Multiple Means of Assessment"
+        "Multiple Means of Action & Expression — because executive function (planning, organizing, self-monitoring) is part of the strategic 'how' network",
+        "Multiple Means of Engagement — because the student needs more motivation to overcome their struggles",
+        "Multiple Means of Representation — because the instructions should be presented in a different format",
+        "None — executive function is not addressed by any UDL principle"
       ],
       correct: 0,
-      explanation: "Multiple Means of Action & Expression addresses the 'how' of learning — the strategic network. It provides learners with options for demonstrating their knowledge (writing, speaking, creating, etc.).",
+      explanation: "Executive functions — planning, organizing, managing time, and self-monitoring — are part of the brain's strategic network, which is addressed by Multiple Means of Action & Expression. Supports like checklists, rubrics, scaffolded steps, and goal-setting tools help learners manage HOW they approach tasks. This is a common exam trap: the student is already motivated (Engagement is fine) and understands the material (Representation is fine) — the barrier is in execution and organization.",
       wrongExplanations: {
-        1: "Engagement addresses the 'why' of learning — motivation and interest, not how learners demonstrate knowledge.",
-        2: "Representation addresses the 'what' of learning — how content is presented, not how learners express their understanding.",
-        3: "Multiple Means of Assessment is not one of the three UDL principles."
+        1: "The scenario states the student IS motivated. Engagement addresses the 'why' of learning — interest and motivation. Since motivation is not the barrier here, Engagement is not the most relevant principle.",
+        2: "The student understands the material — comprehension is not the issue. Representation addresses how content is perceived and understood. The barrier is in organizing and executing work, not in understanding it.",
+        3: "Executive function is explicitly addressed by UDL's Action & Expression principle. UDL includes supports for planning, organizing, and self-monitoring as part of the strategic network."
       },
       topicLinks: ['universal-design-learning'],
-      difficulty: 'easy',
-      tags: ['udl', 'action-expression']
+      difficulty: 'hard',
+      tags: ['udl', 'action-expression', 'tricky', 'scenario']
     },
     {
       id: 265,
@@ -1510,6 +1510,222 @@ export const domain2 = {
       topicLinks: ['user-centered-design', 'usability-concepts'],
       difficulty: 'medium',
       tags: ['user-centered-design', 'scenario']
+    },
+
+    // ==========================================
+    // Benefits of Accessibility (Questions 281-283)
+    // ==========================================
+    {
+      id: 281,
+      question: "A national report finds that increasing the employment rate of people with disabilities has led to a larger tax base and reduced government spending on disability support programs. Which TYPE of accessibility benefit does this scenario BEST illustrate?",
+      options: [
+        "A societal economic benefit — broader workforce participation reduces public costs and increases revenue",
+        "A personal benefit — individuals with disabilities earn higher incomes",
+        "A business benefit — companies gain access to a wider talent pool",
+        "A legal benefit — governments avoid discrimination lawsuits"
+      ],
+      correct: 0,
+      explanation: "This is a societal economic benefit. When more people with disabilities participate in the workforce, society benefits through a larger tax base and reduced demand for government support programs. While individuals also benefit personally (income, independence), the scenario focuses on the macro-level economic impact on society as a whole.",
+      wrongExplanations: {
+        1: "While individuals do benefit personally from employment, the scenario specifically highlights society-wide impacts — tax revenue and reduced public spending — which are societal benefits.",
+        2: "Businesses may benefit from hiring people with disabilities, but the scenario focuses on national-level economic outcomes (tax base, government spending), not individual company advantages.",
+        3: "The scenario does not mention lawsuits or legal compliance. It describes positive economic outcomes for society from increased workforce participation."
+      },
+      topicLinks: ['accessibility-vs-accommodation', 'universal-design-principles'],
+      difficulty: 'medium',
+      tags: ['benefits-of-accessibility', 'societal-benefit', 'scenario']
+    },
+    {
+      id: 282,
+      question: "A marketing professional without any disability finds that a website's high-contrast text and large touch targets make it much easier to browse products on her phone while walking outside in bright sunlight. This is an example of:",
+      options: [
+        "The curb cut effect — accessibility features benefiting people beyond the intended audience",
+        "Assistive technology — a specialized tool designed for people with disabilities",
+        "Reasonable accommodation — a modification made for a specific individual's needs",
+        "Remediation — fixing an accessibility issue that was reported by a user"
+      ],
+      correct: 0,
+      explanation: "The curb cut effect describes how features designed for people with disabilities end up benefiting a much wider population. High-contrast text and large touch targets are accessibility features that help people with low vision or motor impairments, but they also help anyone using a phone in challenging conditions like bright sunlight or while on the move.",
+      wrongExplanations: {
+        1: "Assistive technology refers to personal devices or software (like screen readers or switch devices) used by individuals with disabilities. The website's built-in design features are not assistive technology.",
+        2: "Reasonable accommodation is a reactive, individual modification — like providing a specific employee with specialized equipment. The website was designed this way for all users from the start.",
+        3: "Remediation means fixing problems after they are discovered. The scenario describes built-in design features that happen to benefit a wider audience, not a fix for a reported issue."
+      },
+      topicLinks: ['universal-design-principles', 'accessibility-vs-accommodation'],
+      difficulty: 'easy',
+      tags: ['curb-cut-effect', 'benefits-of-accessibility', 'scenario']
+    },
+    {
+      id: 283,
+      question: "A company redesigns its website to meet WCAG standards and prominently communicates its commitment to digital inclusion. As a result, the company receives positive media coverage and increased customer loyalty. Which BUSINESS benefit of accessibility does this BEST represent?",
+      options: [
+        "Brand enhancement — demonstrating corporate social responsibility builds reputation and trust",
+        "Legal risk reduction — the company avoids potential lawsuits",
+        "Market expansion — the company reaches new customer segments",
+        "Innovation — accessibility drives creative product improvements"
+      ],
+      correct: 0,
+      explanation: "Publicly committing to accessibility and receiving positive media attention is a brand enhancement benefit. When companies visibly demonstrate corporate social responsibility through accessible design, they build trust, strengthen their reputation, and foster customer loyalty.",
+      wrongExplanations: {
+        1: "While WCAG compliance does reduce legal risk, the scenario emphasizes positive media coverage and customer loyalty from communicating the commitment — that is brand enhancement, not legal strategy.",
+        2: "Market expansion refers to reaching new customers who could not previously use the product (e.g., people with disabilities, aging populations). The scenario focuses on reputation and loyalty, not new market segments.",
+        3: "Innovation as a business benefit refers to how solving accessibility challenges drives creative solutions that improve products for everyone. The scenario describes reputational gains, not product innovation."
+      },
+      topicLinks: ['accessibility-vs-accommodation', 'universal-design-principles'],
+      difficulty: 'easy',
+      tags: ['benefits-of-accessibility', 'business-case', 'scenario']
+    },
+
+    // ==========================================
+    // Built Environment (Questions 284-285)
+    // ==========================================
+    {
+      id: 284,
+      question: "A city redesigns its public transit system so that all bus stops have raised platforms level with bus floors, all stations have tactile ground indicators, and all ticket machines have audio output and large buttons. Which concept does this BEST exemplify?",
+      options: [
+        "Universal Design applied to the built environment — proactively designing public infrastructure for all users",
+        "Reasonable accommodation — modifying transit for individuals who request it",
+        "Assistive technology — providing specialized devices at transit stations",
+        "WCAG compliance — meeting web content accessibility standards in transit"
+      ],
+      correct: 0,
+      explanation: "This is Universal Design applied to the built environment. The city proactively designed its transit infrastructure — platforms, ground indicators, and ticket machines — to be usable by the widest range of people from the start, including wheelchair users, people with visual impairments, and older adults.",
+      wrongExplanations: {
+        1: "Reasonable accommodation is reactive and individual — for example, providing a specific person with a paratransit van upon request. The scenario describes system-wide proactive design for all users.",
+        2: "Assistive technology refers to personal devices (screen readers, wheelchairs). The features described are built into the environment itself, not personal devices provided to individuals.",
+        3: "WCAG applies to web content, not physical transit infrastructure. The built environment has its own standards, such as ISO 21542 and local building codes."
+      },
+      topicLinks: ['built-environment', 'universal-design-principles'],
+      difficulty: 'easy',
+      tags: ['built-environment', 'universal-design', 'scenario']
+    },
+    {
+      id: 285,
+      question: "A project manager is planning accessibility compliance for a new civic center that includes both a physical building and a public-facing website. Which statement BEST describes the standards landscape they need to navigate?",
+      options: [
+        "ISO 21542 addresses accessibility of the built environment, while WCAG addresses accessibility of the website — both are needed",
+        "WCAG covers both the building and the website since it is a universal accessibility standard",
+        "ISO 21542 covers both the building and the website since it is an international standard",
+        "Neither standard applies — local building codes are the only relevant requirements"
+      ],
+      correct: 0,
+      explanation: "ISO 21542 provides guidelines for accessibility in the built environment (buildings, facilities, outdoor spaces), while WCAG provides guidelines for web content accessibility. A project with both physical and digital components needs to address both standards. Understanding which standard applies to which domain is essential for comprehensive accessibility planning.",
+      wrongExplanations: {
+        1: "WCAG (Web Content Accessibility Guidelines) is specifically for web content and digital interfaces. It does not cover physical building accessibility such as doorways, signage, or restroom design.",
+        2: "ISO 21542 addresses the built environment — construction, buildings, and physical spaces. It does not cover websites or digital content.",
+        3: "While local building codes are important, international standards like ISO 21542 and WCAG provide comprehensive frameworks that local codes often reference or complement. Both are relevant."
+      },
+      topicLinks: ['built-environment', 'wcag-overview'],
+      difficulty: 'medium',
+      tags: ['built-environment', 'standards', 'wcag']
+    },
+
+    // ==========================================
+    // Accommodation vs. Inclusive Design (Questions 286-287)
+    // ==========================================
+    {
+      id: 286,
+      question: "Consider two actions taken by the same company: (1) Installing automatic sliding doors at the main entrance, and (2) Providing a specific employee with an adjustable-height desk after they submit a medical accommodation request. Which statement BEST classifies these actions?",
+      options: [
+        "Automatic doors are inclusive design (proactive, benefits everyone); the adjustable desk is an accommodation (reactive, for one individual's documented need)",
+        "Both are accommodations because they help people with disabilities",
+        "Both are inclusive design because they make the workplace more accessible",
+        "Automatic doors are an accommodation because they were installed for wheelchair users; the desk is inclusive design because anyone could use it"
+      ],
+      correct: 0,
+      explanation: "Automatic doors are inclusive design — they are installed proactively and benefit everyone (people carrying packages, parents with strollers, wheelchair users, anyone with their hands full). The adjustable desk is an accommodation — it was provided reactively in response to a specific individual's documented medical need. The key distinction is proactive/universal vs. reactive/individual.",
+      wrongExplanations: {
+        1: "Not both are accommodations. Automatic doors were not installed in response to an individual request — they are a proactive design choice that benefits all building users.",
+        2: "Not both are inclusive design. The adjustable desk was provided reactively for one specific employee's medical needs, making it an accommodation rather than inclusive design.",
+        3: "This reverses the classification. Automatic doors benefit everyone proactively (inclusive design). The adjustable desk was triggered by an individual medical request (accommodation), regardless of whether others might also benefit from one."
+      },
+      topicLinks: ['accessibility-vs-accommodation', 'universal-design-principles'],
+      difficulty: 'medium',
+      tags: ['accommodation', 'inclusive-design', 'scenario']
+    },
+    {
+      id: 287,
+      question: "What is the MAIN distinction between accommodation and inclusive design?",
+      options: [
+        "Accommodation requires a request and individual needs assessment; inclusive design is proactive and built in from the start",
+        "Accommodation is free; inclusive design is expensive",
+        "Accommodation is permanent; inclusive design is temporary",
+        "Accommodation is for physical disabilities; inclusive design is for cognitive disabilities"
+      ],
+      correct: 0,
+      explanation: "The fundamental distinction is that accommodation is reactive — it requires someone to identify a need, make a request, and undergo an assessment to receive an individual modification. Inclusive design is proactive — it anticipates diverse needs and builds solutions in from the beginning so that no individual request is necessary.",
+      wrongExplanations: {
+        1: "Cost is not the defining distinction. Accommodations can be costly (specialized equipment) or free (schedule flexibility). Inclusive design is often more cost-effective than retrofitting accommodations later.",
+        2: "This is backwards if anything — accommodations are often temporary or tied to a specific person's tenure, while inclusive design features are permanent parts of the environment. But permanence is not the main distinction.",
+        3: "Both accommodation and inclusive design apply to all types of disabilities — physical, cognitive, sensory, and others. The distinction is about the process (reactive vs. proactive), not the type of disability."
+      },
+      topicLinks: ['accessibility-vs-accommodation', 'universal-design-principles'],
+      difficulty: 'hard',
+      tags: ['accommodation', 'inclusive-design', 'distinction']
+    },
+
+    // ==========================================
+    // User-Centered Design (Questions 288-290)
+    // ==========================================
+    {
+      id: 288,
+      question: "User-Centered Design follows an iterative process with four key phases. What is the FIRST phase of the UCD process?",
+      options: [
+        "Understand users and their context of use",
+        "Design solutions that address user needs",
+        "Evaluate designs against requirements",
+        "Identify specific user requirements"
+      ],
+      correct: 0,
+      explanation: "The first phase of User-Centered Design is to understand users and their context — who are the users, what are their characteristics, what environment will they use the product in, and what tasks do they need to accomplish? This research foundation informs everything that follows. The full cycle is: (1) understand users/context, (2) identify requirements, (3) design solutions, (4) evaluate against requirements — then iterate.",
+      wrongExplanations: {
+        1: "Designing solutions is the third phase. You cannot design effective solutions without first understanding users (phase 1) and identifying their requirements (phase 2).",
+        2: "Evaluating designs is the fourth phase. Evaluation happens after solutions are designed, to check whether they meet the requirements identified earlier.",
+        3: "Identifying requirements is the second phase. Requirements emerge from the understanding of users and context gained in the first phase."
+      },
+      topicLinks: ['user-centered-design', 'usability-concepts'],
+      difficulty: 'medium',
+      tags: ['user-centered-design', 'process']
+    },
+    {
+      id: 289,
+      question: "A design team wants to ensure their product is accessible. They plan to include people with disabilities in user research, prototyping, and testing throughout the project. What ADDITIONAL best practice should they follow to fully integrate accessibility into their User-Centered Design process?",
+      options: [
+        "Follow established accessibility standards and guidelines (such as WCAG) alongside user involvement",
+        "Replace user testing with automated accessibility scanners",
+        "Only test with people with disabilities at the final stage before launch",
+        "Rely exclusively on the feedback of users with disabilities without consulting standards"
+      ],
+      correct: 0,
+      explanation: "Fully integrating accessibility into UCD requires two complementary practices: (1) including people with disabilities in every phase of the design process, and (2) following established standards and guidelines like WCAG. User involvement captures real-world needs and experiences, while standards provide systematic, comprehensive coverage of known accessibility requirements. Neither alone is sufficient.",
+      wrongExplanations: {
+        1: "Automated scanners catch only a fraction of accessibility issues (estimated 30-40%). They cannot replace the insights gained from real users with disabilities experiencing the product.",
+        2: "Testing only at the final stage contradicts UCD principles — users should be involved throughout every phase, not just at the end. Late-stage testing leads to costly redesigns.",
+        3: "User feedback alone, while invaluable, may not cover all accessibility requirements. Standards like WCAG represent decades of research and address issues that individual testers might not encounter during limited testing sessions."
+      },
+      topicLinks: ['user-centered-design', 'wcag-overview'],
+      difficulty: 'hard',
+      tags: ['user-centered-design', 'accessibility', 'best-practices']
+    },
+    {
+      id: 290,
+      question: "A colleague asks you to explain the difference between User-Centered Design (UCD), Universal Design (UD), and Universal Design for Learning (UDL). Which response MOST accurately distinguishes all three?",
+      options: [
+        "UCD is an iterative design process that involves users throughout; UD is a set of 7 principles for inclusive products and environments; UDL is a set of 3 principles for inclusive education and curriculum",
+        "UCD, UD, and UDL are three names for the same inclusive design approach",
+        "UCD is for websites, UD is for buildings, and UDL is for classrooms — they do not overlap",
+        "UCD focuses on testing with users after launch; UD and UDL focus on designing without user input"
+      ],
+      correct: 0,
+      explanation: "These three frameworks are distinct but complementary. UCD is a process — an iterative cycle of understanding users, defining requirements, designing, and evaluating, with users involved at every stage. UD is a set of 7 principles (equitable use, flexibility, simplicity, perceptible information, tolerance for error, low effort, size/space) guiding the design of inclusive products and environments. UDL is a set of 3 principles (engagement, representation, action & expression) guiding inclusive curriculum design in education. Together, they form a comprehensive toolkit for inclusive design across domains.",
+      wrongExplanations: {
+        1: "They are distinct frameworks with different scopes, principles, and applications. UCD is a process, UD is a set of design principles, and UDL is a set of educational principles.",
+        2: "All three can apply across domains — UCD can be used for buildings or software, UD applies to digital products as well as physical spaces, and UDL principles can be applied in online learning. They overlap significantly.",
+        3: "UCD involves users throughout the entire design process (before, during, and after), not just after launch. UD and UDL can and should incorporate user input — they are principles that complement user involvement, not replace it."
+      },
+      topicLinks: ['user-centered-design', 'universal-design-principles', 'universal-design-learning'],
+      difficulty: 'hard',
+      tags: ['user-centered-design', 'universal-design', 'udl', 'distinction']
     }
   ]
 };
