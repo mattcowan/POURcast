@@ -1726,6 +1726,211 @@ export const domain2 = {
       topicLinks: ['user-centered-design', 'universal-design-principles', 'universal-design-learning'],
       difficulty: 'hard',
       tags: ['user-centered-design', 'universal-design', 'udl', 'distinction']
+    },
+
+    // ============================================================
+    // UDL DEEP-DIVE (291-300)
+    // Targets gap: UDL sub-principles, especially Action & Expression
+    // ============================================================
+    {
+      id: 291,
+      question: "Universal Design for Learning (UDL) is built on three principles aligned with three brain networks. Which brain network corresponds to the 'Engagement' principle — the WHY of learning?",
+      options: [
+        "Affective network",
+        "Recognition network",
+        "Strategic network",
+        "Executive network"
+      ],
+      correct: 0,
+      explanation: "The Engagement principle — the WHY of learning — aligns with the affective network. The affective network governs motivation, interest, and emotional response. UDL's Engagement guidelines offer multiple means of recruiting interest, sustaining effort and persistence, and supporting self-regulation.",
+      wrongExplanations: {
+        1: "The recognition network corresponds to the Representation principle (the WHAT of learning) — how learners perceive and comprehend information.",
+        2: "The strategic network corresponds to the Action & Expression principle (the HOW of learning) — how learners plan and perform tasks.",
+        3: "'Executive network' is not one of the three UDL brain networks. Executive function is a checkpoint under Action & Expression, but the network itself is called strategic."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'easy',
+      tags: ['udl', 'engagement', 'brain-networks']
+    },
+    {
+      id: 292,
+      question: "Which brain network does the 'Action & Expression' UDL principle align with?",
+      options: [
+        "Strategic network",
+        "Affective network",
+        "Recognition network",
+        "Sensory network"
+      ],
+      correct: 0,
+      explanation: "Action & Expression — the HOW of learning — aligns with the strategic network. The strategic network, located primarily in the frontal lobes, handles planning, executing, and monitoring actions. UDL's Action & Expression guidelines provide multiple means for physical action, expression & communication, and executive functions (goal-setting, planning, self-monitoring).",
+      wrongExplanations: {
+        1: "The affective network corresponds to Engagement (WHY), governing motivation and emotional response.",
+        2: "The recognition network corresponds to Representation (WHAT), governing perception and comprehension of information.",
+        3: "'Sensory network' is not one of the three UDL brain networks."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'easy',
+      tags: ['udl', 'action-expression', 'strategic-network']
+    },
+    {
+      id: 293,
+      question: "A teacher allows students to choose between writing an essay, recording a podcast, or creating a video presentation to demonstrate their understanding of a historical event. Which UDL principle AND sub-principle (checkpoint area) does this practice MOST directly support?",
+      options: [
+        "Action & Expression — provide options for expression and communication",
+        "Engagement — provide options for recruiting interest",
+        "Representation — provide options for comprehension",
+        "Action & Expression — provide options for physical action"
+      ],
+      correct: 0,
+      explanation: "Offering multiple formats for students to demonstrate learning (essay, podcast, video) directly supports the 'expression and communication' checkpoint under Action & Expression. This sub-principle recognizes that learners differ in how they can best express what they know, and that no single medium is ideal for every learner.",
+      wrongExplanations: {
+        1: "While choice can boost engagement, the primary UDL mapping here is about HOW students express their learning — that belongs under Action & Expression, not Engagement's 'recruiting interest' checkpoint.",
+        2: "Representation is about how information is presented TO learners (input). This example is about how learners demonstrate their understanding (output), which is Action & Expression.",
+        3: "'Physical action' specifically addresses tools, assistive technologies, and navigation (e.g., alternatives to keyboard/mouse). Format choice for assignments is about expression and communication, not physical access."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'medium',
+      tags: ['udl', 'action-expression', 'expression-communication']
+    },
+    {
+      id: 294,
+      question: "A science textbook provides definitions for technical vocabulary, background knowledge summaries, and graphic organizers that show how concepts relate. Which UDL principle and checkpoint do these supports MOST directly address?",
+      options: [
+        "Representation — provide options for language, mathematical expressions, and symbols; and for comprehension",
+        "Engagement — provide options for sustaining effort and persistence",
+        "Action & Expression — provide options for executive functions",
+        "Representation — provide options for perception"
+      ],
+      correct: 0,
+      explanation: "Vocabulary support, background knowledge, and graphic organizers directly address two Representation checkpoints: 'language, mathematical expressions, and symbols' (clarifying vocabulary and syntax) and 'comprehension' (activating prior knowledge, highlighting patterns and relationships). These supports help learners process and make sense of information.",
+      wrongExplanations: {
+        1: "Sustaining effort and persistence is an Engagement checkpoint addressing motivation — not the cognitive supports described here.",
+        2: "Executive functions (goal-setting, planning, self-monitoring) are an Action & Expression checkpoint — these help learners manage their own learning, not process content.",
+        3: "'Perception' checkpoints address how information is displayed (customizable text, alternatives for audio/visual). Vocabulary and comprehension supports go beyond perception into meaning-making."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'medium',
+      tags: ['udl', 'representation', 'comprehension']
+    },
+    {
+      id: 295,
+      question: "A teacher uses a rubric, a daily planner, and explicit goal-setting prompts to help students manage long-term projects. Which UDL checkpoint area is this supporting?",
+      options: [
+        "Action & Expression — executive functions",
+        "Engagement — self-regulation",
+        "Action & Expression — physical action",
+        "Representation — comprehension"
+      ],
+      correct: 0,
+      explanation: "Rubrics, planners, and goal-setting prompts support 'executive functions,' a checkpoint under Action & Expression. Executive functions include setting appropriate goals, planning and strategy development, managing information and resources, and monitoring progress. These supports scaffold the strategic network that learners use to manage their own work.",
+      wrongExplanations: {
+        1: "Self-regulation (under Engagement) is about managing emotions, motivation, and coping with frustration — not the cognitive planning and monitoring tools described here.",
+        2: "Physical action addresses tools for interacting with materials (assistive tech, alternative input methods). Planning tools are about cognition, not physical access.",
+        3: "Comprehension is about understanding content. Project management tools help with executing work, not understanding subject matter."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'medium',
+      tags: ['udl', 'action-expression', 'executive-functions']
+    },
+    {
+      id: 296,
+      question: "A learner with a motor impairment uses a switch interface and an alternative keyboard to navigate digital learning materials. Which Action & Expression checkpoint does the inclusion of these assistive technology options support?",
+      options: [
+        "Provide options for physical action",
+        "Provide options for expression and communication",
+        "Provide options for executive functions",
+        "Provide options for perception"
+      ],
+      correct: 0,
+      explanation: "'Physical action' is the Action & Expression checkpoint that addresses varying the methods for response, navigation, and interaction — including assistive technologies, alternative keyboards, switches, and voice-activated controls. This checkpoint ensures that the physical act of engaging with materials does not become a barrier.",
+      wrongExplanations: {
+        1: "Expression and communication is about the MEDIA learners use to demonstrate learning (text, speech, video, etc.), not the physical input methods.",
+        2: "Executive functions is about planning, goal-setting, and self-monitoring — a cognitive checkpoint, not a physical one.",
+        3: "Perception is under Representation, not Action & Expression."
+      },
+      topicLinks: ['universal-design-learning', 'assistive-technology'],
+      difficulty: 'medium',
+      tags: ['udl', 'action-expression', 'physical-action']
+    },
+    {
+      id: 297,
+      question: "A middle school teacher offers students choice in assignment topics, allows them to set personal learning goals, and connects lessons to students' cultural backgrounds and interests. Which UDL principle does this MOST directly support?",
+      options: [
+        "Engagement — recruiting interest",
+        "Representation — comprehension",
+        "Action & Expression — expression and communication",
+        "Engagement — self-regulation"
+      ],
+      correct: 0,
+      explanation: "Offering choice, personal relevance, and cultural connection directly supports the 'recruiting interest' checkpoint under Engagement. This checkpoint emphasizes optimizing individual choice and autonomy, optimizing relevance, value, and authenticity, and minimizing threats and distractions — all to spark learners' motivation to engage.",
+      wrongExplanations: {
+        1: "Comprehension (Representation) addresses how learners process information, not how their interest is sparked.",
+        2: "Expression and communication is about how learners demonstrate learning, not what draws them in.",
+        3: "Self-regulation (also Engagement) is about managing emotions, developing coping skills, and self-assessment — not the initial recruitment of interest described here."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'medium',
+      tags: ['udl', 'engagement', 'recruiting-interest']
+    },
+    {
+      id: 298,
+      question: "A video lesson includes captions, a transcript, audio description of visual elements, and allows learners to adjust playback speed and text size. Which UDL checkpoint area do these features MOST directly serve?",
+      options: [
+        "Representation — perception",
+        "Engagement — sustaining effort and persistence",
+        "Action & Expression — physical action",
+        "Representation — comprehension"
+      ],
+      correct: 0,
+      explanation: "Captions, transcripts, audio description, and customizable display are all 'perception' checkpoints under Representation. The perception checkpoint covers offering ways of customizing the display of information, offering alternatives for auditory information, and offering alternatives for visual information — ensuring all learners can perceive the content regardless of sensory ability.",
+      wrongExplanations: {
+        1: "Sustaining effort and persistence addresses motivation over time — fostering collaboration, mastery-oriented feedback, etc. — not sensory access.",
+        2: "Physical action addresses input methods and navigation tools, not how information is perceived.",
+        3: "Comprehension addresses making meaning from information (background knowledge, vocabulary, patterns). Perception comes first — it addresses whether the information can be received at all."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'medium',
+      tags: ['udl', 'representation', 'perception']
+    },
+    {
+      id: 299,
+      question: "A teacher argues that adding UDL supports — like captions, choice of assignment format, and goal-setting scaffolds — is only necessary for students with documented disabilities and amounts to 'lowering standards' for other students. What is the MOST accurate UDL-based response?",
+      options: [
+        "UDL is designed for all learners from the start — variability is the norm, not the exception — and providing multiple means of engagement, representation, and action & expression raises rather than lowers expectations by giving every learner pathways to rigorous content",
+        "UDL is primarily a disability accommodation framework and the teacher is correct that it should be limited to students with IEPs",
+        "UDL replaces curriculum standards with individualized goals for each student",
+        "UDL lowers standards but increases graduation rates, which is a worthwhile tradeoff"
+      ],
+      correct: 0,
+      explanation: "UDL's foundational premise is that learner variability is predictable and universal — there is no 'average learner.' By designing flexible curricula from the outset with multiple means of engagement, representation, and action & expression, UDL removes barriers for everyone while maintaining (and often raising) expectations. The goal is to become 'expert learners' who are purposeful, resourceful, and strategic — not to lower rigor.",
+      wrongExplanations: {
+        1: "UDL was developed by CAST to benefit ALL learners, not just students with disabilities. Its framework is rooted in neuroscience research on learner variability across the entire population.",
+        2: "UDL does not replace curriculum standards. It provides flexible pathways TO those standards, keeping learning goals constant while varying the means.",
+        3: "UDL does not lower standards. Research shows UDL implementations maintain or raise expectations while making them accessible to more learners."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'hard',
+      tags: ['udl', 'philosophy', 'expert-learners']
+    },
+    {
+      id: 300,
+      question: "A curriculum designer is reviewing a unit and notices that students can only demonstrate their learning through a written test, and that struggling writers — including students with dysgraphia, English language learners, and students with expressive language disorders — consistently underperform despite understanding the content. Using the UDL framework, what is the MOST appropriate redesign strategy?",
+      options: [
+        "Add alternative formats for demonstrating learning (oral exam, project, multimedia presentation) under the Action & Expression principle, so the assessment measures content knowledge rather than writing ability",
+        "Keep the written test but add extra time as the only accommodation, since writing is an essential skill",
+        "Replace the assessment with a purely verbal exam for all students",
+        "Exempt struggling writers from the assessment entirely"
+      ],
+      correct: 0,
+      explanation: "The written-only test creates a construct-irrelevant barrier — it measures writing ability in addition to (or instead of) the content the unit is meant to assess. Under Action & Expression, offering multiple means of expression and communication lets every learner demonstrate what they know in the modality that best reveals their understanding. This preserves rigor while removing an artificial barrier. Adding extra time (option 2) only partially addresses the barrier. Replacing with verbal-only (option 3) just shifts the barrier. Exempting students (option 4) denies them the opportunity to demonstrate learning.",
+      wrongExplanations: {
+        1: "Extra time alone doesn't remove the fundamental barrier: the assessment still requires writing as the sole expression mode. Unless writing itself is the construct being measured, the test continues to measure the wrong thing for these learners.",
+        2: "A verbal-only exam simply shifts the barrier to students who struggle with verbal expression. UDL calls for multiple means, not a single replacement mode.",
+        3: "Exempting students denies them the chance to show what they know. UDL aims to include all learners, not remove them from assessment."
+      },
+      topicLinks: ['universal-design-learning'],
+      difficulty: 'hard',
+      tags: ['udl', 'action-expression', 'assessment-design']
     }
   ]
 };

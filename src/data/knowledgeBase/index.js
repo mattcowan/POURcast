@@ -1465,18 +1465,60 @@ export const topics = [
       },
       {
         type: 'paragraph',
-        text: 'UDL is based on neuroscience research identifying three brain networks: affective (engagement/motivation), recognition (pattern recognition/comprehension), and strategic (planning/execution). Each UDL principle corresponds to one of these networks.'
+        text: 'UDL is based on neuroscience research identifying three brain networks, and each UDL principle corresponds to one of them. The affective network (the "why" of learning) handles motivation and emotional engagement. The recognition network (the "what" of learning) handles how we perceive and categorize information. The strategic network (the "how" of learning) handles goal-setting, planning, action, and monitoring — the network behind Action and Expression.'
+      },
+      {
+        type: 'heading',
+        text: 'Principle 1 — Engagement (Affective Network / WHY)'
+      },
+      {
+        type: 'list',
+        items: [
+          'Provide options for recruiting interest — offer choice, ensure relevance/authenticity, minimize threats and distractions',
+          'Provide options for sustaining effort and persistence — highlight goals, vary challenge levels, foster collaboration, increase mastery-oriented feedback',
+          'Provide options for self-regulation — promote expectations, develop coping skills, support self-assessment and reflection'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Principle 2 — Representation (Recognition Network / WHAT)'
+      },
+      {
+        type: 'list',
+        items: [
+          'Provide options for perception — customize display of information, offer alternatives for auditory info (captions, transcripts), offer alternatives for visual info (alt text, descriptions)',
+          'Provide options for language and symbols — clarify vocabulary, clarify syntax, support decoding, promote cross-language understanding, illustrate through multiple media',
+          'Provide options for comprehension — activate background knowledge, highlight patterns and relationships, guide information processing, maximize transfer and generalization'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Principle 3 — Action and Expression (Strategic Network / HOW)'
+      },
+      {
+        type: 'paragraph',
+        text: 'Action and Expression is the UDL principle most often confused with Engagement on the exam because it deals with what the learner does. The distinction: Engagement is about motivation (the "why"), while Action and Expression is about how learners physically interact with materials, how they express or communicate what they know, and how they plan and monitor their learning. It is tied to the strategic brain network.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Provide options for physical action — vary the methods for response and navigation, optimize access to tools and assistive technologies (keyboards, switches, voice input, alternate pointing devices)',
+          'Provide options for expression and communication — use multiple media for communication, use multiple tools for construction and composition (essays, video, slides, models), build fluencies with graduated levels of support',
+          'Provide options for executive functions — guide appropriate goal-setting, support planning and strategy development, facilitate managing information and resources, enhance capacity for monitoring progress'
+        ]
       },
       {
         type: 'callout',
-        text: 'Exam tip: Know the three UDL principles: Engagement (WHY), Representation (WHAT), Action/Expression (HOW). UDL was developed by CAST. UDL is specifically about learning and education — do not confuse it with the 7 Principles of Universal Design (which are about product/environment design in general).'
+        text: 'Exam tip: On questions that ask which UDL principle applies, use the brain network shortcut. Affective → Engagement (why/motivation). Recognition → Representation (what/perception and comprehension). Strategic → Action and Expression (how/physical action, expression, executive function). If the scenario involves how a learner produces or demonstrates their learning — writing an essay vs. recording a video, using a switch device, planning a project — that is Action and Expression, not Engagement.'
       }
     ],
     relatedTopics: ['universal-design-principles', 'cognitive-disabilities', 'accessibility-vs-accommodation'],
     examTips: [
       'Three principles: Engagement (WHY), Representation (WHAT), Action/Expression (HOW)',
-      'Developed by CAST (Center for Applied Special Technology)',
-      'Based on neuroscience: affective, recognition, and strategic brain networks',
+      'Three brain networks: Affective → Engagement, Recognition → Representation, Strategic → Action/Expression',
+      'Action and Expression covers physical action, expression/communication, and executive functions (goal-setting, planning, monitoring)',
+      'Engagement is about motivation ("why") — do not confuse it with Action/Expression ("how")',
+      'Developed by CAST (Center for Applied Special Technology); current framework is UDL Guidelines 3.0',
       'UDL = education-specific; UD = general product/environment design'
     ]
   },
@@ -1485,11 +1527,11 @@ export const topics = [
     title: 'Accessibility in the Built Environment',
     category: 'Universal Design',
     applicableTo: ['cpacc', 'was'],
-    summary: 'Physical space accessibility including ramps, elevators, signage, wayfinding, and building design that accommodates all users.',
+    summary: 'Physical space accessibility including floor surfaces, accessible routes, ramps, elevators, signage, and wayfinding.',
     content: [
       {
         type: 'paragraph',
-        text: 'Accessibility in the built environment refers to making physical spaces — buildings, streets, parks, transportation systems — usable by people with all types of disabilities. While the CPACC exam is primarily focused on digital accessibility, it includes content on the built environment because physical and digital accessibility are interconnected. A person who cannot physically enter a building is as excluded as a person who cannot navigate a website.'
+        text: 'Accessibility in the built environment means making physical spaces — buildings, streets, parks, transportation systems — usable by people with all types of disabilities. While CPACC is primarily a digital accessibility exam, it includes built-environment content because physical and digital accessibility are interconnected. A person who cannot physically enter a building is as excluded as a person who cannot navigate a website. In the US, the ADA Standards for Accessible Design (2010) are the authoritative reference, and many of their specific measurements appear on the exam.'
       },
       {
         type: 'heading',
@@ -1498,12 +1540,55 @@ export const topics = [
       {
         type: 'list',
         items: [
-          'Entrances and exits: Ramps, automatic doors, level thresholds, adequate width for wheelchairs',
-          'Vertical circulation: Elevators, accessible stairways with handrails, ramps between levels',
-          'Wayfinding and signage: Tactile signage (braille, raised text), visual contrast, clear directional signs, tactile ground surface indicators',
-          'Restrooms: Accessible stalls with grab bars, adequate turning space, accessible fixtures',
-          'Parking: Accessible parking spaces with proper dimensions and proximity to entrances',
-          'Lighting and acoustics: Adequate lighting for lip-reading, hearing loop systems, reduced echo for hearing aid users'
+          'Entrances and exits: ramps, automatic doors, level thresholds, adequate width for wheelchairs',
+          'Vertical circulation: elevators, accessible stairways with handrails, ramps between levels',
+          'Wayfinding and signage: tactile signage (braille, raised text), visual contrast, clear directional signs, tactile ground surface indicators (truncated domes)',
+          'Restrooms: accessible stalls with grab bars, adequate turning space, accessible fixtures',
+          'Parking: accessible parking spaces with proper dimensions and proximity to entrances',
+          'Lighting and acoustics: adequate lighting for lip-reading, hearing loop (induction loop) systems, reduced echo for hearing aid users'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Floor and Ground Surfaces (ADA §302)'
+      },
+      {
+        type: 'paragraph',
+        text: 'ADA Standards §302.1 specifies that accessible floor and ground surfaces must be stable, firm, and slip-resistant. This three-word requirement is a classic exam answer. "Stable" means the surface does not move or shift under load; "firm" means it does not compress or deform significantly; "slip-resistant" means it provides adequate friction so people using canes, crutches, walkers, or wheelchairs do not slip.'
+      },
+      {
+        type: 'list',
+        items: [
+          '§302.1 — All accessible floor and ground surfaces must be stable, firm, and slip-resistant',
+          '§302.2 Carpet — If carpet is used, pile height is limited to 1/2 inch (measured to the backing, cushion, or pad). Carpet must be securely attached with a firm backing; exposed edges must be fastened and trimmed',
+          '§302.3 Openings — Openings in floor or ground surfaces must not allow passage of a 1/2 inch diameter sphere (prevents cane tips and small wheels from catching). Elongated openings must be oriented perpendicular to the dominant direction of travel'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Changes in Level (ADA §303)'
+      },
+      {
+        type: 'list',
+        items: [
+          'Changes in level up to 1/4 inch high may be vertical (no treatment required)',
+          'Changes in level between 1/4 inch and 1/2 inch must be beveled with a slope no steeper than 1:2',
+          'Changes in level greater than 1/2 inch must be treated as a ramp or curb ramp (see §405)'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Accessible Routes and Ramps (ADA §402, §403, §405)'
+      },
+      {
+        type: 'list',
+        items: [
+          'Accessible route minimum clear width: 36 inches (§403.5). Width may be reduced to 32 inches minimum at a point (for example, a doorway) for a maximum length of 24 inches',
+          'Ramp maximum running slope: 1:12 (§405.2) — one inch of rise for every twelve inches of run',
+          'Ramp maximum rise per single run: 30 inches (§405.6). Longer ramps require intermediate landings',
+          'Ramp minimum clear width: 36 inches between handrails (§405.5)',
+          'Handrails are required on both sides of ramps with a rise greater than 6 inches (§405.8)',
+          'Level landings are required at the top and bottom of each ramp run, and where ramps change direction'
         ]
       },
       {
@@ -1513,23 +1598,28 @@ export const topics = [
       {
         type: 'list',
         items: [
-          'ADA Standards for Accessible Design (USA)',
+          'ADA Standards for Accessible Design (USA, 2010) — authoritative US requirements',
           'ISO 21542: Building construction — Accessibility and usability of the built environment',
+          'EN 17210: European accessibility and usability of the built environment (functional requirements)',
           'Local building codes and accessibility regulations vary by country',
-          'Universal Design principles apply to built environment design'
+          'Universal Design principles apply to built environment design broadly'
         ]
       },
       {
         type: 'callout',
-        text: 'Exam tip: Built environment questions are less common than digital accessibility questions, but know the basics: ramps, elevators, tactile signage with braille, hearing loops, accessible parking. The connection between physical and digital accessibility is important — both are needed for full inclusion.'
+        text: 'Exam tip: Memorize §302 — floor and ground surfaces must be stable, firm, and slip-resistant. This is a recurring exam question. Also remember carpet pile ≤ 1/2 inch, ramp slope max 1:12, single ramp rise max 30 inches, and accessible route clear width 36 inches (reducible to 32" at doorways).'
       }
     ],
     relatedTopics: ['universal-design-principles', 'ada', 'mobility-disabilities'],
     examTips: [
-      'Know basic built environment features: ramps, elevators, braille signage, hearing loops',
-      'Tactile ground surface indicators (detectable warnings) are truncated dome patterns',
-      'Physical and digital accessibility are both needed for full inclusion',
-      'ADA Standards for Accessible Design govern US built environment accessibility'
+      'ADA §302: accessible floor and ground surfaces must be stable, firm, and slip-resistant',
+      'ADA §302.2: carpet pile height max 1/2 inch, securely attached, firm backing',
+      'ADA §302.3: floor openings must not pass a 1/2 inch sphere',
+      'ADA §303: level changes ≤1/4" untreated, 1/4"–1/2" beveled 1:2, >1/2" ramped',
+      'ADA §405: ramp slope max 1:12, single run rise max 30", clear width 36" min',
+      'Accessible route clear width: 36 inches minimum (32 inches allowable at a doorway)',
+      'Tactile ground surface indicators (detectable warnings) use truncated dome patterns',
+      'Physical and digital accessibility are both needed for full inclusion'
     ]
   },
 
@@ -1880,28 +1970,61 @@ export const topics = [
       {
         type: 'list',
         items: [
-          'Title I — Employment: Prohibits discrimination in hiring, firing, advancement, and compensation by employers with 15+ employees. Requires reasonable accommodations.',
-          'Title II — Public Services (State and Local Government): Requires state and local governments to make their services, programs, and activities accessible. Includes government websites.',
-          'Title III — Public Accommodations (Private Businesses): Requires businesses open to the public to be accessible. Has been applied to websites through court rulings.',
-          'Title IV — Telecommunications: Requires telephone companies to provide relay services for deaf and hard of hearing users.',
-          'Title V — Miscellaneous: Includes anti-retaliation provisions and the relationship to other laws.'
+          'Title I — Employment: Prohibits discrimination in hiring, firing, advancement, and compensation by employers with 15 or more employees. Requires reasonable accommodations unless they cause "undue hardship." Enforced by the EEOC.',
+          'Title II — Public Services (State and Local Government): Requires state and local governments and their entities (public schools, libraries, DMVs, police, public transit) to make their programs, services, and activities accessible. Applies regardless of whether the entity receives federal funding. Now explicitly references WCAG 2.1 AA for web and mobile content (DOJ 2024 rule).',
+          'Title III — Public Accommodations (Private Businesses Open to the Public): Requires privately-operated places of public accommodation — restaurants, hotels, retail stores, theaters, doctor\'s offices, private schools, gyms — to be accessible. Has been extended to many commercial websites through court rulings.',
+          'Title IV — Telecommunications: Required telephone companies to provide telecommunications relay services (TRS) for people who are deaf, hard of hearing, or have speech disabilities. Enforced by the FCC.',
+          'Title V — Miscellaneous: Contains anti-retaliation provisions, attorney\'s fees provisions, and clarifies the ADA\'s relationship to other laws (including state laws that provide greater protection).'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Scenario-to-Title Quick Reference'
+      },
+      {
+        type: 'list',
+        items: [
+          'A job applicant is denied reasonable accommodation during an interview → Title I (Employment)',
+          'A city refuses to provide sign language interpretation at a public council meeting → Title II (State/Local Government)',
+          'A public library\'s website is not screen reader accessible → Title II',
+          'A restaurant has no ramp at its only entrance → Title III (Public Accommodations)',
+          'A national retailer\'s e-commerce site is not keyboard accessible → Title III (typically, depending on circuit)',
+          'A telephone company does not provide relay services for deaf callers → Title IV (Telecommunications)',
+          'An employee is fired for filing an ADA complaint → Title V (anti-retaliation)',
+          'Key distinction: Title II = government/public entity; Title III = private business open to the public'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Key Defenses and Limits'
+      },
+      {
+        type: 'list',
+        items: [
+          '"Undue hardship" — an employer may deny an accommodation under Title I if providing it would cause significant difficulty or expense relative to the employer\'s size and resources',
+          '"Fundamental alteration" — a public entity or business is not required to make a change that would fundamentally alter the nature of its program, service, or goods',
+          '"Readily achievable" — Title III only requires barrier removal in existing facilities when it is readily achievable (easily accomplishable without much difficulty or expense)'
         ]
       },
       {
         type: 'paragraph',
-        text: 'The ADA does not explicitly mention websites or digital accessibility (it was written in 1990), but courts have increasingly interpreted Titles II and III to apply to websites and digital services. The Department of Justice issued a rule in 2024 requiring state and local government websites to conform to WCAG 2.1 Level AA under Title II. Title III web accessibility requirements for private businesses continue to be shaped by court rulings.'
+        text: 'The ADA does not explicitly mention websites or digital accessibility (it was written in 1990), but courts have increasingly interpreted Titles II and III to apply to websites and digital services. The Department of Justice issued a rule in 2024 requiring state and local government websites and mobile apps to conform to WCAG 2.1 Level AA under Title II. Title III web accessibility requirements for private businesses continue to be shaped by court rulings, with most circuits applying the ADA to websites tied to physical places of business and some applying it to purely online businesses as well.'
       },
       {
         type: 'callout',
-        text: 'Exam tip: Know the five ADA titles, especially Title I (employment), Title II (government), and Title III (public accommodations/businesses). The ADA was signed in 1990. It does not explicitly mention websites but has been applied to digital accessibility through court interpretations. Title II now references WCAG 2.1 AA for government websites. The ADA is a civil rights law, not a technology standard.'
+        text: 'Exam tip: Memorize the scenario-to-Title mapping. Title I = employment (15+ employees). Title II = state/local government entities (libraries, DMVs, public schools, public transit). Title III = private businesses open to the public (restaurants, stores, hotels). Title IV = relay services. Title V = anti-retaliation, attorney\'s fees, relationship to state laws. "Undue hardship" is the Title I defense; "readily achievable" is the Title III standard for barrier removal in existing facilities.'
       }
     ],
-    relatedTopics: ['section-508', 'cvaa', 'crpd', 'national-disability-laws'],
+    relatedTopics: ['section-508', 'cvaa', 'crpd', 'national-disability-laws', 'built-environment'],
     examTips: [
-      'Signed July 26, 1990 — know the five titles',
-      'Title I = Employment (15+ employees), Title II = Government, Title III = Public Accommodations',
-      'Does not explicitly mention websites — applied through court interpretation',
-      'Title II now references WCAG 2.1 AA for government websites',
+      'Signed July 26, 1990 — know the five titles and which scenarios each covers',
+      'Title I = Employment (15+ employees); defense = "undue hardship"',
+      'Title II = State/Local Government (libraries, DMVs, public schools, public transit, government websites)',
+      'Title III = Public Accommodations (restaurants, retail, hotels); existing-facility standard = "readily achievable"',
+      'Title IV = Telecommunications Relay Services (TRS) — FCC enforced',
+      'Title V = anti-retaliation, attorney\'s fees, relationship to state laws',
+      'Title II vs III — the key distinction is government entity vs private business',
+      'Title II DOJ 2024 rule explicitly requires WCAG 2.1 AA for web and mobile',
       'A civil rights law, not a technology standard'
     ]
   },
@@ -2041,16 +2164,33 @@ export const topics = [
         ]
       },
       {
+        type: 'heading',
+        text: 'Related European Instruments'
+      },
+      {
+        type: 'paragraph',
+        text: 'Beyond the Web Accessibility Directive and the European Accessibility Act, two other European instruments often appear as exam distractors or correct answers and are worth knowing by name.'
+      },
+      {
+        type: 'list',
+        items: [
+          'EN 17161:2019 — "Design for All — Accessibility following a Design for All approach in products, goods and services — Extending the range of users." Published by CEN in 2019. Unlike EN 301 549 (which is a technical ICT standard), EN 17161 is a process/management standard: it specifies requirements for how an organization should embed a Design for All approach into its development, procurement, and service delivery to reach the widest possible range of users, including people with disabilities. It is generic and applies regardless of organization size or sector, and it is sometimes adopted as a framework for continuous improvement of accessibility',
+          'eIDAS — Regulation (EU) No 910/2014 on electronic identification and trust services for electronic transactions in the EU internal market. Entered into force in 2014 and became applicable in 2016. eIDAS is not primarily an accessibility law; it governs electronic identification (eID), electronic signatures, seals, timestamps, and qualified trust services for cross-border digital public services. The 2024 amendment (Regulation 2024/1183) introduced the European Digital Identity Wallet. Accessibility of eID means for persons with disabilities is expected via the horizontal accessibility requirements of the EAA and EN 301 549'
+        ]
+      },
+      {
         type: 'callout',
-        text: 'Exam tip: Know the difference: Web Accessibility Directive (2016) = public sector websites/apps; European Accessibility Act (2019, effective 2025) = private sector products/services. Both reference EN 301 549 which incorporates WCAG 2.1 AA. The WAD requires accessibility statements. The EAA is significant because it extends to the private sector.'
+        text: 'Exam tip: If you see "EN 17___" in options, it is usually EN 17161 (Design for All, a process standard). If you see "eI___" in options, it is usually eIDAS (Regulation 910/2014 on electronic identification and trust services). Do not confuse these with EN 301 549, which is the technical ICT accessibility standard that incorporates WCAG.'
       }
     ],
-    relatedTopics: ['en-301-549', 'wcag-overview', 'crpd', 'national-disability-laws'],
+    relatedTopics: ['en-301-549', 'wcag-overview', 'crpd', 'national-disability-laws', 'universal-design-principles'],
     examTips: [
-      'Web Accessibility Directive (2016) = public sector; European Accessibility Act (2019) = private sector',
+      'Web Accessibility Directive (2016) = public sector; European Accessibility Act (2019, effective June 28 2025) = private sector',
       'Both reference EN 301 549, which incorporates WCAG 2.1 AA',
       'WAD requires accessibility statements on public sector websites',
-      'EAA compliance required by June 28, 2025'
+      'EN 17161:2019 = Design for All process/management standard (CEN)',
+      'eIDAS = Regulation 910/2014 on electronic identification and trust services (not primarily an accessibility law)',
+      'EN 17161 is process-focused; EN 301 549 is technically-focused — both can appear as EU standard answers'
     ]
   },
   {
@@ -2494,26 +2634,96 @@ export const topics = [
     title: 'Disability Demographics & Statistics',
     category: 'Etiquette & Demographics',
     applicableTo: ['cpacc', 'was'],
-    summary: 'Key statistics about disability prevalence worldwide and the business case for accessibility.',
+    summary: 'Key statistics about disability prevalence worldwide, organized by disability category, and the business case for accessibility.',
     content: [
       {
         type: 'paragraph',
-        text: 'Understanding disability demographics helps establish the scope and importance of accessibility. Disability is far more common than many people realize, and the numbers are growing due to aging populations and improved diagnosis. These statistics also form the foundation of the business case for accessibility — when over a billion people worldwide have disabilities, accessibility is not a niche concern but a mainstream market need.'
+        text: 'Understanding disability demographics helps establish the scope and importance of accessibility. Disability is far more common than many people realize, and the numbers are growing due to aging populations, longer life expectancy, and better diagnosis. These statistics also form the foundation of the business case for accessibility — when over a billion people worldwide have disabilities, accessibility is not a niche concern but a mainstream market need.'
       },
       {
         type: 'heading',
-        text: 'Global Statistics'
+        text: 'Global & Regional Baselines'
       },
       {
         type: 'list',
         items: [
-          'WHO: Approximately 1.3 billion people (about 16% of the global population) have a significant disability',
-          'Disability prevalence increases with age — as populations age, disability prevalence grows',
-          'In the US, approximately 26% of adults (1 in 4) have some type of disability (CDC)',
-          'Cognitive disabilities are the most common type of disability globally',
-          'Approximately 2.2 billion people have a vision impairment (WHO)',
-          'Approximately 430 million people have disabling hearing loss (WHO)',
-          'Disability intersects with poverty — people with disabilities are disproportionately affected by poverty'
+          'Global (WHO, 2023 fact sheet): ~1.3 billion people — about 16% of the world population, or roughly 1 in 6 — experience a significant disability',
+          'European Union (Eurostat EU-SILC, 2022): more than one-quarter (>25%) of the EU population aged 16 and over reports a disability (activity limitation) — commonly cited as roughly 27%',
+          'United States (CDC): approximately 26% of adults — 1 in 4 — have some type of disability',
+          'Low- and middle-income countries generally have higher prevalence due to aging populations, conflict, and less-treated chronic conditions',
+          'Disability prevalence grows with age — for EU residents aged 85+, over 76% report a disability (Eurostat 2022)'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam strategy: pay attention to the category keyword in the question stem. A question that says "this neurological condition affects ~50 million people" is pointing at epilepsy; "this sensory impairment affects ~430 million" is pointing at disabling hearing loss. Reading the category label is a reliable elimination strategy.'
+      },
+      {
+        type: 'heading',
+        text: 'Sensory Disabilities'
+      },
+      {
+        type: 'list',
+        items: [
+          'Vision impairment: ~2.2 billion people globally have a near or distance vision impairment (WHO) — this is the headline sensory number',
+          'Disabling hearing loss: ~430 million people require rehabilitation today (WHO), including about 34 million children',
+          'Hearing loss projections: by 2050, nearly 2.5 billion people are projected to have some degree of hearing loss, with more than 700 million requiring rehabilitation',
+          'Deaf-blindness is counted as a distinct sensory category requiring tactile communication methods'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Neurological Conditions'
+      },
+      {
+        type: 'list',
+        items: [
+          'Epilepsy: ~50 million people worldwide live with epilepsy (WHO). Nearly 80% live in low- and middle-income countries. When an exam question mentions "a neurological condition affecting ~50 million," it is pointing at epilepsy',
+          'Stroke: ~15 million people have a stroke each year (WHO), and about 5 million are left with permanent disability',
+          'Migraine: widespread, and the leading cause of disability globally among people under age 50',
+          'Other neurological conditions tested on CPACC include Parkinson\'s disease, multiple sclerosis (MS), cerebral palsy (which also counts as motor), Huntington\'s disease, and traumatic brain injury'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Cognitive & Neurodevelopmental'
+      },
+      {
+        type: 'list',
+        items: [
+          'Cognitive disabilities (broad category) are the most common type of disability globally',
+          'Autism spectrum disorder: WHO (2021 data) estimates ~1 in 127 people has autism — older sources cite ~1 in 100 children, and CDC US figures are higher (~1 in 36 children as of recent ADDM data)',
+          'Intellectual disability: ~1% global prevalence',
+          'ADHD: ~5–10% of children',
+          'Dyslexia: ~5–10% of the population (a learning disability under the cognitive umbrella)',
+          'Down syndrome: ~1 in 700 births (a genetic condition causing intellectual disability)',
+          'Dementia: ~57 million people worldwide in 2021 (WHO), with nearly 10 million new cases per year and over 60% living in low- and middle-income countries'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Mental Health / Psychiatric Conditions'
+      },
+      {
+        type: 'list',
+        items: [
+          'Depression: WHO estimates ~5.7% of adults globally experience depression — on the order of several hundred million people',
+          'Anxiety disorders: among the most prevalent mental health conditions worldwide',
+          'Schizophrenia: ~24 million people globally (WHO)',
+          'Mental health conditions are often episodic, which affects how accommodations are designed and timed'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Motor / Physical Disabilities'
+      },
+      {
+        type: 'list',
+        items: [
+          'Spinal cord injury: ~250,000 to 500,000 new cases each year globally (WHO)',
+          'Arthritis is a leading cause of physical/motor disability, especially among older adults',
+          'Cerebral palsy, muscular dystrophy, ALS, limb loss/amputation, and repetitive strain injuries are other common motor disabilities tested on the exam',
+          'Motor disabilities frequently pair with AT like switch devices, eye-gaze, alternate keyboards, and voice control'
         ]
       },
       {
@@ -2523,27 +2733,32 @@ export const topics = [
       {
         type: 'list',
         items: [
-          'Market size: Over 1 billion people with disabilities represent significant purchasing power',
-          'Extended market: When including friends and family, the "disability market" reaches over 2.3 billion people globally',
-          'Legal risk: Accessibility lawsuits (especially ADA Title III) are increasing year over year',
-          'SEO benefits: Many accessibility practices (alt text, semantic HTML, captions) also improve search engine optimization',
-          'Innovation: Accessible design drives innovation (curb-cut effect) — many mainstream technologies originated as accessibility solutions (voice control, autocomplete, etc.)',
-          'Aging population: As the population ages, the market for accessible products grows',
-          'Employer brand: Companies known for accessibility attract diverse talent'
+          'Market size: over 1 billion people with disabilities represent significant purchasing power',
+          'Extended market: including friends and family, the "disability market" reaches over 2.3 billion people globally',
+          'Legal risk: accessibility lawsuits (especially ADA Title III web cases in the US) are increasing year over year',
+          'SEO benefits: accessibility practices like alt text, semantic HTML, and captions also improve search engine optimization',
+          'Innovation / curb-cut effect: many mainstream technologies began as accessibility solutions (voice control, autocomplete, sidewalk curb cuts, automatic doors)',
+          'Aging population: as populations age, the market for accessible products grows rapidly',
+          'Employer brand: companies known for accessibility attract and retain diverse talent',
+          'Disability intersects with poverty — people with disabilities are disproportionately affected, making accessibility a social-equity issue as well as an economic one'
         ]
       },
       {
         type: 'callout',
-        text: 'Exam tip: Key numbers to remember: ~16% of the global population has a disability (WHO), 1 in 4 US adults have a disability (CDC), ~2.2 billion people have vision impairments, ~430 million have disabling hearing loss. Cognitive disabilities are the most common type. The business case includes market size, legal risk, SEO, and innovation benefits.'
+        text: 'Exam tip: Memorize the headline numbers: Global ~16% / 1.3B (WHO); EU >25% / ~1 in 4 (Eurostat 2022); US ~26% / 1 in 4 (CDC); Vision 2.2B (WHO); Hearing 430M (WHO); Epilepsy 50M (WHO); Dementia 57M (WHO, 2021). Cognitive disabilities are the most common category. Watch for the category keyword in question stems.'
       }
     ],
-    relatedTopics: ['social-model', 'economic-model', 'ada', 'crpd'],
+    relatedTopics: ['social-model', 'economic-model', 'ada', 'crpd', 'eu-accessibility'],
     examTips: [
-      'WHO: ~16% of global population has a significant disability (~1.3 billion people)',
-      'CDC: 1 in 4 US adults have some type of disability',
+      'Global: ~16% / ~1.3 billion (WHO, 2023 fact sheet)',
+      'EU: more than one-quarter / ~1 in 4 (Eurostat EU-SILC 2022) — distinct from the global 16% figure',
+      'US: ~26% / 1 in 4 adults (CDC)',
+      'Epilepsy ~50M = the neurological condition most commonly cited on exams (WHO)',
+      'Vision ~2.2B and disabling hearing loss ~430M = the headline sensory numbers (WHO)',
+      'Dementia: ~57M in 2021 (WHO) — category overlap between neurological and cognitive',
       'Cognitive disabilities are the most common type globally',
-      'Business case: market size, legal risk, SEO, innovation, aging population',
-      'Disability intersects with poverty — disproportionate economic impact'
+      'Use the category keyword ("sensory," "neurological," "neurodevelopmental," "psychiatric," "motor") in the question stem to narrow options',
+      'Business case: market size, legal risk, SEO, innovation (curb-cut effect), aging population'
     ]
   },
 
