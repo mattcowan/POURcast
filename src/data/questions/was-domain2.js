@@ -1,10 +1,10 @@
 export const wasDomain2 = {
   id: 'was-domain2',
   courseId: 'was',
-  title: 'ARIA, Semantics & Implementation',
+  title: 'Identifying Accessibility Issues',
   iconName: 'code',
   color: 'bg-teal-600',
-  description: 'HTML semantics, ARIA roles and properties, accessible patterns, and testing.',
+  description: 'Accessibility tree, accessible names, WCAG-EM, ACT rules, testing strategies, and QA.',
   questions: [
     // =============================================
     // SEMANTIC HTML (1101-1115)
@@ -1016,6 +1016,624 @@ export const wasDomain2 = {
       topicLinks: ['wcag-perceivable', 'wcag-overview'],
       difficulty: 'easy',
       tags: ['testing', 'color-contrast', 'tools']
+    },
+    // =============================================
+    // ACCESSIBILITY TREE & INTEROPERABILITY (1151-1156)
+    // =============================================
+    {
+      id: 1151,
+      question: "What is the accessibility tree?",
+      options: [
+        "A parallel structure derived from the DOM that browsers expose to assistive technologies, containing accessible objects with name, role, state, and value",
+        "A visual tree of DOM nodes shown in the browser's Elements panel",
+        "A JavaScript API for measuring page performance",
+        "A hierarchical map of CSS cascade order"
+      ],
+      correct: 0,
+      explanation: "The accessibility tree is a browser-constructed representation based on the DOM (and CSS) that exposes accessible objects — each with name, role, state, and value — through platform accessibility APIs that assistive technology consumes.",
+      wrongExplanations: {
+        1: "That describes the DOM tree in DevTools, which is different from the accessibility tree.",
+        2: "Performance APIs are unrelated to accessibility exposure.",
+        3: "The cascade determines styling, not AT semantics."
+      },
+      topicLinks: ['accessibility-tree'],
+      difficulty: 'medium',
+      tags: ['accessibility-tree', 'assistive-tech']
+    },
+    {
+      id: 1152,
+      question: "Which CSS property typically removes an element from the accessibility tree in addition to hiding it visually?",
+      options: [
+        "display: none",
+        "visibility: visible",
+        "opacity: 0.5",
+        "color: transparent"
+      ],
+      correct: 0,
+      explanation: "Elements with display: none (or visibility: hidden) are excluded from both the rendered output and the accessibility tree. Opacity and transparent color hide content visually but leave it exposed to assistive technology.",
+      wrongExplanations: {
+        1: "visibility: visible keeps the element visible and in the tree — that's the default state.",
+        2: "Opacity affects visual rendering only; content remains in the accessibility tree.",
+        3: "Transparent text is still present in the accessibility tree."
+      },
+      topicLinks: ['accessibility-tree'],
+      difficulty: 'medium',
+      tags: ['accessibility-tree', 'css']
+    },
+    {
+      id: 1153,
+      question: "Why is it important to test with specific browser + screen reader combinations (e.g., NVDA + Firefox, JAWS + Chrome, VoiceOver + Safari)?",
+      options: [
+        "Because the way browsers build the accessibility tree and map it to platform APIs varies, and screen readers rely on those mappings differently",
+        "Because WCAG requires testing in every possible browser",
+        "Because screen readers refuse to run in certain browsers",
+        "Because only specific browsers support ARIA at all"
+      ],
+      correct: 0,
+      explanation: "Browsers and screen readers combine to form an interoperability layer. Subtle differences in how each browser maps the DOM to the accessibility tree, and how each screen reader interprets it, can produce real variations in user experience.",
+      wrongExplanations: {
+        1: "WCAG does not mandate testing in every browser combination.",
+        2: "Most screen readers run in most browsers, though with different levels of compatibility.",
+        3: "ARIA is supported across all major browsers."
+      },
+      topicLinks: ['accessibility-tree', 'screen-reader-testing'],
+      difficulty: 'medium',
+      tags: ['testing', 'assistive-tech']
+    },
+    {
+      id: 1154,
+      question: "Which browser DevTools feature can you use to inspect the computed accessible name, role, and state of an element?",
+      options: [
+        "The Accessibility panel (or Accessibility pane within Elements) in Chrome, Firefox, and Edge DevTools",
+        "The Network panel",
+        "The Performance panel",
+        "The Sources panel"
+      ],
+      correct: 0,
+      explanation: "Modern browsers include an Accessibility pane in DevTools that shows the element's computed accessible name, role, states, and properties based on the accessibility tree.",
+      wrongExplanations: {
+        1: "Network monitors HTTP traffic.",
+        2: "Performance profiles runtime activity.",
+        3: "Sources manages scripts and debugging."
+      },
+      topicLinks: ['accessibility-tree', 'automated-testing-tools'],
+      difficulty: 'easy',
+      tags: ['testing', 'devtools']
+    },
+    {
+      id: 1155,
+      question: "A screen reader reads a button as 'Submit form button' even though its visible text is only 'Submit'. Why might this happen?",
+      options: [
+        "An aria-label or aria-labelledby is overriding the visible text with a longer accessible name",
+        "Screen readers always append 'form button' to every button",
+        "The browser's spell-check is inserting additional words",
+        "The CSS content property is leaking into the accessibility tree"
+      ],
+      correct: 0,
+      explanation: "When aria-label or aria-labelledby is set, it takes precedence over the visible text content per the accessible name computation algorithm. This can cause a mismatch with visible content (and may also fail SC 2.5.3 Label in Name).",
+      wrongExplanations: {
+        1: "Screen readers don't append arbitrary words to button names.",
+        2: "Spell-check doesn't affect accessible names.",
+        3: "CSS generated content can affect the accessibility tree in some browsers, but aria-label is the far more common cause."
+      },
+      topicLinks: ['accessible-names-descriptions', 'accessibility-tree'],
+      difficulty: 'hard',
+      tags: ['accessible-names', 'aria']
+    },
+    {
+      id: 1156,
+      question: "Which element is NOT typically included in a page's accessibility tree?",
+      options: [
+        "An element with aria-hidden='true' (and no focusable descendants)",
+        "A button with only an aria-label",
+        "An <h1> with visible text",
+        "A <nav> landmark"
+      ],
+      correct: 0,
+      explanation: "aria-hidden='true' explicitly removes an element and its subtree from the accessibility tree, making it invisible to assistive technology. Using it on an element containing focusable children is an anti-pattern.",
+      wrongExplanations: {
+        1: "A button with aria-label is fully exposed with its computed name.",
+        2: "Headings are exposed with their accessible name and heading role.",
+        3: "Landmarks like <nav> are exposed with landmark roles."
+      },
+      topicLinks: ['accessibility-tree', 'aria-states-properties'],
+      difficulty: 'medium',
+      tags: ['accessibility-tree', 'aria']
+    },
+    // =============================================
+    // ACCESSIBLE NAMES & DESCRIPTIONS (1157-1162)
+    // =============================================
+    {
+      id: 1157,
+      question: "According to the accessible name computation algorithm, which source has the HIGHEST precedence for a form input?",
+      options: [
+        "aria-labelledby",
+        "aria-label",
+        "An associated <label> element",
+        "The title attribute"
+      ],
+      correct: 0,
+      explanation: "The name computation order is roughly: aria-labelledby > aria-label > native labeling (like <label>) > title. aria-labelledby wins because it allows referencing visible text elsewhere on the page.",
+      wrongExplanations: {
+        1: "aria-label is used only when aria-labelledby is not present.",
+        2: "Native <label> is used when neither aria-labelledby nor aria-label are present.",
+        3: "The title attribute is a last-resort fallback and is discouraged due to poor discoverability."
+      },
+      topicLinks: ['accessible-names-descriptions', 'form-accessibility'],
+      difficulty: 'hard',
+      tags: ['accessible-names']
+    },
+    {
+      id: 1158,
+      question: "When should you use aria-describedby instead of aria-label or aria-labelledby?",
+      options: [
+        "To provide additional description (like help text or error messages) that supplements — but does not replace — the accessible name",
+        "To provide the primary accessible name when no visible label exists",
+        "To hide an element from assistive technology",
+        "To set the role of an element"
+      ],
+      correct: 0,
+      explanation: "aria-describedby provides an accessible description: extra context like help text, format hints, or error messages. It is appended to the accessible name announcement, not a replacement for it.",
+      wrongExplanations: {
+        1: "That is the job of aria-labelledby or aria-label.",
+        2: "Hiding is done with aria-hidden.",
+        3: "Roles are set with the role attribute or native semantics."
+      },
+      topicLinks: ['accessible-names-descriptions', 'form-accessibility'],
+      difficulty: 'medium',
+      tags: ['accessible-names']
+    },
+    {
+      id: 1159,
+      question: "Which markup gives an icon-only button the best accessible name?",
+      options: [
+        "<button aria-label='Close dialog'><svg aria-hidden='true'>…</svg></button>",
+        "<button><svg><title>x</title></svg></button>",
+        "<button><svg></svg></button>",
+        "<div onclick='close()'><svg></svg></div>"
+      ],
+      correct: 0,
+      explanation: "For an icon-only button, aria-label provides a clear accessible name while aria-hidden on the decorative SVG prevents duplicate announcements. The <button> element ensures role, focus, and keyboard behavior come for free.",
+      wrongExplanations: {
+        1: "A bare 'x' inside a <title> is unclear and may or may not become the accessible name depending on the browser.",
+        2: "The button has no accessible name at all.",
+        3: "A div has no role, is not focusable, and has no accessible name."
+      },
+      topicLinks: ['accessible-names-descriptions', 'semantic-html'],
+      difficulty: 'medium',
+      tags: ['accessible-names', 'icons']
+    },
+    {
+      id: 1160,
+      question: "WCAG SC 2.5.3 (Label in Name) requires that the accessible name of a control contains the visible label text. Why does this matter?",
+      options: [
+        "Speech input users say the visible label to activate the control, and speech recognition matches against the accessible name",
+        "It speeds up automated testing",
+        "It makes screen readers sound more natural",
+        "It is required for passing automated contrast checks"
+      ],
+      correct: 0,
+      explanation: "Speech recognition users (e.g., Dragon NaturallySpeaking, Voice Control) say the visible text of a control to activate it. If the accessible name differs, their command won't match. SC 2.5.3 prevents this mismatch.",
+      wrongExplanations: {
+        1: "Automated testing speed is unrelated.",
+        2: "Screen reader 'naturalness' is unrelated to Label in Name.",
+        3: "Contrast checks don't involve accessible names."
+      },
+      topicLinks: ['accessible-names-descriptions', 'wcag-operable'],
+      difficulty: 'hard',
+      tags: ['accessible-names', 'wcag-operable']
+    },
+    {
+      id: 1161,
+      question: "A designer labels a delete button visually as 'Delete' but sets aria-label='Remove item from cart'. What is the accessibility concern?",
+      options: [
+        "This violates SC 2.5.3 Label in Name because the visible text 'Delete' is not contained in the accessible name",
+        "Nothing — aria-label always wins, and this is fine",
+        "aria-label is not supported on buttons",
+        "It violates color contrast requirements"
+      ],
+      correct: 0,
+      explanation: "Since the accessible name ('Remove item from cart') does not contain the visible text ('Delete'), speech users who say 'click Delete' will fail to activate the control. The accessible name should at minimum contain the visible label.",
+      wrongExplanations: {
+        1: "aria-label winning is precisely what causes the mismatch.",
+        2: "aria-label is fully supported on buttons.",
+        3: "Contrast is a different requirement entirely."
+      },
+      topicLinks: ['accessible-names-descriptions', 'wcag-operable'],
+      difficulty: 'hard',
+      tags: ['accessible-names', 'wcag-operable']
+    },
+    {
+      id: 1162,
+      question: "Which sentence best describes how a <label> element associates with a form control?",
+      options: [
+        "Either by wrapping the control or by using a 'for' attribute whose value matches the control's id",
+        "By placing it immediately before the control in the DOM",
+        "By sharing the same CSS class",
+        "By being inside the same <fieldset>"
+      ],
+      correct: 0,
+      explanation: "A <label> associates with a control either implicitly (by wrapping it) or explicitly (via for=\"id\"). Both forms create a proper programmatic association that assistive technology recognizes.",
+      wrongExplanations: {
+        1: "DOM proximity alone does not create an association.",
+        2: "CSS classes have no semantic effect.",
+        3: "A fieldset groups controls and provides a group label via <legend>, but doesn't associate individual labels."
+      },
+      topicLinks: ['form-accessibility', 'accessible-names-descriptions'],
+      difficulty: 'easy',
+      tags: ['forms', 'accessible-names']
+    },
+    // =============================================
+    // WCAG-EM & CONFORMANCE (1163-1168)
+    // =============================================
+    {
+      id: 1163,
+      question: "Which of the following is NOT one of the five steps of the WCAG-EM evaluation methodology?",
+      options: [
+        "Rewrite inaccessible code",
+        "Define the evaluation scope",
+        "Explore the target website",
+        "Select a representative sample"
+      ],
+      correct: 0,
+      explanation: "WCAG-EM's five steps are: (1) define the scope, (2) explore the site, (3) select a representative sample, (4) audit the sample, and (5) report findings. Remediation (rewriting code) is not a step of the methodology itself.",
+      wrongExplanations: {
+        1: "Step 1 is defining the evaluation scope.",
+        2: "Step 2 is exploring the target site.",
+        3: "Step 3 is selecting a representative sample."
+      },
+      topicLinks: ['wcag-em', 'testing-fundamentals'],
+      difficulty: 'medium',
+      tags: ['wcag-em', 'testing']
+    },
+    {
+      id: 1164,
+      question: "In WCAG-EM, why is a 'representative sample' used instead of testing every page?",
+      options: [
+        "Because testing every page is usually infeasible, and a representative sample gives meaningful coverage of the site's unique templates and workflows",
+        "Because WCAG forbids testing more than 20 pages",
+        "Because sampled pages are more accessible than non-sampled pages",
+        "Because automated tools can only scan a fixed number of pages"
+      ],
+      correct: 0,
+      explanation: "For large sites, auditing every page is impractical. WCAG-EM guides evaluators to select both a structured sample (key templates, states, functionality) and a random sample so that the audit reflects the real site.",
+      wrongExplanations: {
+        1: "WCAG imposes no page count limit.",
+        2: "The goal is representativeness, not cherry-picking easy pages.",
+        3: "Automated tools can crawl many pages; sampling is about methodology, not tool limits."
+      },
+      topicLinks: ['wcag-em'],
+      difficulty: 'medium',
+      tags: ['wcag-em', 'testing']
+    },
+    {
+      id: 1165,
+      question: "Which of the following is a required component of a WCAG conformance claim?",
+      options: [
+        "The date of the claim, WCAG version and level, and the scope of content covered",
+        "A signed affidavit from an attorney",
+        "Approval from the W3C",
+        "A public audit by a third-party firm"
+      ],
+      correct: 0,
+      explanation: "A conformance claim must include (at minimum) the date, WCAG version, conformance level, and a precise description of the content that conforms. It may optionally list accessibility-supported technologies and exceptions.",
+      wrongExplanations: {
+        1: "Legal affidavits are not a WCAG requirement.",
+        2: "The W3C does not approve or certify individual claims.",
+        3: "Third-party audits are common but not required by WCAG itself."
+      },
+      topicLinks: ['wcag-em', 'wcag-overview'],
+      difficulty: 'hard',
+      tags: ['wcag-em', 'conformance']
+    },
+    {
+      id: 1166,
+      question: "A site claims 'WCAG 2.1 AA conformance,' but one form in the checkout flow is inaccessible. Which statement is most accurate?",
+      options: [
+        "The conformance claim is invalid because a single failing SC on in-scope content breaks conformance for that content",
+        "One broken form is acceptable since the rest of the site conforms",
+        "Only Level AAA requires full conformance",
+        "Conformance can be partial by percentage"
+      ],
+      correct: 0,
+      explanation: "WCAG conformance is all-or-nothing per level for the scoped content. A single failing SC within the conforming scope invalidates the claim for that scope.",
+      wrongExplanations: {
+        1: "Conformance is binary, not averaged.",
+        2: "All levels require full conformance to the criteria at and below that level.",
+        3: "Partial-by-percentage conformance is not a concept in WCAG."
+      },
+      topicLinks: ['wcag-em', 'wcag-overview'],
+      difficulty: 'hard',
+      tags: ['wcag-em', 'conformance']
+    },
+    {
+      id: 1167,
+      question: "What is the main purpose of Step 2 (Explore the Target Website) in WCAG-EM?",
+      options: [
+        "To understand the site's common pages, essential functionality, and technologies used before selecting a sample",
+        "To automatically scan every page for contrast errors",
+        "To run usability testing with people with disabilities",
+        "To generate the final accessibility report"
+      ],
+      correct: 0,
+      explanation: "Step 2 is a reconnaissance step: identify key workflows, representative page types, states, and the technologies in use. This understanding informs sample selection in Step 3.",
+      wrongExplanations: {
+        1: "Automated scanning may be part of the audit, but is not the purpose of the exploration step.",
+        2: "End-user testing is a complementary activity, not a WCAG-EM step.",
+        3: "Reporting happens in Step 5."
+      },
+      topicLinks: ['wcag-em'],
+      difficulty: 'medium',
+      tags: ['wcag-em']
+    },
+    {
+      id: 1168,
+      question: "What is 'accessibility supported' in the context of a WCAG conformance claim?",
+      options: [
+        "The technologies used (HTML, ARIA, etc.) must be supported by users' assistive technologies in the way the content relies on them",
+        "The website must be hosted on an accessible server",
+        "The site must provide a dedicated accessibility page",
+        "All users must have training in accessibility"
+      ],
+      correct: 0,
+      explanation: "WCAG requires that features relied upon for conformance be 'accessibility supported' — meaning real users can access them with their assistive technologies. Novel or niche tech may not qualify.",
+      wrongExplanations: {
+        1: "Hosting is unrelated.",
+        2: "An accessibility statement is recommended but not what this term means.",
+        3: "User training is outside the scope of conformance."
+      },
+      topicLinks: ['wcag-em', 'wcag-overview'],
+      difficulty: 'hard',
+      tags: ['wcag-em', 'conformance']
+    },
+    // =============================================
+    // ACT RULES & AUTOMATED TESTING (1169-1174)
+    // =============================================
+    {
+      id: 1169,
+      question: "What are ACT Rules?",
+      options: [
+        "Accessibility Conformance Testing rules — a W3C community format describing how to test specific accessibility requirements consistently",
+        "Legal rules that mandate accessibility in government websites",
+        "ARIA Compliance Tests defined by the WAI-ARIA spec",
+        "A proprietary rule set used by a specific testing vendor"
+      ],
+      correct: 0,
+      explanation: "ACT Rules are a W3C framework for writing testable accessibility rules. Each rule describes inputs, applicability, expectations, and outcomes so that different tools can implement them consistently and produce comparable results.",
+      wrongExplanations: {
+        1: "ACT is a technical framework, not a legal one.",
+        2: "ACT is independent of the ARIA spec.",
+        3: "ACT is an open W3C format, not vendor-proprietary."
+      },
+      topicLinks: ['act-rules', 'automated-testing-tools'],
+      difficulty: 'medium',
+      tags: ['act-rules', 'testing']
+    },
+    {
+      id: 1170,
+      question: "An automated tool passes a page for SC 1.1.1 (Non-text Content). What can you conclude?",
+      options: [
+        "Only that no automatically detectable failures were found — a manual review is still needed to judge whether alt text is accurate and meaningful",
+        "That the page fully conforms to SC 1.1.1",
+        "That the page contains no images",
+        "That WCAG 2.1 AA has been met for the entire site"
+      ],
+      correct: 0,
+      explanation: "Automated tools can verify the presence of alt attributes, but they can't judge whether the alt text is accurate, meaningful, or appropriate for the image's purpose. Manual review is required.",
+      wrongExplanations: {
+        1: "Passing automated checks is necessary but not sufficient for conformance.",
+        2: "It might contain images with alt text; the tool passed the check, not the absence of images.",
+        3: "A single passing SC says nothing about overall site conformance."
+      },
+      topicLinks: ['act-rules', 'automated-testing-tools', 'testing-fundamentals'],
+      difficulty: 'medium',
+      tags: ['testing', 'automated']
+    },
+    {
+      id: 1171,
+      question: "Roughly what fraction of WCAG issues can fully automated testing typically catch?",
+      options: [
+        "Estimates vary, but commonly cited figures are around 30–40 percent",
+        "Close to 100 percent",
+        "Less than 5 percent",
+        "Exactly 75 percent according to WCAG 2.1"
+      ],
+      correct: 0,
+      explanation: "Widely cited studies (e.g., from Deque) estimate that automated tools can detect around 30–40% of WCAG issues. The remainder requires manual and assistive-technology testing.",
+      wrongExplanations: {
+        1: "Full automation of WCAG testing is not possible.",
+        2: "Automated tools catch far more than 5%.",
+        3: "WCAG does not define a percentage."
+      },
+      topicLinks: ['automated-testing-tools', 'act-rules', 'testing-fundamentals'],
+      difficulty: 'medium',
+      tags: ['testing', 'automated']
+    },
+    {
+      id: 1172,
+      question: "Which type of issue is BEST suited for automated testing?",
+      options: [
+        "Detecting missing form labels, missing alt attributes, and insufficient color contrast on static text",
+        "Judging whether link text accurately describes its destination",
+        "Deciding if video captions are synchronized correctly",
+        "Evaluating whether an error message is clear and helpful to users"
+      ],
+      correct: 0,
+      explanation: "Automated tools excel at verifying deterministic DOM/CSS conditions: label associations, alt attribute presence, computed contrast ratios on known text/background pairs, and similar structural checks.",
+      wrongExplanations: {
+        1: "Judging meaning of link text requires human interpretation.",
+        2: "Caption timing accuracy needs a human reviewer or specialized testing.",
+        3: "Clarity and helpfulness of language are subjective judgments."
+      },
+      topicLinks: ['automated-testing-tools', 'act-rules'],
+      difficulty: 'easy',
+      tags: ['testing', 'automated']
+    },
+    {
+      id: 1173,
+      question: "Which of the following is a common guided manual testing tool that walks an evaluator through checks an automated tool cannot fully verify?",
+      options: [
+        "ARC Toolkit, WAVE's outline view, or axe DevTools' intelligent guided tests",
+        "ESLint",
+        "Webpack bundle analyzer",
+        "Lighthouse's performance audit"
+      ],
+      correct: 0,
+      explanation: "Tools like ARC Toolkit and axe DevTools include guided or 'intelligent' manual tests that help evaluators check items needing human judgment (e.g., heading hierarchy meaning, alt text accuracy).",
+      wrongExplanations: {
+        1: "ESLint is a JavaScript linter.",
+        2: "Webpack bundle analyzer inspects JavaScript bundle composition.",
+        3: "Lighthouse performance audits measure speed, not accessibility."
+      },
+      topicLinks: ['automated-testing-tools', 'testing-fundamentals'],
+      difficulty: 'medium',
+      tags: ['testing', 'tools']
+    },
+    {
+      id: 1174,
+      question: "An ACT Rule defines 'applicability' and 'expectations.' What do these terms mean?",
+      options: [
+        "Applicability identifies which elements the rule tests; expectations are the conditions those elements must meet to pass",
+        "Applicability is the test's legal jurisdiction; expectations are its legal consequences",
+        "Applicability is the browser support list; expectations are performance metrics",
+        "Applicability is the tool vendor; expectations are the price"
+      ],
+      correct: 0,
+      explanation: "ACT Rules use 'applicability' to define which elements the rule applies to and 'expectations' to define the pass/fail conditions. This structure makes rules deterministic and implementable across tools.",
+      wrongExplanations: {
+        1: "ACT is a technical framework, not a legal one.",
+        2: "Browser support and performance are separate concerns.",
+        3: "ACT has nothing to do with vendor pricing."
+      },
+      topicLinks: ['act-rules'],
+      difficulty: 'hard',
+      tags: ['act-rules']
+    },
+    // =============================================
+    // ACCESSIBILITY QA LIFECYCLE (1175-1178)
+    // =============================================
+    {
+      id: 1175,
+      question: "What does 'shift-left' mean in the context of accessibility QA?",
+      options: [
+        "Moving accessibility considerations earlier in the development lifecycle — into design and coding — rather than testing only at the end",
+        "Moving accessibility testing to the right side of the dev cycle to catch more bugs",
+        "Shifting UI elements to the left of the screen for RTL languages",
+        "Switching from manual to automated testing exclusively"
+      ],
+      correct: 0,
+      explanation: "Shift-left means addressing accessibility during requirements, design, and development, not just at QA. Early consideration reduces rework and catches issues when they are cheapest to fix.",
+      wrongExplanations: {
+        1: "Shift-left moves activity earlier (left), not later.",
+        2: "This is unrelated to RTL layout.",
+        3: "Shift-left doesn't imply abandoning manual testing."
+      },
+      topicLinks: ['accessibility-qa-lifecycle'],
+      difficulty: 'medium',
+      tags: ['qa', 'lifecycle']
+    },
+    {
+      id: 1176,
+      question: "In an agile team, where is accessibility BEST integrated?",
+      options: [
+        "Woven throughout: accessibility acceptance criteria in user stories, a11y checks in PR reviews, and automated a11y tests in CI",
+        "Done only once per quarter as a dedicated accessibility sprint",
+        "Left to a separate audit team after the product launches",
+        "Only considered during the design phase and never afterward"
+      ],
+      correct: 0,
+      explanation: "Sustainable accessibility in agile means embedding it into definition of done, story acceptance criteria, peer reviews, and CI pipelines — so every story is delivered accessible rather than retrofitted.",
+      wrongExplanations: {
+        1: "Quarterly sprints leave accessibility debt building between cycles.",
+        2: "Post-launch audits lead to costly rework.",
+        3: "Design is important, but implementation and testing also need accessibility focus."
+      },
+      topicLinks: ['accessibility-qa-lifecycle'],
+      difficulty: 'medium',
+      tags: ['qa', 'agile']
+    },
+    {
+      id: 1177,
+      question: "A CI pipeline runs axe-core against every pull request and fails the build on new violations. Which limitation should the team still be aware of?",
+      options: [
+        "Automated tests catch only a portion of WCAG issues; manual testing and assistive technology testing are still required",
+        "axe-core tests every WCAG success criterion completely",
+        "CI-based testing eliminates the need for design reviews",
+        "Failing builds on violations is a violation of WCAG"
+      ],
+      correct: 0,
+      explanation: "CI automation is valuable as a gate against regressions, but it cannot replace manual testing, AT testing, or design review. Teams must combine automation with human evaluation.",
+      wrongExplanations: {
+        1: "No automated tool covers every SC.",
+        2: "Design review remains critical for many SC.",
+        3: "WCAG does not regulate build processes."
+      },
+      topicLinks: ['accessibility-qa-lifecycle', 'automated-testing-tools'],
+      difficulty: 'medium',
+      tags: ['qa', 'ci', 'automation']
+    },
+    {
+      id: 1178,
+      question: "Why is it important to include accessibility criteria in the team's definition of done?",
+      options: [
+        "So work isn't declared complete until it meets accessibility standards, preventing accessibility debt from accumulating",
+        "Because WCAG explicitly requires a definition of done",
+        "To help the legal team build a defense in court",
+        "Because accessibility criteria speed up the release pipeline"
+      ],
+      correct: 0,
+      explanation: "A shared definition of done that includes accessibility ensures stories aren't called complete while inaccessible. This is one of the most effective organizational practices for sustaining accessibility.",
+      wrongExplanations: {
+        1: "WCAG does not prescribe development processes.",
+        2: "Legal defense is not the primary motivation.",
+        3: "Including a11y criteria adds rigor rather than raw speed."
+      },
+      topicLinks: ['accessibility-qa-lifecycle'],
+      difficulty: 'hard',
+      tags: ['qa', 'process']
+    },
+    // =============================================
+    // END-USER IMPACT TESTING (1179-1180)
+    // =============================================
+    {
+      id: 1179,
+      question: "What unique value does usability testing with people with disabilities provide over expert-based accessibility testing?",
+      options: [
+        "It reveals real-world barriers and workflow impacts that experts may miss, including cognitive load, AT-specific behavior, and the user's own strategies",
+        "It replaces the need for WCAG conformance",
+        "It is faster than automated testing",
+        "It removes any need for manual auditing"
+      ],
+      correct: 0,
+      explanation: "Usability testing with disabled users surfaces issues that conformance testing cannot — how real people with real AT setups actually experience the product, including frustration points and workarounds.",
+      wrongExplanations: {
+        1: "Usability testing complements, not replaces, conformance testing.",
+        2: "User testing is typically slower than automation.",
+        3: "Manual audits remain necessary."
+      },
+      topicLinks: ['disability-user-strategies', 'testing-fundamentals'],
+      difficulty: 'medium',
+      tags: ['user-testing']
+    },
+    {
+      id: 1180,
+      question: "Which is a best practice when conducting usability testing with people with disabilities?",
+      options: [
+        "Let participants use their own assistive technologies and personal settings — not a lab-standard setup",
+        "Provide unfamiliar AT so all participants have an identical baseline",
+        "Observe only passing behavior to keep the sessions short",
+        "Run tests only with users of a single disability type to simplify analysis"
+      ],
+      correct: 0,
+      explanation: "Participants should use their own AT and preferred settings, because that is how they will use the product in reality. Forcing unfamiliar tools introduces noise and does not reflect genuine user experience.",
+      wrongExplanations: {
+        1: "Unfamiliar AT produces artificial results.",
+        2: "Observing failures and struggles is where the most learning happens.",
+        3: "Testing with multiple disability groups yields richer insights."
+      },
+      topicLinks: ['disability-user-strategies'],
+      difficulty: 'hard',
+      tags: ['user-testing']
     }
   ]
 };

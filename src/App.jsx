@@ -15,6 +15,7 @@ import { domain2 } from './data/questions/cpacc-domain2';
 import { domain3 } from './data/questions/cpacc-domain3';
 import { wasDomain1 } from './data/questions/was-domain1';
 import { wasDomain2 } from './data/questions/was-domain2';
+import { wasDomain3 } from './data/questions/was-domain3';
 import { getQuestionsByIds } from './utils/getQuestionsByIds';
 import { getLocalDateString, getYesterdayDateString } from './utils/localDate';
 
@@ -24,7 +25,7 @@ const FlaggedQuestionsPage = lazy(() => import('./components/flagged/FlaggedQues
 const ActivityPage = lazy(() => import('./components/activity/ActivityPage'));
 
 const CPACC_DOMAINS = [domain1, domain2, domain3];
-const WAS_DOMAINS = [wasDomain1, wasDomain2];
+const WAS_DOMAINS = [wasDomain1, wasDomain2, wasDomain3];
 const ALL_DOMAINS = [...CPACC_DOMAINS, ...WAS_DOMAINS];
 
 const DOMAINS_BY_COURSE = {

@@ -2204,7 +2204,7 @@ export const topics = [
     slug: 'maturity-models',
     title: 'Accessibility Maturity Models',
     category: 'Organizational Strategy',
-    applicableTo: ['cpacc'],
+    applicableTo: ['cpacc', 'was'],
     summary: 'Frameworks for assessing and improving an organization\'s accessibility practices across dimensions like culture, process, technology, and training.',
     content: [
       {
@@ -2260,7 +2260,7 @@ export const topics = [
     slug: 'vpat',
     title: 'VPAT & Accessibility Conformance Reports',
     category: 'Organizational Strategy',
-    applicableTo: ['cpacc'],
+    applicableTo: ['cpacc', 'was'],
     summary: 'The Voluntary Product Accessibility Template (VPAT) is used to document how ICT products conform to accessibility standards, producing an Accessibility Conformance Report (ACR).',
     content: [
       {
@@ -2312,7 +2312,7 @@ export const topics = [
     slug: 'procurement-accessibility',
     title: 'Accessibility in Procurement',
     category: 'Organizational Strategy',
-    applicableTo: ['cpacc'],
+    applicableTo: ['cpacc', 'was'],
     summary: 'Including accessibility requirements in purchasing decisions to ensure that acquired products and services are accessible to people with disabilities.',
     content: [
       {
@@ -3418,6 +3418,881 @@ export const topics = [
       'SC 2.5.8 Target Size Minimum (AA, WCAG 2.2): 24x24 CSS pixels',
       'Never use user-scalable=no or maximum-scale=1 in viewport meta tag',
       'SC 1.3.4 Orientation (AA): do not lock to portrait or landscape unless essential'
+    ]
+  },
+
+  // ============================================================
+  // WAS-SPECIFIC: ARIA & ACCESSIBILITY TREE
+  // ============================================================
+  {
+    slug: 'accessibility-tree',
+    title: 'The Accessibility Tree',
+    category: 'ARIA & Semantics',
+    applicableTo: ['was'],
+    summary: 'The accessibility tree is a simplified representation of the DOM that browsers expose to assistive technologies via platform accessibility APIs, containing each element\'s name, role, value, and state.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'When a browser parses an HTML document, it builds the DOM (Document Object Model). From the DOM, the browser generates a parallel structure called the accessibility tree — a simplified representation optimized for assistive technologies. The accessibility tree strips out purely visual information and exposes the semantic meaning of elements: their role, name, value, state, and relationships.'
+      },
+      {
+        type: 'heading',
+        text: 'How the Accessibility Tree Is Built'
+      },
+      {
+        type: 'list',
+        items: [
+          'The browser processes the DOM and creates accessible objects for elements with semantic meaning',
+          'Native HTML elements provide implicit roles: <button> becomes role="button", <nav> becomes role="navigation"',
+          'ARIA attributes override or supplement native semantics: role, aria-label, aria-expanded, etc.',
+          'CSS can affect the tree: display:none and visibility:hidden remove elements from the tree; aria-hidden="true" hides elements from AT but keeps them visible',
+          'The accessibility tree is what the operating system\'s accessibility API exposes to assistive technologies'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Accessible Object Properties'
+      },
+      {
+        type: 'list',
+        items: [
+          'Name: the accessible label that identifies the element (from text content, aria-label, aria-labelledby, alt attribute, or title)',
+          'Role: what kind of element it is (button, link, heading, textbox, etc.)',
+          'Value: the current value (e.g., text in an input field, the current slider position)',
+          'State: dynamic properties like expanded/collapsed, checked/unchecked, disabled, selected',
+          'Description: supplementary information (from aria-describedby or title)'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'The Accessibility API Chain'
+      },
+      {
+        type: 'paragraph',
+        text: 'The chain works as follows: HTML + ARIA → DOM → Accessibility Tree → Platform Accessibility API (e.g., UIA on Windows, AX API on macOS, ATK/AT-SPI on Linux) → Assistive Technology (e.g., JAWS, NVDA, VoiceOver). The HTML Accessibility API Mappings (HTML-AAM) specification defines how native HTML elements map to accessibility API roles and properties.'
+      },
+      {
+        type: 'heading',
+        text: 'Debugging the Accessibility Tree'
+      },
+      {
+        type: 'list',
+        items: [
+          'Chrome DevTools: Elements panel → Accessibility pane shows computed accessible name, role, and properties',
+          'Firefox DevTools: Accessibility Inspector provides a full tree view of accessible objects',
+          'Chrome DevTools also has a "Full Accessibility Tree" view that replaces the DOM tree with the a11y tree',
+          'These tools help identify missing names, incorrect roles, or hidden elements that should be exposed'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: The accessibility tree is NOT the DOM — it is a simplified version built from the DOM. Native HTML provides implicit roles; ARIA overrides or adds semantics. The tree exposes name, role, value, state, and description. CSS display:none removes from both visual display AND the accessibility tree. aria-hidden="true" removes from the accessibility tree only.'
+      }
+    ],
+    relatedTopics: ['aria-overview', 'aria-roles', 'semantic-html', 'screen-readers'],
+    examTips: [
+      'The accessibility tree is a simplified representation of the DOM for assistive technologies',
+      'Native HTML provides implicit ARIA roles — ARIA attributes override or supplement them',
+      'Five key properties: name, role, value, state, description',
+      'display:none hides from both display AND accessibility tree',
+      'aria-hidden="true" hides from accessibility tree only — never use on focusable elements',
+      'HTML-AAM specification defines native HTML to accessibility API mappings'
+    ]
+  },
+  {
+    slug: 'accessible-names-descriptions',
+    title: 'Accessible Names & Descriptions',
+    category: 'ARIA & Semantics',
+    applicableTo: ['was'],
+    summary: 'Every interactive element needs an accessible name so assistive technologies can identify it. The accessible name computation algorithm defines the priority order for determining an element\'s name.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'An accessible name is a short string that labels an element for assistive technology users. Every interactive element — links, buttons, form fields, widgets — must have an accessible name (WCAG SC 4.1.2 Name, Role, Value). An accessible description provides additional information beyond the name, announced by screen readers after the name, often after a brief pause.'
+      },
+      {
+        type: 'heading',
+        text: 'The Accessible Name Computation'
+      },
+      {
+        type: 'paragraph',
+        text: 'Browsers use a defined algorithm (the Accessible Name and Description Computation specification) to determine an element\'s name. When multiple naming sources exist, the source with the highest priority wins. The priority order from highest to lowest is:'
+      },
+      {
+        type: 'list',
+        items: [
+          '1. aria-labelledby — references one or more elements by ID; their text content becomes the name. Highest priority and can concatenate text from multiple elements',
+          '2. aria-label — a string directly on the element. Overrides all native naming methods but is itself overridden by aria-labelledby',
+          '3. Native labeling — varies by element type: <label> for form controls, alt for images, text content for links and buttons, <caption> for tables, <legend> for fieldsets',
+          '4. title attribute — used as a last resort if no other name source exists. Generally not recommended as the primary naming method because tooltip behavior is inconsistent'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Accessible Descriptions'
+      },
+      {
+        type: 'list',
+        items: [
+          'aria-describedby references element(s) whose text content forms the description',
+          'Descriptions supplement the name with additional context (e.g., format instructions for an input field)',
+          'Screen readers announce the description after the name, typically with a brief pause',
+          'The title attribute may serve as an accessible description if not already used as the name'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Common Naming Patterns'
+      },
+      {
+        type: 'list',
+        items: [
+          'Buttons: text content inside the <button> element ("Submit", "Close")',
+          'Links: text content between <a> tags; for icon-only links, use aria-label or visually hidden text',
+          'Images: alt attribute; decorative images use alt="" (empty string)',
+          'Form fields: associated <label> via for/id or wrapping; aria-label as fallback',
+          'Icon buttons: aria-label on the button element, with aria-hidden="true" on the icon SVG',
+          'Groups of radio buttons or checkboxes: <fieldset> with <legend> for the group name'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: The name computation priority is: aria-labelledby > aria-label > native label (text content, alt, <label>) > title. aria-labelledby overrides everything, even aria-label. aria-label overrides native text content. Know the difference between accessible name (identifies the element) and accessible description (supplementary info via aria-describedby). WCAG 2.5.3 Label in Name (Level A) requires that the visible text label is included in the accessible name.'
+      }
+    ],
+    relatedTopics: ['aria-overview', 'aria-states-properties', 'form-accessibility', 'accessibility-tree'],
+    examTips: [
+      'Priority: aria-labelledby > aria-label > native label > title',
+      'aria-labelledby can reference multiple IDs — text is concatenated in order',
+      'aria-label overrides native text content (link text, button text)',
+      'SC 4.1.2 Name, Role, Value: every interactive element needs an accessible name',
+      'SC 2.5.3 Label in Name: visible label text must be included in the accessible name',
+      'Accessible description (aria-describedby) supplements the name — announced after a pause'
+    ]
+  },
+
+  // ============================================================
+  // WAS-SPECIFIC: IMPLEMENTATION PATTERNS
+  // ============================================================
+  {
+    slug: 'standard-vs-custom-controls',
+    title: 'Standard Controls vs. Custom Controls',
+    category: 'ARIA & Semantics',
+    applicableTo: ['was'],
+    summary: 'Native HTML controls provide built-in keyboard support, roles, and states for free. Custom controls require ARIA roles, keyboard handlers, and focus management — use them only when native HTML cannot meet the requirement.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The choice between standard HTML controls and custom ARIA widgets significantly impacts accessibility. Native HTML elements like <button>, <input>, <select>, and <a> provide built-in keyboard support, implicit ARIA roles, state management, and consistent behavior across assistive technologies — all without any additional code.'
+      },
+      {
+        type: 'heading',
+        text: 'What Native HTML Provides for Free'
+      },
+      {
+        type: 'list',
+        items: [
+          'Implicit ARIA roles: <button> is automatically role="button", <a href> is role="link"',
+          'Keyboard support: buttons respond to Enter and Space, links respond to Enter, form controls support Tab navigation',
+          'Focus management: native interactive elements are in the tab order by default',
+          'State communication: <input type="checkbox"> automatically exposes checked state to AT',
+          'Cross-browser and cross-AT compatibility: thoroughly tested by browser vendors'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'When Custom Controls Are Necessary'
+      },
+      {
+        type: 'list',
+        items: [
+          'Complex widgets not available in HTML: tab panels, tree views, comboboxes with autocomplete, date pickers',
+          'Specific design requirements that standard controls cannot accommodate',
+          'Highly interactive web applications requiring specialized interaction patterns',
+          'When branding or design systems require visual customization beyond CSS styling of native elements'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Requirements for Accessible Custom Controls'
+      },
+      {
+        type: 'list',
+        items: [
+          'Assign the correct ARIA role (e.g., role="tablist", role="tab", role="tabpanel")',
+          'Manage ARIA states (aria-selected, aria-expanded, aria-checked, etc.)',
+          'Implement full keyboard interaction per the ARIA Authoring Practices Guide (APG) patterns',
+          'Manage focus within composite widgets using roving tabindex or aria-activedescendant',
+          'Provide an accessible name for the widget and its interactive parts',
+          'Test with multiple screen reader and browser combinations'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'The 5 Rules of ARIA'
+      },
+      {
+        type: 'list',
+        items: [
+          'Rule 1: Use native HTML instead of ARIA if possible — it already has the semantics and behavior built in',
+          'Rule 2: Do not change native semantics unless you really have to (e.g., don\'t add role="button" to a heading)',
+          'Rule 3: All interactive ARIA controls must be usable with the keyboard',
+          'Rule 4: Do not use role="presentation" or aria-hidden="true" on a focusable element',
+          'Rule 5: All interactive elements must have an accessible name'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: Always prefer native HTML over custom ARIA widgets (Rule 1 of ARIA). A custom role completely overrides the native role — <li role="button"> is announced as a button, not a list item. ARIA does NOT add keyboard behavior — the author must implement it. The application role should be used very sparingly as it overrides screen reader navigation keystrokes.'
+      }
+    ],
+    relatedTopics: ['aria-overview', 'aria-widget-patterns', 'semantic-html', 'aria-roles'],
+    examTips: [
+      'Always prefer native HTML over custom ARIA — the first rule of ARIA',
+      'ARIA roles override native roles completely',
+      'ARIA adds semantics only — it does NOT change browser behavior or keyboard support',
+      'Custom widgets require: correct role + ARIA states + keyboard handlers + focus management + accessible name',
+      'The application role disables screen reader navigation keystrokes — use very sparingly',
+      'Test custom widgets across multiple screen reader + browser combinations'
+    ]
+  },
+  {
+    slug: 'spa-accessibility',
+    title: 'Single Page Application Accessibility',
+    category: 'ARIA & Semantics',
+    applicableTo: ['was'],
+    summary: 'SPAs load content dynamically without full page reloads, creating accessibility challenges: screen readers miss route changes, focus gets lost, and the page title may not update.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Single Page Applications (SPAs) use JavaScript frameworks (React, Vue, Angular) to dynamically update content without full page reloads. While this improves performance, it creates significant accessibility challenges. Screen readers rely on page load events to announce the page title and provide a structural summary — SPAs do not fire these events when navigating between views.'
+      },
+      {
+        type: 'heading',
+        text: 'Key Accessibility Challenges in SPAs'
+      },
+      {
+        type: 'list',
+        items: [
+          'Screen readers do not announce route changes because there is no traditional page load event',
+          'Focus remains on the element that triggered navigation (e.g., a link) instead of moving to the new content',
+          'The document title (document.title) may not update to reflect the new view',
+          'Content loaded via AJAX is not automatically announced to screen readers',
+          'Browser back/forward navigation behavior may be inconsistent'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Recommended SPA Accessibility Patterns'
+      },
+      {
+        type: 'list',
+        items: [
+          'Update document.title via JavaScript on every route change to reflect the current view',
+          'Move focus to the new content — typically the main heading (h1) or the <main> element',
+          'Use aria-live regions to announce the route change (e.g., "New page: About Us")',
+          'Ensure skip navigation links still work correctly in the SPA context',
+          'Manage focus when content is loaded asynchronously — send focus to new content when it is the result of a user action'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'AJAX Content Notifications'
+      },
+      {
+        type: 'list',
+        items: [
+          'If AJAX content is loaded as a direct result of a user action (e.g., clicking a button), notify the user — either by moving focus or using aria-live',
+          'If AJAX content is loaded passively (not triggered by the user), notification may not be needed unless the content is urgent',
+          'The aria-live container must exist in the DOM before injecting content — dynamically created live regions are unreliable',
+          'Use aria-live="polite" for non-urgent updates and aria-live="assertive" only for critical alerts'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: SPAs do NOT fire page load events, so screen readers miss route changes. Three remedies: (1) update document.title, (2) move focus to the new content, (3) use aria-live announcements. For AJAX content: if user-triggered, notify; if passive, notification depends on urgency. The aria-live container must already exist in the DOM before content is injected.'
+      }
+    ],
+    relatedTopics: ['aria-live-regions', 'javascript-accessibility', 'aria-overview', 'screen-readers'],
+    examTips: [
+      'SPAs do not fire page load events — screen readers miss route changes',
+      'Three solutions: update document.title, move focus, and/or use aria-live',
+      'User-triggered AJAX content should notify the user; passive content may not need notification',
+      'aria-live container must exist in the DOM before content is injected',
+      'Focus should move to the main heading or main content region after navigation',
+      'Browser back/forward navigation must be supported — use the History API correctly'
+    ]
+  },
+  {
+    slug: 'javascript-accessibility',
+    title: 'JavaScript & Accessibility',
+    category: 'ARIA & Semantics',
+    applicableTo: ['was'],
+    summary: 'JavaScript can improve or damage accessibility. Accessible JavaScript requires progressive enhancement, device-independent event handlers, proper focus management, and correct ARIA state updates.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Modern assistive technologies fully support JavaScript — there are no inherent barriers. However, JavaScript must be coded with accessibility in mind. The progressive enhancement approach means essential content and functionality are available even when JavaScript is unavailable or fails to load. JavaScript enables accessible dynamic content when used correctly: toggling ARIA states, managing focus, and announcing updates via live regions.'
+      },
+      {
+        type: 'heading',
+        text: 'Device-Independent Event Handlers'
+      },
+      {
+        type: 'list',
+        items: [
+          'onClick on <button> and <a> automatically includes both mouse and keyboard activation — Enter for links, Enter/Space for buttons',
+          'onClick on a non-semantic <div> or <span> provides mouse support only — you must add a keydown/keyup handler for Enter/Space and add tabindex="0" for focusability',
+          'Avoid device-dependent event handlers like onMouseOver without a keyboard equivalent (onFocus)',
+          'Multi-event elements (e.g., hover to expand + click to follow link) are problematic for keyboard, touch, and screen reader users',
+          'Functionality must be available via keyboard, mouse, touch, and voice input'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Focus Management'
+      },
+      {
+        type: 'list',
+        items: [
+          'Focus movement must be predictable and follow user expectations',
+          'When a dialog opens, focus should move into the dialog; when it closes, focus returns to the trigger element',
+          'When content is added dynamically, add it after the user\'s current focus position — screen reader users move forward, not backward',
+          'Use element.focus() to programmatically move focus when needed',
+          'Trap focus inside modal dialogs — Tab should cycle within the dialog, not escape to the background page'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Managing State with ARIA'
+      },
+      {
+        type: 'list',
+        items: [
+          'Toggle ARIA state attributes with JavaScript: aria-expanded, aria-selected, aria-checked, aria-pressed, aria-hidden',
+          'Standard HTML controls manage state automatically; custom controls need explicit ARIA state management',
+          'Dynamic updates that do not receive focus must be announced via ARIA live regions (aria-live="polite" or role="alert")',
+          'The live region container must be present in the DOM at page load, then content is injected dynamically'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: onClick on a <button> includes keyboard support (Enter/Space) — but onClick on a <div> does NOT. Progressive enhancement = essential content works without JavaScript. Two focus management strategies for composite widgets: roving tabindex (move tabindex="0" between children) and aria-activedescendant (keep DOM focus on container, change the active descendant ID). ARIA live region containers must exist in the DOM before injecting content.'
+      }
+    ],
+    relatedTopics: ['spa-accessibility', 'aria-states-properties', 'aria-live-regions', 'standard-vs-custom-controls'],
+    examTips: [
+      'onClick on semantic elements (button, link) includes keyboard support; on non-semantic elements it does NOT',
+      'Progressive enhancement: essential content available without JavaScript',
+      'Focus management: dialog opens → focus in; dialog closes → focus returns to trigger',
+      'Add dynamic content AFTER the user\'s current focus position',
+      'Roving tabindex vs. aria-activedescendant: two strategies for focus within composite widgets',
+      'ARIA live region containers must exist in the DOM at page load'
+    ]
+  },
+
+  // ============================================================
+  // WAS-SPECIFIC: STANDARDS & GUIDELINES
+  // ============================================================
+  {
+    slug: 'atag-overview',
+    title: 'Authoring Tool Accessibility Guidelines (ATAG)',
+    category: 'Standards & Guidelines',
+    applicableTo: ['was'],
+    summary: 'ATAG 2.0 ensures authoring tools (CMS, WYSIWYG editors, social media platforms) are accessible themselves and help authors produce accessible content.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The Authoring Tool Accessibility Guidelines (ATAG) 2.0 is a W3C standard that addresses the accessibility of software used to create web content. Authoring tools include CMS platforms (WordPress, Drupal), WYSIWYG editors, site builders, form generators, social media platforms, learning management systems, and any tool that produces web content.'
+      },
+      {
+        type: 'heading',
+        text: 'ATAG\'s Two Parts'
+      },
+      {
+        type: 'list',
+        items: [
+          'Part A: Make the authoring tool user interface accessible — the tool itself must be usable by people with disabilities, including those who use assistive technologies',
+          'Part B: Support the production of accessible content — the tool should guide, assist, and automate the creation of accessible output (e.g., prompting for alt text on image upload, producing well-structured markup)'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'ATAG Structure'
+      },
+      {
+        type: 'list',
+        items: [
+          'Like WCAG, ATAG is organized into Principles, Guidelines, and Success Criteria at three conformance levels (A, AA, AAA)',
+          'Part A principles cover: perceivable editing views, operable editing views, understandable editing views, and robust editing views',
+          'Part B principles cover: automated accessible content production, assisting authors to produce accessible content, and promoting accessibility features',
+          'Implementing ATAG 2.0 is the non-normative supporting document (similar to Understanding WCAG)'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Why ATAG Matters for WAS'
+      },
+      {
+        type: 'list',
+        items: [
+          'Content created by authoring tools often inherits accessibility issues from the tool itself',
+          'Understanding ATAG helps evaluate CMS platforms and other content creation tools during procurement',
+          'Knowing whether a tool supports accessible output informs remediation strategies — some issues are best fixed at the tool level',
+          'While ATAG currently references WCAG 2.0, the new WCAG 2.1/2.2 success criteria can be incorporated into ATAG analysis'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: ATAG has two parts: Part A = the authoring tool UI is accessible; Part B = the tool supports producing accessible content. ATAG is a W3C Recommendation, like WCAG. Know the three WAI guidelines: WCAG (content), ATAG (authoring tools), UAAG (user agents/browsers). ATAG currently references WCAG 2.0 but can be applied with WCAG 2.1/2.2 criteria.'
+      }
+    ],
+    relatedTopics: ['wcag-overview', 'w3c-wai', 'procurement-accessibility'],
+    examTips: [
+      'Part A = tool UI is accessible; Part B = tool produces accessible content',
+      'ATAG is a W3C Recommendation with three conformance levels (A, AA, AAA)',
+      'Three WAI guidelines: WCAG (content), ATAG (authoring tools), UAAG (user agents)',
+      'ATAG currently references WCAG 2.0 — apply WCAG 2.1/2.2 criteria when evaluating',
+      'Examples of authoring tools: CMS, WYSIWYG editors, social media platforms, LMS'
+    ]
+  },
+
+  // ============================================================
+  // WAS-SPECIFIC: TESTING & EVALUATION
+  // ============================================================
+  {
+    slug: 'wcag-em',
+    title: 'WCAG-EM: Website Accessibility Conformance Evaluation Methodology',
+    category: 'Accessibility Testing',
+    applicableTo: ['was'],
+    summary: 'WCAG-EM defines a structured 5-step process for evaluating website accessibility: define scope, explore the website, select a representative sample, audit the sample, and report findings.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The Website Accessibility Conformance Evaluation Methodology (WCAG-EM) 1.0 is a W3C Working Group Note that provides a structured approach for evaluating websites against WCAG. It is especially useful for large websites where testing every page is not feasible. WCAG-EM defines how to select a representative sample and conduct a reliable evaluation.'
+      },
+      {
+        type: 'heading',
+        text: 'The 5 Steps of WCAG-EM'
+      },
+      {
+        type: 'list',
+        items: [
+          'Step 1 — Define the evaluation scope: Identify the website scope (pages/states included), the WCAG conformance target level (A, AA, or AAA), and any specific browser/AT requirements',
+          'Step 2 — Explore the website: Identify key pages, key functionality, types of content (forms, tables, multimedia, dynamic widgets), required technologies, and common page templates',
+          'Step 3 — Select a representative sample: Choose a structured sample (pages representing key functionality and templates) plus a randomly selected sample; the sample must represent the website\'s full range of content and functionality',
+          'Step 4 — Audit the selected sample: Evaluate each page against all applicable WCAG Success Criteria; combine automated testing with manual evaluation; record successes, failures, and not-applicable results',
+          'Step 5 — Report the evaluation findings: Aggregate results; make conformance statements for each audited page; note that conformance is claimed per individual page, not for the entire website'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Key Principles'
+      },
+      {
+        type: 'list',
+        items: [
+          'WCAG conformance is at the individual page level — a strict conformance claim can only apply to pages that were actually tested',
+          'If any single Success Criterion fails on a page, that page does not conform',
+          'WCAG-EM does not define how to test individual Success Criteria — it defines the evaluation process and sampling methodology',
+          'The W3C provides a WCAG-EM Report Tool to assist auditors in generating structured evaluation reports',
+          'Sampling conclusions about the overall website are estimates, not strict conformance claims'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: WCAG-EM has 5 steps: Scope → Explore → Sample → Audit → Report. Conformance is per individual page — not per entire website. If any single SC fails, that page does not conform. WCAG-EM is for the evaluation process and sampling — it does NOT define how to test individual Success Criteria. A conforming alternate version must be equivalent in content and accessible itself.'
+      }
+    ],
+    relatedTopics: ['wcag-overview', 'testing-fundamentals', 'act-rules', 'automated-testing-tools'],
+    examTips: [
+      '5 steps: Define Scope → Explore Website → Select Sample → Audit Sample → Report Findings',
+      'Conformance is per page — if one SC fails, the page does not conform',
+      'Sample includes structured pages (key templates/functions) plus random pages',
+      'WCAG-EM defines the evaluation process, not how to test individual SC',
+      'A conforming alternate version must be equivalent and itself accessible',
+      'Use the WCAG-EM Report Tool to generate structured reports'
+    ]
+  },
+  {
+    slug: 'act-rules',
+    title: 'ACT Rules (Accessibility Conformance Testing)',
+    category: 'Accessibility Testing',
+    applicableTo: ['was'],
+    summary: 'ACT Rules standardize how individual accessibility tests are defined and executed, improving consistency across automated tools and manual testing methodologies.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The Accessibility Conformance Testing (ACT) Rules are developed by a W3C community group of accessibility tool vendors, test authors, and experts. ACT Rules aim to harmonize the interpretation of WCAG and WAI-ARIA standards for testing purposes, leading to more consistent results across different tools and evaluators.'
+      },
+      {
+        type: 'heading',
+        text: 'What ACT Rules Are'
+      },
+      {
+        type: 'list',
+        items: [
+          'ACT Rules define specific, reproducible tests for individual aspects of WCAG Success Criteria',
+          'Each rule checks for a single type of failure — a Success Criterion typically has multiple ACT Rules covering its different aspects',
+          'Rules are primarily intended for tool developers and test methodology authors, not directly for content creators',
+          'ACT Rules are non-normative W3C resources — they are NOT required for determining WCAG conformance'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'ACT Rule Structure'
+      },
+      {
+        type: 'list',
+        items: [
+          'Applicability: defines which page elements the rule applies to (e.g., "all img elements with an alt attribute")',
+          'Expectations: defines what must be true for the element to pass the rule',
+          'Assumptions: states assumptions that affect the applicability or expectation',
+          'Each rule maps to one or more WCAG Success Criteria',
+          'Test cases: each rule includes passed, failed, and inapplicable example code'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Limitations of ACT Rules'
+      },
+      {
+        type: 'list',
+        items: [
+          'Passing an ACT Rule does NOT mean the corresponding SC is fully met — rules only check one specific aspect',
+          'Failing an ACT Rule means the content has a specific issue, but further manual review may still be needed for context',
+          'ACT Rules cannot assess content quality (e.g., whether alt text is meaningful, whether headings are descriptive)',
+          'Automated tools implement ACT Rules, but no tool covers all rules — and some rules require semi-automated or manual testing'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: ACT Rules check for specific failures — passing a rule does NOT mean full SC conformance. ACT Rules are non-normative and NOT required for WCAG conformance. Rules are for tool developers, not content creators. Each SC typically has multiple ACT Rules, each checking one aspect. Automated tools cannot determine full WCAG conformance — manual testing is always needed.'
+      }
+    ],
+    relatedTopics: ['wcag-em', 'automated-testing-tools', 'testing-fundamentals', 'wcag-overview'],
+    examTips: [
+      'ACT Rules check for specific failures — passing does NOT equal full SC conformance',
+      'Non-normative: NOT required for determining WCAG conformance',
+      'Primarily for tool developers and test methodology authors',
+      'Each rule has: applicability, expectations, assumptions, and test cases',
+      'No automated tool covers all ACT Rules — manual testing is always needed',
+      'ACT Rules standardize test interpretation for more consistent results across tools'
+    ]
+  },
+  {
+    slug: 'accessibility-qa-lifecycle',
+    title: 'Accessibility QA in the Development Lifecycle',
+    category: 'Accessibility Testing',
+    applicableTo: ['was'],
+    summary: 'Accessibility must be integrated throughout the entire product lifecycle — from planning through design, development, and testing — not bolted on at the end.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Accessibility quality assurance is most effective when integrated into every phase of the product lifecycle: Plan, Create, Test (PCT). Discovering and fixing accessibility issues early (shift-left testing) is far more cost-effective than remediating after release. Every team member — from management to designers, developers, content creators, and QA — has a role in delivering an accessible product.'
+      },
+      {
+        type: 'heading',
+        text: 'Plan Phase'
+      },
+      {
+        type: 'list',
+        items: [
+          'Include people with disabilities in user research',
+          'Define the target conformance level and applicable standards (WCAG 2.2, EN 301 549)',
+          'Include accessibility in the "Definition of Done" for all stories and tasks',
+          'Assign accessibility responsibilities to team members',
+          'Budget for accessibility training, expert consultation, and user testing with people with disabilities',
+          'Review the development environment: coding libraries, component libraries, and automated checks'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Create Phase'
+      },
+      {
+        type: 'list',
+        items: [
+          'Implement accessibility in information architecture and UX design',
+          'Address user needs including people with disabilities in all design decisions',
+          'Developers ensure code meets accessibility requirements using accessible patterns and components',
+          'Content creators produce accessible content: structured headings, meaningful alt text, descriptive links and labels',
+          'Design reviews should include accessibility checkpoints'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Test Phase'
+      },
+      {
+        type: 'list',
+        items: [
+          'Combine automated and manual testing — automated tools catch only 30-50% of issues',
+          'Test with assistive technologies (screen readers, keyboard-only, magnification)',
+          'Follow the applicable standard consistently throughout iterative development',
+          'Use a standard report structure for evaluation findings',
+          'Ensure accessibility bugs are fixed, reviewed, and do not regress',
+          'Track and communicate accessibility progress over time'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Agile vs. Waterfall'
+      },
+      {
+        type: 'list',
+        items: [
+          'Agile: accessibility is integrated into each sprint — test early and often; include a11y criteria in story acceptance requirements; iterate based on testing feedback',
+          'Waterfall: testing happens at the end of development — if issues are found late, they are more expensive and time-consuming to fix; tests may be rushed or omitted under time pressure',
+          'Agile is generally more effective for accessibility because it enables early discovery and iterative improvement'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: Plan–Create–Test (PCT) cycle. Shift-left = find issues early, when they are cheaper to fix. Automated tools catch only 30-50% of accessibility issues — manual testing is always required. In agile, accessibility is part of every sprint and the Definition of Done. In waterfall, late-stage testing is risky because time pressure leads to skipped or incomplete testing.'
+      }
+    ],
+    relatedTopics: ['testing-fundamentals', 'automated-testing-tools', 'wcag-em', 'remediation-prioritization'],
+    examTips: [
+      'Plan–Create–Test cycle: accessibility is part of every phase',
+      'Shift-left: find issues early when they are cheaper to fix',
+      'Every team member has a role in accessibility — not just QA',
+      'Automated tools catch 30-50% of issues — manual testing always required',
+      'Agile: accessibility in every sprint and Definition of Done',
+      'Waterfall: late-stage testing is risky — issues are more expensive to fix'
+    ]
+  },
+
+  // ============================================================
+  // WAS-SPECIFIC: REMEDIATION
+  // ============================================================
+  {
+    slug: 'remediation-prioritization',
+    title: 'Remediation Prioritization & Severity',
+    category: 'Remediation',
+    applicableTo: ['was'],
+    summary: 'Not all accessibility issues are equally critical. Prioritize by user impact, frequency of occurrence, legal risk, and cost-benefit — fix blocking issues on high-traffic flows first.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Accessibility audits often reveal many issues that cannot all be fixed at once. Effective remediation requires prioritizing issues based on their severity and impact. The goal is to allocate limited resources to maximize accessibility improvement, especially when the website or app is already in production.'
+      },
+      {
+        type: 'heading',
+        text: 'Prioritization Factors'
+      },
+      {
+        type: 'list',
+        items: [
+          'User impact: High-impact issues block users entirely (e.g., no keyboard access, CAPTCHAs without alternatives, content hidden from screen readers). Medium-impact issues make tasks difficult but not impossible. Low-impact issues cause minor inconvenience',
+          'Frequency: Issues in templates, component libraries, or design systems multiply across the entire site — fixing them once fixes many pages. EN 301 549 Annex B maps requirements to user needs, helping determine impact breadth',
+          'Key content and tasks: Prioritize pages and flows with the highest traffic — often 20% of pages receive 90% of traffic. Critical user flows like registration, search, and checkout should be fixed first',
+          'Cost-benefit: Some fixes are quick and high-impact (adding alt text, fixing form labels); others require major redesign with less immediate user benefit',
+          'Legal risk: Issues violating legally mandated standards (e.g., Level A or AA failures) carry higher legal risk than best-practice recommendations',
+          'WCAG conformance level: Level A failures are generally more severe than AA, which are more severe than AAA recommendations'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Prioritization Strategy'
+      },
+      {
+        type: 'list',
+        items: [
+          'Fix high-impact issues on high-traffic pages first',
+          'Address template-level and component-library issues early — they affect many pages at once',
+          'Tackle low-effort, high-impact fixes immediately (e.g., missing alt text, missing form labels, color contrast)',
+          'Plan longer-term redesign for systemic issues that require architectural changes',
+          'Establish a process for avoiding new barriers — integrate accessibility into the Definition of Done'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: Prioritize by: user impact (blocking > difficult > minor), frequency (template issues multiply site-wide), key flows (high-traffic pages first), cost-benefit (quick fixes first), and legal risk (Level A > AA > AAA). Fix template/component issues early because they propagate. EN 301 549 Annex B maps requirements to user groups, helping assess impact.'
+      }
+    ],
+    relatedTopics: ['remediation-strategies', 'wcag-overview', 'wcag-em', 'accessibility-qa-lifecycle'],
+    examTips: [
+      'Prioritize: high user impact + high traffic + low effort = fix first',
+      'Template/component-level issues multiply across the site — fix early',
+      'Level A failures are generally more severe than AA',
+      'EN 301 549 Annex B maps requirements to user needs for impact analysis',
+      '20% of pages often receive 90% of traffic — focus remediation there',
+      'Establish processes to prevent new barriers, not just fix old ones'
+    ]
+  },
+  {
+    slug: 'remediation-strategies',
+    title: 'Remediation Strategies',
+    category: 'Remediation',
+    applicableTo: ['was'],
+    summary: 'Remediation ranges from quick fixes (adding alt text, fixing labels) to complete redesign. Choose the approach based on severity, code complexity, available resources, and long-term sustainability.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Recommending effective remediation strategies requires understanding how to create accessible content (Domain 1), identifying issues accurately (Domain 2), and choosing appropriate fixes for the specific context. The approach depends on the severity of defects, code complexity, available resources, and the need for long-term sustainability.'
+      },
+      {
+        type: 'heading',
+        text: 'Fixing vs. Redesign'
+      },
+      {
+        type: 'list',
+        items: [
+          'Fixing: targeted repairs to specific issues without changing the overall design — appropriate for localized, minor defects',
+          'Redesign: rebuilding a component or page section from scratch — necessary when defects are widespread, deeply embedded in the architecture, or in templates/design systems',
+          'Hybrid approach: immediately fix critical blockers while planning a longer-term redesign for systemic issues',
+          'Consider: is the current code maintainable? Older, complex code may make fixing harder and more fragile than rewriting',
+          'A rewrite can incorporate current best practices and be more future-proof, but requires more resources'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Failures vs. Best Practices'
+      },
+      {
+        type: 'list',
+        items: [
+          'A conformance failure clearly violates a WCAG Success Criterion — it must be fixed to achieve conformance',
+          'A best practice issue makes the experience suboptimal but does not technically fail a specific SC — it should still be recommended for better usability',
+          'Auditors must clearly communicate the distinction: "This fails SC 1.1.1" vs. "This is a usability concern but not a WCAG failure"',
+          'WCAG Sufficient Techniques are informative, not normative — there may be valid approaches not documented as techniques'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Common Remediation Patterns'
+      },
+      {
+        type: 'list',
+        items: [
+          'Missing alt text: add descriptive alt for informative images; alt="" for decorative images',
+          'Missing form labels: associate <label> elements via for/id or wrapping; use aria-label for icon-only controls',
+          'Keyboard access: ensure all interactive elements are reachable and operable via keyboard; remove tabindex values greater than 0',
+          'Color contrast: adjust foreground/background colors to meet 4.5:1 (text) or 3:1 (large text, UI components) ratios',
+          'Heading structure: ensure logical heading hierarchy (h1 → h2 → h3); do not skip levels for visual styling',
+          'ARIA patches: add ARIA roles, states, and properties to existing elements without full refactoring — use as a bridge to a proper semantic rewrite',
+          'Focus management: add visible focus indicators; manage focus on dynamic content changes'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: Know the difference between a conformance failure (fails a specific SC — must be fixed) and a best practice (improves usability but not a WCAG failure). ARIA patches can fix issues without full redesign, but semantic HTML is always preferred long-term. A hybrid approach works: fix critical blockers immediately while planning redesign for systemic issues. Communicate findings precisely: which SC fails, where, and how to fix it.'
+      }
+    ],
+    relatedTopics: ['remediation-prioritization', 'semantic-html', 'aria-overview', 'form-accessibility', 'color-contrast'],
+    examTips: [
+      'Conformance failure = violates a WCAG SC; best practice = improves UX but not a formal failure',
+      'ARIA patches can fix issues without redesign, but semantic HTML is preferred long-term',
+      'Hybrid approach: fix critical blockers immediately, plan redesign for systemic issues',
+      'Communicate clearly: which SC fails, where on the page, and how to fix it',
+      'Sufficient Techniques are informative, not normative — other valid approaches exist',
+      'Consider code complexity and maintainability when choosing fix vs. redesign'
+    ]
+  },
+
+  // ============================================================
+  // WAS-SPECIFIC: USER STRATEGIES
+  // ============================================================
+  {
+    slug: 'disability-user-strategies',
+    title: 'How Users with Disabilities Navigate the Web',
+    category: 'Assistive Technology',
+    applicableTo: ['was'],
+    summary: 'Different disability groups use distinct strategies and assistive technologies to navigate the web. Understanding these strategies is essential for creating, testing, and remediating accessible content.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'People with disabilities use a wide range of strategies, assistive technologies, and adaptive configurations to access web content. Understanding these approaches is fundamental to the WAS exam — it informs how you create accessible content, what you test for, and how you prioritize remediation. Strategies vary considerably even within a single disability group based on individual experience and technology expertise.'
+      },
+      {
+        type: 'heading',
+        text: 'Users Without Vision (Blind)'
+      },
+      {
+        type: 'list',
+        items: [
+          'Primary AT: screen readers (JAWS, NVDA on Windows; VoiceOver on macOS/iOS; TalkBack on Android)',
+          'Navigation strategies: jump by headings, landmarks, links, form controls, or tables using screen reader keyboard shortcuts',
+          'Screen readers present content linearly following DOM order — visual layout is irrelevant',
+          'Modes: Browse/Read mode (navigate by element), Forms mode (type in form fields), Application mode (widget keyboard patterns)',
+          'Mobile: completely different gesture-based interaction model — swipe right/left to move forward/back, double-tap to activate',
+          'Refreshable Braille displays may be used for reading output instead of or alongside speech'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Users with Low Vision'
+      },
+      {
+        type: 'list',
+        items: [
+          'Strategies range from browser zoom (moderate vision loss) to dedicated magnification software (severe vision loss)',
+          'Magnification software: ZoomText, Fusion (JAWS + magnification), built-in OS magnifiers — up to 60x (6000%) zoom',
+          'Often combine magnification with screen reader speech output for orientation and reading longer text',
+          'Orientation challenges at high magnification — users zoom out for overview, zoom in for detail',
+          'May use high contrast modes (Windows High Contrast Mode), custom colors, enlarged cursors, and modified focus indicators',
+          'Focus tracking is important: the visible portion of content must follow keyboard and pointer focus'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Users with Motor Disabilities'
+      },
+      {
+        type: 'list',
+        items: [
+          'Keyboard-only users: navigate sequentially with Tab/Shift+Tab; cannot jump to headings or landmarks like screen reader users',
+          'Switch device users: simulate Tab navigation with single switch input; large, clearly visible targets are essential',
+          'Voice control users (Dragon, Voice Control): say "Click [label text]" to activate controls — the visible label must match the accessible name',
+          'Head pointers, mouth sticks, eye trackers: need large click targets and adequate spacing between targets',
+          'Skip navigation links are critical since keyboard-only users cannot navigate by headings or landmarks',
+          'Prediction and autofill reduce the number of keystrokes needed for text input'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Users with Cognitive Disabilities'
+      },
+      {
+        type: 'list',
+        items: [
+          'This is a very diverse group: ADHD, dyslexia, autism, memory loss, intellectual disabilities, neurological conditions',
+          'Clear, simple language and consistent, predictable navigation are essential',
+          'May use text-to-speech (not full screen readers) to help with reading comprehension',
+          'Custom stylesheets, ad blockers, and screen masking tools to reduce distractions',
+          'Autocomplete attributes on form fields help users fill in data with less cognitive effort',
+          'Content alternatives (images, video, audio) alongside text help users who struggle with text-only content'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Users with Auditory Disabilities'
+      },
+      {
+        type: 'list',
+        items: [
+          'Do not typically use assistive technology — rely on visual alternatives for audio content',
+          'Pre-recorded audio: transcripts are required (SC 1.2.1 Level A)',
+          'Pre-recorded and live video: captions are required (SC 1.2.2 Level A, SC 1.2.4 Level AA)',
+          'Deaf sign language users: written text can be difficult — sign language videos are helpful (SC 1.2.6, Level AAA)',
+          'Automatic captions must be reviewed and corrected — AI-generated captions contain errors',
+          'Closed captions (can be shown/hidden) are preferred over open captions (burned in) because they are customizable'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Exam tip: Blind users navigate by headings, landmarks, and links. Keyboard-only users (motor disabilities) can only Tab sequentially — they CANNOT jump by headings/landmarks. Voice control users need visible labels that match accessible names (SC 2.5.3). Low vision users may combine magnification with screen reader speech. Deaf sign language users may find written text difficult — it is like a second language. Screen reader modes: Browse, Forms, Application.'
+      }
+    ],
+    relatedTopics: ['screen-readers', 'switch-devices', 'visual-disabilities', 'cognitive-disabilities', 'mobility-disabilities', 'auditory-disabilities'],
+    examTips: [
+      'Blind: screen readers, navigate by headings/landmarks/links, content is linear per DOM order',
+      'Low vision: magnification + possibly screen reader, zoom out/in for orientation, need focus tracking',
+      'Motor: keyboard-only users Tab sequentially — cannot jump by headings like SR users; voice control needs matching labels',
+      'Cognitive: simple language, consistent navigation, text-to-speech (not full SR), autocomplete for forms',
+      'Deaf: captions, transcripts, sign language videos; closed captions preferred over open; fix auto-caption errors',
+      'Screen reader modes: Browse/Read mode, Forms mode, Application mode'
     ]
   }
 ];
