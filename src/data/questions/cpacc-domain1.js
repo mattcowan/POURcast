@@ -2042,7 +2042,7 @@ export const domain1 = {
       tags: ['statistics', 'neurodevelopmental']
     },
     {
-      id: 1201,
+      id: 901,
       question: "According to the WHO, approximately how many people worldwide have some form of vision impairment (near or distance)?",
       options: [
         "About 430 million",
@@ -2062,7 +2062,7 @@ export const domain1 = {
       tags: ['statistics', 'sensory']
     },
     {
-      id: 1202,
+      id: 902,
       question: "Which statement about global vs. EU disability prevalence is most accurate?",
       options: [
         "The WHO global figure (~16%) and the Eurostat EU figure (~27%) describe the same measurement and should match",
@@ -2082,10 +2082,10 @@ export const domain1 = {
       tags: ['statistics', 'methodology']
     },
     // =============================================
-    // DISABILITY-TO-SOLUTION MATCHING (1203-1210)
+    // DISABILITY-TO-SOLUTION MATCHING (903-910)
     // =============================================
     {
-      id: 1203,
+      id: 903,
       question: "A person who is blind from birth and has never had any usable vision would benefit MOST from which of the following?",
       options: [
         "A screen magnifier with high-contrast color themes",
@@ -2105,7 +2105,7 @@ export const domain1 = {
       tags: ['assistive-tech', 'matching']
     },
     {
-      id: 1204,
+      id: 904,
       question: "A person with severe motor impairment from ALS who cannot use their hands and has very limited head movement would benefit MOST from which assistive technology?",
       options: [
         "A standard ergonomic keyboard",
@@ -2125,7 +2125,7 @@ export const domain1 = {
       tags: ['assistive-tech', 'matching', 'motor']
     },
     {
-      id: 1205,
+      id: 905,
       question: "A student with severe dyslexia struggles to decode printed text, even though their reading comprehension is strong when content is read aloud. Which tool is MOST likely to help?",
       options: [
         "A text-to-speech tool that reads on-screen content aloud",
@@ -2145,7 +2145,7 @@ export const domain1 = {
       tags: ['assistive-tech', 'matching', 'cognitive']
     },
     {
-      id: 1206,
+      id: 906,
       question: "A child with cerebral palsy has significant motor control challenges and cannot reliably use a mouse or standard keyboard, but can reliably press a single large button. Which assistive technology is most appropriate?",
       options: [
         "A refreshable braille display",
@@ -2165,7 +2165,7 @@ export const domain1 = {
       tags: ['assistive-tech', 'matching', 'motor']
     },
     {
-      id: 1207,
+      id: 907,
       question: "An adult with low vision (not blindness) has usable sight but needs text to be much larger and higher-contrast than standard displays provide. Which tool is MOST appropriate?",
       options: [
         "A screen reader with synthesized speech",
@@ -2185,7 +2185,7 @@ export const domain1 = {
       tags: ['assistive-tech', 'matching', 'vision']
     },
     {
-      id: 1208,
+      id: 908,
       question: "A person with aphasia (language impairment) following a stroke has difficulty producing spoken words but can recognize pictures and symbols. Which solution would be MOST helpful for everyday communication?",
       options: [
         "A refreshable braille display",
@@ -2205,7 +2205,7 @@ export const domain1 = {
       tags: ['assistive-tech', 'matching', 'communication']
     },
     {
-      id: 1209,
+      id: 909,
       question: "A person who is Deaf-blind (has both significant hearing and vision loss) is meeting with a group of colleagues. Which communication method is MOST likely to work?",
       options: [
         "A laptop displaying captions on-screen",
@@ -2225,7 +2225,7 @@ export const domain1 = {
       tags: ['assistive-tech', 'matching', 'deaf-blind']
     },
     {
-      id: 1210,
+      id: 910,
       question: "A student with dyscalculia (a specific learning disability affecting number processing) is taking a math assessment. Which accommodation is MOST directly related to their disability?",
       options: [
         "Extended time and access to a calculator or math-support software",
@@ -2245,10 +2245,10 @@ export const domain1 = {
       tags: ['assistive-tech', 'matching', 'cognitive']
     },
     // =============================================
-    // BUILT ENVIRONMENT — FLOOR SURFACES & ROUTES (1211-1214)
+    // BUILT ENVIRONMENT — FLOOR SURFACES & ROUTES (911-914)
     // =============================================
     {
-      id: 1211,
+      id: 911,
       question: "According to ADA Standards §302.1, accessible floor and ground surfaces must have which three characteristics?",
       options: [
         "Smooth, polished, and level",
@@ -2268,7 +2268,7 @@ export const domain1 = {
       tags: ['ada', 'built-environment', 'floor-surfaces']
     },
     {
-      id: 1212,
+      id: 912,
       question: "ADA Standards §302.2 limits carpet pile height in accessible routes to what maximum?",
       options: [
         "1/8 inch",
@@ -2288,7 +2288,7 @@ export const domain1 = {
       tags: ['ada', 'built-environment']
     },
     {
-      id: 1213,
+      id: 913,
       question: "ADA Standards §405.2 sets the maximum running slope for an accessible ramp at:",
       options: [
         "1:8",
@@ -2308,7 +2308,7 @@ export const domain1 = {
       tags: ['ada', 'built-environment', 'ramps']
     },
     {
-      id: 1214,
+      id: 914,
       question: "ADA Standards §403.5 requires that accessible routes have what minimum clear width?",
       options: [
         "24 inches",
