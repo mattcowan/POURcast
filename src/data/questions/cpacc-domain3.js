@@ -1419,6 +1419,316 @@ export const domain3 = {
       topicLinks: ['w3c-wai'],
       difficulty: 'easy',
       tags: ['standards']
+    },
+
+    // ============================================================
+    // EUROPEAN REGULATIONS DEEP-DIVE (371-378)
+    // Targets gap: EN 17161 Design for All, eIDAS, WAD vs EAA
+    // ============================================================
+    {
+      id: 371,
+      question: "Which European standard defines a 'Design for All' methodology for organizations to follow when developing products, goods, and services so that the widest possible range of users can access and use them?",
+      options: [
+        "EN 17161:2019",
+        "EN 301 549",
+        "EN ISO 9241-171",
+        "EN 15838"
+      ],
+      correct: 0,
+      explanation: "EN 17161:2019 — 'Design for All — Accessibility following a Design for All approach in products, goods and services — Extending the range of users' — is a CEN (European Committee for Standardization) standard that provides a process-oriented management standard. It guides organizations in embedding Design for All into their development processes so that outputs are accessible to the widest possible range of users. It complements technical standards like EN 301 549.",
+      wrongExplanations: {
+        1: "EN 301 549 is the European harmonized standard for ICT accessibility requirements. It specifies technical requirements for ICT products (websites, hardware, software) but is not itself a Design for All methodology — it defines WHAT to meet, while EN 17161 defines HOW to develop inclusively.",
+        2: "EN ISO 9241-171 provides guidance on software accessibility but is not the Design for All methodology standard.",
+        3: "EN 15838 relates to customer contact centres, not accessibility or Design for All."
+      },
+      topicLinks: ['eu-accessibility', 'en-301-549'],
+      difficulty: 'medium',
+      tags: ['european-regulations', 'en-17161', 'design-for-all']
+    },
+    {
+      id: 372,
+      question: "EN 17161:2019 and EN 301 549 are both European accessibility standards, but they serve different purposes. Which statement BEST distinguishes them?",
+      options: [
+        "EN 17161 is a process/management standard describing HOW organizations embed Design for All; EN 301 549 is a technical standard specifying WHAT ICT accessibility requirements must be met",
+        "EN 17161 is for public sector; EN 301 549 is for private sector",
+        "EN 17161 replaced EN 301 549 in 2019",
+        "EN 17161 is a voluntary guideline; EN 301 549 is only informative"
+      ],
+      correct: 0,
+      explanation: "EN 17161 is a MANAGEMENT/PROCESS standard — it describes how an organization should approach design so that Design for All is integrated throughout the product lifecycle. EN 301 549 is a TECHNICAL standard — it specifies the concrete accessibility requirements that ICT (websites, software, hardware) must meet, and is the harmonized standard used for Web Accessibility Directive and European Accessibility Act conformance. They are complementary, not overlapping.",
+      wrongExplanations: {
+        1: "Neither standard is scoped to public or private sector in that way. EN 301 549 is used for BOTH public sector (via WAD) and increasingly private sector (via EAA) conformance.",
+        2: "EN 17161 did not replace EN 301 549. They are distinct standards with different scopes that coexist.",
+        3: "Both are formal CEN/CENELEC/ETSI standards; EN 301 549 in particular is a harmonized standard cited in EU legislation, not merely informative."
+      },
+      topicLinks: ['eu-accessibility', 'en-301-549'],
+      difficulty: 'hard',
+      tags: ['european-regulations', 'en-17161', 'en-301-549']
+    },
+    {
+      id: 373,
+      question: "Which EU regulation governs electronic identification, authentication, and trust services for electronic transactions in the internal market, and includes requirements that electronic identification means be accessible to persons with disabilities when used for cross-border public services?",
+      options: [
+        "eIDAS — Regulation (EU) No 910/2014",
+        "GDPR — Regulation (EU) 2016/679",
+        "Digital Services Act — Regulation (EU) 2022/2065",
+        "ePrivacy Directive 2002/58/EC"
+      ],
+      correct: 0,
+      explanation: "eIDAS — the electronic IDentification, Authentication and trust Services regulation, Regulation (EU) No 910/2014 — establishes an EU-wide framework for electronic identification and trust services (electronic signatures, seals, time stamps, registered delivery, website authentication). It includes provisions that electronic identification schemes used for cross-border public services must be accessible to persons with disabilities where possible.",
+      wrongExplanations: {
+        1: "GDPR governs data protection and privacy, not electronic identification and trust services.",
+        2: "The Digital Services Act regulates online intermediaries and platforms (content moderation, transparency), not electronic identity.",
+        3: "The ePrivacy Directive addresses confidentiality of electronic communications, not electronic identification."
+      },
+      topicLinks: ['eu-accessibility'],
+      difficulty: 'medium',
+      tags: ['european-regulations', 'eidas']
+    },
+    {
+      id: 374,
+      question: "A citizen in one EU member state wants to access an online public service in another EU member state. Which regulation ensures that their national electronic ID can be recognized across borders, and contains accessibility provisions for persons with disabilities?",
+      options: [
+        "eIDAS (Regulation 910/2014)",
+        "Web Accessibility Directive (EU 2016/2102)",
+        "European Accessibility Act (Directive 2019/882)",
+        "EN 301 549"
+      ],
+      correct: 0,
+      explanation: "eIDAS (Regulation 910/2014) enables mutual recognition of notified electronic identification schemes across EU member states for access to cross-border public services. It includes provisions that, where possible, these electronic identification means should be accessible to persons with disabilities. While WAD and EAA cover the accessibility of the web content and digital products themselves, eIDAS specifically addresses the cross-border e-ID layer.",
+      wrongExplanations: {
+        1: "The Web Accessibility Directive requires public sector websites and mobile apps to be accessible but does not govern cross-border electronic identification.",
+        2: "The European Accessibility Act targets accessibility of certain products and services in the private sector, not cross-border e-ID.",
+        3: "EN 301 549 is a technical standard specifying accessibility requirements — not a regulation on electronic identification."
+      },
+      topicLinks: ['eu-accessibility'],
+      difficulty: 'hard',
+      tags: ['european-regulations', 'eidas', 'cross-border']
+    },
+    {
+      id: 375,
+      question: "The EU Web Accessibility Directive (WAD) and the European Accessibility Act (EAA) have different scopes. Which statement correctly distinguishes them?",
+      options: [
+        "WAD (2016/2102) requires public sector websites and mobile apps to be accessible; EAA (Directive 2019/882) requires certain private sector products and services (e.g., e-commerce, banking, e-books, ticketing) to be accessible",
+        "WAD covers private sector, EAA covers public sector",
+        "WAD and EAA both cover only physical built environments",
+        "WAD replaced the EAA in 2019"
+      ],
+      correct: 0,
+      explanation: "The Web Accessibility Directive (Directive (EU) 2016/2102) requires public sector bodies' websites and mobile applications to be accessible and to publish accessibility statements. The European Accessibility Act (Directive (EU) 2019/882) extends accessibility requirements to key private sector products and services — including computers, smartphones, e-commerce, banking services, e-books, consumer banking terminals, and passenger transport information. Most EAA provisions became applicable on 28 June 2025. Both reference EN 301 549 for technical conformance.",
+      wrongExplanations: {
+        1: "This reverses the scopes. WAD covers the public sector; EAA covers the private sector.",
+        2: "Neither WAD nor EAA covers only physical environments — both focus primarily on digital products and services.",
+        3: "WAD (2016) preceded EAA (2019). EAA extended accessibility requirements into new sectors; it was not replaced."
+      },
+      topicLinks: ['eu-accessibility'],
+      difficulty: 'medium',
+      tags: ['european-regulations', 'wad', 'eaa']
+    },
+    {
+      id: 376,
+      question: "Under the EU Web Accessibility Directive, public sector bodies must do which of the following in addition to making their websites and mobile apps accessible?",
+      options: [
+        "Publish and regularly update an accessibility statement, provide a feedback mechanism, and undergo periodic monitoring by member state authorities",
+        "Submit their source code to the European Commission annually",
+        "Obtain WCAG certification from a private accreditation body",
+        "Require all visitors to complete accessibility training before access is granted"
+      ],
+      correct: 0,
+      explanation: "The Web Accessibility Directive imposes three key procedural obligations on public sector bodies beyond meeting the technical standard: (1) publishing an accessibility statement describing conformance status and known issues, (2) providing a feedback mechanism so users can report barriers and request accessible alternatives, and (3) being subject to periodic monitoring by designated member state authorities who report to the European Commission.",
+      wrongExplanations: {
+        1: "WAD does not require source code submission to the Commission.",
+        2: "WCAG is not a certifiable standard, and WAD does not require private certification.",
+        3: "WAD aims to remove barriers for users, not impose training requirements on them."
+      },
+      topicLinks: ['eu-accessibility'],
+      difficulty: 'hard',
+      tags: ['european-regulations', 'wad']
+    },
+    {
+      id: 377,
+      question: "Which harmonized European standard is referenced by both the Web Accessibility Directive and the European Accessibility Act as the technical conformance baseline for ICT accessibility?",
+      options: [
+        "EN 301 549",
+        "EN 17161",
+        "ISO/IEC 40500",
+        "EN 15838"
+      ],
+      correct: 0,
+      explanation: "EN 301 549 ('Accessibility requirements for ICT products and services') is the harmonized European standard that both WAD and EAA reference for technical conformance. It incorporates WCAG success criteria for web content and adds requirements for non-web software, hardware, documentation, and support services. EN 301 549 is maintained jointly by ETSI, CEN, and CENELEC.",
+      wrongExplanations: {
+        1: "EN 17161 is the Design for All process/management standard — not the technical conformance standard referenced by WAD/EAA.",
+        2: "ISO/IEC 40500 is the ISO-adopted version of WCAG 2.0, but the harmonized standard referenced by EU directives is EN 301 549 (which in turn incorporates WCAG).",
+        3: "EN 15838 is unrelated — it concerns customer contact centres."
+      },
+      topicLinks: ['en-301-549', 'eu-accessibility'],
+      difficulty: 'easy',
+      tags: ['european-regulations', 'en-301-549']
+    },
+    {
+      id: 378,
+      question: "The European Accessibility Act (EAA) took effect as EU law in 2019, but most of its substantive accessibility obligations for covered products and services became applicable on which date?",
+      options: [
+        "28 June 2025",
+        "28 June 2019",
+        "1 January 2021",
+        "28 June 2030"
+      ],
+      correct: 0,
+      explanation: "The European Accessibility Act (Directive (EU) 2019/882) entered into force in 2019, but member states had until 28 June 2022 to transpose it into national law, and the accessibility requirements for covered products and services became applicable on 28 June 2025. Some transitional provisions extend certain deadlines (e.g., for service providers continuing to use products that were lawfully used before the date, and for self-service terminals), but 28 June 2025 is the headline application date.",
+      wrongExplanations: {
+        1: "28 June 2019 is approximately when the directive entered into force, but obligations on businesses did not apply from that date — member states were given time to transpose and businesses were given time to comply.",
+        2: "1 January 2021 is not the EAA applicability date.",
+        3: "28 June 2030 is a later milestone for some transitional provisions on self-service terminals placed on the market before 2025, not the main applicability date."
+      },
+      topicLinks: ['eu-accessibility'],
+      difficulty: 'hard',
+      tags: ['european-regulations', 'eaa', 'dates']
+    },
+
+    // ============================================================
+    // ADA TITLES I-V SCENARIOS (379-385)
+    // Targets gap: which Title applies to which situation
+    // ============================================================
+    {
+      id: 379,
+      question: "A qualified job applicant with a disability is denied a position at a company with 20 employees because the employer refuses to consider a reasonable accommodation that would let them perform the essential functions of the role. Which Title of the ADA covers this situation?",
+      options: [
+        "Title I — Employment",
+        "Title II — State and Local Government",
+        "Title III — Public Accommodations",
+        "Title IV — Telecommunications"
+      ],
+      correct: 0,
+      explanation: "Title I of the ADA prohibits employment discrimination against qualified individuals with disabilities by private employers with 15 or more employees (as well as state/local governments, employment agencies, and labor unions). It requires reasonable accommodations that enable qualified individuals to perform the essential functions of a job, unless doing so would cause undue hardship. Title I is enforced by the EEOC.",
+      wrongExplanations: {
+        1: "Title II covers state and local government programs, services, and activities — not private employer discrimination. (Title I does cover government employment, but the situation here describes a private company.)",
+        2: "Title III covers access to places of public accommodation (restaurants, hotels, retail stores, etc.) — not employment.",
+        3: "Title IV covers telecommunications relay services. It does not govern employment."
+      },
+      topicLinks: ['ada'],
+      difficulty: 'easy',
+      tags: ['ada', 'title-i', 'employment']
+    },
+    {
+      id: 380,
+      question: "A person who uses a wheelchair cannot access the city's public library because it has only stair entrances. Which Title of the ADA applies, and what is the obligation?",
+      options: [
+        "Title II — the public library is a state/local government service and must provide program accessibility, ensuring its services, programs, and activities are accessible to people with disabilities",
+        "Title I — public libraries are governed by employment regulations",
+        "Title III — public libraries are places of public accommodation",
+        "Title V — public libraries are covered by miscellaneous provisions"
+      ],
+      correct: 0,
+      explanation: "Public libraries are operated by state or local governments, placing them under Title II of the ADA. Title II requires that all 'services, programs, and activities' of public entities be accessible — this is called 'program accessibility.' Public entities need not make every facility fully accessible if programs can be made accessible through other means (relocation, auxiliary aids, etc.), but access to government services cannot be denied. Title II is enforced by the DOJ.",
+      wrongExplanations: {
+        1: "Title I covers employment discrimination, not public access to government services.",
+        2: "Title III covers PRIVATE entities that operate places of public accommodation (restaurants, hotels, private schools, retail). Government-operated libraries are Title II, not Title III.",
+        3: "Title V (Miscellaneous) contains provisions on retaliation, attorney's fees, and relationships to other laws — it does not govern access to public libraries directly."
+      },
+      topicLinks: ['ada'],
+      difficulty: 'medium',
+      tags: ['ada', 'title-ii', 'program-accessibility']
+    },
+    {
+      id: 381,
+      question: "A privately owned restaurant refuses to make any modifications to accommodate customers with disabilities, claiming the ADA does not apply to private businesses. What Title applies, and what is their obligation?",
+      options: [
+        "Title III — restaurants are places of public accommodation and must remove architectural barriers where removal is 'readily achievable,' and provide auxiliary aids and services unless doing so would be an undue burden or fundamentally alter the service",
+        "Title I — because restaurants employ staff, this is an employment matter",
+        "Title II — restaurants serve the public, so they are public entities",
+        "The ADA does not apply to private businesses"
+      ],
+      correct: 0,
+      explanation: "Title III of the ADA covers 'places of public accommodation' — a defined list of private entities including restaurants, hotels, retail stores, movie theaters, private schools, doctor's offices, and more. Title III requires removing architectural barriers in existing facilities where such removal is 'readily achievable' (easily accomplishable without much difficulty or expense), providing auxiliary aids and services, and ensuring new construction and alterations meet ADA Standards. Defenses include undue burden and fundamental alteration.",
+      wrongExplanations: {
+        1: "Employment is Title I, but this question is about customer access, not employment.",
+        2: "Title II covers PUBLIC (government) entities. A privately owned restaurant is a private entity, so it falls under Title III.",
+        3: "The ADA explicitly applies to private businesses that are places of public accommodation — this is the core scope of Title III."
+      },
+      topicLinks: ['ada'],
+      difficulty: 'medium',
+      tags: ['ada', 'title-iii', 'public-accommodations']
+    },
+    {
+      id: 382,
+      question: "A Deaf person wants to make a phone call to a hearing business, but they cannot use a standard voice telephone. Which Title of the ADA established the requirement for Telecommunications Relay Services (TRS) enabling this kind of communication?",
+      options: [
+        "Title IV — Telecommunications",
+        "Title I — Employment",
+        "Title III — Public Accommodations",
+        "Title V — Miscellaneous"
+      ],
+      correct: 0,
+      explanation: "Title IV of the ADA amended the Communications Act of 1934 to require telephone companies to provide Telecommunications Relay Services (TRS) that enable people who are Deaf, hard of hearing, or who have speech disabilities to communicate by telephone with hearing users. TRS is administered by the FCC. Modern forms include TTY relay, Video Relay Service (VRS), IP Relay, and Captioned Telephone Service.",
+      wrongExplanations: {
+        1: "Title I addresses employment discrimination, not telecommunications infrastructure.",
+        2: "Title III applies to places of public accommodation. While businesses must provide effective communication, the specific requirement for the relay service SYSTEM comes from Title IV.",
+        3: "Title V contains miscellaneous provisions (retaliation, attorney's fees, construction with other laws) — it did not establish TRS."
+      },
+      topicLinks: ['ada'],
+      difficulty: 'medium',
+      tags: ['ada', 'title-iv', 'telecommunications']
+    },
+    {
+      id: 383,
+      question: "An employee who files an ADA discrimination complaint is subsequently fired by their employer in retaliation. Which Title of the ADA provides the prohibition against retaliation and coercion?",
+      options: [
+        "Title V — Miscellaneous Provisions",
+        "Title I — Employment",
+        "Title II — State and Local Government",
+        "Title IV — Telecommunications"
+      ],
+      correct: 0,
+      explanation: "Title V of the ADA contains 'miscellaneous provisions' that apply across the ADA as a whole, including the prohibition on retaliation against any individual who has opposed an act or practice made unlawful by the ADA or who has filed a charge, testified, assisted, or participated in an ADA investigation or proceeding. Title V also covers coercion, interference, and the ADA's relationship to other federal and state laws, as well as attorney's fees provisions.",
+      wrongExplanations: {
+        1: "While the underlying discrimination claim is under Title I, the specific anti-retaliation PROTECTION lives in Title V, which applies across all titles.",
+        2: "Title II covers state/local government programs — not the cross-cutting anti-retaliation rule.",
+        3: "Title IV addresses telecommunications relay services — not retaliation."
+      },
+      topicLinks: ['ada'],
+      difficulty: 'hard',
+      tags: ['ada', 'title-v', 'retaliation']
+    },
+    {
+      id: 384,
+      question: "An employer argues that providing a particular accommodation — a costly workspace renovation and specialized equipment — would cause 'undue hardship' given the company's small size and limited resources. Under ADA Title I, what does 'undue hardship' mean as a defense?",
+      options: [
+        "Significant difficulty or expense when considered in light of factors such as the cost of the accommodation, the employer's overall financial resources, the size of the business, and the impact on operations",
+        "Any inconvenience or cost, regardless of size or amount",
+        "A mere preference by the employer not to provide the accommodation",
+        "An accommodation that would require hiring additional staff"
+      ],
+      correct: 0,
+      explanation: "Under Title I, 'undue hardship' means an action requiring significant difficulty or expense. The EEOC considers several factors: the nature and cost of the accommodation, the financial resources of the facility and the covered entity as a whole, the size and structure of the business, and the impact on operations. It is a high bar — minor inconvenience or modest cost generally does not qualify. If a particular accommodation causes undue hardship, the employer must still consider alternative accommodations that would not.",
+      wrongExplanations: {
+        1: "Any inconvenience is not enough. Undue hardship requires significant difficulty or expense relative to the employer's resources.",
+        2: "Employer preference is never a valid basis for denying an accommodation. The defense is a substantive one based on objective factors.",
+        3: "Accommodations do not generally require hiring additional staff; needing to hire someone to do the essential functions is different from providing an accommodation."
+      },
+      topicLinks: ['ada'],
+      difficulty: 'hard',
+      tags: ['ada', 'title-i', 'undue-hardship']
+    },
+    {
+      id: 385,
+      question: "A website operated by a state university and a website operated by a nationwide private retail chain both have accessibility barriers. Under the ADA, which Titles apply to each, respectively?",
+      options: [
+        "State university website → Title II (public entity); private retail chain website → Title III (public accommodation)",
+        "Both → Title I",
+        "Both → Title III",
+        "State university website → Title III; private retail chain website → Title II"
+      ],
+      correct: 0,
+      explanation: "A state university is an instrumentality of state government and is therefore a public entity covered by Title II. A nationwide private retail chain is a private entity operating places of public accommodation, so its website falls under Title III (DOJ has taken the position that websites of public accommodations are covered, and most federal courts have agreed when there is a sufficient nexus to services). Correctly identifying public versus private status is the first step in determining which ADA Title applies.",
+      wrongExplanations: {
+        1: "Title I addresses employment, not customer-facing website access.",
+        2: "The state university is a public entity covered by Title II, not Title III.",
+        3: "This reverses the categories. Public (government) entities are Title II; private places of public accommodation are Title III."
+      },
+      topicLinks: ['ada'],
+      difficulty: 'medium',
+      tags: ['ada', 'title-ii', 'title-iii', 'websites']
     }
   ]
 };

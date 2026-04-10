@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ChevronRight, BookOpen, Brain, Scale, ShieldCheck, User, Globe, Code } from 'lucide-react';
+import { ChevronRight, BookOpen, Brain, Scale, ShieldCheck, User, Globe, Code, Wrench } from 'lucide-react';
 
 const ICON_MAP = {
   user: User,
@@ -8,6 +8,7 @@ const ICON_MAP = {
   shield: ShieldCheck,
   globe: Globe,
   code: Code,
+  wrench: Wrench,
   default: BookOpen,
 };
 
