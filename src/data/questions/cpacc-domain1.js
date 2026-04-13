@@ -1917,6 +1917,415 @@ export const domain1 = {
       topicLinks: ['inclusive-language'],
       difficulty: 'hard',
       tags: ['inclusive-language', 'etiquette']
+    },
+    // =============================================
+    // EXPANDED DISABILITY STATISTICS (195-202)
+    // =============================================
+    {
+      id: 195,
+      question: "According to the WHO, this neurological condition affects approximately 50 million people worldwide, making it one of the most common neurological diseases globally. Which condition is it?",
+      options: [
+        "Parkinson's disease",
+        "Epilepsy",
+        "Multiple sclerosis",
+        "Huntington's disease"
+      ],
+      correct: 1,
+      explanation: "The WHO reports that around 50 million people worldwide live with epilepsy, and nearly 80% of them live in low- and middle-income countries. Epilepsy is one of the most common neurological diseases globally.",
+      wrongExplanations: {
+        0: "Parkinson's disease is a significant neurological condition but affects far fewer people — roughly 10 million worldwide.",
+        2: "Multiple sclerosis affects approximately 2.8 million people worldwide, far fewer than 50 million.",
+        3: "Huntington's disease is a rare inherited neurological condition affecting only about 3–10 per 100,000 people."
+      },
+      topicLinks: ['disability-demographics'],
+      difficulty: 'medium',
+      tags: ['statistics', 'neurological']
+    },
+    {
+      id: 196,
+      question: "According to Eurostat (EU-SILC 2022 data), approximately what share of the EU population aged 16 and over reports a disability (activity limitation)?",
+      options: [
+        "About 10%",
+        "About 16%",
+        "More than one-quarter (roughly 27%)",
+        "About 40%"
+      ],
+      correct: 2,
+      explanation: "Eurostat's 2022 EU-SILC data shows that more than one-quarter of the EU population aged 16 and over had a disability (activity limitation) — commonly cited as about 27%. This is notably higher than the 16% global figure from the WHO because the EU population is older on average and uses a broader self-reported definition of activity limitation.",
+      wrongExplanations: {
+        0: "10% is too low — no major EU data source reports a figure this low.",
+        1: "16% is the WHO's global prevalence, not the EU-specific rate. Exam questions often use this as a distractor to test whether you can distinguish global from regional statistics.",
+        3: "40% would overstate the EU figure. While some Member States like Latvia (~38.5%) approach this, the EU-wide average is closer to 27%."
+      },
+      topicLinks: ['disability-demographics', 'eu-accessibility'],
+      difficulty: 'hard',
+      tags: ['statistics', 'eu']
+    },
+    {
+      id: 197,
+      question: "The WHO estimates that approximately 1.3 billion people worldwide experience a significant disability. What percentage of the global population does this represent?",
+      options: [
+        "About 5%",
+        "About 16% (roughly 1 in 6)",
+        "About 30%",
+        "About 50%"
+      ],
+      correct: 1,
+      explanation: "Per the WHO's 2023 fact sheet on disability and health, approximately 1.3 billion people — about 16% of the global population, or roughly 1 in 6 — experience a significant disability. This figure is growing because of aging populations and increases in noncommunicable diseases.",
+      wrongExplanations: {
+        0: "5% is far too low — the actual global figure is more than triple this.",
+        2: "30% exceeds even regional figures like the EU (~27%) and would overstate the global rate.",
+        3: "50% is dramatically higher than any credible global disability prevalence estimate."
+      },
+      topicLinks: ['disability-demographics'],
+      difficulty: 'easy',
+      tags: ['statistics', 'global']
+    },
+    {
+      id: 198,
+      question: "According to the WHO, this sensory impairment affects approximately 430 million people worldwide and requires rehabilitation. Which condition does this describe?",
+      options: [
+        "Low vision",
+        "Disabling hearing loss",
+        "Deaf-blindness",
+        "Congenital blindness"
+      ],
+      correct: 1,
+      explanation: "The WHO reports that over 5% of the world's population — about 430 million people, including 34 million children — have disabling hearing loss that requires rehabilitation. By 2050, nearly 2.5 billion people are projected to have some degree of hearing loss, with more than 700 million requiring rehabilitation.",
+      wrongExplanations: {
+        0: "Low vision falls under the broader vision-impairment umbrella. The WHO reports approximately 2.2 billion people have some form of vision impairment, which is a much larger number than 430 million.",
+        2: "Deaf-blindness is a relatively rare combined sensory impairment affecting a much smaller population.",
+        3: "Congenital blindness alone affects far fewer people — the 430 million figure specifically describes disabling hearing loss."
+      },
+      topicLinks: ['disability-demographics'],
+      difficulty: 'medium',
+      tags: ['statistics', 'sensory']
+    },
+    {
+      id: 199,
+      question: "Which category of disability is most commonly cited as the most prevalent globally?",
+      options: [
+        "Motor / physical disabilities",
+        "Sensory disabilities (vision and hearing)",
+        "Cognitive disabilities",
+        "Psychiatric disabilities"
+      ],
+      correct: 2,
+      explanation: "Cognitive disabilities are the most common category of disability globally. This broad category includes learning disabilities, intellectual disabilities, ADHD, memory impairments, and age-related cognitive decline. Because cognitive disabilities cover such a wide range of conditions, they represent the largest overall group.",
+      wrongExplanations: {
+        0: "Motor/physical disabilities are common but not the most prevalent category globally.",
+        1: "Sensory disabilities like vision impairment (2.2B) affect enormous numbers, but the broad cognitive category — which includes many distinct conditions — is still the most commonly cited as most prevalent.",
+        3: "Psychiatric conditions like depression and anxiety are widespread, but they are typically reported as a separate mental health category and are not usually cited as the single most common disability type."
+      },
+      topicLinks: ['disability-demographics', 'cognitive-disabilities'],
+      difficulty: 'medium',
+      tags: ['statistics', 'cognitive']
+    },
+    {
+      id: 200,
+      question: "The WHO reports that this neurodevelopmental condition affects approximately 1 in 127 people globally based on 2021 estimates. Which condition is it?",
+      options: [
+        "Down syndrome",
+        "ADHD",
+        "Autism spectrum disorder",
+        "Dyslexia"
+      ],
+      correct: 2,
+      explanation: "The WHO estimates that in 2021 about 1 in 127 persons had autism spectrum disorder, although reported prevalence varies substantially across studies and some national sources (like the US CDC) cite higher rates for children specifically.",
+      wrongExplanations: {
+        0: "Down syndrome is a genetic condition occurring in approximately 1 in 700 births, which is much rarer than autism.",
+        1: "ADHD is far more prevalent than 1 in 127 — it affects roughly 5–10% of children, or about 1 in 10 to 1 in 20.",
+        3: "Dyslexia affects an estimated 5–10% of the population — much more prevalent than 1 in 127."
+      },
+      topicLinks: ['disability-demographics', 'cognitive-disabilities'],
+      difficulty: 'hard',
+      tags: ['statistics', 'neurodevelopmental']
+    },
+    {
+      id: 901,
+      question: "According to the WHO, approximately how many people worldwide have some form of vision impairment (near or distance)?",
+      options: [
+        "About 430 million",
+        "About 1 billion",
+        "About 2.2 billion",
+        "About 4 billion"
+      ],
+      correct: 2,
+      explanation: "The WHO reports that globally, at least 2.2 billion people have a near or distance vision impairment. For at least 1 billion of these people, the vision impairment could have been prevented or has yet to be addressed. This is the headline sensory statistic often cited on the exam.",
+      wrongExplanations: {
+        0: "430 million is the WHO's figure for disabling hearing loss, not vision impairment. Watch for this as a distractor swap.",
+        1: "1 billion represents the subset of the 2.2 billion whose vision impairment could have been prevented or is unaddressed — not the total.",
+        3: "4 billion would be about half the world's population, which exceeds all published vision impairment estimates."
+      },
+      topicLinks: ['disability-demographics'],
+      difficulty: 'medium',
+      tags: ['statistics', 'sensory']
+    },
+    {
+      id: 902,
+      question: "Which statement about global vs. EU disability prevalence is most accurate?",
+      options: [
+        "The WHO global figure (~16%) and the Eurostat EU figure (~27%) describe the same measurement and should match",
+        "The EU figure is higher partly because the EU population is older on average and uses a broader self-reported activity-limitation definition",
+        "The EU figure is lower than the global figure because European healthcare reduces disability",
+        "The WHO and Eurostat use identical methodologies, so any difference is a reporting error"
+      ],
+      correct: 1,
+      explanation: "Global and regional disability figures differ because of methodology and demographics. The WHO's ~16% global figure uses a 'significant disability' threshold across all ages and income levels, while Eurostat's ~27% figure is for adults aged 16+ in the EU using a self-reported activity-limitation measure from the EU-SILC survey. The EU population is also older on average, which increases measured disability.",
+      wrongExplanations: {
+        0: "The two figures use different age ranges, definitions, and survey methodologies — they are not directly comparable.",
+        2: "EU disability rates are higher than the global average, not lower. Better healthcare access leads to longer lifespans, which in turn increases the measured prevalence of age-related disability.",
+        3: "The methodologies differ significantly; differences are a feature of the definitions, not errors."
+      },
+      topicLinks: ['disability-demographics', 'eu-accessibility'],
+      difficulty: 'hard',
+      tags: ['statistics', 'methodology']
+    },
+    // =============================================
+    // DISABILITY-TO-SOLUTION MATCHING (903-910)
+    // =============================================
+    {
+      id: 903,
+      question: "A person who is blind from birth and has never had any usable vision would benefit MOST from which of the following?",
+      options: [
+        "A screen magnifier with high-contrast color themes",
+        "A screen reader combined with a refreshable braille display",
+        "Closed captions on all video content",
+        "Voice control software for hands-free operation"
+      ],
+      correct: 1,
+      explanation: "A person who is blind relies on non-visual access to information. A screen reader converts on-screen content to synthesized speech, and a refreshable braille display renders it as tactile braille — together they provide complete non-visual access to digital content.",
+      wrongExplanations: {
+        0: "Screen magnifiers benefit people with low vision who have some usable sight. They are not useful to someone who is blind.",
+        2: "Captions benefit people who are Deaf or hard of hearing, not blind users. Audio description (not captions) is what benefits blind users consuming video.",
+        3: "Voice control primarily benefits people with motor disabilities. A blind person can typically use a keyboard with a screen reader without needing voice input."
+      },
+      topicLinks: ['screen-readers', 'visual-disabilities'],
+      difficulty: 'easy',
+      tags: ['assistive-tech', 'matching']
+    },
+    {
+      id: 904,
+      question: "A person with severe motor impairment from ALS who cannot use their hands and has very limited head movement would benefit MOST from which assistive technology?",
+      options: [
+        "A standard ergonomic keyboard",
+        "Screen magnification software",
+        "An eye-gaze (eye tracking) communication and computer access system",
+        "A refreshable braille display"
+      ],
+      correct: 2,
+      explanation: "When someone has extremely limited motor control — unable to use their hands and with very limited head movement — eye-gaze technology allows them to control a computer and communicate using only their eye movements. Users select letters, words, or commands by looking at targets on the screen.",
+      wrongExplanations: {
+        0: "An ergonomic keyboard still requires hand use, which this individual does not have.",
+        1: "Screen magnification addresses vision, not motor access.",
+        3: "Refreshable braille displays are for people who are blind and read braille, not for people with motor disabilities."
+      },
+      topicLinks: ['mobility-disabilities'],
+      difficulty: 'medium',
+      tags: ['assistive-tech', 'matching', 'motor']
+    },
+    {
+      id: 905,
+      question: "A student with severe dyslexia struggles to decode printed text, even though their reading comprehension is strong when content is read aloud. Which tool is MOST likely to help?",
+      options: [
+        "A text-to-speech tool that reads on-screen content aloud",
+        "A screen magnifier",
+        "Switch access controls",
+        "Closed captions"
+      ],
+      correct: 0,
+      explanation: "Text-to-speech (TTS) tools read digital text aloud, bypassing the decoding barrier that dyslexia creates. Because the student's comprehension is strong when content is heard, TTS lets them access the same material as their peers without the decoding bottleneck.",
+      wrongExplanations: {
+        1: "Magnification addresses vision size, not decoding.",
+        2: "Switch access is for people with motor disabilities who cannot use a standard input device.",
+        3: "Captions convert speech to text — the opposite of what a dyslexic reader needs."
+      },
+      topicLinks: ['cognitive-disabilities'],
+      difficulty: 'easy',
+      tags: ['assistive-tech', 'matching', 'cognitive']
+    },
+    {
+      id: 906,
+      question: "A child with cerebral palsy has significant motor control challenges and cannot reliably use a mouse or standard keyboard, but can reliably press a single large button. Which assistive technology is most appropriate?",
+      options: [
+        "A refreshable braille display",
+        "A switch-access system with scanning",
+        "A hearing loop",
+        "A screen reader"
+      ],
+      correct: 1,
+      explanation: "Switch access paired with on-screen scanning is designed exactly for this scenario. The computer highlights options sequentially, and the user presses a single switch (often a large button) when the desired option is highlighted. This provides full computer access with minimal motor demand.",
+      wrongExplanations: {
+        0: "Braille displays are for blind users, not motor users.",
+        2: "Hearing loops are assistive listening devices for people with hearing aids.",
+        3: "Screen readers are for people with visual impairments, not motor disabilities."
+      },
+      topicLinks: ['mobility-disabilities'],
+      difficulty: 'medium',
+      tags: ['assistive-tech', 'matching', 'motor']
+    },
+    {
+      id: 907,
+      question: "An adult with low vision (not blindness) has usable sight but needs text to be much larger and higher-contrast than standard displays provide. Which tool is MOST appropriate?",
+      options: [
+        "A screen reader with synthesized speech",
+        "An eye-gaze communication system",
+        "A screen magnifier with customizable color themes",
+        "A single-switch scanning system"
+      ],
+      correct: 2,
+      explanation: "People with low vision typically retain usable sight and benefit most from visual enhancements — magnification, customizable high-contrast color schemes, and cursor enhancements. Screen magnifiers let the user zoom the entire display and adjust colors to their preference.",
+      wrongExplanations: {
+        0: "Screen readers are primarily for people who are blind or have vision so limited that visual access is not practical. Someone with usable low vision typically prefers to continue reading visually with magnification.",
+        1: "Eye-gaze is a motor-access technology.",
+        3: "Switch scanning is a motor-access technology."
+      },
+      topicLinks: ['visual-disabilities'],
+      difficulty: 'easy',
+      tags: ['assistive-tech', 'matching', 'vision']
+    },
+    {
+      id: 908,
+      question: "A person with aphasia (language impairment) following a stroke has difficulty producing spoken words but can recognize pictures and symbols. Which solution would be MOST helpful for everyday communication?",
+      options: [
+        "A refreshable braille display",
+        "A picture-based augmentative and alternative communication (AAC) app or device",
+        "Closed captioning",
+        "A screen reader"
+      ],
+      correct: 1,
+      explanation: "Picture-based AAC systems let people with aphasia or other expressive communication disabilities communicate by selecting symbols or images. Many users can recognize and select pictures even when they cannot produce or recall spoken words, and modern AAC apps can generate spoken output from the selections.",
+      wrongExplanations: {
+        0: "Braille displays are for people who are blind and read braille.",
+        2: "Captions convert speech to written text — this helps people who have trouble hearing speech, not people who have trouble producing it.",
+        3: "Screen readers convert digital text to speech — they are output tools for visual impairment, not input tools for communication difficulties."
+      },
+      topicLinks: ['speech-disabilities', 'cognitive-disabilities'],
+      difficulty: 'medium',
+      tags: ['assistive-tech', 'matching', 'communication']
+    },
+    {
+      id: 909,
+      question: "A person who is Deaf-blind (has both significant hearing and vision loss) is meeting with a group of colleagues. Which communication method is MOST likely to work?",
+      options: [
+        "A laptop displaying captions on-screen",
+        "A sign language interpreter standing at the front of the room",
+        "A Support Service Provider (SSP) or tactile interpreter using methods such as Protactile or tactile sign language",
+        "An assistive listening device broadcast to the room"
+      ],
+      correct: 2,
+      explanation: "People who are Deaf-blind typically rely on tactile communication methods like tactile sign language, Protactile, or print-on-palm, facilitated by a Support Service Provider (SSP) or tactile interpreter. Visual captions and visual sign language both require sight, which rules them out for someone who is also blind.",
+      wrongExplanations: {
+        0: "Captions require usable vision.",
+        1: "Visual sign language requires usable vision.",
+        3: "Assistive listening devices require usable hearing."
+      },
+      topicLinks: ['auditory-disabilities', 'visual-disabilities', 'deaf-blindness'],
+      difficulty: 'hard',
+      tags: ['assistive-tech', 'matching', 'deaf-blind']
+    },
+    {
+      id: 910,
+      question: "A student with dyscalculia (a specific learning disability affecting number processing) is taking a math assessment. Which accommodation is MOST directly related to their disability?",
+      options: [
+        "Extended time and access to a calculator or math-support software",
+        "A sign language interpreter",
+        "A screen reader",
+        "A wheelchair-accessible desk"
+      ],
+      correct: 0,
+      explanation: "Dyscalculia specifically impairs number sense and numerical processing. The most directly relevant accommodations are extended time (to compensate for slower computation) and access to a calculator or dedicated math-support software, which reduces the cognitive load of basic numerical operations so the student can demonstrate their conceptual understanding.",
+      wrongExplanations: {
+        1: "A sign language interpreter addresses hearing access, not number processing.",
+        2: "A screen reader addresses visual access, not number processing.",
+        3: "A wheelchair-accessible desk addresses mobility, not number processing."
+      },
+      topicLinks: ['cognitive-disabilities'],
+      difficulty: 'medium',
+      tags: ['assistive-tech', 'matching', 'cognitive']
+    },
+    // =============================================
+    // BUILT ENVIRONMENT — FLOOR SURFACES & ROUTES (911-914)
+    // =============================================
+    {
+      id: 911,
+      question: "According to ADA Standards §302.1, accessible floor and ground surfaces must have which three characteristics?",
+      options: [
+        "Smooth, polished, and level",
+        "Stable, firm, and slip-resistant",
+        "Textured, padded, and cushioned",
+        "Flexible, pliable, and shock-absorbing"
+      ],
+      correct: 1,
+      explanation: "ADA Standards §302.1 requires that accessible floor and ground surfaces be stable (not shifting under load), firm (not compressing significantly), and slip-resistant (providing adequate friction for canes, crutches, walkers, and wheelchair wheels). This three-word phrase is a classic exam answer.",
+      wrongExplanations: {
+        0: "Polished surfaces can be dangerously slippery — the opposite of slip-resistant.",
+        2: "Padded or cushioned surfaces compress under wheelchair wheels, making them unstable and difficult to traverse. The requirement is firm, not soft.",
+        3: "Pliable and shock-absorbing surfaces are unstable for wheelchair users and would violate the firm and stable requirements."
+      },
+      topicLinks: ['built-environment'],
+      difficulty: 'medium',
+      tags: ['ada', 'built-environment', 'floor-surfaces']
+    },
+    {
+      id: 912,
+      question: "ADA Standards §302.2 limits carpet pile height in accessible routes to what maximum?",
+      options: [
+        "1/8 inch",
+        "1/2 inch",
+        "1 inch",
+        "2 inches"
+      ],
+      correct: 1,
+      explanation: "ADA §302.2 limits carpet pile height to 1/2 inch maximum, measured to the backing, cushion, or pad. Carpet must be securely attached with a firm backing, and exposed edges must be fastened and trimmed. Deeper pile creates excessive rolling resistance for wheelchair users and is a tripping hazard for people using mobility aids.",
+      wrongExplanations: {
+        0: "1/8 inch would be stricter than the actual ADA requirement of 1/2 inch.",
+        2: "1 inch is double the allowed maximum and would impede wheelchair travel.",
+        3: "2 inches of pile would be impassable for most wheelchair users."
+      },
+      topicLinks: ['built-environment'],
+      difficulty: 'hard',
+      tags: ['ada', 'built-environment']
+    },
+    {
+      id: 913,
+      question: "ADA Standards §405.2 sets the maximum running slope for an accessible ramp at:",
+      options: [
+        "1:8",
+        "1:10",
+        "1:12",
+        "1:20"
+      ],
+      correct: 2,
+      explanation: "ADA §405.2 limits the running slope of accessible ramps to 1:12 — one inch of vertical rise for every twelve inches of horizontal run. Each single ramp run is also limited to a maximum rise of 30 inches before a landing is required. In alterations where space is limited, slightly steeper slopes (1:10 for ≤6\" rise, 1:8 for ≤3\" rise) are permitted as exceptions.",
+      wrongExplanations: {
+        0: "1:8 is only permitted as a space-limited exception for very small rises (≤3 inches), not as the standard maximum.",
+        1: "1:10 is only permitted as a space-limited exception for ≤6 inches of rise.",
+        3: "1:20 is the cut-off slope below which a walkway is not even considered a ramp — it is gentler than the ramp maximum."
+      },
+      topicLinks: ['built-environment'],
+      difficulty: 'medium',
+      tags: ['ada', 'built-environment', 'ramps']
+    },
+    {
+      id: 914,
+      question: "ADA Standards §403.5 requires that accessible routes have what minimum clear width?",
+      options: [
+        "24 inches",
+        "32 inches",
+        "36 inches",
+        "48 inches"
+      ],
+      correct: 2,
+      explanation: "ADA §403.5 requires accessible routes to have a minimum clear width of 36 inches. This may be reduced to 32 inches minimum at a point (for example, at a doorway) for a maximum length of 24 inches. The 36-inch minimum ensures most wheelchairs, walkers, and mobility scooters can pass comfortably.",
+      wrongExplanations: {
+        0: "24 inches is too narrow for most wheelchairs — it is not a valid minimum.",
+        1: "32 inches is the allowable point reduction at a doorway, not the general minimum width for a route.",
+        3: "48 inches exceeds the ADA minimum — wider is better, but 36 inches is the required minimum."
+      },
+      topicLinks: ['built-environment'],
+      difficulty: 'medium',
+      tags: ['ada', 'built-environment', 'routes']
     }
   ]
 };

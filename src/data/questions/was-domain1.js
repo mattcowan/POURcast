@@ -1,10 +1,10 @@
 export const wasDomain1 = {
   id: 'was-domain1',
   courseId: 'was',
-  title: 'WCAG Principles & Success Criteria',
+  title: 'Creating Accessible Web Solutions',
   iconName: 'code',
   color: 'bg-indigo-600',
-  description: 'WCAG structure, specific success criteria, conformance levels, and techniques.',
+  description: 'WCAG, ARIA, progressive enhancement, SPAs, and building accessible UI components.',
   questions: [
     // =============================================
     // WCAG STRUCTURE & CONFORMANCE (1001-1010)
@@ -1148,6 +1148,501 @@ export const wasDomain1 = {
       topicLinks: ['wcag-robust'],
       difficulty: 'hard',
       tags: ['wcag-robust']
+    },
+    // =============================================
+    // GUIDELINES BEYOND WCAG (1057-1062)
+    // =============================================
+    {
+      id: 1057,
+      question: "What is the primary scope of ATAG 2.0 (Authoring Tool Accessibility Guidelines)?",
+      options: [
+        "Making authoring tool user interfaces accessible AND supporting the production of accessible content",
+        "Providing success criteria for evaluating web content conformance",
+        "Defining accessibility requirements for assistive technologies",
+        "Specifying how browsers should expose the accessibility tree"
+      ],
+      correct: 0,
+      explanation: "ATAG 2.0 has two parts: Part A requires the authoring tool's own UI to be accessible, and Part B requires the tool to support authors in producing accessible output (e.g., prompting for alt text).",
+      wrongExplanations: {
+        1: "Evaluating web content against success criteria is the role of WCAG, not ATAG.",
+        2: "Guidelines for assistive technologies themselves are outside ATAG's scope; ATAG targets content creation tools.",
+        3: "Accessibility tree exposure is a browser/platform concern covered by Core-AAM and related specs, not ATAG."
+      },
+      topicLinks: ['atag-overview', 'wcag-overview'],
+      difficulty: 'medium',
+      tags: ['standards', 'atag']
+    },
+    {
+      id: 1058,
+      question: "A European public sector site must comply with EN 301 549. Which statement best describes its relationship to WCAG?",
+      options: [
+        "EN 301 549 incorporates WCAG as its requirements for web content while covering additional ICT like software, documents, and hardware",
+        "EN 301 549 replaces WCAG entirely in the European Union",
+        "EN 301 549 applies only to native mobile applications, not websites",
+        "EN 301 549 is an older standard that has been deprecated in favor of WCAG 2.2"
+      ],
+      correct: 0,
+      explanation: "EN 301 549 is the European harmonized ICT accessibility standard. For web content it incorporates WCAG 2.1 Level AA by reference, but it also covers non-web software, documents, hardware, and support services.",
+      wrongExplanations: {
+        1: "EN 301 549 uses WCAG for its web requirements rather than replacing it.",
+        2: "EN 301 549 covers a broad range of ICT, including websites, not just mobile apps.",
+        3: "EN 301 549 is active and updated regularly; it is not deprecated."
+      },
+      topicLinks: ['en-301-549', 'wcag-overview'],
+      difficulty: 'medium',
+      tags: ['standards', 'en-301-549']
+    },
+    {
+      id: 1059,
+      question: "What does the WAI-ARIA 1.2 specification primarily define?",
+      options: [
+        "Roles, states, and properties that communicate semantics of UI components to assistive technologies",
+        "Visual design patterns for accessible user interfaces",
+        "Keyboard shortcut standards for web applications",
+        "Color contrast ratios for text and UI components"
+      ],
+      correct: 0,
+      explanation: "WAI-ARIA defines a vocabulary of roles, states, and properties that authors can add to markup so custom widgets and dynamic content expose proper semantics to assistive technologies.",
+      wrongExplanations: {
+        1: "ARIA is a semantics specification, not a visual design system.",
+        2: "Keyboard interaction patterns are described in the ARIA Authoring Practices Guide, which is informative and separate from the normative ARIA spec.",
+        3: "Color contrast requirements are defined in WCAG success criteria, not in the ARIA spec."
+      },
+      topicLinks: ['aria-overview', 'aria-roles', 'aria-states-properties'],
+      difficulty: 'easy',
+      tags: ['standards', 'aria']
+    },
+    {
+      id: 1060,
+      question: "Which statement best reflects the first rule of ARIA?",
+      options: [
+        "If a native HTML element or attribute with the semantics you need already exists, use it instead of ARIA",
+        "Always add an ARIA role to every interactive element",
+        "Never use ARIA on form controls",
+        "ARIA roles should always be combined with role='presentation'"
+      ],
+      correct: 0,
+      explanation: "The first rule of ARIA is: don't use ARIA if a native HTML element provides the needed semantics and behavior. Native elements are better supported and come with built-in keyboard and focus behavior.",
+      wrongExplanations: {
+        1: "Blanket addition of ARIA roles is an anti-pattern; ARIA should supplement, not replace, semantic HTML.",
+        2: "ARIA can legitimately augment form controls (e.g., aria-describedby for errors).",
+        3: "Combining widget roles with role='presentation' would remove the very semantics you just added — this is incorrect."
+      },
+      topicLinks: ['aria-overview', 'semantic-html'],
+      difficulty: 'easy',
+      tags: ['aria', 'semantic-html']
+    },
+    {
+      id: 1061,
+      question: "An authoring tool prompts the user to add alt text whenever an image is inserted. Which part of ATAG 2.0 does this support?",
+      options: [
+        "Part B — supporting the production of accessible content",
+        "Part A — making the tool's own UI accessible",
+        "Neither; this is a WCAG requirement, not ATAG",
+        "Both parts equally, since they have identical requirements"
+      ],
+      correct: 0,
+      explanation: "ATAG Part B addresses how the tool helps authors produce accessible content. Prompting for alt text is a classic Part B support feature.",
+      wrongExplanations: {
+        1: "Part A is about the accessibility of the authoring tool interface itself (menus, dialogs), not the content produced.",
+        2: "WCAG applies to the output content; ATAG applies to the authoring tool and how it supports accessible creation.",
+        3: "Parts A and B have distinct requirements and scopes."
+      },
+      topicLinks: ['atag-overview'],
+      difficulty: 'medium',
+      tags: ['atag']
+    },
+    {
+      id: 1062,
+      question: "A team must conform to WCAG 2.1 Level AA. Must they also meet Level A success criteria?",
+      options: [
+        "Yes — Level AA conformance requires meeting all Level A and Level AA success criteria",
+        "No — Level AA replaces Level A requirements entirely",
+        "Only if the content is for a government site",
+        "Only the Level A criteria marked as 'essential' must be met"
+      ],
+      correct: 0,
+      explanation: "WCAG conformance levels are cumulative. Level AA conformance requires satisfying all Level A criteria plus all Level AA criteria. Level AAA further requires all A, AA, and AAA criteria.",
+      wrongExplanations: {
+        1: "Levels are additive, not replacements.",
+        2: "The cumulative rule applies to any WCAG conformance claim, not just government sites.",
+        3: "There is no subset of 'essential' Level A criteria — all Level A SC must be met for Level AA."
+      },
+      topicLinks: ['wcag-overview'],
+      difficulty: 'easy',
+      tags: ['wcag-structure', 'conformance']
+    },
+    // =============================================
+    // JAVASCRIPT & DYNAMIC CONTENT (1063-1068)
+    // =============================================
+    {
+      id: 1063,
+      question: "What is the core idea of progressive enhancement in the context of accessible JavaScript?",
+      options: [
+        "Start with a working HTML baseline, then layer CSS and JavaScript so the experience degrades gracefully when scripts fail or are unsupported",
+        "Write JavaScript first and add HTML only as a fallback",
+        "Use only the latest JavaScript features and require modern browsers",
+        "Replace all HTML forms with JavaScript-driven custom components"
+      ],
+      correct: 0,
+      explanation: "Progressive enhancement starts with semantic HTML that works on its own, then enhances it with CSS and JavaScript. If JS fails or is blocked, core functionality remains accessible.",
+      wrongExplanations: {
+        1: "This inverts the principle — HTML is the baseline, not the fallback.",
+        2: "Progressive enhancement specifically avoids cutting off older or constrained environments.",
+        3: "Replacing native controls with custom ones typically reduces accessibility, the opposite of the goal."
+      },
+      topicLinks: ['javascript-accessibility', 'semantic-html'],
+      difficulty: 'easy',
+      tags: ['javascript', 'progressive-enhancement']
+    },
+    {
+      id: 1064,
+      question: "A developer attaches an onclick handler to a <div> to make it act as a button. What is the minimum set of changes needed to make it accessible?",
+      options: [
+        "Add role='button', tabindex='0', and handle both Enter and Space key events — or better yet, use a native <button> element",
+        "Only add role='button'; screen readers will handle the rest",
+        "Only add tabindex='0'; that is sufficient for keyboard users",
+        "Add aria-label='button'; no keyboard handling is required"
+      ],
+      correct: 0,
+      explanation: "Mimicking a button with a div requires role='button' for semantics, tabindex='0' for keyboard focus, AND key handlers for Enter/Space. The better solution is to use <button>, which provides all of this natively.",
+      wrongExplanations: {
+        1: "Role alone doesn't make the element focusable or operable with the keyboard.",
+        2: "Tabindex makes it focusable but doesn't convey button semantics or handle activation keys.",
+        3: "aria-label provides an accessible name but does not provide role, focus, or key handling."
+      },
+      topicLinks: ['javascript-accessibility', 'standard-vs-custom-controls', 'semantic-html'],
+      difficulty: 'medium',
+      tags: ['javascript', 'keyboard', 'custom-controls']
+    },
+    {
+      id: 1065,
+      question: "A modal dialog opens after the user clicks a button. Where should keyboard focus go, and where should it return when the dialog closes?",
+      options: [
+        "Focus should move into the dialog (typically to the first focusable element or the dialog container) and return to the triggering button when closed",
+        "Focus should remain on the triggering button while the dialog is open",
+        "Focus should jump to the footer of the page when the dialog opens",
+        "Focus management is optional; screen readers handle it automatically"
+      ],
+      correct: 0,
+      explanation: "When a dialog opens, focus must move into it so keyboard and screen reader users can interact with it. On close, focus returns to the element that triggered the dialog so users don't lose their place.",
+      wrongExplanations: {
+        1: "Leaving focus on the trigger strands keyboard users outside the dialog.",
+        2: "Jumping to an unrelated location disorients users.",
+        3: "Dialogs do not get automatic focus handling; it must be implemented by the author."
+      },
+      topicLinks: ['javascript-accessibility', 'aria-states-properties'],
+      difficulty: 'medium',
+      tags: ['javascript', 'focus-management', 'dialogs']
+    },
+    {
+      id: 1066,
+      question: "An autocomplete widget inserts new suggestions into the DOM as the user types. How should updates be announced to screen reader users without stealing focus?",
+      options: [
+        "Use an ARIA live region (or a combobox pattern with aria-live) so assistive technologies announce changes automatically",
+        "Call element.focus() on each new suggestion as it appears",
+        "Use alert() to announce new suggestions",
+        "Rely on the browser to automatically speak new DOM nodes"
+      ],
+      correct: 0,
+      explanation: "Dynamic content updates that should be announced without interrupting the user's input must be placed in an ARIA live region. The combobox pattern also uses aria-activedescendant to virtually track the current option without moving focus.",
+      wrongExplanations: {
+        1: "Moving focus on every keystroke would disrupt typing and is disorienting.",
+        2: "alert() is a modal browser dialog, not an accessibility feature, and it breaks the user flow.",
+        3: "Browsers do not automatically announce arbitrary DOM insertions."
+      },
+      topicLinks: ['aria-live-regions', 'javascript-accessibility'],
+      difficulty: 'medium',
+      tags: ['javascript', 'aria-live', 'dynamic-content']
+    },
+    {
+      id: 1067,
+      question: "Which ARIA attribute correctly conveys the expanded/collapsed state of a disclosure button?",
+      options: [
+        "aria-expanded='true' or aria-expanded='false' on the button",
+        "aria-hidden on the button, toggled true/false",
+        "aria-pressed on the button",
+        "role='toggle' on the button"
+      ],
+      correct: 0,
+      explanation: "aria-expanded on the trigger button communicates whether the disclosed region is currently visible. It must be updated in JavaScript whenever the state changes.",
+      wrongExplanations: {
+        1: "aria-hidden removes an element from the accessibility tree — it does not communicate expanded state.",
+        2: "aria-pressed is for toggle buttons (like bold/italic), not disclosure widgets.",
+        3: "There is no standard role='toggle' in ARIA."
+      },
+      topicLinks: ['aria-states-properties', 'javascript-accessibility'],
+      difficulty: 'easy',
+      tags: ['aria', 'aria-states']
+    },
+    {
+      id: 1068,
+      question: "A developer uses element.innerHTML to replace large sections of the page after an AJAX call. What's the main accessibility risk?",
+      options: [
+        "Focus can be lost if the focused element is removed, leaving keyboard users stranded and screen reader users without context",
+        "innerHTML is always forbidden by WCAG",
+        "Screen readers cannot read content inserted with innerHTML",
+        "Content inserted with innerHTML is automatically marked aria-hidden"
+      ],
+      correct: 0,
+      explanation: "Replacing DOM subtrees can destroy the element that currently has focus, sending focus to document.body. Developers must save and restore focus (or move it to a sensible destination) and notify users of the change.",
+      wrongExplanations: {
+        1: "WCAG does not forbid any specific DOM API; it targets outcomes.",
+        2: "Screen readers read whatever is in the accessibility tree, regardless of how it got there.",
+        3: "innerHTML does not apply any ARIA attributes automatically."
+      },
+      topicLinks: ['javascript-accessibility', 'spa-accessibility'],
+      difficulty: 'hard',
+      tags: ['javascript', 'focus-management']
+    },
+    // =============================================
+    // STANDARD VS. CUSTOM CONTROLS (1069-1074)
+    // =============================================
+    {
+      id: 1069,
+      question: "Which of the following does a native <button> element provide 'for free' that a custom div-based button must manually implement?",
+      options: [
+        "Focusability, button role, Enter/Space activation, and form submission behavior",
+        "Only focus ring styling",
+        "Only the button role; keyboard handling must still be added",
+        "Nothing — native buttons and divs behave identically"
+      ],
+      correct: 0,
+      explanation: "Native <button> elements are focusable by default, expose the button role, respond to Enter and Space, participate in forms, and respect disabled state — all automatically.",
+      wrongExplanations: {
+        1: "Focus ring is only one small aspect; native buttons provide much more.",
+        2: "Native buttons fully handle Enter and Space activation with no scripting required.",
+        3: "Divs and buttons differ substantially in default semantics and behavior."
+      },
+      topicLinks: ['standard-vs-custom-controls', 'semantic-html'],
+      difficulty: 'easy',
+      tags: ['semantic-html', 'custom-controls']
+    },
+    {
+      id: 1070,
+      question: "When is building a custom ARIA widget justified instead of using native HTML?",
+      options: [
+        "When no native element provides the needed interaction pattern (e.g., a tree view or a tab interface)",
+        "Any time a designer wants unique visual styling",
+        "Whenever the team is more comfortable with JavaScript than HTML",
+        "Whenever the page already uses a JavaScript framework"
+      ],
+      correct: 0,
+      explanation: "Custom ARIA widgets are justified only when no native equivalent exists — such as tablist, tree, or combobox. Otherwise, styled native elements should be preferred.",
+      wrongExplanations: {
+        1: "Styling requirements can almost always be met by styling native elements.",
+        2: "Team comfort is not a valid accessibility justification.",
+        3: "Framework usage doesn't require abandoning native semantics."
+      },
+      topicLinks: ['standard-vs-custom-controls', 'aria-overview'],
+      difficulty: 'medium',
+      tags: ['custom-controls', 'aria']
+    },
+    {
+      id: 1071,
+      question: "A designer wants a styled checkbox with a custom checkmark animation. What is the most accessible implementation?",
+      options: [
+        "Use a real <input type='checkbox'>, visually hide it, and style an adjacent element — the native input retains all semantics and keyboard behavior",
+        "Use a <div role='checkbox'> with tabindex='0' and manually handle space/enter keys",
+        "Use an <img> of a checkbox with an onclick handler",
+        "Use a <button> with the text 'checked' or 'unchecked'"
+      ],
+      correct: 0,
+      explanation: "Visually hiding the real checkbox (but keeping it in the accessibility tree and focusable) and styling a sibling element is a robust pattern. The native input retains all keyboard, form, and AT behavior.",
+      wrongExplanations: {
+        1: "This works but requires re-implementing everything the native input already provides, increasing risk.",
+        2: "An image with onclick has no role, state, or keyboard support.",
+        3: "A button doesn't naturally convey checked/unchecked state or participate in forms."
+      },
+      topicLinks: ['standard-vs-custom-controls', 'form-accessibility'],
+      difficulty: 'medium',
+      tags: ['custom-controls', 'forms']
+    },
+    {
+      id: 1072,
+      question: "Which ARIA pattern is appropriate for a set of mutually exclusive selectable options where only one can be active at a time and arrow keys navigate between them?",
+      options: [
+        "role='radiogroup' containing role='radio' elements — or native radio inputs",
+        "role='button' on each option",
+        "role='checkbox' on each option",
+        "role='listbox' with role='option' and aria-multiselectable='true'"
+      ],
+      correct: 0,
+      explanation: "Mutually exclusive single-choice selection is the radio group pattern. Native <input type='radio'> elements give all this behavior for free; ARIA radiogroup is used when building custom widgets.",
+      wrongExplanations: {
+        1: "Buttons don't convey single-selection state.",
+        2: "Checkboxes represent independent on/off state, not mutually exclusive choices.",
+        3: "Multiselectable='true' allows multiple selections, which is the opposite of mutually exclusive."
+      },
+      topicLinks: ['aria-roles', 'standard-vs-custom-controls'],
+      difficulty: 'medium',
+      tags: ['aria', 'forms']
+    },
+    {
+      id: 1073,
+      question: "Which is NOT a requirement when building a custom ARIA slider widget?",
+      options: [
+        "Use <div role='presentation'> to hide its role from assistive technology",
+        "Expose aria-valuenow, aria-valuemin, and aria-valuemax",
+        "Support arrow keys to increase/decrease the value",
+        "Provide an accessible name via aria-label or aria-labelledby"
+      ],
+      correct: 0,
+      explanation: "A slider must expose role='slider' to assistive technologies, along with its current, min, and max values, keyboard operability, and an accessible name. Hiding its role defeats the entire purpose.",
+      wrongExplanations: {
+        1: "These are required slider value properties.",
+        2: "Keyboard operability is a required part of the slider pattern.",
+        3: "A slider needs an accessible name to communicate what it controls."
+      },
+      topicLinks: ['aria-roles', 'aria-states-properties', 'standard-vs-custom-controls'],
+      difficulty: 'hard',
+      tags: ['aria', 'custom-controls']
+    },
+    {
+      id: 1074,
+      question: "What does the phrase 'no ARIA is better than bad ARIA' mean in practice?",
+      options: [
+        "Incorrect ARIA usage can mislead assistive technologies more than using plain (even if imperfect) HTML",
+        "ARIA should never be used on any website",
+        "ARIA only works in certain browsers so it should be avoided",
+        "Plain HTML is always fully accessible without ARIA"
+      ],
+      correct: 0,
+      explanation: "Incorrect ARIA (wrong role, conflicting states, redundant attributes) actively misleads assistive technologies, often producing worse outcomes than no ARIA at all. The guidance encourages caution and correctness.",
+      wrongExplanations: {
+        1: "ARIA is essential for many custom patterns; the warning is about misuse, not use.",
+        2: "ARIA has broad support across modern assistive technologies.",
+        3: "Plain HTML can still have accessibility gaps — ARIA exists to fill them when used correctly."
+      },
+      topicLinks: ['aria-overview', 'semantic-html'],
+      difficulty: 'medium',
+      tags: ['aria']
+    },
+    // =============================================
+    // SPA ACCESSIBILITY (1075-1078)
+    // =============================================
+    {
+      id: 1075,
+      question: "In a single page application using client-side routing, what accessibility problem commonly occurs after a route change?",
+      options: [
+        "Screen readers aren't notified of the new view, focus remains in the previous view, and the page title doesn't update",
+        "CSS files fail to load",
+        "Keyboard shortcuts stop working permanently",
+        "Browser history becomes inaccessible"
+      ],
+      correct: 0,
+      explanation: "Because no full page load occurs, assistive technology isn't automatically notified. Developers must manually update the document title, move focus (commonly to the new main heading), and optionally announce the change in a live region.",
+      wrongExplanations: {
+        1: "CSS loading isn't inherently affected by client-side routing.",
+        2: "Keyboard shortcuts aren't automatically broken by routing.",
+        3: "Browser history remains accessible; routers typically integrate with the History API."
+      },
+      topicLinks: ['spa-accessibility', 'javascript-accessibility'],
+      difficulty: 'medium',
+      tags: ['spa', 'routing']
+    },
+    {
+      id: 1076,
+      question: "Which pattern is commonly recommended for handling focus after a route change in a SPA?",
+      options: [
+        "Move focus to the new view's main heading (h1) or a container with tabindex='-1' and focus it programmatically",
+        "Return focus to the browser URL bar",
+        "Leave focus where it was; SPA routing should be invisible",
+        "Focus the body element and let the user Tab from the top"
+      ],
+      correct: 0,
+      explanation: "Focusing the new view's h1 (or a wrapper with tabindex='-1') signals the context change to screen readers and gives keyboard users a sensible starting point in the new content.",
+      wrongExplanations: {
+        1: "The URL bar is outside the document and can't be programmatically focused by scripts.",
+        2: "Leaving focus strands keyboard users in stale content.",
+        3: "document.body doesn't communicate any context about the new view."
+      },
+      topicLinks: ['spa-accessibility', 'javascript-accessibility'],
+      difficulty: 'medium',
+      tags: ['spa', 'focus-management']
+    },
+    {
+      id: 1077,
+      question: "Why should a SPA update document.title on each route change?",
+      options: [
+        "Screen readers announce the document title on navigation, and it populates browser history/tab labels for all users",
+        "Because WCAG requires titles to rotate every 30 seconds",
+        "To improve JavaScript performance",
+        "Because document.title is required for valid HTML5"
+      ],
+      correct: 0,
+      explanation: "SC 2.4.2 (Page Titled) requires each view to have a descriptive title. In a SPA, updating document.title ensures each route behaves like a titled page for assistive technologies, browser history, and bookmarks.",
+      wrongExplanations: {
+        1: "WCAG has no such rotating requirement.",
+        2: "Document titles have no direct performance impact.",
+        3: "HTML5 requires <title> once in the document; this is about conveying the current view."
+      },
+      topicLinks: ['spa-accessibility', 'wcag-operable'],
+      difficulty: 'medium',
+      tags: ['spa', 'wcag-operable']
+    },
+    {
+      id: 1078,
+      question: "A SPA uses an aria-live='polite' region to announce 'Page loaded: Dashboard' after each route change. What is a potential drawback of this approach alone?",
+      options: [
+        "Without also moving focus, keyboard users are still stranded in the old view even though screen readers announce the change",
+        "Polite live regions never actually speak in any screen reader",
+        "aria-live is not supported in any modern browser",
+        "Live regions interfere with the browser's back button"
+      ],
+      correct: 0,
+      explanation: "Live region announcements alone address the 'did something change?' question but don't reposition keyboard focus. Best practice combines an announcement with focus management to the new view.",
+      wrongExplanations: {
+        1: "Polite live regions are widely supported and announce when the user is idle.",
+        2: "aria-live is well supported across browsers and assistive technology.",
+        3: "Live regions don't affect browser history or navigation controls."
+      },
+      topicLinks: ['aria-live-regions', 'spa-accessibility'],
+      difficulty: 'hard',
+      tags: ['spa', 'aria-live']
+    },
+    // =============================================
+    // USER STRATEGIES (1079-1080)
+    // =============================================
+    {
+      id: 1079,
+      question: "A blind screen reader user typically navigates a web page first by which strategy?",
+      options: [
+        "Pulling up a list of headings or landmarks to get an overview, then jumping to a section of interest",
+        "Reading every word from the top of the page to the bottom without exception",
+        "Using a mouse to click on areas of interest",
+        "Requesting a sighted assistant to describe the page"
+      ],
+      correct: 0,
+      explanation: "Experienced screen reader users rely on structural shortcuts: heading lists, landmark navigation, and link/form lists let them build a mental model of a page quickly rather than reading linearly.",
+      wrongExplanations: {
+        1: "Linear reading is slow and is usually a fallback, not a primary strategy.",
+        2: "Blind users typically do not use a mouse.",
+        3: "Screen reader users navigate independently; sighted assistance is not a browsing strategy."
+      },
+      topicLinks: ['disability-user-strategies', 'screen-readers'],
+      difficulty: 'easy',
+      tags: ['user-strategies', 'screen-readers']
+    },
+    {
+      id: 1080,
+      question: "Which accommodation is most commonly used by a low-vision user who can still use a mouse and see the screen?",
+      options: [
+        "Browser zoom, OS-level magnification, and/or high contrast themes",
+        "A refreshable braille display",
+        "Switch devices operated by head movement",
+        "Sign language interpretation"
+      ],
+      correct: 0,
+      explanation: "Low-vision users commonly rely on zoom (browser or OS), screen magnifiers, and high-contrast color schemes. Designs must accommodate these by supporting reflow at 400% zoom and not breaking under custom stylesheets.",
+      wrongExplanations: {
+        1: "Braille displays are used by blind users, typically with a screen reader, not by sighted low-vision users.",
+        2: "Switch devices are used by people with significant motor impairments.",
+        3: "Sign language interpretation supports Deaf users, not low-vision users."
+      },
+      topicLinks: ['disability-user-strategies'],
+      difficulty: 'easy',
+      tags: ['user-strategies', 'low-vision']
     }
   ]
 };
