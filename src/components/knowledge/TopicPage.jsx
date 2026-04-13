@@ -159,6 +159,27 @@ function ContentBlock({ block }) {
           <p className="text-base font-medium" style={{ color: 'var(--info-text)' }}>{block.text}</p>
         </div>
       );
+    case 'sources':
+      return (
+        <div className="mt-6 pt-4 border-t" style={{ borderColor: 'var(--border-default)' }}>
+          <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--text-muted)' }}>Sources</h3>
+          <ul className="space-y-1 ml-4">
+            {block.items.map((source, i) => (
+              <li key={i} className="list-disc text-base" style={{ color: 'var(--text-muted)' }}>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="no-underline transition-colors"
+                  style={{ color: 'var(--link-color)' }}
+                >
+                  {source.text}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      );
     default:
       return <p style={{ color: 'var(--text-secondary)' }}>{block.text}</p>;
   }
