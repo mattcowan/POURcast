@@ -160,9 +160,10 @@ function ContentBlock({ block }) {
         </div>
       );
     case 'sources':
+      if (!Array.isArray(block.items) || block.items.length === 0) return null;
       return (
         <div className="mt-6 pt-4 border-t" style={{ borderColor: 'var(--border-default)' }}>
-          <h3 className="text-base font-semibold mb-2" style={{ color: 'var(--text-muted)' }}>Sources</h3>
+          <h2 className="text-base font-semibold mb-2" style={{ color: 'var(--text-muted)' }}>Sources</h2>
           <ul className="space-y-1 ml-4">
             {block.items.map((source, i) => (
               <li key={i} className="list-disc text-base" style={{ color: 'var(--text-muted)' }}>
