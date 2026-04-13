@@ -4509,6 +4509,268 @@ export const topics = [
       'Deaf: captions, transcripts, sign language videos; closed captions preferred over open; fix auto-caption errors',
       'Screen reader modes: Browse/Read mode, Forms mode, Application mode'
     ]
+  },
+
+  // ============================================================
+  // TEST-TAKING STRATEGIES
+  // ============================================================
+  {
+    slug: 'test-day-strategy',
+    title: 'In-Test Strategy',
+    category: 'Test-Taking Strategies',
+    applicableTo: ['cpacc', 'was'],
+    summary: 'How to approach questions during the exam: answering, flagging, and using the test interface tools.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The IAAP certification exams are multiple-choice with no penalty for wrong answers. That single fact should shape your entire approach: an answer is always better than a blank. Even a random guess gives you a chance, while a blank is a guaranteed zero.'
+      },
+      {
+        type: 'heading',
+        text: 'First Pass: Answer Everything'
+      },
+      {
+        type: 'paragraph',
+        text: 'Work through every question on your first pass. For questions you feel confident about, select your answer and move on. For questions you are unsure about, select your best guess and flag it for review. The key is that every question has an answer before you loop back.'
+      },
+      {
+        type: 'paragraph',
+        text: 'As you flag questions, make a mental note of what information would help you answer them. Later questions sometimes contain context or phrasing that sheds light on earlier ones. By knowing what you are looking for, you can spot those clues when they appear.'
+      },
+      {
+        type: 'heading',
+        text: 'Using Strikethrough and Highlight'
+      },
+      {
+        type: 'paragraph',
+        text: 'The testing interface gives you two markup tools: strikethrough and highlight. Used deliberately, they create a decision hierarchy that helps you revisit flagged questions efficiently.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Strikethrough — options you have ruled out. Cross them off so they stop competing for your attention.',
+          'Unmarked — options that are possible but not your pick.',
+          'Highlight — your second-best option. If you come back and reconsider, this is the first alternative to evaluate.',
+          'Selected answer — your current best guess.'
+        ]
+      },
+      {
+        type: 'paragraph',
+        text: 'This gives you four tiers of confidence at a glance. When you return to a flagged question, the markup tells you exactly where your thinking was, so you can pick up without re-reading everything from scratch.'
+      },
+      {
+        type: 'callout',
+        text: 'Always commit an answer — even on questions you have flagged. Highlight marks a runner-up, not a replacement for answering. If you run out of review time, every question already has your best guess locked in.'
+      }
+    ],
+    relatedTopics: ['test-taking-science', 'study-timeline'],
+    examTips: [
+      'No penalty for guessing — never leave a question blank',
+      'Flag and revisit, but always select an answer on the first pass',
+      'Use strikethrough to eliminate, highlight to mark your second choice'
+    ]
+  },
+  {
+    slug: 'study-timeline',
+    title: 'Preparing for the Exam: A Timeline',
+    category: 'Test-Taking Strategies',
+    applicableTo: ['cpacc', 'was'],
+    summary: 'A practical schedule for the month, week, and day before your IAAP certification exam.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'The CPACC and WAS exams cover a broad body of knowledge. Spreading your preparation over several weeks helps far more than a last-minute cram session. Below is a suggested timeline — adjust the details to fit your schedule, but respect the overall arc of learn, practice, consolidate, rest.'
+      },
+      {
+        type: 'heading',
+        text: '3–4 Weeks Before'
+      },
+      {
+        type: 'list',
+        items: [
+          'Take the IAAP-provided preparatory course for your certification (CPACC or WAS). This is the single highest-value study activity.',
+          'Read through the Body of Knowledge (BoK) at least once, even sections you think you already know.',
+          'Set a realistic weekly study budget. Even 4–6 focused hours per week adds up quickly over a month.',
+          'Start practicing with POURcast to identify your weak domains early.'
+        ]
+      },
+      {
+        type: 'heading',
+        text: '1 Week Before'
+      },
+      {
+        type: 'list',
+        items: [
+          'Practice under exam-like conditions: timed sessions, no notes, no breaks mid-quiz.',
+          'Review your weakest domains using POURcast\'s score history — focus effort where it matters most.',
+          'Stop adding brand-new material. This week is for consolidation, not discovery.',
+          'Re-read any BoK sections that still feel shaky.'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Day Before'
+      },
+      {
+        type: 'list',
+        items: [
+          'Light review only: skim your notes or do a short practice set. No cramming.',
+          'Confirm your exam logistics: valid ID, test center location or remote-proctor software setup, scheduled start time.',
+          'Lay out everything you need so the morning is friction-free.'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Day Of'
+      },
+      {
+        type: 'list',
+        items: [
+          'Arrive or log in early. Give yourself a buffer for unexpected issues.',
+          'Do not study new material. Trust the preparation you have already done.'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Do not underestimate the exam. The passing threshold is high and the questions are scenario-based, not simple recall. A structured study plan over several weeks is far more effective than raw hours crammed into a few days.'
+      }
+    ],
+    relatedTopics: ['test-day-readiness', 'test-day-strategy'],
+    examTips: [
+      'The IAAP preparatory course is the single best study resource, take it if you can',
+      'Identify weak domains early and target your study time there',
+      'The last week should be consolidation, not new material'
+    ]
+  },
+  {
+    slug: 'test-day-readiness',
+    title: 'Test-Day Readiness',
+    category: 'Test-Taking Strategies',
+    applicableTo: ['cpacc', 'was'],
+    summary: 'Things within your control on test day: sleep, nutrition, logistics, and reducing avoidable friction.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'You cannot control what questions appear on the exam, but you can control the conditions under which you take it. The suggestions below are about reducing avoidable friction so you can focus on the test itself. They are not rules, so do what works for you.'
+      },
+      {
+        type: 'heading',
+        text: 'Sleep'
+      },
+      {
+        type: 'paragraph',
+        text: 'One good night of sleep does more for test performance than one extra night of studying. Sleep is when your brain consolidates what you learned during the day into long-term memory. Research consistently shows that sleep-deprived test-takers perform worse on recall and complex reasoning — exactly the skills the CPACC and WAS exams test.'
+      },
+      {
+        type: 'heading',
+        text: 'Food and Hydration'
+      },
+      {
+        type: 'paragraph',
+        text: 'Eat something you normally eat. Test day is not the day for dietary experiments. If you usually drink coffee, drink coffee. If you usually skip breakfast, that is fine too. The goal is a baseline your body already knows, not an optimized performance meal.'
+      },
+      {
+        type: 'heading',
+        text: 'Reducing Friction'
+      },
+      {
+        type: 'list',
+        items: [
+          'Block your calendar for an hour before and after the exam to give yourself a buffer.',
+          'If testing remotely: confirm your proctor software works, test your webcam and microphone the day before, and arrange a quiet space.',
+          'If testing at a center: know exactly where it is and how long the commute takes. Arrive early.',
+          'Have your valid ID ready. Check IAAP\'s requirements for what forms of identification are accepted.'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'These are suggestions based on what generally helps people perform their best. Your situation is unique — adapt freely. The only non-negotiable is showing up on time with valid ID.'
+      },
+      {
+        type: 'sources',
+        items: [
+          { text: 'Walker, M. (2017). Why We Sleep — summary of sleep and memory consolidation research', url: 'https://www.simonandschuster.com/books/Why-We-Sleep/Matthew-Walker/9781501144325' },
+          { text: 'Diekelmann & Born (2010). The memory function of sleep. Nature Reviews Neuroscience', url: 'https://doi.org/10.1038/nrn2762' }
+        ]
+      }
+    ],
+    relatedTopics: ['study-timeline', 'test-day-strategy'],
+    examTips: [
+      'Prioritize sleep over last-minute studying the night before',
+      'Stick to your normal routine for food and caffeine',
+      'Test your remote-proctor setup the day before if taking the exam online'
+    ]
+  },
+  {
+    slug: 'test-taking-science',
+    title: 'Evidence-Based Test-Taking Techniques',
+    category: 'Test-Taking Strategies',
+    applicableTo: ['cpacc', 'was'],
+    summary: 'Research-backed strategies for answering multiple-choice questions and managing your time.',
+    content: [
+      {
+        type: 'paragraph',
+        text: 'Multiple-choice exams are their own skill, separate from knowing the material. The techniques below are supported by cognitive-science research and apply to any well-constructed exam, including the CPACC and WAS.'
+      },
+      {
+        type: 'heading',
+        text: 'Read the Stem First'
+      },
+      {
+        type: 'paragraph',
+        text: 'Read the question stem (the part before the answer options) carefully before looking at the choices. Try to formulate an answer in your head first. This reduces the priming effect of distractor options, which are specifically designed to look plausible and pull you away from what you actually know.'
+      },
+      {
+        type: 'heading',
+        text: 'Eliminate, Then Choose'
+      },
+      {
+        type: 'paragraph',
+        text: 'For "best answer" questions — where multiple options seem partially correct — start by eliminating what you know is wrong. This narrows your field and improves your odds even when you are not sure of the right answer. Two eliminations on a four-option question double your chances from 25% to 50%.'
+      },
+      {
+        type: 'heading',
+        text: 'Watch for Absolute Language'
+      },
+      {
+        type: 'paragraph',
+        text: 'Options containing words like "always," "never," "all," or "none" are often (but not always) incorrect. Real-world accessibility principles tend to involve context and nuance, which makes absolute statements unreliable. Treat this as a soft signal, not a rule — some absolutes are genuinely correct.'
+      },
+      {
+        type: 'heading',
+        text: 'Changing Your Answer Is Fine'
+      },
+      {
+        type: 'paragraph',
+        text: 'There is a persistent belief that your first instinct is usually right and you should not change answers. Research tells a different story: when test-takers change an answer, they change from wrong to right about twice as often as right to wrong. The key qualifier is "when you have a reason." If new information or a fresh reading gives you a genuine reason to switch, trust that reasoning. Do not change answers on a vague hunch.'
+      },
+      {
+        type: 'heading',
+        text: 'Time Management'
+      },
+      {
+        type: 'paragraph',
+        text: 'Divide the total exam time by the number of questions to get a rough per-question budget. Set a mental checkpoint at the halfway mark: if you are past halfway on questions but have used less than half your time, you are in good shape. If not, pick up the pace on your first pass and save difficult questions for review.'
+      },
+      {
+        type: 'callout',
+        text: 'These techniques complement your knowledge — they do not replace it. A well-prepared candidate who also tests strategically will outperform one who relies on either preparation or technique alone.'
+      },
+      {
+        type: 'sources',
+        items: [
+          { text: 'Kruger, Wirtz, & Miller (2005). Counterfactual thinking and the first instinct fallacy. Journal of Personality and Social Psychology', url: 'https://doi.org/10.1037/0022-3514.88.5.725' },
+          { text: 'Dunlosky et al. (2013). Improving students\' learning with effective learning techniques. Psychological Science in the Public Interest', url: 'https://doi.org/10.1177/1529100612453266' },
+          { text: 'Butler & Roediger (2008). Feedback enhances the positive effects and reduces the negative effects of multiple-choice testing. Memory & Cognition', url: 'https://doi.org/10.3758/MC.36.3.604' }
+        ]
+      }
+    ],
+    relatedTopics: ['test-day-strategy', 'test-day-readiness'],
+    examTips: [
+      'Formulate your answer before reading the options to avoid distractor priming',
+      'Eliminating two wrong options doubles your odds on a four-choice question',
+      'Changing an answer with a reason is right more often than wrong — ignore the "first instinct" myth'
+    ]
   }
 ];
 
