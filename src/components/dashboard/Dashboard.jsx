@@ -19,7 +19,8 @@ const COURSE_INFO = {
 
 export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank, flaggedBank, onStartReview }) {
   const headingRef = useRef(null);
-  const [activeCourse, setActiveCourse] = useLocalStorage('pourcast-course', 'cpacc');
+  const [storedCourse, setActiveCourse] = useLocalStorage('pourcast-course', 'cpacc');
+  const activeCourse = COURSE_INFO[storedCourse] ? storedCourse : 'cpacc';
 
   usePageFocus(headingRef);
 
