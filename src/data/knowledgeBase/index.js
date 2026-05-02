@@ -39,10 +39,6 @@ export const topics = [
       {
         type: 'paragraph',
         text: 'The Medical Model has value in that it drives research into treatments and therapies that genuinely improve quality of life. However, it is widely criticized for reducing people to their diagnoses, ignoring environmental and social barriers, and placing the entire burden of adaptation on the individual rather than on society. It can lead to paternalism and a sense that people with disabilities are "broken."'
-      },
-      {
-        type: 'callout',
-        text: 'Exam tip: The Medical Model is almost always contrasted with the Social Model on the CPACC exam. Remember that the Medical Model locates the problem IN the person, while the Social Model locates the problem in SOCIETY. This is the single most important distinction to understand.'
       }
     ],
     relatedTopics: ['social-model', 'biopsychosocial-model', 'charity-model'],
@@ -85,15 +81,12 @@ export const topics = [
         type: 'paragraph',
         text: 'The Social Model is the foundational framework behind modern accessibility practices. It shifts responsibility from the individual to designers, developers, organizations, and governments. When a website is inaccessible to a screen reader user, the Social Model says the problem is the website, not the user\'s blindness. This perspective directly informs standards like WCAG and laws like the ADA.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The Social Model is the most heavily tested disability model on the CPACC. Know the impairment vs. disability distinction cold. Example: A person who uses a wheelchair has an impairment. They are disabled by a building with no ramp — that is the disability.'
-      }
     ],
     relatedTopics: ['medical-model', 'human-rights-model', 'social-identity-model'],
     examTips: [
       'Most frequently tested disability model on the CPACC exam',
       'Understand the impairment (individual condition) vs. disability (societal barrier) distinction',
+      'Example: a wheelchair user has an impairment; a building with no ramp is what disables them',
       'Originated in the UK disability rights movement — Mike Oliver is a key figure',
       'This model directly underpins accessibility standards and legislation'
     ]
@@ -129,10 +122,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The WHO\'s ICF framework operationalizes the Biopsychosocial Model. It classifies health and disability across body functions and structures, activities (task execution), and participation (involvement in life situations). Contextual factors — both environmental and personal — are considered alongside health conditions to produce a holistic understanding of a person\'s functioning.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The Biopsychosocial Model is the WHO/ICF model. It is sometimes described as a synthesis or compromise between the Medical and Social Models. If an exam question mentions the ICF or a "balanced" or "integrative" approach, think Biopsychosocial.'
-      }
     ],
     relatedTopics: ['medical-model', 'social-model', 'human-rights-model'],
     examTips: [
@@ -171,10 +160,6 @@ export const topics = [
         type: 'paragraph',
         text: 'While the Social Model identifies societal barriers as the cause of disability, the Human Rights Model takes the next step by demanding legal and structural remedies as a matter of right, not goodwill. It also acknowledges the value of impairment as part of human diversity, whereas the Social Model sometimes downplays impairment itself.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The Human Rights Model is strongly linked to the UN CRPD. If a question asks about rights-based approaches or the CRPD\'s philosophical foundation, the answer is the Human Rights Model. It goes further than the Social Model by framing accessibility as a legal entitlement.'
-      }
     ],
     relatedTopics: ['social-model', 'crpd', 'udhr'],
     examTips: [
@@ -214,10 +199,6 @@ export const topics = [
         type: 'paragraph',
         text: 'This model is particularly relevant to the field of assistive technology and accessible design. A screen reader is a functional solution: it does not cure blindness and it does not remove societal barriers directly, but it enables a blind person to use a computer effectively. The model is valued for its practicality but criticized for potentially ignoring deeper social or systemic issues.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: If a question describes a scenario focused on finding a practical or technological fix for a specific functional limitation, the Functional Solutions Model is likely the answer. Think of it as the "engineering mindset" applied to disability.'
-      }
     ],
     relatedTopics: ['screen-readers', 'aac-devices', 'switch-devices', 'social-model'],
     examTips: [
@@ -257,10 +238,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The use of a capital "D" in Deaf is significant and frequently tested. "Deaf" (capital D) refers to cultural identity and community membership, while "deaf" (lowercase d) refers to the audiological condition. This distinction exemplifies how the Social Identity Model operates: the same condition can be viewed as a medical fact or as a cultural identity.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Deaf culture is the go-to example for the Social Identity Model. Remember the big-D / little-d distinction: Deaf = cultural identity, deaf = audiological condition. If a question asks about disability as a source of pride or community, this is the model.'
-      }
     ],
     relatedTopics: ['social-model', 'human-rights-model', 'auditory-disabilities', 'inclusive-language'],
     examTips: [
@@ -299,10 +276,6 @@ export const topics = [
         type: 'paragraph',
         text: 'Critics argue that the Economic Model reduces human worth to economic productivity, ignoring the many ways people contribute to society outside of paid employment. It can also create perverse incentives where people must prove their inability to work in order to receive support, potentially discouraging rehabilitation and participation. However, it remains practically influential in shaping how governments allocate disability-related resources.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: If a question discusses disability in terms of work capacity, economic productivity, or benefit eligibility, the Economic Model is the answer. It is often grouped with the Medical Model and Charity Model as models that define disability as a deficit.'
-      }
     ],
     relatedTopics: ['medical-model', 'charity-model', 'social-model'],
     examTips: [
@@ -342,10 +315,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The Charity Model is visible in telethons, pity-based fundraising campaigns, and media portrayals that frame people with disabilities as objects of sympathy. Disability rights advocates strongly oppose this model because it undermines dignity and autonomy. The term "inspiration porn," coined by disability activist Stella Young, describes content that uses disability to make non-disabled people feel grateful or inspired, which is a hallmark of the Charity Model in action.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The Charity Model is always presented negatively in CPACC context. If a question describes pity-based approaches, fundraising that exploits disability imagery, or a helper/victim dynamic, the Charity Model is the answer. It is considered a harmful and outdated framework.'
-      }
     ],
     relatedTopics: ['medical-model', 'social-model', 'human-rights-model', 'disability-etiquette'],
     examTips: [
@@ -398,10 +367,6 @@ export const topics = [
           'Support user stylesheets and high-contrast modes'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know the distinction between blindness, low vision, and color vision deficiency — they require different solutions. Color vision deficiency is about color perception, not visual acuity. Remember that approximately 8% of men have some form of color vision deficiency.'
-      }
     ],
     relatedTopics: ['screen-readers', 'screen-magnifiers', 'refreshable-braille', 'wcag-perceivable'],
     examTips: [
@@ -451,10 +416,6 @@ export const topics = [
           'Avoid relying solely on audio to convey important information'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Captions and transcripts are different things. Captions are synchronized with video; transcripts are standalone text documents. Both are important. WCAG 1.2.2 covers captions for prerecorded video, 1.2.4 covers live captions. Know the difference between open captions (always visible) and closed captions (user-toggled).'
-      }
     ],
     relatedTopics: ['deaf-blindness', 'hearing-assistive-tech', 'social-identity-model', 'wcag-perceivable'],
     examTips: [
@@ -498,10 +459,6 @@ export const topics = [
         type: 'paragraph',
         text: 'For digital content, people with deaf-blindness typically rely on refreshable braille displays connected to a computer running a screen reader. This means content must be compatible with screen readers (like for blind users) AND must not rely on audio output alone (since the user cannot hear it). Captions are insufficient on their own — transcripts that can be rendered in braille are essential.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Deaf-blindness is unique because solutions for deafness alone or blindness alone may not work. A screen reader with audio output does not help; captions do not help. Refreshable braille displays are the primary digital access technology for deaf-blind users.'
-      }
     ],
     relatedTopics: ['visual-disabilities', 'auditory-disabilities', 'refreshable-braille', 'screen-readers'],
     examTips: [
@@ -551,10 +508,6 @@ export const topics = [
           'Voice recognition systems may not work well for people with speech disabilities'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Aphasia is the most commonly tested speech-related condition. It is a language disorder (not a speech production disorder) caused by brain damage, typically from stroke. Aphasia affects the ability to produce and/or comprehend language. Do not confuse it with dysarthria (muscle weakness affecting speech).'
-      }
     ],
     relatedTopics: ['aac-devices', 'cognitive-disabilities', 'neurological-disabilities'],
     examTips: [
@@ -605,10 +558,6 @@ export const topics = [
           'Provide adequate time to complete interactions (WCAG 2.2.1)'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Keyboard accessibility is the single most important digital accessibility requirement for mobility disabilities. WCAG 2.1.1 (Keyboard) requires ALL functionality be available via keyboard. Switch devices, eye-gaze systems, and other alternative inputs typically emulate keyboard input.'
-      }
     ],
     relatedTopics: ['switch-devices', 'wcag-operable', 'universal-design-principles'],
     examTips: [
@@ -661,10 +610,6 @@ export const topics = [
           'Support multiple ways to find content (search, navigation, site map)'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Cognitive disabilities are the most common type of disability overall. The exam may emphasize that cognitive accessibility is often neglected despite its prevalence. WCAG addresses cognitive accessibility primarily through the Understandable principle (Principle 3). Know the distinction between intellectual disability (global limitations) and specific learning disabilities like dyslexia (specific skill affected).'
-      }
     ],
     relatedTopics: ['neurological-disabilities', 'psychological-disabilities', 'wcag-understandable', 'universal-design-learning'],
     examTips: [
@@ -714,10 +659,6 @@ export const topics = [
           'Support multiple input modalities for motor-affected neurological conditions'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The seizure/photosensitivity guideline (WCAG 2.3.1 — Three Flashes or Below Threshold) is critical. Content must not flash more than 3 times per second. Also know that vestibular disorders are triggered by parallax scrolling and motion effects — the prefers-reduced-motion CSS media query addresses this.'
-      }
     ],
     relatedTopics: ['cognitive-disabilities', 'mobility-disabilities', 'wcag-operable'],
     examTips: [
@@ -768,10 +709,6 @@ export const topics = [
           'Support customization of notifications and alerts'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Psychological disabilities may not be tested as heavily as other categories, but understand that they are real disabilities protected under disability rights laws. The key design principle is reducing stress and pressure — predictable interfaces, supportive error messages, no dark patterns, and content warnings.'
-      }
     ],
     relatedTopics: ['cognitive-disabilities', 'neurological-disabilities', 'wcag-understandable'],
     examTips: [
@@ -811,10 +748,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The presence of multiple disabilities underscores why accessibility should follow universal design principles and offer multiple modalities for accessing content. If information is available only visually or only through audio, people with multiple sensory disabilities are excluded. Providing content in multiple formats — text, audio, visual, and tactile — ensures the broadest possible access.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The key point about multiple disabilities is that the impact is multiplicative, not just additive. Compensatory strategies that work for a single disability may fail when a second disability is present. Universal design and multi-modal content delivery are the most effective strategies.'
-      }
     ],
     relatedTopics: ['deaf-blindness', 'universal-design-principles', 'visual-disabilities', 'auditory-disabilities'],
     examTips: [
@@ -869,10 +802,6 @@ export const topics = [
           'Rely on proper heading hierarchy, link text, alt text, and ARIA attributes'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know the major screen readers and their platforms: JAWS and NVDA = Windows, VoiceOver = Apple, TalkBack = Android. Screen readers rely on the accessibility tree, so proper semantic HTML is the foundation of screen reader compatibility. Heading navigation (H key) is one of the most important screen reader navigation methods.'
-      }
     ],
     relatedTopics: ['visual-disabilities', 'refreshable-braille', 'wcag-perceivable', 'wcag-robust'],
     examTips: [
@@ -922,10 +851,6 @@ export const topics = [
           'Ensure sufficient color contrast — low vision users rely heavily on contrast'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: WCAG 1.4.4 requires text resizing to 200% without loss of content or functionality. WCAG 1.4.10 (Reflow) requires content to work at 400% zoom (equivalent to 320px viewport width) without horizontal scrolling. ZoomText is the most well-known commercial screen magnifier.'
-      }
     ],
     relatedTopics: ['visual-disabilities', 'screen-readers', 'wcag-perceivable'],
     examTips: [
@@ -964,10 +889,6 @@ export const topics = [
         type: 'paragraph',
         text: 'AAC is used by a wide range of people including those with cerebral palsy, ALS/motor neuron disease, autism (especially non-speaking autistic individuals), stroke/aphasia, traumatic brain injury, and developmental disabilities. The famous physicist Stephen Hawking used a high-tech AAC device controlled by a cheek muscle sensor.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: AAC stands for Augmentative AND Alternative Communication — augmentative supplements speech, alternative replaces it. Know the spectrum from low-tech (picture boards) to high-tech (speech-generating devices). AAC is relevant for speech disabilities, cognitive disabilities, and some motor disabilities.'
-      }
     ],
     relatedTopics: ['speech-disabilities', 'switch-devices', 'cognitive-disabilities', 'mobility-disabilities'],
     examTips: [
@@ -1007,10 +928,6 @@ export const topics = [
         type: 'paragraph',
         text: 'In the digital context, automatic speech recognition (ASR) is increasingly used for live captioning, though accuracy can vary. Video relay services (VRS) allow deaf sign language users to communicate by phone via an interpreter. Telecommunication relay services (TRS) enable text-based phone communication.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know what a hearing loop (induction loop) is — it transmits audio directly to hearing aids with T-coils and is commonly installed in theaters, churches, and service counters. CART (Communication Access Realtime Translation) is live professional captioning. Cochlear implants are a culturally sensitive topic in the Deaf community.'
-      }
     ],
     relatedTopics: ['auditory-disabilities', 'deaf-blindness', 'social-identity-model'],
     examTips: [
@@ -1062,10 +979,6 @@ export const topics = [
           'Avoid interactions that require simultaneous actions or complex gestures'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The most important thing to remember is that most alternative input devices emulate keyboard input. This is why keyboard accessibility (WCAG 2.1.1) is so fundamental — it ensures compatibility not just with keyboards but with switches, sip-and-puff, head trackers, and other alternative inputs.'
-      }
     ],
     relatedTopics: ['mobility-disabilities', 'wcag-operable', 'aac-devices'],
     examTips: [
@@ -1106,10 +1019,6 @@ export const topics = [
         type: 'paragraph',
         text: 'Braille literacy is important because it provides access to spelling, punctuation, and formatting that audio output cannot convey as precisely. While screen readers with speech output are more commonly used by blind individuals, many blind professionals and students use braille displays for tasks requiring precise reading, editing, and coding.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Refreshable braille displays are the primary technology enabling deaf-blind users to access digital content (since they cannot use audio screen reader output). They work WITH screen readers, not instead of them. Know that they are expensive and display one line at a time.'
-      }
     ],
     relatedTopics: ['screen-readers', 'deaf-blindness', 'visual-disabilities'],
     examTips: [
@@ -1169,10 +1078,6 @@ export const topics = [
         type: 'paragraph',
         text: 'WCAG is organized around four principles known by the acronym POUR: Perceivable, Operable, Understandable, and Robust. Each principle contains guidelines, and each guideline contains testable success criteria at levels A, AA, or AAA.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know the WCAG versions and what each added. WCAG 2.0 introduced POUR. WCAG 2.1 added mobile, low vision, and cognitive criteria. Level AA is the standard legal requirement worldwide. WCAG is technology-agnostic (applies to web, mobile, documents, etc.). Remember: WCAG is developed by the W3C WAI, not by any government.'
-      }
     ],
     relatedTopics: ['wcag-perceivable', 'wcag-operable', 'wcag-understandable', 'wcag-robust', 'w3c-wai'],
     examTips: [
@@ -1224,10 +1129,6 @@ export const topics = [
           '1.4.11 Non-text Contrast (AA): UI components and graphical objects have at least 3:1 contrast'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Contrast ratios are frequently tested: 4.5:1 for normal text (AA), 3:1 for large text (AA), 7:1 for normal text (AAA). Large text is defined as 18pt (24px) or 14pt bold (18.5px). 1.1.1 Non-text Content is the most fundamental success criterion — nearly every other accessibility requirement builds on having text alternatives.'
-      }
     ],
     relatedTopics: ['wcag-overview', 'visual-disabilities', 'auditory-disabilities', 'screen-readers'],
     examTips: [
@@ -1279,10 +1180,6 @@ export const topics = [
           '2.4.7 Focus Visible (AA): Keyboard focus indicator is visible'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: 2.1.1 Keyboard is one of the most important WCAG criteria — if it fails, many users with motor disabilities are completely blocked. 2.3.1 Three Flashes is about seizure prevention and is a safety issue, not just a usability issue. Know that skip navigation links satisfy 2.4.1 Bypass Blocks.'
-      }
     ],
     relatedTopics: ['wcag-overview', 'mobility-disabilities', 'switch-devices', 'neurological-disabilities'],
     examTips: [
@@ -1333,10 +1230,6 @@ export const topics = [
           '3.3.4 Error Prevention - Legal/Financial/Data (AA): Submissions that have legal or financial implications are reversible, checked, or confirmed'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: 3.1.1 Language of Page is one of the easiest WCAG criteria to implement (just add lang="en" to the <html> element) and one of the most commonly failed. 3.2 Predictable is about preventing unexpected behavior — a dropdown that navigates on selection change violates 3.2.2. Error handling (3.3) is about helping users, not punishing mistakes.'
-      }
     ],
     relatedTopics: ['wcag-overview', 'cognitive-disabilities', 'usability-concepts'],
     examTips: [
@@ -1383,10 +1276,6 @@ export const topics = [
         type: 'paragraph',
         text: 'Principle 4 is the most technical of the four POUR principles. 4.1.2 Name, Role, Value is one of the most commonly failed criteria because developers create custom interactive components (custom dropdowns, tabs, modals) without proper ARIA markup. Every interactive element must expose its name (what it is called), role (what it is), and value/state (its current condition) to assistive technologies.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: 4.1.2 Name, Role, Value is the criterion that makes custom widgets accessible. Every custom interactive component must have a programmatically determinable name, role, and value. Native HTML elements automatically provide these; custom elements need ARIA. 4.1.1 Parsing was removed in WCAG 2.2 — the exam may reference this change.'
-      }
     ],
     relatedTopics: ['wcag-overview', 'screen-readers', 'w3c-wai'],
     examTips: [
@@ -1427,10 +1316,6 @@ export const topics = [
           'Principle 7 — Size and Space for Approach and Use: Appropriate size and space is provided for approach, reach, manipulation, and use. Example: wide aisles, adjustable-height desks.'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know all seven principles by name and be able to identify which principle applies in a scenario. Ron Mace and North Carolina State University are key names. Universal Design is proactive (design for all from the start) vs. accommodation (retrofitting for individuals). Curb cuts are the classic UD example — designed for wheelchair users but benefit parents with strollers, delivery workers, travelers, etc.'
-      }
     ],
     relatedTopics: ['universal-design-learning', 'built-environment', 'user-centered-design', 'accessibility-vs-accommodation'],
     examTips: [
@@ -1507,10 +1392,6 @@ export const topics = [
           'Provide options for executive functions — guide appropriate goal-setting, support planning and strategy development, facilitate managing information and resources, enhance capacity for monitoring progress'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: On questions that ask which UDL principle applies, use the brain network shortcut. Affective → Engagement (why/motivation). Recognition → Representation (what/perception and comprehension). Strategic → Action and Expression (how/physical action, expression, executive function). If the scenario involves how a learner produces or demonstrates their learning — writing an essay vs. recording a video, using a switch device, planning a project — that is Action and Expression, not Engagement.'
-      }
     ],
     relatedTopics: ['universal-design-principles', 'cognitive-disabilities', 'accessibility-vs-accommodation'],
     examTips: [
@@ -1605,10 +1486,6 @@ export const topics = [
           'Universal Design principles apply to built environment design broadly'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Memorize §302 — floor and ground surfaces must be stable, firm, and slip-resistant. This is a recurring exam question. Also remember carpet pile ≤ 1/2 inch, ramp slope max 1:12, single ramp rise max 30 inches, and accessible route clear width 36 inches (reducible to 32" at doorways).'
-      }
     ],
     relatedTopics: ['universal-design-principles', 'ada', 'mobility-disabilities'],
     examTips: [
@@ -1659,10 +1536,6 @@ export const topics = [
         type: 'paragraph',
         text: 'User-Centered Design and accessibility are natural allies. When design teams include people with disabilities in their research and testing, accessibility becomes a natural outcome of the design process rather than a compliance checkbox. The key principle is: include people with disabilities as participants throughout the design process, not just as an afterthought during testing.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: UCD is an iterative process centered on real user needs. The connection to accessibility is that when people with disabilities are included as users in the UCD process, accessible design emerges naturally. UCD is about process; Universal Design is about design principles.'
-      }
     ],
     relatedTopics: ['usability-concepts', 'user-experience', 'universal-design-principles', 'accessibility-vs-accommodation'],
     examTips: [
@@ -1706,10 +1579,6 @@ export const topics = [
         type: 'paragraph',
         text: 'Accessibility ensures that people with disabilities CAN use a product. Usability ensures that the experience of using it is efficient, effective, and satisfying. Both are necessary — accessibility without usability means a product is technically operable but frustrating, while usability without accessibility means a product works beautifully but only for some users. The goal is usable accessibility.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know the three ISO components: effectiveness, efficiency, satisfaction. Usability and accessibility are complementary but not identical — a site can pass WCAG but still have poor usability for assistive technology users. Usability testing with people with disabilities is the bridge between the two concepts.'
-      }
     ],
     relatedTopics: ['user-centered-design', 'user-experience', 'accessibility-vs-accommodation'],
     examTips: [
@@ -1750,10 +1619,6 @@ export const topics = [
         type: 'paragraph',
         text: 'Peter Morville\'s "UX Honeycomb" model identifies these seven facets of user experience. Accessibility is explicitly one of the seven facets, reinforcing that it is not separate from UX but an integral part of it. When accessibility is treated as a UX concern rather than merely a compliance requirement, it leads to better outcomes for all users.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: UX is the broadest concept — it encompasses usability and accessibility. Don Norman popularized the term. Peter Morville\'s UX Honeycomb lists accessibility as one of seven facets of UX. Remember the hierarchy: UX (broadest) > Usability > Accessibility (most specific, focused on disability).'
-      }
     ],
     relatedTopics: ['usability-concepts', 'user-centered-design', 'accessibility-vs-accommodation'],
     examTips: [
@@ -1793,10 +1658,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The "curb-cut effect" illustrates the broader benefit of accessibility: curb cuts were designed for wheelchair users but benefit people pushing strollers, pulling luggage, riding bikes, making deliveries, and more. When we design accessibly, everyone benefits. Accommodations, while necessary, do not create these broader benefits.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: This is a commonly tested distinction. Accessibility = proactive, universal, designed-in, scalable. Accommodation = reactive, individual, retrofitted, per-person. A captioned video is accessibility; hiring a sign language interpreter for one meeting is accommodation. Both matter, but accessibility should come first.'
-      }
     ],
     relatedTopics: ['universal-design-principles', 'social-model', 'usability-concepts'],
     examTips: [
@@ -1841,10 +1702,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The UDHR is a declaration, not a treaty, which means it is not legally binding in itself. However, it has become customary international law and has been incorporated into the constitutions and legal systems of many nations. It inspired the two binding International Covenants (ICCPR and ICESCR) and the CRPD.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The UDHR was adopted in 1948. It is a declaration, not a treaty (not legally binding on its own). Article 25 specifically mentions disability. It provides the philosophical foundation for the CRPD. Remember: UDHR = general human rights; CRPD = disability-specific rights.'
-      }
     ],
     relatedTopics: ['crpd', 'human-rights-model', 'marrakesh-treaty'],
     examTips: [
@@ -1896,10 +1753,6 @@ export const topics = [
           'Optional Protocol: Allows individuals to file complaints to the CRPD Committee'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The CRPD was adopted in 2006 and entered into force in 2008. It is a legally binding treaty (unlike the UDHR). Article 9 on Accessibility is the most relevant for ICT accessibility. The USA has signed but NOT ratified the CRPD. The CRPD embodies the Human Rights Model of Disability. "Nothing about us without us" was a key slogan during its development.'
-      }
     ],
     relatedTopics: ['udhr', 'human-rights-model', 'marrakesh-treaty', 'ada'],
     examTips: [
@@ -1939,10 +1792,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The "book famine" refers to the fact that in developing countries, fewer than 1% of published books were available in accessible formats, and even in developed countries, the figure was only about 5-7%. The Marrakesh Treaty aims to address this by removing copyright barriers to the production and sharing of accessible materials.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The Marrakesh Treaty is about copyright exceptions for accessible format copies. It is a WIPO treaty (intellectual property), not a UN human rights treaty. It addresses the "book famine" — only about 5% of books were available in accessible formats. Entered into force in 2016. Beneficiaries include people who are blind, have low vision, or have print disabilities.'
-      }
     ],
     relatedTopics: ['crpd', 'udhr', 'visual-disabilities', 'refreshable-braille'],
     examTips: [
@@ -2010,10 +1859,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The ADA does not explicitly mention websites or digital accessibility (it was written in 1990), but courts have increasingly interpreted Titles II and III to apply to websites and digital services. The Department of Justice issued a rule in 2024 requiring state and local government websites and mobile apps to conform to WCAG 2.1 Level AA under Title II. Title III web accessibility requirements for private businesses continue to be shaped by court rulings, with most circuits applying the ADA to websites tied to physical places of business and some applying it to purely online businesses as well.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Memorize the scenario-to-Title mapping. Title I = employment (15+ employees). Title II = state/local government entities (libraries, DMVs, public schools, public transit). Title III = private businesses open to the public (restaurants, stores, hotels). Title IV = relay services. Title V = anti-retaliation, attorney\'s fees, relationship to state laws. "Undue hardship" is the Title I defense; "readily achievable" is the Title III standard for barrier removal in existing facilities.'
-      }
     ],
     relatedTopics: ['section-508', 'cvaa', 'crpd', 'national-disability-laws', 'built-environment'],
     examTips: [
@@ -2062,10 +1907,6 @@ export const topics = [
         type: 'paragraph',
         text: 'Section 508 and the ADA are both US laws addressing disability rights, but they differ in scope and specificity. Section 508 is specifically about ICT accessibility and applies only to federal agencies. The ADA is broader, covering all aspects of public life, and applies to employers, state/local governments, and public accommodations. Section 508 provides specific technical standards (based on WCAG); the ADA does not specify technical standards.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Section 508 applies to US FEDERAL agencies only. The 2017 Refresh aligned Section 508 with WCAG 2.0 Level AA. Section 508 covers procurement — federal agencies must buy accessible technology. Know the difference: Section 508 = federal ICT, ADA Title II = state/local government, ADA Title III = private businesses.'
-      }
     ],
     relatedTopics: ['ada', 'wcag-overview', 'en-301-549', 'vpat', 'procurement-accessibility'],
     examTips: [
@@ -2111,10 +1952,6 @@ export const topics = [
           'Smart TVs and video devices must support closed captioning and video description'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The CVAA is about COMMUNICATIONS and VIDEO technology specifically. It bridges the gap between older telecom laws and modern technology (smartphones, internet video). Title I = communications services, Title II = video programming. If a question asks about captioning requirements for video that previously aired on TV and is now online, the CVAA is the answer.'
-      }
     ],
     relatedTopics: ['ada', 'section-508', 'auditory-disabilities', 'hearing-assistive-tech'],
     examTips: [
@@ -2178,10 +2015,6 @@ export const topics = [
           'eIDAS — Regulation (EU) No 910/2014 on electronic identification and trust services for electronic transactions in the EU internal market. Entered into force in 2014 and became applicable in 2016. eIDAS is not primarily an accessibility law; it governs electronic identification (eID), electronic signatures, seals, timestamps, and qualified trust services for cross-border digital public services. The 2024 amendment (Regulation 2024/1183) introduced the European Digital Identity Wallet. Accessibility of eID means for persons with disabilities is expected via the horizontal accessibility requirements of the EAA and EN 301 549'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: If you see "EN 17___" in options, it is usually EN 17161 (Design for All, a process standard). If you see "eI___" in options, it is usually eIDAS (Regulation 910/2014 on electronic identification and trust services). Do not confuse these with EN 301 549, which is the technical ICT accessibility standard that incorporates WCAG.'
-      }
     ],
     relatedTopics: ['en-301-549', 'wcag-overview', 'crpd', 'national-disability-laws', 'universal-design-principles'],
     examTips: [
@@ -2223,10 +2056,6 @@ export const topics = [
         type: 'paragraph',
         text: 'EN 301 549 is particularly important because it extends WCAG beyond web content. While WCAG itself only covers web content, EN 301 549 adapts WCAG criteria for non-web documents (Chapter 10) and native software (Chapter 11). This means organizations subject to EN 301 549 must make their PDFs, mobile apps, desktop software, and hardware accessible, not just their websites.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: EN 301 549 is the European ICT accessibility standard. It incorporates WCAG 2.1 AA for web content but extends beyond web to cover software, hardware, and documents. The US Section 508 Refresh also harmonized with EN 301 549. Know that Chapter 9 = web, Chapter 10 = documents, Chapter 11 = software.'
-      }
     ],
     relatedTopics: ['eu-accessibility', 'wcag-overview', 'section-508', 'vpat'],
     examTips: [
@@ -2280,10 +2109,6 @@ export const topics = [
           'Accessibility for Ontarians with Disabilities Act (AODA) 2005: Ontario provincial law requiring accessibility standards. Often cited as a model for the federal ACA.'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know these key laws by name and country: UK Equality Act 2010, Australia DDA 1992 (and the Maguire v. SOCOG case), Canada ACA 2019 and AODA 2005. The Maguire v. SOCOG case is historically significant as one of the first successful web accessibility lawsuits in the world.'
-      }
     ],
     relatedTopics: ['ada', 'eu-accessibility', 'crpd', 'section-508'],
     examTips: [
@@ -2327,10 +2152,6 @@ export const topics = [
         type: 'paragraph',
         text: 'WAI describes web accessibility as depending on three components working together: content (WCAG), authoring tools (ATAG), and user agents (UAAG). If any component fails, users with disabilities are affected. For example, if a CMS does not support adding alt text to images (ATAG failure), content authors cannot produce accessible content regardless of their intentions.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know the three WAI guidelines: WCAG (content), ATAG (authoring tools), UAAG (user agents/browsers). ATAG has two parts: Part A = the tool is accessible, Part B = the tool helps create accessible content. WAI-ARIA is for adding accessibility to dynamic content and custom widgets. All of these are W3C Recommendations.'
-      }
     ],
     relatedTopics: ['wcag-overview', 'wcag-robust', 'maturity-models'],
     examTips: [
@@ -2383,10 +2204,6 @@ export const topics = [
           'Level 5 — Optimizing/Leading: Continuous improvement, accessibility is part of organizational DNA'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Maturity models assess organizational capability, not just technical compliance. They cover people, process, and technology — not just code. The W3C WAI Accessibility Maturity Model is the reference. Organizations progress through levels, from unaware to leading. The goal is to embed accessibility into all business processes, not just treat it as a one-time fix.'
-      }
     ],
     relatedTopics: ['w3c-wai', 'procurement-accessibility', 'vpat'],
     examTips: [
@@ -2435,10 +2252,6 @@ export const topics = [
           'Not Evaluated: The product has not been evaluated against this criterion'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: VPAT is the template; ACR (Accessibility Conformance Report) is the completed document. VPATs are self-reported by vendors — they are NOT third-party audits. Created by ITI (Information Technology Industry Council). Used primarily in procurement. Know the conformance levels: Supports, Partially Supports, Does Not Support, Not Applicable, Not Evaluated.'
-      }
     ],
     relatedTopics: ['procurement-accessibility', 'section-508', 'en-301-549', 'wcag-overview'],
     examTips: [
@@ -2488,10 +2301,6 @@ export const topics = [
           'Many organizations adopt accessibility procurement policies voluntarily as best practice'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Procurement is often described as one of the most impactful accessibility strategies because it leverages purchasing power. VPATs/ACRs are the primary tool for evaluating vendor accessibility claims, but they are self-reported and should be verified. Including accessibility in procurement is required by Section 508 for US federal agencies.'
-      }
     ],
     relatedTopics: ['vpat', 'section-508', 'en-301-549', 'maturity-models'],
     examTips: [
@@ -2547,10 +2356,6 @@ export const topics = [
           'Service animals: Do not pet, feed, or distract a service animal without permission.'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The core principle is ASK BEFORE HELPING. A wheelchair is personal space — never push, lean on, or grab it without permission. Speak directly to the person, not their aide. Service animals are working — do not interact with them without the handler\'s permission. These etiquette principles are frequently tested.'
-      }
     ],
     relatedTopics: ['inclusive-language', 'social-model', 'charity-model'],
     examTips: [
@@ -2615,10 +2420,6 @@ export const topics = [
           'Best practice: When in doubt, ask the individual their preference'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Neither people-first nor identity-first is universally "correct." The Deaf community and many autistic adults prefer identity-first. People with intellectual disabilities generally prefer people-first. When in doubt, ask. Avoid terms like "suffers from," "wheelchair-bound," "handicapped," and "special needs." Never say "normal" — use "non-disabled."'
-      }
     ],
     relatedTopics: ['disability-etiquette', 'social-identity-model', 'human-rights-model'],
     examTips: [
@@ -2743,10 +2544,6 @@ export const topics = [
           'Disability intersects with poverty — people with disabilities are disproportionately affected, making accessibility a social-equity issue as well as an economic one'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Memorize the headline numbers: Global ~16% / 1.3B (WHO); EU >25% / ~1 in 4 (Eurostat 2022); US ~26% / 1 in 4 (CDC); Vision 2.2B (WHO); Hearing 430M (WHO); Epilepsy 50M (WHO); Dementia 57M (WHO, 2021). Cognitive disabilities are the most common category. Watch for the category keyword in question stems.'
-      }
     ],
     relatedTopics: ['social-model', 'economic-model', 'ada', 'crpd', 'eu-accessibility'],
     examTips: [
@@ -2808,10 +2605,6 @@ export const topics = [
         type: 'paragraph',
         text: 'The first rule of ARIA states: "If you can use a native HTML element with the semantics and behavior you require already built in, do so instead of repurposing an element and adding ARIA." Native elements like <button>, <a>, <input>, <select>, <table>, <ul>/<ol>, and <details>/<summary> provide built-in keyboard support, roles, states, and properties. ARIA should only be used when there is no native HTML equivalent for the pattern you need.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Semantic HTML is not just about screen readers — it benefits voice control users, keyboard users, and search engines. Know the landmark elements and their implicit ARIA roles. Remember that WCAG SC 1.3.1 (Info and Relationships) requires that information, structure, and relationships conveyed visually are also available programmatically.'
-      }
     ],
     relatedTopics: ['aria-overview', 'aria-roles', 'form-accessibility'],
     examTips: [
@@ -2870,10 +2663,6 @@ export const topics = [
           'Required fields should be indicated with the required attribute or aria-required="true", and visually indicated beyond just color (SC 1.4.1)'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know the difference between SC 3.3.1 (identify errors), SC 3.3.2 (labels/instructions), SC 3.3.3 (error suggestions), and SC 3.3.4 (error prevention for legal/financial/data). Also remember that placeholder text is never an acceptable substitute for a visible label (SC 3.3.2).'
-      }
     ],
     relatedTopics: ['semantic-html', 'aria-states-properties', 'keyboard-testing'],
     examTips: [
@@ -2929,10 +2718,6 @@ export const topics = [
         type: 'paragraph',
         text: 'Do not use ARIA when native HTML provides the same semantics. For example: use <button> not <div role="button">, use <nav> not <div role="navigation">, use <input type="checkbox"> not <div role="checkbox">. Incorrect ARIA is worse than no ARIA — it creates a false contract with assistive technology. If you set role="checkbox" you must also manage aria-checked state and keyboard interaction yourself.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The first rule of ARIA is the most important — use native HTML first. Remember that ARIA only modifies the accessibility tree; it does NOT change behavior, appearance, or keyboard interaction. You must implement those separately with JavaScript and CSS.'
-      }
     ],
     relatedTopics: ['semantic-html', 'aria-roles', 'aria-states-properties', 'aria-widget-patterns'],
     examTips: [
@@ -3002,10 +2787,6 @@ export const topics = [
           'role="group" — groups related elements together (e.g., a set of controls)'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know which HTML elements map to which landmark roles. Remember that role="menu" is for application-style menus (like a desktop app menu bar), NOT for site navigation — use <nav> for navigation. Also note that role="presentation" and role="none" are synonymous.'
-      }
     ],
     relatedTopics: ['aria-overview', 'aria-states-properties', 'semantic-html', 'aria-widget-patterns'],
     examTips: [
@@ -3063,10 +2844,6 @@ export const topics = [
           'aria-current="page/step/location/date/time/true": indicates the current item in a set (e.g., current page in navigation)'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know the accessible name computation order: aria-labelledby > aria-label > native labeling > title. Remember that aria-describedby provides supplementary information announced after the name and role, while aria-labelledby provides the name itself. Also note that aria-hidden="true" must NEVER be used on focusable elements.'
-      }
     ],
     relatedTopics: ['aria-overview', 'aria-roles', 'aria-live-regions', 'form-accessibility'],
     examTips: [
@@ -3126,10 +2903,6 @@ export const topics = [
           'role="marquee" — for non-essential scrolling content, equivalent to aria-live="off".'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: SC 4.1.3 Status Messages (Level AA, added in WCAG 2.1) requires that status messages can be announced without receiving focus. role="status" (polite) is the most common solution. role="alert" (assertive) should be reserved for urgent messages. The live region container must exist in the DOM before dynamic content is inserted.'
-      }
     ],
     relatedTopics: ['aria-overview', 'aria-states-properties', 'aria-widget-patterns', 'screen-reader-testing'],
     examTips: [
@@ -3199,10 +2972,6 @@ export const topics = [
         type: 'paragraph',
         text: 'Accordions use buttons as the triggers (ensuring keyboard accessibility) with aria-expanded="true/false" to indicate state. The controlled panel is referenced by aria-controls on the button. Each button is typically wrapped in a heading element for document structure. Keyboard: Enter/Space toggles the section, and optionally Arrow Up/Down moves between accordion headers.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The APG (ARIA Authoring Practices Guide) is the definitive reference for widget patterns. Key principle: the role determines the expected keyboard behavior. If you use role="tab", users expect Arrow key navigation. If you use role="dialog", users expect focus trapping and Escape to close. Always implement BOTH the ARIA semantics AND the keyboard behavior.'
-      }
     ],
     relatedTopics: ['aria-overview', 'aria-roles', 'aria-states-properties', 'keyboard-testing'],
     examTips: [
@@ -3268,10 +3037,6 @@ export const topics = [
         type: 'paragraph',
         text: 'A systematic testing approach includes: (1) Run automated scans first to catch low-hanging fruit. (2) Perform keyboard-only navigation through the entire user flow. (3) Test with at least one screen reader (NVDA on Windows or VoiceOver on Mac). (4) Zoom to 200% and reflow at 320px to test responsive behavior. (5) Check color contrast with tools. (6) Review content structure — headings, landmarks, reading order. (7) Test forms end-to-end including error handling.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Automated tools catch only 30-40% of accessibility issues. The WAS exam emphasizes that manual testing and assistive technology testing are essential complements. Know what automated tools CAN catch (missing alt, contrast, missing labels) and what they CANNOT (quality of alt text, logical reading order, keyboard trap identification, cognitive clarity).'
-      }
     ],
     relatedTopics: ['automated-testing-tools', 'screen-reader-testing', 'keyboard-testing'],
     examTips: [
@@ -3322,10 +3087,6 @@ export const topics = [
           'Whether focus is moved appropriately when new content appears'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know that Lighthouse uses axe-core under the hood. Understand the distinction between "violations" (definite failures), "incomplete/needs review" (potential issues requiring human judgment), and "passes." Automated tools are best used for regression testing in CI/CD pipelines to catch new issues before deployment.'
-      }
     ],
     relatedTopics: ['testing-fundamentals', 'screen-reader-testing', 'keyboard-testing'],
     examTips: [
@@ -3378,10 +3139,6 @@ export const topics = [
           'Custom widgets: roles, states (expanded/collapsed, selected, checked) announced correctly'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: For the WAS exam, know the common browser/screen reader pairings: JAWS + Chrome or Firefox, NVDA + Firefox, VoiceOver + Safari. Know that screen readers have two primary modes: Browse/Virtual mode (reads content, uses arrow keys) and Forms/Focus mode (interacts with controls, uses Tab). Understanding this modal behavior is key to understanding how screen reader users experience the web.'
-      }
     ],
     relatedTopics: ['testing-fundamentals', 'keyboard-testing', 'aria-states-properties', 'aria-live-regions'],
     examTips: [
@@ -3434,10 +3191,6 @@ export const topics = [
         type: 'paragraph',
         text: 'A keyboard trap occurs when a user can Tab into a component but cannot Tab out of it. This violates SC 2.1.2 No Keyboard Trap (Level A). Common sources: embedded media players, rich text editors, third-party widgets, and improperly implemented modal dialogs. The only acceptable "trap" is a modal dialog, which should trap focus intentionally but always provide an Escape key exit. Test for traps by tabbing through every interactive element on the page.'
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: SC 2.1.1 Keyboard and SC 2.1.2 No Keyboard Trap are both Level A — the most critical level. Know the difference between tabindex="0" (adds to tab order), tabindex="-1" (programmatic focus only), and positive tabindex (avoid — disrupts natural order). The only acceptable focus trap is a modal dialog with an Escape exit.'
-      }
     ],
     relatedTopics: ['testing-fundamentals', 'focus-indicators', 'aria-widget-patterns'],
     examTips: [
@@ -3499,10 +3252,6 @@ export const topics = [
           'Stark — design tool plugin for Figma/Sketch/Adobe XD for checking contrast during design'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Memorize the ratios: 4.5:1 normal text (AA), 3:1 large text (AA), 7:1 normal text (AAA), 4.5:1 large text (AAA), 3:1 non-text (AA). Large text = 18pt or 14pt bold. SC 1.4.11 Non-text Contrast was added in WCAG 2.1 and covers UI components and graphical objects at 3:1.'
-      }
     ],
     relatedTopics: ['focus-indicators', 'responsive-accessibility', 'testing-fundamentals'],
     examTips: [
@@ -3560,10 +3309,6 @@ export const topics = [
           'Relying solely on the browser default focus ring — it may not be visible on all backgrounds'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: SC 2.4.7 Focus Visible (AA) requires visible keyboard focus indicators. WCAG 2.2 added SC 2.4.11 Focus Not Obscured (AA) — the focused element must not be entirely hidden by author-created content. Never use outline: none without a replacement style. Use :focus-visible for modern focus management to show focus only for keyboard navigation.'
-      }
     ],
     relatedTopics: ['keyboard-testing', 'color-contrast', 'responsive-accessibility'],
     examTips: [
@@ -3621,10 +3366,6 @@ export const topics = [
           'Support pinch-to-zoom — never use maximum-scale=1 or user-scalable=no in the viewport meta tag'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: SC 1.4.10 Reflow: 320px wide for vertical scrolling content (equivalent to 1280px at 400% zoom). SC 2.5.8 Target Size (Minimum): 24x24 CSS pixels (WCAG 2.2, Level AA). Never use user-scalable=no or maximum-scale=1 — they prevent zooming. Use relative units, not fixed pixels. Test at 200% zoom and 400% zoom.'
-      }
     ],
     relatedTopics: ['color-contrast', 'focus-indicators', 'testing-fundamentals'],
     examTips: [
@@ -3699,10 +3440,6 @@ export const topics = [
           'These tools help identify missing names, incorrect roles, or hidden elements that should be exposed'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The accessibility tree is NOT the DOM — it is a simplified version built from the DOM. Native HTML provides implicit roles; ARIA overrides or adds semantics. The tree exposes name, role, value, state, and description. CSS display:none removes from both visual display AND the accessibility tree. aria-hidden="true" removes from the accessibility tree only.'
-      }
     ],
     relatedTopics: ['aria-overview', 'aria-roles', 'semantic-html', 'screen-readers'],
     examTips: [
@@ -3770,10 +3507,6 @@ export const topics = [
           'Groups of radio buttons or checkboxes: <fieldset> with <legend> for the group name'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: The name computation priority is: aria-labelledby > aria-label > native label (text content, alt, <label>) > title. aria-labelledby overrides everything, even aria-label. aria-label overrides native text content. Know the difference between accessible name (identifies the element) and accessible description (supplementary info via aria-describedby). WCAG 2.5.3 Label in Name (Level A) requires that the visible text label is included in the accessible name.'
-      }
     ],
     relatedTopics: ['aria-overview', 'aria-states-properties', 'form-accessibility', 'accessibility-tree'],
     examTips: [
@@ -3856,10 +3589,6 @@ export const topics = [
           'Rule 5: All interactive elements must have an accessible name'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Always prefer native HTML over custom ARIA widgets (Rule 1 of ARIA). A custom role completely overrides the native role — <li role="button"> is announced as a button, not a list item. ARIA does NOT add keyboard behavior — the author must implement it. The application role should be used very sparingly as it overrides screen reader navigation keystrokes.'
-      }
     ],
     relatedTopics: ['aria-overview', 'aria-widget-patterns', 'semantic-html', 'aria-roles'],
     examTips: [
@@ -3923,10 +3652,6 @@ export const topics = [
           'Use aria-live="polite" for non-urgent updates and aria-live="assertive" only for critical alerts'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: SPAs do NOT fire page load events, so screen readers miss route changes. Three remedies: (1) update document.title, (2) move focus to the new content, (3) use aria-live announcements. For AJAX content: if user-triggered, notify; if passive, notification depends on urgency. The aria-live container must already exist in the DOM before content is injected.'
-      }
     ],
     relatedTopics: ['aria-live-regions', 'javascript-accessibility', 'aria-overview', 'screen-readers'],
     examTips: [
@@ -3990,10 +3715,6 @@ export const topics = [
           'The live region container must be present in the DOM at page load, then content is injected dynamically'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: onClick on a <button> includes keyboard support (Enter/Space) — but onClick on a <div> does NOT. Progressive enhancement = essential content works without JavaScript. Two focus management strategies for composite widgets: roving tabindex (move tabindex="0" between children) and aria-activedescendant (keep DOM focus on container, change the active descendant ID). ARIA live region containers must exist in the DOM before injecting content.'
-      }
     ],
     relatedTopics: ['spa-accessibility', 'aria-states-properties', 'aria-live-regions', 'standard-vs-custom-controls'],
     examTips: [
@@ -4057,10 +3778,6 @@ export const topics = [
           'While ATAG currently references WCAG 2.0, the new WCAG 2.1/2.2 success criteria can be incorporated into ATAG analysis'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: ATAG has two parts: Part A = the authoring tool UI is accessible; Part B = the tool supports producing accessible content. ATAG is a W3C Recommendation, like WCAG. Know the three WAI guidelines: WCAG (content), ATAG (authoring tools), UAAG (user agents/browsers). ATAG currently references WCAG 2.0 but can be applied with WCAG 2.1/2.2 criteria.'
-      }
     ],
     relatedTopics: ['wcag-overview', 'w3c-wai', 'procurement-accessibility'],
     examTips: [
@@ -4114,10 +3831,6 @@ export const topics = [
           'Sampling conclusions about the overall website are estimates, not strict conformance claims'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: WCAG-EM has 5 steps: Scope → Explore → Sample → Audit → Report. Conformance is per individual page — not per entire website. If any single SC fails, that page does not conform. WCAG-EM is for the evaluation process and sampling — it does NOT define how to test individual Success Criteria. A conforming alternate version must be equivalent in content and accessible itself.'
-      }
     ],
     relatedTopics: ['wcag-overview', 'testing-fundamentals', 'act-rules', 'automated-testing-tools'],
     examTips: [
@@ -4180,10 +3893,6 @@ export const topics = [
           'Automated tools implement ACT Rules, but no tool covers all rules — and some rules require semi-automated or manual testing'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: ACT Rules check for specific failures — passing a rule does NOT mean full SC conformance. ACT Rules are non-normative and NOT required for WCAG conformance. Rules are for tool developers, not content creators. Each SC typically has multiple ACT Rules, each checking one aspect. Automated tools cannot determine full WCAG conformance — manual testing is always needed.'
-      }
     ],
     relatedTopics: ['wcag-em', 'automated-testing-tools', 'testing-fundamentals', 'wcag-overview'],
     examTips: [
@@ -4262,10 +3971,6 @@ export const topics = [
           'Agile is generally more effective for accessibility because it enables early discovery and iterative improvement'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Plan–Create–Test (PCT) cycle. Shift-left = find issues early, when they are cheaper to fix. Automated tools catch only 30-50% of accessibility issues — manual testing is always required. In agile, accessibility is part of every sprint and the Definition of Done. In waterfall, late-stage testing is risky because time pressure leads to skipped or incomplete testing.'
-      }
     ],
     relatedTopics: ['testing-fundamentals', 'automated-testing-tools', 'wcag-em', 'remediation-prioritization'],
     examTips: [
@@ -4321,10 +4026,6 @@ export const topics = [
           'Establish a process for avoiding new barriers — integrate accessibility into the Definition of Done'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Prioritize by: user impact (blocking > difficult > minor), frequency (template issues multiply site-wide), key flows (high-traffic pages first), cost-benefit (quick fixes first), and legal risk (Level A > AA > AAA). Fix template/component issues early because they propagate. EN 301 549 Annex B maps requirements to user groups, helping assess impact.'
-      }
     ],
     relatedTopics: ['remediation-strategies', 'wcag-overview', 'wcag-em', 'accessibility-qa-lifecycle'],
     examTips: [
@@ -4390,10 +4091,6 @@ export const topics = [
           'Focus management: add visible focus indicators; manage focus on dynamic content changes'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Know the difference between a conformance failure (fails a specific SC — must be fixed) and a best practice (improves usability but not a WCAG failure). ARIA patches can fix issues without full redesign, but semantic HTML is always preferred long-term. A hybrid approach works: fix critical blockers immediately while planning redesign for systemic issues. Communicate findings precisely: which SC fails, where, and how to fix it.'
-      }
     ],
     relatedTopics: ['remediation-prioritization', 'semantic-html', 'aria-overview', 'form-accessibility', 'color-contrast'],
     examTips: [
@@ -4495,10 +4192,6 @@ export const topics = [
           'Closed captions (can be shown/hidden) are preferred over open captions (burned in) because they are customizable'
         ]
       },
-      {
-        type: 'callout',
-        text: 'Exam tip: Blind users navigate by headings, landmarks, and links. Keyboard-only users (motor disabilities) can only Tab sequentially — they CANNOT jump by headings/landmarks. Voice control users need visible labels that match accessible names (SC 2.5.3). Low vision users may combine magnification with screen reader speech. Deaf sign language users may find written text difficult — it is like a second language. Screen reader modes: Browse, Forms, Application.'
-      }
     ],
     relatedTopics: ['screen-readers', 'switch-devices', 'visual-disabilities', 'cognitive-disabilities', 'mobility-disabilities', 'auditory-disabilities'],
     examTips: [
