@@ -1,5 +1,6 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { usePageFocus } from '../../hooks/usePageFocus';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import DomainCard from './DomainCard';
 import MissedBankCard from './MissedBankCard';
 import FlaggedBankCard from './FlaggedBankCard';
@@ -18,7 +19,7 @@ const COURSE_INFO = {
 
 export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank, flaggedBank, onStartReview }) {
   const headingRef = useRef(null);
-  const [activeCourse, setActiveCourse] = useState('cpacc');
+  const [activeCourse, setActiveCourse] = useLocalStorage('pourcast-course', 'cpacc');
 
   usePageFocus(headingRef);
 
