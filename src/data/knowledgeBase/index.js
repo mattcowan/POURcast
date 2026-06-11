@@ -1,7 +1,10 @@
 /**
  * POURcast Study Shelf - Knowledge Base
- * Comprehensive CPACC exam preparation topics
+ * Comprehensive CPACC and WAS exam preparation topics
  */
+import { wasDomain1Topics } from './wasDomain1Topics';
+import { wasDomain2Topics } from './wasDomain2Topics';
+import { wasDomain3Topics } from './wasDomain3Topics';
 
 export const topics = [
   // ============================================================
@@ -2035,7 +2038,7 @@ export const topics = [
     content: [
       {
         type: 'paragraph',
-        text: 'EN 301 549 is the European standard for accessibility requirements for ICT products and services. First published in 2014, it was developed by the European Telecommunications Standards Institute (ETSI) on behalf of the European Commission. The standard is referenced by the EU Web Accessibility Directive and the European Accessibility Act. It goes beyond web content to cover software, hardware, documents, telecommunications, and support services.'
+        text: 'EN 301 549 is the European standard for accessibility requirements for ICT products and services. It is a "harmonised" European standard, developed by the three official European Standards Organisations — CEN, CENELEC, and ETSI — on an explicit demand ("Mandate") of the European Commission to support European legislation. Harmonised standards provide voluntary technical specifications for presumed conformity: using the standard is an efficient way to show compliance, but an organization is free to choose other technical solutions to fulfill its legal obligations. The standard was originally developed to support procurement of accessible ICT, and goes beyond web content to cover software, hardware, documents, telecommunications, and support services. The current version (3.2.1) was published in 2021.'
       },
       {
         type: 'heading',
@@ -2044,24 +2047,62 @@ export const topics = [
       {
         type: 'list',
         items: [
-          'Chapter 9: Web content — directly incorporates WCAG 2.1 Level AA success criteria',
+          'Clause 4: Functional performance statements — user needs for locating, identifying, and operating ICT functions and accessing information, regardless of physical, cognitive, or sensory abilities',
+          'Chapter 9: Web content — directly references WCAG 2.1 Level A and AA success criteria (AAA criteria are referred to in 9.5, and the WCAG conformance requirements in 9.6)',
           'Chapter 10: Non-web documents — applies WCAG principles to PDFs, Word docs, and other non-web content',
           'Chapter 11: Software — applies WCAG principles to native applications and software interfaces',
           'Chapter 12: Documentation and support services — accessible user documentation, help desks, etc.',
           'Chapter 13: ICT providing relay or emergency service access',
-          'Chapter 5-8: Generic requirements, ICT with two-way voice, ICT with video, hardware'
+          'Chapter 5-8: Generic requirements, ICT with two-way voice, ICT with video, hardware',
+          'Chapters 10 and 11 draw on the non-normative W3C guidance WCAG2ICT (Applying WCAG to Non-Web ICT)'
         ]
       },
       {
         type: 'paragraph',
         text: 'EN 301 549 is particularly important because it extends WCAG beyond web content. While WCAG itself only covers web content, EN 301 549 adapts WCAG criteria for non-web documents (Chapter 10) and native software (Chapter 11). This means organizations subject to EN 301 549 must make their PDFs, mobile apps, desktop software, and hardware accessible, not just their websites.'
       },
+      {
+        type: 'heading',
+        text: 'The Annexes'
+      },
+      {
+        type: 'list',
+        items: [
+          'Annex A presents the relationship between the technical requirements and the EU Web Accessibility Directive (Directive (EU) 2016/2102), which covers public sector websites and apps. Table A.1 lists the requirements that provide presumed conformance with the Directive — including 38 additional requirements applicable to web content that go beyond the WCAG success criteria',
+          'Annex B maps the functional performance statements (user needs) of Clause 4 to the technical requirements of clauses 5-13. This makes it possible to assess the impact of specific requirements — which user groups are affected and how — and is a useful tool when judging the severity and user impact of issues',
+          'Annex C describes the test procedures and evaluation methodology for determining conformance with each requirement. It lists a test for every requirement but does not provide a detailed testing methodology'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Self-Scoping Requirements'
+      },
+      {
+        type: 'paragraph',
+        text: 'Because EN 301 549 can apply to any ICT product or service, its requirements use a feature-based, "self-scoping" approach: each requirement (except those in Chapter 12) includes applicability wording, such as "Where ICT displays video with synchronised audio, it shall have a mode of operation...". If the precondition is not met, the requirement simply does not apply; if it is met, you assess pass or fail using the corresponding Annex C test.'
+      },
+      {
+        type: 'heading',
+        text: 'Relationship to EU Legislation and Global Adoption'
+      },
+      {
+        type: 'list',
+        items: [
+          'Web Accessibility Directive (2016/2102): public sector bodies achieve presumed conformity by meeting the Annex A requirements',
+          'European Accessibility Act (EAA): EN 301 549 is being updated under Mandate 587 (together with other standards) to support the EAA, which entered into force on 28 June 2025 and extends accessibility obligations to many private-sector products and services',
+          'Adoption beyond Europe: adopted in Australia as AS EN 301 549, and also used in countries such as Canada, Mexico, and Kenya',
+          'ITI publishes a VPAT edition (VPAT 2.4 Rev EU) for reporting conformance against EN 301 549'
+        ]
+      },
     ],
-    relatedTopics: ['eu-accessibility', 'wcag-overview', 'section-508', 'vpat'],
+    relatedTopics: ['eu-accessibility', 'wcag-overview', 'section-508', 'vpat', 'wcag-conformance-requirements'],
     examTips: [
-      'European ICT standard — incorporates WCAG 2.1 AA and extends beyond web',
-      'Chapter 9 = web, Chapter 10 = documents, Chapter 11 = software',
-      'Referenced by EU Web Accessibility Directive and European Accessibility Act',
+      'European ICT standard — references WCAG 2.1 A and AA and extends beyond web',
+      'Chapter 9 = web, Chapter 10 = documents, Chapter 11 = software; Clause 4 = functional performance statements (user needs)',
+      'Annex A Table A.1 = presumed conformance with the Web Accessibility Directive, including 38 requirements beyond WCAG for web content',
+      'Annex B maps user needs to technical requirements — use it to judge user impact; Annex C provides the tests',
+      'Requirements are self-scoping ("Where ICT...") — if the precondition is absent, the requirement is not applicable',
+      'Harmonised standard = voluntary route to presumed conformity; being updated under Mandate 587 for the European Accessibility Act',
       'US Section 508 Refresh also harmonized with EN 301 549'
     ]
   },
@@ -2204,13 +2245,34 @@ export const topics = [
           'Level 5 — Optimizing/Leading: Continuous improvement, accessibility is part of organizational DNA'
         ]
       },
+      {
+        type: 'heading',
+        text: 'Procurement Maturity Models'
+      },
+      {
+        type: 'paragraph',
+        text: 'Maturity models are especially powerful within procurement processes. Applying a maturity model to procurement ensures accessibility is systematically considered in purchasing decisions, reduces the risk of acquiring inaccessible products or services, and fosters long-term, sustainable accessibility improvements across the supply chain. The WAS Body of Knowledge names two publicly available, free maturity models that specifically address procurement:'
+      },
+      {
+        type: 'list',
+        items: [
+          'PDAA (Policy Driven Adoption for Accessibility): an initiative by the National Association of State Chief Information Officers (NASCIO) that helps procurement organizations choose vendors who can meet accessibility requirements',
+          'W3C Accessibility Maturity Model — Procurement dimension: includes assessments for sourcing, negotiation, and selection of goods and services, reviewing the use of accessibility processes, criteria, contract language, and decision-making to procure and maintain accessible products and services throughout the procurement life cycle'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Maturity models can also be used to illustrate progress and sustainability to stakeholders — showing that accessibility is improving over time, not just whether a single audit passed.'
+      },
     ],
-    relatedTopics: ['w3c-wai', 'procurement-accessibility', 'vpat'],
+    relatedTopics: ['w3c-wai', 'procurement-accessibility', 'procurement-expert-role', 'vpat'],
     examTips: [
       'Maturity models = organizational capability assessment, not technical compliance',
       'Cover people, process, and technology dimensions',
       'Progress from ad-hoc/reactive to integrated/leading',
-      'W3C WAI Accessibility Maturity Model is the key reference'
+      'W3C WAI Accessibility Maturity Model is the key reference',
+      'PDAA (by NASCIO) = procurement-focused model helping organizations evaluate vendors against accessibility requirements',
+      'W3C maturity model procurement dimension: sourcing, negotiation, selection, contract language, decision-making'
     ]
   },
   {
@@ -2231,7 +2293,7 @@ export const topics = [
       {
         type: 'list',
         items: [
-          'VPAT 2.x is the current version, available in multiple editions:',
+          'VPAT 2.4 is the version referenced in the WAS Body of Knowledge (2.5 is the latest published), available in multiple editions:',
           'WCAG Edition: Covers WCAG 2.x success criteria',
           'Section 508 Edition: Covers the Revised Section 508 Standards (for US federal procurement)',
           'EN 301 549 Edition: Covers the European ICT accessibility standard',
@@ -2249,7 +2311,7 @@ export const topics = [
           'Partially Supports: Some functionality meets the criterion',
           'Does Not Support: The majority of functionality does not meet the criterion',
           'Not Applicable: The criterion is not relevant to the product',
-          'Not Evaluated: The product has not been evaluated against this criterion'
+          'Not Evaluated: The product has not been evaluated against this criterion (a VPAT-template option permitted only for WCAG Level AAA criteria — the BoK lists just the first four levels)'
         ]
       },
     ],
@@ -3087,14 +3149,39 @@ export const topics = [
           'Whether focus is moved appropriately when new content appears'
         ]
       },
+      {
+        type: 'heading',
+        text: 'Tool Landscape by Phase'
+      },
+      {
+        type: 'paragraph',
+        text: 'The WAS Body of Knowledge groups testing tools into classes that apply at different stages of the development lifecycle. When deciding whether and when to use an automated tool, consider: which phase of the lifecycle you are testing in, whether tests will be repeated, who is conducting the test (designer, developer, content author, QA), and the tester\'s level of expertise — automated findings always need human interpretation to derive further actions.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Site-wide scanning, monitoring, and reporting (production/operations): crawl entire sites and track results over time — e.g., AMP and Tenon.io (Level Access), WAVE API (WebAIM), SortSite (PowerMapper); server-based analysis like Siteimprove Accessibility and WebAIM\'s AIM Report; and open-source EU-monitoring scanners such as Access Monitor (Portugal), BOSA Accessibility Checker (Belgium), and Observatorio de Accesibilidad Web (Spain)',
+          'Browser-based developer/QA tools (development and QA, one page at a time): ANDI — Accessible Name and Description Inspector (US Social Security Administration), ARC Toolkit/ARC Platform (TPGi), Accessibility Insights (Microsoft), AInspector for Firefox (University of Illinois), axe browser extension (Deque), WAVE extension (WebAIM), Chrome Lighthouse, browser DevTools inspectors, and JavaScript bookmarklets for specific checks',
+          'Unit and integration testing APIs (during development and before deployment): axe API/axe-core (integrates with Selenium and similar frameworks) and Tenon API — run automatically in CI/CD to catch regressions before release',
+          'Guided manual testing tools (structured QA walkthroughs based on heuristics): Accessibility Insights for Web (Microsoft), ARC Platform (TPGi), Axe Auditor (Deque), JAWS Inspect (Freedom Scientific)',
+          'Simulators (design reviews and empathy-building): Color Oracle and NoCoffee simulate color vision deficiencies and low vision; PEAT (Photosensitive Epilepsy Analysis Tool, Trace R&D Center) analyzes content for seizure risks',
+          'Single-purpose tools and inspectors: WebAIM Contrast Checker, Colour Contrast Analyser (TPGi/Paciello Group), HeadingsMap, and accessibility API viewers like Accessibility Viewer (Windows) and Xcode Accessibility Inspector (macOS)'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'Match the tool class to the lifecycle phase: simulators and contrast checkers during design; unit/integration APIs and browser extensions during development; guided manual and browser QA tools during testing; site-wide scanners for ongoing monitoring of released products.'
+      },
     ],
-    relatedTopics: ['testing-fundamentals', 'screen-reader-testing', 'keyboard-testing'],
+    relatedTopics: ['testing-fundamentals', 'screen-reader-testing', 'keyboard-testing', 'act-rules'],
     examTips: [
       'axe-core is the most widely used engine; Lighthouse uses it under the hood',
       'Automated tools aim for zero false positives — but that means they miss issues they cannot confirm',
       'WAVE provides visual overlays; axe provides structured results for developers',
       'Use automated tools in CI/CD to prevent regression, not as the sole testing method',
-      'Automated tools cannot judge the quality or context of accessibility implementations'
+      'Automated tools cannot judge the quality or context of accessibility implementations',
+      'Tool classes by phase: simulators (design) → unit/integration APIs (development/CI) → browser tools (page-level dev/QA) → site-wide scanners (production monitoring)',
+      'Know the named examples: ANDI, ARC Toolkit, Accessibility Insights, AInspector, axe, WAVE (browser); PEAT (photosensitivity); Color Oracle/NoCoffee (vision simulation)'
     ]
   },
   {
@@ -3753,6 +3840,10 @@ export const topics = [
         ]
       },
       {
+        type: 'paragraph',
+        text: 'The intent behind the two parts is complementary. If authoring tools take accessibility into account, more content creators — including people with disabilities — will be able to use these interfaces and produce web content (Part A). And content itself will be more accessible, because tools that follow the guidelines provide the resources needed to create accessible web content and avoid accessibility problems (Part B). ATAG 2.0 specifies requirements primarily for developers of authoring tools, but the guidelines and supporting documents also help organizations evaluate and choose software that provides an accessible interface and accessible content output.'
+      },
+      {
         type: 'heading',
         text: 'ATAG Structure'
       },
@@ -3762,7 +3853,24 @@ export const topics = [
           'Like WCAG, ATAG is organized into Principles, Guidelines, and Success Criteria at three conformance levels (A, AA, AAA)',
           'Part A principles cover: perceivable editing views, operable editing views, understandable editing views, and robust editing views',
           'Part B principles cover: automated accessible content production, assisting authors to produce accessible content, and promoting accessibility features',
-          'Implementing ATAG 2.0 is the non-normative supporting document (similar to Understanding WCAG)'
+          'ATAG 2.0 itself is the normative document — its Success Criteria are the testable requirements',
+          'Implementing ATAG 2.0 is the non-normative supporting document (similar to Understanding WCAG) — it provides guidance for understanding ATAG but is not required for conformance'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Automated Practices vs. Author Input'
+      },
+      {
+        type: 'paragraph',
+        text: 'A key WAS skill is distinguishing good practices a tool can fully automate from those that require author or user input. Some accessibility outcomes can be automated reliably: generating valid, semantic markup; providing accessible templates; preserving accessibility information (like alt text) when content is copied or transformed. Others depend on human judgment about meaning and context: only the author knows whether alt text accurately describes an image, whether a heading is descriptive, or whether a caption is correct. For these, the tool\'s job is to prompt, guide, and check — not to silently fabricate.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Power of automated authoring features: they scale across all content produced with the tool, prevent entire classes of errors at the source, and help authors with no accessibility expertise produce accessible output',
+          'Limitations: automation cannot judge the appropriateness or quality of content decisions — auto-generated text alternatives or automatic "repairs" can be wrong or meaningless without author review',
+          'Well-designed tools combine both: automate what is mechanical, and prompt the author for what requires judgment (e.g., requiring alt text at upload rather than inserting a filename)'
         ]
       },
       {
@@ -3779,10 +3887,13 @@ export const topics = [
         ]
       },
     ],
-    relatedTopics: ['wcag-overview', 'w3c-wai', 'procurement-accessibility'],
+    relatedTopics: ['wcag-overview', 'w3c-wai', 'procurement-accessibility', 'normative-vs-non-normative'],
     examTips: [
       'Part A = tool UI is accessible; Part B = tool produces accessible content',
+      'Part A intent: people with disabilities can author; Part B intent: tools provide what authors need to produce accessible output',
       'ATAG is a W3C Recommendation with three conformance levels (A, AA, AAA)',
+      'ATAG 2.0 = normative; Implementing ATAG 2.0 = non-normative supporting document',
+      'Automation handles mechanics (valid markup, accessible templates); author input is needed for judgment calls (is the alt text accurate?)',
       'Three WAI guidelines: WCAG (content), ATAG (authoring tools), UAAG (user agents)',
       'ATAG currently references WCAG 2.0 — apply WCAG 2.1/2.2 criteria when evaluating',
       'Examples of authoring tools: CMS, WYSIWYG editors, social media platforms, LMS'
@@ -3913,7 +4024,26 @@ export const topics = [
     content: [
       {
         type: 'paragraph',
-        text: 'Accessibility quality assurance is most effective when integrated into every phase of the product lifecycle: Plan, Create, Test (PCT). Discovering and fixing accessibility issues early (shift-left testing) is far more cost-effective than remediating after release. Every team member — from management to designers, developers, content creators, and QA — has a role in delivering an accessible product.'
+        text: 'Accessibility quality assurance is most effective when integrated into every phase of the product lifecycle: Plan, Create, Test (PCT). Discovering and fixing accessibility issues early (shift-left testing) is far more cost-effective than remediating after release. Every team member — from management to designers, developers, content creators, and QA — has a role in delivering an accessible product. Accessibility experts and people with disabilities should be part of all stages to ensure the quality and usability of the product.'
+      },
+      {
+        type: 'heading',
+        text: 'Management and Organizational Responsibilities'
+      },
+      {
+        type: 'paragraph',
+        text: 'Management sets the conditions for a sustainable accessibility implementation. Having an accessibility expert on the team (or an external consultant) can be helpful, but the requirements must be shared across the team — every member has a role to play. W3C\'s Planning and Managing Web Accessibility guidance similarly recommends developing internal expertise and identifying accessibility champions to sustain the effort.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Define accessibility goals and policies for the organization',
+          'Provide the necessary resources and budgets',
+          'Ensure know-how through training, and organize awareness events',
+          'Include accessibility in job descriptions and assign responsibilities to individuals',
+          'Sustain the effort beyond project completion: accessibility must be maintained through support, content updates, and regression testing',
+          'The full product lifecycle includes concept, requirements, design, prototyping, development, QA, user testing, support, and regression testing — each role should include some aspect of accessibility'
+        ]
       },
       {
         type: 'heading',
@@ -3966,8 +4096,10 @@ export const topics = [
       {
         type: 'list',
         items: [
-          'Agile: accessibility is integrated into each sprint — test early and often; include a11y criteria in story acceptance requirements; iterate based on testing feedback',
-          'Waterfall: testing happens at the end of development — if issues are found late, they are more expensive and time-consuming to fix; tests may be rushed or omitted under time pressure',
+          'Agile: accessibility is integrated into each sprint — test early and often; include a11y criteria in story acceptance requirements; iterate based on testing feedback. The Plan–Create–Test cycle repeats until the task is considered complete',
+          'An agile approach to accessibility requires a fundamental understanding by all team members and acceptance of accessibility as an integral part of the workflow — everyone must understand what accessibility is, who benefits, why it matters, and how to do it',
+          'Waterfall: a linear process that breaks activities into sequential phases, each depending on the deliverables of the previous phase — testing happens at the end of development',
+          'Because projects tend to be time-pressured and over budget, end-of-process tests may be rushed, omitted, or their findings ignored; problems discovered late involve more work and cost more to fix than doing things right from the start',
           'Agile is generally more effective for accessibility because it enables early discovery and iterative improvement'
         ]
       },
@@ -3977,9 +4109,11 @@ export const topics = [
       'Plan–Create–Test cycle: accessibility is part of every phase',
       'Shift-left: find issues early when they are cheaper to fix',
       'Every team member has a role in accessibility — not just QA',
+      'Management responsibilities: define goals/policies, provide budget, ensure training, include accessibility in job descriptions',
+      'An in-team expert or consultant helps, but accessibility knowledge must be shared across the whole team',
       'Automated tools catch 30-50% of issues — manual testing always required',
       'Agile: accessibility in every sprint and Definition of Done',
-      'Waterfall: late-stage testing is risky — issues are more expensive to fix'
+      'Waterfall: linear, sequential phases with late-stage testing — issues found late are more expensive, and tests risk being rushed or omitted'
     ]
   },
 
@@ -4056,11 +4190,30 @@ export const topics = [
         type: 'list',
         items: [
           'Fixing: targeted repairs to specific issues without changing the overall design — appropriate for localized, minor defects',
-          'Redesign: rebuilding a component or page section from scratch — necessary when defects are widespread, deeply embedded in the architecture, or in templates/design systems',
-          'Hybrid approach: immediately fix critical blockers while planning a longer-term redesign for systemic issues',
-          'Consider: is the current code maintainable? Older, complex code may make fixing harder and more fragile than rewriting',
-          'A rewrite can incorporate current best practices and be more future-proof, but requires more resources'
+          'Redesign: rebuilding a component or page section from scratch — necessary when defects are widespread, deeply embedded in the architecture, or in templates/design systems'
         ]
+      },
+      {
+        type: 'heading',
+        text: 'The Five Decision Factors'
+      },
+      {
+        type: 'paragraph',
+        text: 'The WAS Body of Knowledge names five factors to evaluate when deciding whether to remediate existing code or rewrite it:'
+      },
+      {
+        type: 'list',
+        items: [
+          'Severity and scope of defects: minor, localized issues favor remediation; widespread defects affecting core functionality — especially in templates or design systems — may require a complete rewrite',
+          'Code complexity and maintainability: older, complex, poorly structured code makes remediation difficult and costly; rewriting to modern standards can yield a cleaner, more maintainable solution',
+          'User impact: prioritize the user experience — if defects significantly hinder accessibility, a more comprehensive approach (potentially a rewrite) may be warranted',
+          'Resource availability: remediation is usually quicker and cheaper; if time, budget, and expertise allow, a rewrite can produce a more robust, future-proof solution',
+          'Future-proofing: a rewrite can incorporate current and emerging best practices, making the site more adaptable to future accessibility requirements and technology changes'
+        ]
+      },
+      {
+        type: 'callout',
+        text: 'In practice, a hybrid approach is often used: immediate remediation addresses critical issues while a longer-term plan is developed for a comprehensive rewrite to ensure sustainable accessibility.'
       },
       {
         type: 'heading',
@@ -4069,9 +4222,10 @@ export const topics = [
       {
         type: 'list',
         items: [
-          'A conformance failure clearly violates a WCAG Success Criterion — it must be fixed to achieve conformance',
-          'A best practice issue makes the experience suboptimal but does not technically fail a specific SC — it should still be recommended for better usability',
+          'A conformance failure clearly violates a WCAG Success Criterion — it must be fixed to achieve conformance. A conformance test should flag a failure only when deficiencies clearly map to documented WCAG Failure techniques or otherwise clearly fail the normative success criterion, with the underlying deficiency clearly described',
+          'A best practice issue makes the experience suboptimal but does not technically fail a specific SC — it should still be recommended for better usability. A site that minimally conforms can still be difficult to use',
           'Auditors must clearly communicate the distinction: "This fails SC 1.1.1" vs. "This is a usability concern but not a WCAG failure"',
+          'Consult the WCAG supporting documents — the Understanding texts, the Techniques, and the ARIA Authoring Practices Guide (APG) — to determine whether an issue counts as a normative failure or is best-practice advice',
           'WCAG Sufficient Techniques are informative, not normative — there may be valid approaches not documented as techniques'
         ]
       },
@@ -4092,11 +4246,13 @@ export const topics = [
         ]
       },
     ],
-    relatedTopics: ['remediation-prioritization', 'semantic-html', 'aria-overview', 'form-accessibility', 'color-contrast'],
+    relatedTopics: ['remediation-prioritization', 'semantic-html', 'aria-overview', 'form-accessibility', 'color-contrast', 'failures-vs-best-practices', 'stakeholder-communication'],
     examTips: [
       'Conformance failure = violates a WCAG SC; best practice = improves UX but not a formal failure',
       'ARIA patches can fix issues without redesign, but semantic HTML is preferred long-term',
-      'Hybrid approach: fix critical blockers immediately, plan redesign for systemic issues',
+      'Hybrid approach: remediate critical issues now while planning a longer-term comprehensive rewrite',
+      'Five fix-vs-redesign factors: severity/scope, code complexity & maintainability, user impact, resource availability, future-proofing',
+      'Use Understanding docs, Techniques, and the APG to distinguish true failures from best-practice advice',
       'Communicate clearly: which SC fails, where on the page, and how to fix it',
       'Sufficient Techniques are informative, not normative — other valid approaches exist',
       'Consider code complexity and maintainability when choosing fix vs. redesign'
@@ -4119,6 +4275,18 @@ export const topics = [
       },
       {
         type: 'heading',
+        text: 'Adaptive Strategies vs. Assistive Technologies'
+      },
+      {
+        type: 'list',
+        items: [
+          'Adaptive strategies: configuring standard software and hardware to a person\'s needs — increasing text size, changing text and background colors, reducing mouse speed, turning on captions. Standard hardware, mobile devices, operating systems, and browsers all have built-in accessibility features',
+          'Assistive technologies: dedicated software or hardware such as screen readers, magnification software, or alternative input devices like switches and voice input',
+          'Coping strategies and preferred methods: users develop their own well-practiced ways of working and generally rely on their preferred, familiar methods (their own AT, settings, and navigation habits) rather than learning website-specific mechanisms — so content should work with users\' standard tools and configurations instead of forcing per-site workarounds'
+        ]
+      },
+      {
+        type: 'heading',
         text: 'Users Without Vision (Blind)'
       },
       {
@@ -4127,9 +4295,28 @@ export const topics = [
           'Primary AT: screen readers (JAWS, NVDA on Windows; VoiceOver on macOS/iOS; TalkBack on Android)',
           'Navigation strategies: jump by headings, landmarks, links, form controls, or tables using screen reader keyboard shortcuts',
           'Screen readers present content linearly following DOM order — visual layout is irrelevant',
-          'Modes: Browse/Read mode (navigate by element), Forms mode (type in form fields), Application mode (widget keyboard patterns)',
-          'Mobile: completely different gesture-based interaction model — swipe right/left to move forward/back, double-tap to activate',
-          'Refreshable Braille displays may be used for reading output instead of or alongside speech'
+          'Modes: Browse/Read mode (navigate by element), Forms mode (type in form fields), Application mode (widget keyboard patterns); VoiceOver offers the rotor and TalkBack a comparable menu for choosing navigation granularity',
+          'Refreshable Braille displays — external devices made up of rows of pins that raise and lower to form Braille characters — may be used for reading output instead of or alongside speech',
+          'Deaf-blind users depend on refreshable Braille displays: speech output is unusable for them, so Braille is their primary (often only) channel for screen reader output',
+          'Many screen reader users also use voice input — repetitive-strain conditions like carpal tunnel are common, and speaking is often quicker than virtual keyboard input'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Touch Interaction with a Screen Reader Running'
+      },
+      {
+        type: 'paragraph',
+        text: 'The interaction model for blind touchscreen users is completely different from that of sighted touchscreen users. When a screen reader (VoiceOver on iOS, TalkBack on Android) is activated, it overrides the visual touch interaction method and replaces it with a gesture-based system. Sighted users activate items based on their position on screen; screen reader users navigate sequentially and activate whatever currently has the screen reader focus.'
+      },
+      {
+        type: 'list',
+        items: [
+          'Swipe right: move forward to the next item; swipe left: move backward to the previous item',
+          'Double-tap anywhere on the screen: activate the current button or link — position no longer matters',
+          'Explore by touch: dragging a finger across the screen reads whatever is under it, letting users build a spatial picture of the layout',
+          'The specific gestures vary from one screen reader brand to the next',
+          'Design implication: hover-dependent and position-dependent interactions break under this model — for example, a menu item that opens a submenu on hover and follows a link on click is problematic for gesture-based mobile screen reader users'
         ]
       },
       {
@@ -4160,6 +4347,21 @@ export const topics = [
           'Head pointers, mouth sticks, eye trackers: need large click targets and adequate spacing between targets',
           'Skip navigation links are critical since keyboard-only users cannot navigate by headings or landmarks',
           'Prediction and autofill reduce the number of keystrokes needed for text input'
+        ]
+      },
+      {
+        type: 'heading',
+        text: 'Users with Limited Reading Capacity'
+      },
+      {
+        type: 'list',
+        items: [
+          'A wide spectrum of people have reading difficulties, including (but not limited to) people with ADHD, dyslexia, Irlen syndrome, or memory loss',
+          'Some use literacy-support assistive technology such as Kurzweil, read&write or BrowseAloud (Texthelp), NaturalReader, or platform text-to-speech — and some use no assistive technology at all',
+          'Text-to-speech (TTS) software highlights and reads text aloud so users can see and hear it simultaneously, freeing energy for comprehending rather than decoding words. Unlike screen readers, TTS focuses on text content and does not convey semantic information or navigation hints — most users in this group do not need that level of support',
+          'Some users prefer non-text formats — audio, video, or slide-based presentations with visual content — wherever available',
+          'Users may change text size, text and background colors, font, spacing, and line width in the browser, or apply a custom stylesheet — so text must be real text, not images of text, or these adaptations (and AT) cannot act on it',
+          'Structured section headings and semantic markup help these users navigate through content'
         ]
       },
       {
@@ -4195,12 +4397,17 @@ export const topics = [
     ],
     relatedTopics: ['screen-readers', 'switch-devices', 'visual-disabilities', 'cognitive-disabilities', 'mobility-disabilities', 'auditory-disabilities'],
     examTips: [
+      'Adaptive strategies = configuring standard software/hardware (text size, colors, mouse speed, captions); assistive technologies = dedicated tools (screen readers, magnifiers, switches)',
       'Blind: screen readers, navigate by headings/landmarks/links, content is linear per DOM order',
+      'Touch + screen reader: gestures replace visual touch — swipe right/left to move forward/back, double-tap anywhere to activate; gestures vary by screen reader',
+      'Deaf-blind users rely on refreshable Braille displays — pins that raise/lower to form Braille characters',
       'Low vision: magnification + possibly screen reader, zoom out/in for orientation, need focus tracking',
+      'Limited reading capacity: TTS reads text aloud but gives no semantic/navigation info (unlike a screen reader); real text (not images of text) is essential for adaptation',
       'Motor: keyboard-only users Tab sequentially — cannot jump by headings like SR users; voice control needs matching labels',
       'Cognitive: simple language, consistent navigation, text-to-speech (not full SR), autocomplete for forms',
       'Deaf: captions, transcripts, sign language videos; closed captions preferred over open; fix auto-caption errors',
-      'Screen reader modes: Browse/Read mode, Forms mode, Application mode'
+      'Screen reader modes: Browse/Read mode, Forms mode, Application mode (plus VoiceOver rotor / TalkBack menu)',
+      'Users rely on their own preferred, familiar methods — support standard tools and settings rather than website-specific mechanisms'
     ]
   },
 
@@ -4464,7 +4671,14 @@ export const topics = [
       'Eliminating two wrong options doubles your odds on a four-choice question',
       'Changing an answer with a reason is right more often than wrong — ignore the "first instinct" myth'
     ]
-  }
+  },
+
+  // ============================================================
+  // WAS BODY OF KNOWLEDGE GAP-FILL TOPICS (authored per domain)
+  // ============================================================
+  ...wasDomain1Topics,
+  ...wasDomain2Topics,
+  ...wasDomain3Topics
 ];
 
 // ============================================================

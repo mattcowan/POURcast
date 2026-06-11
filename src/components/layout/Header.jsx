@@ -1,11 +1,12 @@
 import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BookOpen, GraduationCap, Trophy, Star, Flame, Dumbbell, TrendingUp } from 'lucide-react';
+import { BookOpen, GraduationCap, Trophy, Star, Flame, Dumbbell, TrendingUp, ClipboardCheck } from 'lucide-react';
 import AccessibilityPanel from './AccessibilityPanel';
 
 export default function Header({ stats }) {
   const location = useLocation();
   const isLearn = location.pathname.startsWith('/learn');
+  const isPractice = location.pathname.startsWith('/practice');
   const isHome = location.pathname === '/';
 
   return (
@@ -36,8 +37,13 @@ export default function Header({ stats }) {
           <nav aria-label="Main navigation">
             <ul className="flex items-center gap-2 list-none m-0 p-0">
               <li>
-                <NavLink to="/" active={isHome} label="Practice">
+                <NavLink to="/" active={isHome} label="Quizzes">
                   <Dumbbell size={16} aria-hidden="true" />
+                </NavLink>
+              </li>
+              <li>
+                <NavLink to="/practice" active={isPractice} label="Mock Exams">
+                  <ClipboardCheck size={16} aria-hidden="true" />
                 </NavLink>
               </li>
               <li>

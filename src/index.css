@@ -386,3 +386,28 @@ body {
 .hover-surface:focus-visible {
   background-color: var(--bg-surface-hover) !important;
 }
+
+/* ============================================================
+   Mock exam (practice test) styles
+   ============================================================ */
+
+/* Native <dialog> styling for ModalDialog */
+.practice-dialog {
+  background-color: var(--bg-surface);
+  color: var(--text-primary);
+  border: 2px solid var(--border-strong);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  max-width: 36rem;
+  width: calc(100vw - 2rem);
+}
+
+.practice-dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+/* The answer radio is visually hidden, so draw its focus ring on the card */
+.practice-option:has(input:focus-visible) {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}

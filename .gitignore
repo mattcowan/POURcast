@@ -4,3 +4,5 @@ src/assets/fonts/
 .env
 .env.local
 *.log
+.playwright-mcp/
+playwright-profile/
