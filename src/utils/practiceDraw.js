@@ -38,8 +38,10 @@ export function drawPracticeTest(courseId, domainsByCourse) {
  * @param {Array} entries - [{qid, domainId, optionOrder}]
  * @param {Array} allDomains - all domain objects (both courses)
  * @returns {{questions: object[], missingIds: number[]}}
- *   questions[i] corresponds to entries[i]; missing qids (e.g. removed in an
- *   app update) are reported in missingIds and skipped in questions.
+ *   questions holds the resolved questions in entry order but EXCLUDES
+ *   missing qids (e.g. removed in an app update), so it is not positionally
+ *   aligned with entries when missingIds is non-empty. Missing qids are
+ *   reported in missingIds.
  */
 export function resolveEntries(entries, allDomains) {
   const byId = new Map();
@@ -61,10 +63,12 @@ export function resolveEntries(entries, allDomains) {
 }
 
 /**
- * Grade a finished session. Unanswered questions count as incorrect.
+ * Grade a finished session. Unanswered questions count as incorrect, and so
+ * do entries whose question no longer resolves (removed in an app update) —
+ * dropping them from the denominator would inflate the score.
  *
  * @param {object} session - { courseId, entries, answers: {qid: selectedIdx} }
- * @param {object[]} questions - resolved questions aligned with session.entries
+ * @param {object[]} questions - resolved questions from resolveEntries
  * @returns {{score:number, total:number, percentage:number, passed:boolean,
  *            perDomain: Object<string,{correct:number,total:number}>}}
  */
@@ -75,17 +79,16 @@ export function gradeSession(session, questions) {
   let score = 0;
   const perDomain = {};
   for (const entry of session.entries) {
-    const q = byId.get(entry.qid);
-    if (!q) continue;
     if (!perDomain[entry.domainId]) perDomain[entry.domainId] = { correct: 0, total: 0 };
     perDomain[entry.domainId].total += 1;
-    if (session.answers?.[entry.qid] === q.correct) {
+    const q = byId.get(entry.qid);
+    if (q && session.answers?.[entry.qid] === q.correct) {
       score += 1;
       perDomain[entry.domainId].correct += 1;
     }
   }
 
-  const total = questions.length;
+  const total = session.entries.length;
   const percentage = total > 0 ? Math.round((score / total) * 100) : 0;
   const passed = percentage >= (config?.passPercent ?? 100);
   return { score, total, percentage, passed, perDomain };
