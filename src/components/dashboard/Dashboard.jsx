@@ -5,6 +5,7 @@ import DomainCard from './DomainCard';
 import MissedBankCard from './MissedBankCard';
 import FlaggedBankCard from './FlaggedBankCard';
 import CourseSelector from './CourseSelector';
+import PracticeTestCard from './PracticeTestCard';
 
 const COURSE_INFO = {
   cpacc: {
@@ -78,6 +79,10 @@ export default function Dashboard({ cpaccDomains, wasDomains, stats, missedBank,
                 </section>
               ) : null;
             })()}
+
+            <section aria-label="Mock exam" className="mb-6">
+              <PracticeTestCard courseId={courseKey} />
+            </section>
 
             <section aria-label="Study domains">
               <h2 className="text-lg font-semibold mb-4" style={{ color: 'var(--text-secondary)' }}>Domains</h2>

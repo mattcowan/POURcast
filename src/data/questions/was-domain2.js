@@ -1634,6 +1634,670 @@ export const wasDomain2 = {
       topicLinks: ['disability-user-strategies'],
       difficulty: 'hard',
       tags: ['user-testing']
+    },
+    // =============================================
+    // WCAG CONFORMANCE REQUIREMENTS (1401-1407)
+    // =============================================
+    {
+      id: 1401,
+      question: "According to WCAG's normative conformance requirements, what is the smallest unit to which a conformance claim can apply?",
+      options: [
+        "An individual component or widget",
+        "A full web page",
+        "An entire website",
+        "A DOM subtree identified by a CSS selector"
+      ],
+      correct: 1,
+      explanation: "The 'Full Pages' conformance requirement states that conformance (and conformance level) is for full web pages only. Conformance cannot be achieved if part of a page is excluded — there is no partial-page conformance.",
+      wrongExplanations: {
+        0: "A single component cannot conform on its own — the Full Pages requirement explicitly rules out claiming conformance for only part of a page.",
+        2: "Conformance is evaluated and claimed per page, not per website. A site-wide claim is really a set of per-page claims (and WCAG-EM sampling only estimates site-wide status).",
+        3: "WCAG has no mechanism for scoping conformance to a DOM subtree — the whole page, including embedded and third-party content, is evaluated."
+      },
+      topicLinks: ['wcag-conformance-requirements', 'wcag-em'],
+      difficulty: 'easy',
+      tags: ['conformance', 'wcag']
+    },
+    {
+      id: 1402,
+      question: "A legacy data-visualization page cannot be made accessible this quarter, so the team publishes an accessible HTML version of the same content. For the original page to claim conformance via this conforming alternate version, which condition must be met?",
+      options: [
+        "The alternate version provides the same information and functionality, is as up to date, itself conforms, and is reachable from the non-conforming page via an accessibility-supported mechanism",
+        "The alternate version contains at least the essential content, with a note describing what was omitted",
+        "The alternate version is plain text with no images or interactivity",
+        "The alternate version is linked from the website's homepage footer"
+      ],
+      correct: 0,
+      explanation: "A conforming alternate version must be equivalent (same information and functionality in the same language), as up to date as the non-conforming content, conform at the claimed level, and be reachable from the non-conforming page through an accessibility-supported mechanism (or the non-conforming page must only be reachable from the conforming one).",
+      wrongExplanations: {
+        1: "Equivalence is mandatory — the alternate must provide ALL of the same information and functionality, not just the essentials with omissions noted.",
+        2: "There is no plain-text requirement. The alternate version can use any technologies as long as it conforms; it must match the original's functionality, which plain text often cannot.",
+        3: "A general site-wide footer link is not sufficient — users on the non-conforming page must be able to reach the alternate from that page via a mechanism they can actually perceive and operate."
+      },
+      topicLinks: ['wcag-conformance-requirements'],
+      difficulty: 'medium',
+      tags: ['conformance', 'alternate-version']
+    },
+    {
+      id: 1403,
+      question: "An e-commerce checkout consists of cart, shipping, payment, and confirmation pages. The payment page fails SC 3.3.1 Error Identification; the other three pages pass everything at Level AA. Which pages can claim Level AA conformance?",
+      options: [
+        "The cart, shipping, and confirmation pages, since they individually pass",
+        "All four pages, because only one Success Criterion failed",
+        "None of the pages in the checkout process",
+        "Only the confirmation page, because it comes after the failing step"
+      ],
+      correct: 2,
+      explanation: "The 'Complete Processes' conformance requirement states that when a page is part of a process — a series of steps needed to complete an activity — all pages in the process must conform at the claimed level or better. One failing step disqualifies every page in the process.",
+      wrongExplanations: {
+        0: "Individually passing is not enough for pages in a process. The Complete Processes requirement makes conformance collective across all steps of the workflow.",
+        1: "A single failing Success Criterion is enough to fail a page, and a failing page in a process disqualifies the whole process.",
+        3: "Position in the sequence is irrelevant — the requirement applies to every page in the process, before and after the failing step."
+      },
+      topicLinks: ['wcag-conformance-requirements'],
+      difficulty: 'medium',
+      tags: ['conformance', 'complete-processes']
+    },
+    {
+      id: 1404,
+      question: "Which set of Success Criteria applies to ALL content on a page — including technologies that are NOT relied upon for conformance — under WCAG's non-interference requirement?",
+      options: [
+        "1.1.1 Non-text Content, 1.4.3 Contrast (Minimum), 2.4.7 Focus Visible, 4.1.2 Name, Role, Value",
+        "1.4.2 Audio Control, 2.1.2 No Keyboard Trap, 2.3.1 Three Flashes or Below Threshold, 2.2.2 Pause, Stop, Hide",
+        "2.1.1 Keyboard, 2.4.1 Bypass Blocks, 3.1.1 Language of Page, 1.3.1 Info and Relationships",
+        "1.4.1 Use of Color, 2.4.3 Focus Order, 2.5.1 Pointer Gestures, 3.2.1 On Focus"
+      ],
+      correct: 1,
+      explanation: "The non-interference requirement names exactly four Success Criteria that apply to all page content, even content not relied upon for conformance: 1.4.2 Audio Control, 2.1.2 No Keyboard Trap, 2.3.1 Three Flashes or Below Threshold, and 2.2.2 Pause, Stop, Hide. Failing any of these blocks users from using the rest of the page.",
+      wrongExplanations: {
+        0: "These are important Level A/AA criteria, but they apply only to content relied upon for conformance — they are not part of the non-interference set.",
+        2: "Keyboard operability, bypass blocks, language, and info/relationships apply to relied-upon content; they are not the four non-interference criteria.",
+        3: "None of these is in the non-interference set. The four non-interference criteria all involve content that can actively block or harm any user of the page (audio drowning out a screen reader, focus traps, seizure-inducing flashes, uncontrollable motion)."
+      },
+      topicLinks: ['wcag-conformance-requirements'],
+      difficulty: 'hard',
+      tags: ['conformance', 'non-interference']
+    },
+    {
+      id: 1405,
+      question: "A page embeds a third-party promotional widget that traps keyboard focus. The team documents that the widget is 'not relied upon' and excludes it from their conformance claim. Why does the page still fail to conform?",
+      options: [
+        "Third-party content is always exempt, so the page actually does conform",
+        "Excluding content requires written permission from the W3C",
+        "SC 2.1.2 No Keyboard Trap is a non-interference criterion that applies to all content on the page, even content not relied upon",
+        "Keyboard traps are only a problem at Level AAA"
+      ],
+      correct: 2,
+      explanation: "Declaring content 'not relied upon' does not exempt it from the four non-interference criteria. A keyboard trap (SC 2.1.2) anywhere on the page blocks keyboard and screen reader users from the entire page, so the page cannot conform regardless of how the claim is scoped.",
+      wrongExplanations: {
+        0: "There is no blanket third-party exemption in WCAG. Third-party content is part of the full page, and at minimum the non-interference criteria always apply to it.",
+        1: "The W3C plays no role in individual conformance claims — and no permission process can exempt content from the non-interference requirements.",
+        3: "SC 2.1.2 No Keyboard Trap is Level A — the lowest, most fundamental level — and it is one of the four criteria that apply to all page content."
+      },
+      topicLinks: ['wcag-conformance-requirements', 'keyboard-testing'],
+      difficulty: 'medium',
+      tags: ['conformance', 'non-interference', 'third-party']
+    },
+    {
+      id: 1406,
+      question: "A product page meets every Success Criterion except within an embedded third-party video player, which fails several Level A criteria. Can the page claim Level A conformance 'with the exception of the video player'?",
+      options: [
+        "Yes, as long as the exception is documented in the accessibility statement",
+        "Yes, because third-party content does not count toward conformance",
+        "Yes, if the player is wrapped in an iframe",
+        "No — conformance applies to full pages only, and part of a page cannot be excluded"
+      ],
+      correct: 3,
+      explanation: "The Full Pages conformance requirement prohibits partial-page conformance: 'Conformance (and conformance level) is for full web page(s) only, and cannot be achieved if part of a web page is excluded.' The embedded player is part of the page, so the page does not conform.",
+      wrongExplanations: {
+        0: "Documenting an exception does not create one — WCAG has a 'statement of partial conformance' concept for uncontrolled third-party content, but that is explicitly NOT a conformance claim.",
+        1: "Third-party content rendered on the page is part of the full page and counts toward (or against) conformance.",
+        2: "Using an iframe changes nothing — embedded content, iframe or not, is evaluated as part of the page it appears on."
+      },
+      topicLinks: ['wcag-conformance-requirements'],
+      difficulty: 'easy',
+      tags: ['conformance', 'full-pages']
+    },
+    {
+      id: 1407,
+      question: "A team builds a key feature with a cutting-edge web technology that does not yet work with screen readers or browser accessibility features. Under conformance requirement 4 ('Only Accessibility-Supported Ways of Using Technologies'), what is true?",
+      options: [
+        "The technology may still be used, but it cannot be relied upon to satisfy any Success Criterion — the information and functionality must also be available in an accessibility-supported way",
+        "The technology is prohibited from appearing anywhere on a conforming page",
+        "The technology is acceptable as long as a JavaScript polyfill exists",
+        "This requirement only applies to pages claiming Level AAA"
+      ],
+      correct: 0,
+      explanation: "Non-accessibility-supported technologies can be used — WCAG does not ban them — but they cannot be relied upon for conformance. Everything needed to meet the Success Criteria must also work in accessibility-supported ways, and the non-supported content must still satisfy the non-interference criteria.",
+      wrongExplanations: {
+        1: "WCAG explicitly allows non-accessibility-supported technologies to be used, provided they are not relied upon and do not interfere with the rest of the page.",
+        2: "A polyfill is irrelevant unless it actually makes the way the technology is used work with assistive technologies — accessibility support is about real interoperability with users' AT and browsers.",
+        3: "All five conformance requirements, including accessibility support, apply at every conformance level: A, AA, and AAA."
+      },
+      topicLinks: ['wcag-conformance-requirements', 'accessibility-supported'],
+      difficulty: 'hard',
+      tags: ['conformance', 'accessibility-supported']
+    },
+    // =============================================
+    // BROWSER + AT INTEROPERABILITY (1408-1411)
+    // =============================================
+    {
+      id: 1408,
+      question: "Which browser and screen reader combination is recommended for testing because the vendor develops and tests them together?",
+      options: [
+        "VoiceOver + Chrome on macOS",
+        "JAWS + Safari on macOS",
+        "VoiceOver + Safari on macOS and iOS",
+        "TalkBack + Firefox on Android"
+      ],
+      correct: 2,
+      explanation: "Apple builds VoiceOver and Safari as a pair and tests them together, making VoiceOver + Safari the recommended combination on macOS and iOS. Other standard pairings include JAWS + Chrome, NVDA + Firefox/Chrome, Narrator + Edge, and TalkBack + Chrome.",
+      wrongExplanations: {
+        0: "VoiceOver works far better with Safari than with Chrome on Apple platforms — VoiceOver + Chrome is a mismatched pairing that can produce misleading test results.",
+        1: "JAWS is a Windows-only screen reader; it does not run on macOS at all.",
+        3: "TalkBack is primarily developed and tested with Chrome (both Google products) — Chrome, not Firefox, is the recommended Android pairing."
+      },
+      topicLinks: ['browser-at-interoperability', 'screen-reader-testing'],
+      difficulty: 'easy',
+      tags: ['screen-readers', 'browser-pairing', 'interoperability']
+    },
+    {
+      id: 1409,
+      question: "A custom disclosure widget announces its expanded/collapsed state correctly in NVDA + Firefox but not in JAWS + Chrome. What is the most likely underlying reason such differences exist at all?",
+      options: [
+        "JAWS does not support ARIA attributes",
+        "Browsers map markup to platform accessibility APIs differently, and each screen reader applies its own heuristics to what the API exposes",
+        "Chrome does not build an accessibility tree",
+        "NVDA reads the raw HTML source instead of the accessibility tree"
+      ],
+      correct: 1,
+      explanation: "Assistive technologies consume what the browser exposes through platform accessibility APIs. Each browser builds and maps its accessibility tree slightly differently, and each screen reader layers its own interpretation and repair heuristics on top — so the same markup can behave differently in different pairings.",
+      wrongExplanations: {
+        0: "JAWS has extensive ARIA support — historically among the best. Individual mapping differences, not wholesale lack of support, cause pairing-specific behavior.",
+        2: "Chrome absolutely builds an accessibility tree and exposes it through platform APIs (and DevTools can display it). The differences lie in how trees are built and interpreted, not whether they exist.",
+        3: "NVDA, like all modern screen readers, works from the browser's accessibility API output, not by parsing raw HTML."
+      },
+      topicLinks: ['browser-at-interoperability', 'accessibility-tree'],
+      difficulty: 'medium',
+      tags: ['interoperability', 'accessibility-apis']
+    },
+    {
+      id: 1410,
+      question: "A tester verifies that a combobox is coded exactly per the ARIA specification. It announces correctly in NVDA and VoiceOver across browsers, but one screen reader mis-announces it in every browser tested. What is the most reasonable conclusion?",
+      options: [
+        "The markup is wrong and must be rewritten until that screen reader announces it correctly",
+        "The browsers all share the same accessibility API bug",
+        "The component fails SC 4.1.2 Name, Role, Value",
+        "The defect is likely a bug in that screen reader and should be reported to the AT vendor"
+      ],
+      correct: 3,
+      explanation: "When spec-correct markup fails with one AT across multiple browsers while working everywhere else, the pattern points to an AT bug. The right move is to report it upstream to the vendor (and possibly document a workaround), not to distort correct code.",
+      wrongExplanations: {
+        0: "Hacking spec-correct markup until one screen reader sounds right — 'coding to the screen reader' — frequently breaks the other pairings and creates unmaintainable code.",
+        1: "If the issue followed the screen reader across different browsers, the browsers' independent API mappings are unlikely to share the same bug — the common factor is the AT.",
+        2: "SC 4.1.2 is about the author programmatically exposing name, role, and value. If the markup correctly exposes them per spec, an AT's failure to voice them properly is not an authoring failure."
+      },
+      topicLinks: ['browser-at-interoperability', 'aria-overview'],
+      difficulty: 'hard',
+      tags: ['interoperability', 'triage', 'screen-readers']
+    },
+    {
+      id: 1411,
+      question: "What is the most practical screen reader testing strategy for a team with limited time?",
+      options: [
+        "Test every possible browser and screen reader combination on every release",
+        "Test with a single free screen reader, since all screen readers behave the same",
+        "Test the most-used browser + AT combinations for your audience, such as JAWS+Chrome, NVDA+Chrome/Firefox, and VoiceOver+Safari",
+        "Skip screen reader testing if the automated scan passes"
+      ],
+      correct: 2,
+      explanation: "Coverage should follow real-world usage. Data such as the WebAIM Screen Reader User Survey identifies the most common pairings; testing those recommended combinations catches the issues most users would hit without the impossible cost of testing everything.",
+      wrongExplanations: {
+        0: "Testing every combination is impractical and unnecessary — mismatched pairings that vendors don't test together (e.g., JAWS+Safari) add little value.",
+        1: "Screen readers differ meaningfully in mode behavior, ARIA support, and heuristics — a single AT cannot represent them all.",
+        3: "Automated scans detect only a minority of accessibility issues and cannot evaluate how content is actually announced — they never replace AT testing."
+      },
+      topicLinks: ['browser-at-interoperability', 'screen-reader-testing', 'testing-fundamentals'],
+      difficulty: 'medium',
+      tags: ['testing-strategy', 'screen-readers']
+    },
+    // =============================================
+    // WCAG LIMITATIONS (1412-1414)
+    // =============================================
+    {
+      id: 1412,
+      question: "A design uses an ultra-thin font weight that measures 4.6:1 contrast against its background yet is hard for many low vision users to read. What does this illustrate about WCAG?",
+      options: [
+        "The design fails SC 1.4.3 Contrast (Minimum)",
+        "WCAG's contrast formula is based on color luminance and does not account for font weight — a known limitation of the guidelines",
+        "The design fails SC 1.4.8 Visual Presentation at Level AA",
+        "Contrast requirements do not apply to text styled with custom fonts"
+      ],
+      correct: 1,
+      explanation: "The contrast ratio formula compares the relative luminance of foreground and background colors only. Stroke weight, font legibility, and ornate letterforms are not measured — so a thin or decorative font can pass the math while remaining hard to read. This is a documented gap in WCAG coverage.",
+      wrongExplanations: {
+        0: "4.6:1 exceeds the 4.5:1 minimum for normal text, so SC 1.4.3 passes — that is exactly the point: passing contrast does not guarantee readable text.",
+        2: "SC 1.4.8 Visual Presentation is Level AAA, not AA, and it addresses spacing, width, and justification — it does not regulate font weight either.",
+        3: "Contrast requirements apply to all text regardless of font. The issue is that the formula measures only color, not typeface characteristics."
+      },
+      topicLinks: ['wcag-limitations', 'color-contrast'],
+      difficulty: 'medium',
+      tags: ['wcag-limitations', 'contrast', 'typography']
+    },
+    {
+      id: 1413,
+      question: "A government form uses long, dense, bureaucratic sentences that many users with cognitive disabilities cannot parse. The audit targets WCAG 2.1 Level AA. How should the auditor handle this?",
+      options: [
+        "Flag a failure of SC 3.1.5 Reading Level",
+        "Flag a failure of SC 3.3.2 Labels or Instructions",
+        "Report it as a significant barrier and best-practice recommendation, noting that content complexity is largely uncovered at Level A/AA",
+        "Ignore it, since anything outside WCAG's scope should not appear in an audit report"
+      ],
+      correct: 2,
+      explanation: "Plain language and cognitive load are well-known gaps in WCAG at Level A/AA — SC 3.1.5 Reading Level is AAA and rarely in scope. The barrier is real, so a good auditor reports it, clearly labeled as a best-practice recommendation rather than a conformance failure.",
+      wrongExplanations: {
+        0: "SC 3.1.5 Reading Level is Level AAA. In a Level AA audit it is out of scope and cannot be flagged as a failure.",
+        1: "SC 3.3.2 requires labels or instructions to be provided when content requires user input — it does not regulate the reading complexity of body text.",
+        3: "Audits routinely include best-practice findings precisely because conformance is not the same as usability — they just must be separated from failures."
+      },
+      topicLinks: ['wcag-limitations', 'failures-vs-best-practices', 'cognitive-disabilities'],
+      difficulty: 'hard',
+      tags: ['wcag-limitations', 'cognitive', 'plain-language']
+    },
+    {
+      id: 1414,
+      question: "A website fully conforms to WCAG 2.1 Level AA. What can you conclude about its usability for people with disabilities?",
+      options: [
+        "It may still be difficult or exhausting to use — conformance is a baseline, not a guarantee of usability",
+        "It is guaranteed to be usable by people with all types of disabilities",
+        "It is usable for screen reader users but possibly not for others",
+        "Nothing — WCAG conformance is unrelated to disability access"
+      ],
+      correct: 0,
+      explanation: "Conformance and usability are related but distinct. A minimally conforming site can still impose heavy cognitive load, tedious navigation, or confusing flows. WCAG is the floor; usability testing with people with disabilities reveals what conformance cannot.",
+      wrongExplanations: {
+        1: "No standard can guarantee usability — WCAG's own conformance documentation notes that meeting the criteria does not ensure content is usable by every person with a disability.",
+        2: "There is no basis for singling out screen reader users — conformance raises the baseline for all groups, and usability remains unproven for all groups.",
+        3: "This overcorrects. Conformance is strongly related to access — it removes major barriers — it just does not by itself prove the experience is usable."
+      },
+      topicLinks: ['wcag-limitations', 'usability-testing-pwd', 'usability-concepts'],
+      difficulty: 'easy',
+      tags: ['wcag-limitations', 'usability']
+    },
+    // =============================================
+    // TESTING BY DISABILITY TYPE (1415-1421)
+    // =============================================
+    {
+      id: 1415,
+      question: "Which check belongs specifically on the LOW VISION portion of a test plan?",
+      options: [
+        "Captions accurately reflect dialogue and meaningful sounds",
+        "Content reflows at a width of 320 CSS pixels without two-dimensional scrolling",
+        "Character-key shortcuts can be remapped or turned off",
+        "Live regions announce dynamic updates"
+      ],
+      correct: 1,
+      explanation: "Reflow (SC 1.4.10) is a core low vision check: when zoomed to the equivalent of 320 CSS pixels width, content must reflow into a single column without requiring horizontal scrolling. The low vision cluster also includes 200% text resize, text spacing, contrast, and content on hover/focus.",
+      wrongExplanations: {
+        0: "Caption accuracy belongs to testing for deaf and hard-of-hearing users (SC 1.2.2).",
+        2: "Character-key shortcuts (SC 2.1.4) protect speech-input and keyboard users from accidental activation — part of the input-methods checklist.",
+        3: "Live region announcements (SC 4.1.3) are a screen reader check for blind users, not a low vision magnification concern."
+      },
+      topicLinks: ['testing-by-disability', 'responsive-accessibility'],
+      difficulty: 'easy',
+      tags: ['low-vision', 'reflow', 'testing-by-disability']
+    },
+    {
+      id: 1416,
+      question: "A tester applies a user stylesheet setting line height to 1.5, paragraph spacing to 2x font size, letter spacing to 0.12em, and word spacing to 0.16em. Some button labels get clipped and become unreadable. Which Success Criterion fails?",
+      options: [
+        "SC 1.4.4 Resize Text",
+        "SC 1.4.8 Visual Presentation",
+        "SC 1.4.12 Text Spacing",
+        "SC 1.4.10 Reflow"
+      ],
+      correct: 2,
+      explanation: "SC 1.4.12 Text Spacing (AA) requires no loss of content or functionality when users override text spacing up to exactly these values: line height 1.5x, paragraph spacing 2x, letter spacing 0.12x, and word spacing 0.16x font size. Clipped, overlapping, or truncated text under these overrides is a failure.",
+      wrongExplanations: {
+        0: "SC 1.4.4 covers resizing text up to 200% — the test here changed spacing, not size.",
+        1: "SC 1.4.8 is the Level AAA criterion about visual presentation defaults; the spacing-override test with those specific metrics is the AA criterion 1.4.12.",
+        3: "SC 1.4.10 Reflow is about viewport-width zoom (320 CSS px equivalent), not user-applied spacing overrides."
+      },
+      topicLinks: ['testing-by-disability', 'wcag-perceivable'],
+      difficulty: 'medium',
+      tags: ['low-vision', 'text-spacing']
+    },
+    {
+      id: 1417,
+      question: "A tester sets a desktop browser at 1280px wide to 400% zoom and finds the page requires horizontal scrolling to read paragraphs. Which Success Criterion does this test target?",
+      options: [
+        "SC 1.4.4 Resize Text",
+        "SC 1.4.10 Reflow",
+        "SC 1.3.4 Orientation",
+        "SC 1.4.13 Content on Hover or Focus"
+      ],
+      correct: 1,
+      explanation: "400% zoom at a 1280px-wide window yields an equivalent viewport width of 320 CSS pixels — the exact condition of SC 1.4.10 Reflow. Content must present without loss of information or functionality and without two-dimensional scrolling (vertical-scrolling content must not also need horizontal scrolling).",
+      wrongExplanations: {
+        0: "SC 1.4.4 only requires text to resize up to 200% without loss — the 400%/320px condition is the distinct Reflow criterion. This near-miss distinction is a classic exam trap.",
+        2: "SC 1.3.4 Orientation concerns portrait/landscape lock on mobile devices, not zoom behavior.",
+        3: "SC 1.4.13 governs tooltips and other content appearing on hover or focus — unrelated to zoom and scrolling."
+      },
+      topicLinks: ['testing-by-disability', 'responsive-accessibility'],
+      difficulty: 'hard',
+      tags: ['low-vision', 'reflow', 'zoom']
+    },
+    {
+      id: 1418,
+      question: "A benefits application form logs users out after 15 minutes with no warning, losing their data. Under SC 2.2.1 Timing Adjustable, what must the site provide (assuming no exception applies)?",
+      options: [
+        "A way to turn off, adjust, or extend the time limit — for example, a warning with at least 20 seconds to extend via a simple action",
+        "An automatic save that restores data after re-login",
+        "A time limit of at least 60 minutes",
+        "A CAPTCHA before the session expires to confirm the user is present"
+      ],
+      correct: 0,
+      explanation: "SC 2.2.1 (Level A) requires that users can turn off the time limit, adjust it (up to at least 10 times the default), or extend it — being warned before expiry and given at least 20 seconds to extend with a simple action, extendable at least 10 times. Exceptions exist only for real-time events, essential limits, and limits over 20 hours.",
+      wrongExplanations: {
+        1: "Auto-save is a helpful complementary practice (related to SC 2.2.5 Re-authenticating at AAA), but it does not satisfy 2.2.1, which is about user control over the time limit itself.",
+        2: "WCAG sets no specific minimum duration — any limit under 20 hours triggers the turn off/adjust/extend requirement.",
+        3: "A CAPTCHA adds a barrier rather than control over timing, and CAPTCHAs raise their own accessibility problems."
+      },
+      topicLinks: ['testing-by-disability', 'cognitive-disabilities'],
+      difficulty: 'medium',
+      tags: ['cognitive', 'timeouts', 'wcag-operable']
+    },
+    {
+      id: 1419,
+      question: "A checkout form indicates invalid fields only by turning their borders red. Screen reader users and many cognitively disabled users cannot tell what went wrong. Which Success Criterion is failed?",
+      options: [
+        "SC 3.3.4 Error Prevention (Legal, Financial, Data)",
+        "SC 2.4.6 Headings and Labels",
+        "SC 3.2.4 Consistent Identification",
+        "SC 3.3.1 Error Identification"
+      ],
+      correct: 3,
+      explanation: "SC 3.3.1 Error Identification (Level A) requires that when an input error is automatically detected, the item in error is identified and the error is described to the user in text. A red border alone provides no text description (and also relies on color alone, implicating SC 1.4.1).",
+      wrongExplanations: {
+        0: "SC 3.3.4 requires reversibility, checking, or confirmation for legal/financial/data submissions — it is about preventing consequences, not how detected errors are communicated.",
+        1: "SC 2.4.6 requires headings and labels to be descriptive; the failure here is the missing text description of the error, not the label quality.",
+        2: "SC 3.2.4 requires components with the same functionality to be identified consistently across pages — unrelated to error messaging."
+      },
+      topicLinks: ['testing-by-disability', 'form-accessibility'],
+      difficulty: 'medium',
+      tags: ['cognitive', 'forms', 'errors']
+    },
+    {
+      id: 1420,
+      question: "Under WCAG 2.2 Level AA, what is the minimum target size required by SC 2.5.8 Target Size (Minimum), barring exceptions such as adequate spacing or inline links?",
+      options: [
+        "16 by 16 CSS pixels",
+        "24 by 24 CSS pixels",
+        "44 by 44 CSS pixels",
+        "48 by 48 CSS pixels"
+      ],
+      correct: 1,
+      explanation: "SC 2.5.8 Target Size (Minimum), new at Level AA in WCAG 2.2, requires pointer targets to be at least 24x24 CSS pixels, with exceptions including sufficient spacing, an equivalent larger control, inline text links, user-agent-controlled, and essential presentations.",
+      wrongExplanations: {
+        0: "16px is not a WCAG target-size threshold at any level.",
+        2: "44x44 is the Level AAA requirement (SC 2.5.5 Target Size, Enhanced) — and also Apple's HIG recommendation — but the AA minimum is 24x24.",
+        3: "48x48dp is Android's design guidance, not a WCAG requirement."
+      },
+      topicLinks: ['testing-by-disability', 'wcag-22-new-criteria'],
+      difficulty: 'medium',
+      tags: ['touch', 'target-size', 'wcag22']
+    },
+    {
+      id: 1421,
+      question: "A training video uses unedited auto-generated captions with frequent recognition errors, no speaker identification, and no indication of important sound effects. A working CC button is present. Does this satisfy SC 1.2.2 Captions (Prerecorded)?",
+      options: [
+        "Yes — captions are provided, which is all the criterion requires",
+        "Yes, as long as a transcript is also linked",
+        "No — captions must accurately convey the dialogue and equivalent auditory information, including speakers and meaningful sounds",
+        "No — auto-generated captions are categorically prohibited by WCAG"
+      ],
+      correct: 2,
+      explanation: "Captions are defined as a text alternative for dialogue AND important non-dialogue audio (speaker identification, meaningful sound effects). Inaccurate auto-captions fail to provide that equivalent, so the criterion is not satisfied. Testing captions means evaluating accuracy and completeness, not just the presence of a CC button.",
+      wrongExplanations: {
+        0: "Mere presence is not enough — captions that do not faithfully convey the audio content do not meet the definition of captions in WCAG.",
+        1: "A transcript does not substitute for captions on synchronized video at Level A/AA — captions must be synchronized with the media.",
+        3: "WCAG does not prohibit auto-generation as a starting point; the issue is the result. Carefully edited auto-captions that become accurate would satisfy the criterion."
+      },
+      topicLinks: ['testing-by-disability', 'auditory-disabilities'],
+      difficulty: 'hard',
+      tags: ['auditory', 'captions', 'multimedia']
+    },
+    // =============================================
+    // TESTING TOOL LANDSCAPE (1422-1425)
+    // =============================================
+    {
+      id: 1422,
+      question: "A development team wants accessibility regressions caught automatically in their build pipeline before any code reaches production. Which tool category fits this need?",
+      options: [
+        "A site-wide scanning and monitoring platform run monthly on production",
+        "A browser extension such as WAVE used by QA after release",
+        "A disability simulator such as NoCoffee",
+        "An automated testing API such as axe-core integrated into unit/integration tests and CI"
+      ],
+      correct: 3,
+      explanation: "Testing APIs and engines like axe-core (e.g., via jest-axe, Playwright/Cypress integrations, or pa11y in CI) run on every build, failing the pipeline when detectable issues are introduced — catching regressions before deployment, the earliest and cheapest phase to fix them.",
+      wrongExplanations: {
+        0: "Site-wide scanners monitor deployed sites — valuable for ongoing oversight of production, but too late to block a regression from shipping.",
+        1: "Browser extensions are interactive, single-page tools for a human tester — they cannot gate an automated build.",
+        2: "Simulators help humans experience approximations of disabilities; they are not automated checks and produce no pass/fail output for a pipeline."
+      },
+      topicLinks: ['automated-testing-tools', 'accessibility-qa-lifecycle'],
+      difficulty: 'medium',
+      tags: ['tools', 'ci-cd', 'automation']
+    },
+    {
+      id: 1423,
+      question: "What is PEAT (Photosensitive Epilepsy Analysis Tool) used to evaluate?",
+      options: [
+        "Whether video and animation content contains flashing that could trigger seizures",
+        "Whether a color palette is distinguishable to color-blind users",
+        "Whether a page is readable under simulated low vision conditions",
+        "Whether captions are synchronized with speech"
+      ],
+      correct: 0,
+      explanation: "PEAT, a free tool from the Trace Research & Development Center, analyzes video and animated content for flash patterns that risk triggering photosensitive seizures — directly supporting evaluation of SC 2.3.1 Three Flashes or Below Threshold.",
+      wrongExplanations: {
+        1: "Color-blindness simulation is the role of tools like Color Oracle, not PEAT.",
+        2: "Low vision simulation (blur, contrast loss, field loss) is what NoCoffee-style simulators provide.",
+        3: "Caption quality and synchronization are assessed manually or with captioning tools — PEAT analyzes flashing, not captions."
+      },
+      topicLinks: ['automated-testing-tools', 'testing-fundamentals'],
+      difficulty: 'easy',
+      tags: ['tools', 'seizures', 'simulators']
+    },
+    {
+      id: 1424,
+      question: "What is the appropriate role of disability simulators such as NoCoffee (low vision) and Color Oracle (color blindness) in a testing program?",
+      options: [
+        "They certify conformance with the visual Success Criteria",
+        "They help testers and designers experience approximations of visual conditions and spot likely problems — but they do not replace conformance testing or feedback from real users",
+        "They replace the need to recruit low vision participants for usability testing",
+        "They automatically fix contrast and color issues they detect"
+      ],
+      correct: 1,
+      explanation: "Simulators build empathy and quickly expose obvious problems (e.g., hue-only coding, low contrast under blur). But they only approximate conditions, cover a fraction of real visual diversity, and produce no conformance evidence — so they supplement, never replace, measurement-based testing and real user feedback.",
+      wrongExplanations: {
+        0: "Conformance to criteria like 1.4.3 is verified by measuring contrast ratios and checking content, not by looking through a simulator.",
+        2: "Real low vision users bring their own strategies, settings, and AT — a sighted tester with a blur filter is not a substitute.",
+        3: "Simulators only alter what the tester sees; they detect nothing and fix nothing in the code."
+      },
+      topicLinks: ['automated-testing-tools', 'usability-testing-pwd'],
+      difficulty: 'medium',
+      tags: ['tools', 'simulators', 'low-vision']
+    },
+    {
+      id: 1425,
+      question: "An agency must keep watch over accessibility across a 50,000-page website and detect newly introduced issues over time. Which tool category is designed for this?",
+      options: [
+        "A bookmarklet such as ANDI run on key pages",
+        "A unit-testing library such as jest-axe",
+        "A site-wide scanning and monitoring platform that crawls the site on a schedule and tracks issues over time",
+        "A screen reader paired with each major browser"
+      ],
+      correct: 2,
+      explanation: "Site-wide scanners and monitoring platforms crawl large sites on a schedule, aggregate automatically detectable issues, track trends, and alert on regressions — the only practical way to maintain oversight across tens of thousands of pages. Page-level and manual methods then target what monitoring surfaces.",
+      wrongExplanations: {
+        0: "ANDI (the free SSA bookmarklet) is excellent for inspecting one page at a time in the browser — it cannot crawl or monitor 50,000 pages.",
+        1: "jest-axe tests components during development in the codebase's own test suite — it does not observe the deployed production site.",
+        3: "Screen reader testing is essential but manual and slow — it is for evaluating representative pages and flows, not continuous site-wide monitoring."
+      },
+      topicLinks: ['automated-testing-tools', 'accessibility-qa-lifecycle', 'wcag-em'],
+      difficulty: 'medium',
+      tags: ['tools', 'monitoring', 'scanning']
+    },
+    // =============================================
+    // SCREEN READER MODES & NAVIGATION (1426-1429)
+    // =============================================
+    {
+      id: 1426,
+      question: "While reading a web page in browse (virtual) mode with NVDA or JAWS, what does pressing the letter H do?",
+      options: [
+        "Types the letter H into the page",
+        "Opens the browser history",
+        "Activates the focused link",
+        "Moves to the next heading on the page"
+      ],
+      correct: 3,
+      explanation: "In browse/virtual mode the screen reader intercepts keystrokes as quick-navigation commands: H jumps to the next heading (1-6 jump to specific levels), L to the next list, T to the next table, F to the next form field, B to the next button. This is why a sound heading structure matters so much.",
+      wrongExplanations: {
+        0: "Letters are only typed into the page in forms/focus mode — in browse mode the screen reader consumes them as navigation commands.",
+        1: "Browser history shortcuts involve modifier keys (e.g., Ctrl+H); the single letter H is captured by the screen reader for heading navigation.",
+        2: "Links are activated with Enter; H is the heading quick-nav key."
+      },
+      topicLinks: ['screen-reader-modes', 'screen-reader-testing'],
+      difficulty: 'easy',
+      tags: ['screen-readers', 'keystrokes', 'browse-mode']
+    },
+    {
+      id: 1427,
+      question: "A developer adds role='application' to a content-heavy web page to 'improve the experience.' What actually happens for screen reader users?",
+      options: [
+        "Browse mode is disabled — quick-nav keys and reading commands stop working, and the author becomes responsible for implementing all keyboard interaction",
+        "The screen reader switches to a higher-quality voice",
+        "The page loads faster because the accessibility tree is skipped",
+        "Headings and landmarks are announced more verbosely"
+      ],
+      correct: 0,
+      explanation: "role='application' tells the screen reader to drop browse/virtual mode and pass all keystrokes to the page. Users lose heading navigation, element lists, and reading commands — and unless the author has implemented complete custom keyboard handling, the page becomes nearly unusable. It is almost never appropriate for ordinary web content.",
+      wrongExplanations: {
+        1: "ARIA roles have no effect on speech synthesis voices.",
+        2: "The accessibility tree is still built; role='application' changes the interaction mode, not performance.",
+        3: "The opposite — within an application region the screen reader stops providing its document-reading conveniences, including structural navigation."
+      },
+      topicLinks: ['screen-reader-modes', 'aria-roles'],
+      difficulty: 'medium',
+      tags: ['screen-readers', 'aria', 'application-mode']
+    },
+    {
+      id: 1428,
+      question: "A screen reader user is arrowing through a page and then Tabs into a search field, where typing suddenly enters text instead of triggering navigation commands. What explains this?",
+      options: [
+        "The page uses JavaScript to capture all keyboard input",
+        "The screen reader automatically switched from browse mode to forms (focus) mode when focus entered an editable field",
+        "The screen reader crashed and restarted in a safe mode",
+        "The search field uses role='search', which disables the screen reader"
+      ],
+      correct: 1,
+      explanation: "JAWS and NVDA automatically switch from browse/virtual mode to forms/focus mode when focus lands on an editable field or interactive widget, passing keystrokes through to the page so the user can type. Users can also toggle modes manually (e.g., NVDA+Space). Understanding this switch is essential for diagnosing 'my quick-nav keys stopped working' reports.",
+      wrongExplanations: {
+        0: "No page script is needed — mode switching is standard screen reader behavior driven by the role of the focused element.",
+        2: "Mode switching is normal, expected behavior, often signaled by an earcon (sound), not a malfunction.",
+        3: "role='search' is a landmark role that aids navigation; it does not disable anything."
+      },
+      topicLinks: ['screen-reader-modes', 'form-accessibility'],
+      difficulty: 'medium',
+      tags: ['screen-readers', 'forms-mode']
+    },
+    {
+      id: 1429,
+      question: "Using VoiceOver on iOS or TalkBack on Android, how does a user move to the next item on screen and then activate it?",
+      options: [
+        "Swipe right to move to the next item, then double-tap to activate it",
+        "Swipe up to move to the next item, then long-press to activate it",
+        "Triple-tap to move to the next item, then swipe left to activate it",
+        "Shake the device to move forward, then tap once to activate"
+      ],
+      correct: 0,
+      explanation: "Both major mobile screen readers share the same core gestures: swipe right moves to the next item, swipe left to the previous, and double-tap activates the current item. Users can also explore by touch, dragging a finger to hear what is under it.",
+      wrongExplanations: {
+        1: "Swipe up/down typically changes or applies the reading granularity (rotor/reading controls), and long-press is not the standard activation gesture.",
+        2: "Triple-tap and swipe-left have other functions (swipe left moves backward); neither is the next/activate pair.",
+        3: "Shaking the device is not a navigation gesture in either screen reader — and motion-based controls are exactly what SC 2.5.4 requires alternatives for."
+      },
+      topicLinks: ['screen-reader-modes', 'screen-readers'],
+      difficulty: 'easy',
+      tags: ['mobile', 'gestures', 'screen-readers']
+    },
+    // =============================================
+    // USABILITY TESTING WITH PWD (1430-1431)
+    // =============================================
+    {
+      id: 1430,
+      question: "A team runs a usability study with one expert JAWS user, who completes every task quickly, and concludes the product 'works for screen reader users.' What is the main flaw in this conclusion?",
+      options: [
+        "JAWS is no longer a widely used screen reader",
+        "Expert users should never be included in usability studies",
+        "One session can only validate conformance, not usability",
+        "Disability groups are internally diverse — one expert participant cannot represent users with different skill levels, AT, settings, and strategies"
+      ],
+      correct: 3,
+      explanation: "Two screen reader users can have radically different experiences: an expert navigating by landmarks at high speech rate versus a recent AT learner reading linearly with defaults. Skill, screen reader choice, browser, verbosity settings, and co-occurring disabilities all vary — generalizing from one participant misrepresents the group.",
+      wrongExplanations: {
+        0: "JAWS remains one of the most widely used desktop screen readers — the flaw is the sample, not the tool.",
+        1: "Experts are valuable participants; the problem is relying ONLY on one expert and generalizing to everyone.",
+        2: "Backwards on both counts: usability studies measure usability, and no usability session of any size validates conformance."
+      },
+      topicLinks: ['usability-testing-pwd', 'disability-user-strategies'],
+      difficulty: 'medium',
+      tags: ['user-testing', 'diversity']
+    },
+    {
+      id: 1431,
+      question: "A page has a working skip link and proper landmarks, and every control is keyboard operable — it passes the relevant WCAG criteria. In usability sessions, keyboard users still abandon a booking task that requires over 100 Tab presses through a dense form. How should this finding be handled?",
+      options: [
+        "Flag a failure of SC 2.1.1 Keyboard, since the task is too hard with a keyboard",
+        "Report it as a serious usability finding with redesign recommendations, while noting it is not a WCAG conformance failure",
+        "Flag a failure of SC 2.4.1 Bypass Blocks, since users want to bypass the form",
+        "Discard the finding because the page conforms"
+      ],
+      correct: 1,
+      explanation: "This is the classic illustration that conformance is not usability: everything is technically operable (2.1.1 passes) and repeated blocks are bypassable (2.4.1 passes), yet the experience is exhausting enough that users fail. It belongs in the report as a high-impact usability finding, clearly separated from conformance failures.",
+      wrongExplanations: {
+        0: "SC 2.1.1 requires functionality to be operable through a keyboard interface — it says nothing about how many keystrokes are acceptable. The page meets the normative text.",
+        2: "SC 2.4.1 covers bypassing blocks of content repeated across multiple pages (like site navigation) — a skip link is present, and a unique form is not 'repeated blocks.'",
+        3: "Discarding real evidence that users cannot complete a core task defeats the purpose of testing — usability findings matter even when no criterion fails."
+      },
+      topicLinks: ['usability-testing-pwd', 'wcag-limitations', 'failures-vs-best-practices'],
+      difficulty: 'hard',
+      tags: ['user-testing', 'keyboard', 'conformance-vs-usability']
+    },
+    // =============================================
+    // FAILURES VS BEST PRACTICES (1432)
+    // =============================================
+    {
+      id: 1432,
+      question: "An auditor reviews a long article in a WCAG 2.1 AA audit. Section titles are visually styled as bold, enlarged text but are not marked up as headings. What is the correct determination?",
+      options: [
+        "Failure of SC 2.4.6 Headings and Labels, because the headings are not descriptive",
+        "No failure — WCAG does not require pages to use headings",
+        "Failure of SC 2.4.10 Section Headings, because sections lack headings",
+        "Failure of SC 1.3.1 Info and Relationships, because a visual heading structure exists that is not programmatically determinable"
+      ],
+      correct: 3,
+      explanation: "When text visually functions as a heading, that structural relationship must be programmatically conveyed (e.g., h1-h6). Styling text to look like a heading without heading markup is a documented failure of SC 1.3.1 (F2). By contrast, a page with NO headings at all — visual or structural — fails nothing, since no criterion at A/AA requires headings to exist.",
+      wrongExplanations: {
+        0: "SC 2.4.6 only requires headings and labels, where they exist, to be descriptive — the issue here is missing programmatic structure, which is 1.3.1 territory.",
+        1: "That reasoning applies only when there is no visual heading structure either. Here the design clearly presents headings visually, so the relationship must be in the markup.",
+        2: "SC 2.4.10 Section Headings is Level AAA and out of scope in an AA audit — citing it would be an auditing error."
+      },
+      topicLinks: ['failures-vs-best-practices', 'semantic-html'],
+      difficulty: 'hard',
+      tags: ['auditing', 'headings', 'success-criteria-mapping']
     }
   ]
 };

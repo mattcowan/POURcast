@@ -1,5 +1,6 @@
 import { useState, useCallback } from 'react';
 import { shuffle } from '../utils/shuffle';
+import { applyOptionOrder, randomOptionOrder } from '../utils/applyOptionOrder';
 
 const QUESTIONS_PER_LESSON = 10;
 
@@ -8,29 +9,7 @@ const QUESTIONS_PER_LESSON = 10;
  * so the answer data stays consistent with the new option order.
  */
 function shuffleOptions(question) {
-  // Build an array of indices for all options and shuffle them
-  const indices = question.options.map((_, i) => i);
-  const shuffledIndices = shuffle(indices);
-
-  const newOptions = shuffledIndices.map((i) => question.options[i]);
-  const newCorrect = shuffledIndices.indexOf(question.correct);
-
-  // Remap wrongExplanations keys from old indices to new indices
-  let newWrongExplanations;
-  if (question.wrongExplanations) {
-    newWrongExplanations = {};
-    for (const [oldIdx, text] of Object.entries(question.wrongExplanations)) {
-      const newIdx = shuffledIndices.indexOf(Number(oldIdx));
-      newWrongExplanations[newIdx] = text;
-    }
-  }
-
-  return {
-    ...question,
-    options: newOptions,
-    correct: newCorrect,
-    wrongExplanations: newWrongExplanations || question.wrongExplanations,
-  };
+  return applyOptionOrder(question, randomOptionOrder(question));
 }
 
 export function useQuiz() {

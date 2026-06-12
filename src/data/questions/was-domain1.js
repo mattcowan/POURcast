@@ -1643,6 +1643,577 @@ export const wasDomain1 = {
       topicLinks: ['disability-user-strategies'],
       difficulty: 'easy',
       tags: ['user-strategies', 'low-vision']
+    },
+    // =============================================
+    // WAS BOK GAP-FILL: WCAG 2.2 & STANDARDS (1301-1328)
+    // =============================================
+    // --- WCAG 2.2 new success criteria (1301-1308) ---
+    {
+      id: 1301,
+      question: "Which success criterion was removed entirely in WCAG 2.2?",
+      options: [
+        "4.1.1 Parsing",
+        "4.1.2 Name, Role, Value",
+        "1.3.1 Info and Relationships",
+        "2.4.7 Focus Visible"
+      ],
+      correct: 0,
+      explanation: "WCAG 2.2 removed SC 4.1.1 Parsing. It was written for an era when assistive technologies parsed markup directly; modern browsers expose a repaired DOM to AT, so the criterion no longer provided unique benefit. Problems it caught, like duplicate IDs breaking label associations, still fail under 1.3.1 or 4.1.2.",
+      wrongExplanations: {
+        1: "4.1.2 Name, Role, Value remains in WCAG 2.2 and is one of the most important criteria for custom widgets.",
+        2: "1.3.1 Info and Relationships remains — it actually absorbs some issues that 4.1.1 used to catch.",
+        3: "2.4.7 Focus Visible remains; WCAG 2.2 added MORE focus-related criteria, it did not remove this one."
+      },
+      topicLinks: ['wcag-22-new-criteria'],
+      difficulty: 'easy',
+      tags: ['wcag-2.2', 'parsing']
+    },
+    {
+      id: 1302,
+      question: "A login form blocks pasting into the password field and offers no other way to sign in. Which WCAG 2.2 success criterion does this most directly fail?",
+      options: [
+        "3.3.8 Accessible Authentication (Minimum) — Level AA",
+        "3.3.7 Redundant Entry — Level A",
+        "2.5.8 Target Size (Minimum) — Level AA",
+        "3.2.6 Consistent Help — Level A"
+      ],
+      correct: 0,
+      explanation: "3.3.8 prohibits requiring a cognitive function test (such as memorizing or transcribing a password) at any authentication step unless an alternative or assistive mechanism exists. Blocking paste defeats password managers, forcing memorization or transcription, which is a classic 3.3.8 failure. (Object recognition and identifying personal content are exceptions at the Minimum level, but they are removed at the AAA Enhanced level, 3.3.9.)",
+      wrongExplanations: {
+        1: "3.3.7 Redundant Entry covers re-entering information within the same process — and it explicitly excepts security-related re-entry like passwords.",
+        2: "2.5.8 is about pointer target dimensions (24 by 24 CSS pixels), not authentication.",
+        3: "3.2.6 requires help mechanisms to appear in a consistent order across a set of pages — unrelated to password entry."
+      },
+      topicLinks: ['wcag-22-new-criteria'],
+      difficulty: 'medium',
+      tags: ['wcag-2.2', 'authentication', 'cognitive']
+    },
+    {
+      id: 1303,
+      question: "A site shows a 'Contact us' link, live chat widget, and FAQ link in its footer — but in a different order on different pages of the site. Which success criterion introduced in WCAG 2.2 is at risk?",
+      options: [
+        "3.2.6 Consistent Help (Level A)",
+        "3.2.3 Consistent Navigation (Level AA)",
+        "3.3.8 Accessible Authentication (Minimum) (Level AA)",
+        "2.4.11 Focus Not Obscured (Minimum) (Level AA)"
+      ],
+      correct: 0,
+      explanation: "3.2.6 Consistent Help (Level A, new in WCAG 2.2) requires that help mechanisms — human contact details, human contact mechanisms, self-help options, and fully automated contact mechanisms — appear in the same relative order on each page in a set of pages where they occur. It primarily benefits people with cognitive disabilities who need to find help in a predictable place.",
+      wrongExplanations: {
+        1: "3.2.3 Consistent Navigation is the near-miss: it covers repeated navigation mechanisms generally and predates 2.2. The new criterion specifically targeting HELP mechanisms is 3.2.6 — and it is Level A.",
+        2: "3.3.8 concerns cognitive function tests during authentication, not the placement of help options.",
+        3: "2.4.11 concerns keyboard focus being hidden by sticky content, not help placement."
+      },
+      topicLinks: ['wcag-22-new-criteria', 'wcag-understandable'],
+      difficulty: 'medium',
+      tags: ['wcag-2.2', 'consistent-help', 'cognitive']
+    },
+    {
+      id: 1304,
+      question: "In a multi-step checkout, the user types their shipping address in step 1, and step 3 demands they retype the same address as the billing address with no way to reuse it. Which WCAG 2.2 success criterion does this fail, and what is a conforming fix?",
+      options: [
+        "3.3.7 Redundant Entry (A) — auto-populate the address or offer a 'same as shipping' option to select",
+        "3.3.7 Redundant Entry (A) — the only fix is to remove the billing address field entirely",
+        "3.3.1 Error Identification (A) — show an error if the addresses do not match",
+        "3.3.8 Accessible Authentication (AA) — addresses count as a cognitive function test"
+      ],
+      correct: 0,
+      explanation: "3.3.7 Redundant Entry (Level A) requires that information previously entered in the same process be auto-populated or available for the user to select. A 'same as shipping address' checkbox or pre-filled fields conforms. Exceptions exist when re-entry is essential, needed for security (passwords), or the previous information is no longer valid.",
+      wrongExplanations: {
+        1: "The SC is correct but the fix is wrong — 3.3.7 does not forbid asking for the information; it requires making the previously entered data available without retyping.",
+        2: "3.3.1 is about identifying input errors, not about forcing re-entry of known information.",
+        3: "3.3.8 applies to cognitive function tests in authentication steps; entering an address during checkout is not authentication."
+      },
+      topicLinks: ['wcag-22-new-criteria', 'form-accessibility'],
+      difficulty: 'medium',
+      tags: ['wcag-2.2', 'redundant-entry', 'cognitive']
+    },
+    {
+      id: 1305,
+      question: "A kanban board lets users move cards between columns only by dragging with the mouse. The team adds full keyboard support (cut/paste cards with keys) and asks if they now meet WCAG 2.2 SC 2.5.7 Dragging Movements. Do they?",
+      options: [
+        "No — 2.5.7 requires a SINGLE-POINTER alternative to dragging (e.g., click a card, then click a 'move here' target); keyboard support satisfies 2.1.1 but not 2.5.7",
+        "Yes — any non-dragging alternative, including keyboard, satisfies 2.5.7",
+        "No — 2.5.7 bans drag-and-drop interfaces entirely",
+        "Yes — 2.5.7 only applies to native mobile apps, not web content"
+      ],
+      correct: 0,
+      explanation: "2.5.7 (AA) requires that functionality using a dragging movement be achievable by a single pointer WITHOUT dragging, unless dragging is essential or determined by the user agent. It targets pointer users (e.g., tremors, limited dexterity) who can click but cannot sustain press-hold-move-release. Keyboard alternatives are required separately by 2.1.1, but they do not satisfy the single-pointer requirement of 2.5.7.",
+      wrongExplanations: {
+        1: "This is the classic near-miss: keyboard operation is a different requirement (2.1.1). A pointer user who cannot drag may also not use a keyboard efficiently — 2.5.7 specifically demands a pointer-based, non-dragging path.",
+        2: "Drag-and-drop is allowed — there just must also be a single-pointer alternative (or dragging must be essential).",
+        3: "WCAG applies to web content; 2.5.7 absolutely applies to web apps."
+      },
+      topicLinks: ['wcag-22-new-criteria', 'wcag-operable'],
+      difficulty: 'hard',
+      tags: ['wcag-2.2', 'dragging', 'pointer']
+    },
+    {
+      id: 1306,
+      question: "What is the minimum pointer target size required by WCAG 2.2 SC 2.5.8 Target Size (Minimum) at Level AA?",
+      options: [
+        "24 by 24 CSS pixels (with exceptions for spacing, equivalents, inline targets, user-agent controls, and essential presentations)",
+        "44 by 44 CSS pixels",
+        "16 by 16 CSS pixels",
+        "There is no numeric minimum; targets just need visible focus indicators"
+      ],
+      correct: 0,
+      explanation: "2.5.8 Target Size (Minimum), new at Level AA in WCAG 2.2, requires targets to be at least 24 by 24 CSS pixels, with exceptions including sufficient spacing (a 24px circle centered on the target not intersecting other targets), an equivalent control elsewhere, inline text links, user-agent-determined sizing, and essential presentations.",
+      wrongExplanations: {
+        1: "44 by 44 is the stricter AAA requirement from SC 2.5.5 Target Size (Enhanced), introduced in WCAG 2.1 — a frequent exam trap.",
+        2: "16 by 16 is not a WCAG target size threshold.",
+        3: "2.5.8 sets an explicit numeric minimum; focus indicators are covered by different criteria (2.4.7, 2.4.13)."
+      },
+      topicLinks: ['wcag-22-new-criteria'],
+      difficulty: 'easy',
+      tags: ['wcag-2.2', 'target-size', 'pointer']
+    },
+    {
+      id: 1307,
+      question: "A page has a sticky cookie banner across the bottom. When users Tab through the page, focused links behind the banner are partially visible above its edge, but one link is completely covered. How does this fare against WCAG 2.2's Focus Not Obscured criteria?",
+      options: [
+        "The completely covered link fails 2.4.11 (Minimum, AA); the partially covered links pass 2.4.11 but would fail 2.4.12 (Enhanced, AAA)",
+        "All of the covered links fail 2.4.11, because no part of a focused element may ever be hidden at Level AA",
+        "Nothing fails — sticky banners are user interface chrome and exempt from WCAG",
+        "The page fails 2.4.13 Focus Appearance, which is the Level AA criterion about obscured focus"
+      ],
+      correct: 0,
+      explanation: "2.4.11 Focus Not Obscured (Minimum) (AA) requires that a focused component not be ENTIRELY hidden by author-created content — so the fully covered link fails. Partial obscuring passes at AA but violates the AAA version, 2.4.12 Focus Not Obscured (Enhanced), which forbids hiding any part of the focused component.",
+      wrongExplanations: {
+        1: "The 'no part hidden' rule is the AAA Enhanced criterion (2.4.12). At Level AA, only complete obscuring fails.",
+        2: "The cookie banner is author-created content — exactly what these criteria address (sticky headers, footers, banners).",
+        3: "2.4.13 Focus Appearance concerns the size and contrast of the focus indicator, and it is Level AAA, not AA."
+      },
+      topicLinks: ['wcag-22-new-criteria', 'focus-indicators'],
+      difficulty: 'hard',
+      tags: ['wcag-2.2', 'focus', 'low-vision']
+    },
+    {
+      id: 1308,
+      question: "Which two of the nine new WCAG 2.2 success criteria are at Level A?",
+      options: [
+        "3.2.6 Consistent Help and 3.3.7 Redundant Entry",
+        "3.3.8 Accessible Authentication (Minimum) and 2.5.8 Target Size (Minimum)",
+        "2.4.11 Focus Not Obscured (Minimum) and 2.5.7 Dragging Movements",
+        "2.4.13 Focus Appearance and 3.3.9 Accessible Authentication (Enhanced)"
+      ],
+      correct: 0,
+      explanation: "The two Level A additions in WCAG 2.2 are 3.2.6 Consistent Help and 3.3.7 Redundant Entry — both driven by the needs of people with cognitive disabilities. Four new criteria are AA (2.4.11, 2.5.7, 2.5.8, 3.3.8) and three are AAA (2.4.12, 2.4.13, 3.3.9).",
+      wrongExplanations: {
+        1: "Both Accessible Authentication (Minimum) and Target Size (Minimum) are Level AA.",
+        2: "Both Focus Not Obscured (Minimum) and Dragging Movements are Level AA.",
+        3: "Focus Appearance and Accessible Authentication (Enhanced) are both Level AAA."
+      },
+      topicLinks: ['wcag-22-new-criteria'],
+      difficulty: 'medium',
+      tags: ['wcag-2.2', 'conformance-levels']
+    },
+    // --- Normative vs. non-normative & techniques (1309-1312) ---
+    {
+      id: 1309,
+      question: "Which part of the WCAG documentation is normative — that is, required for conformance?",
+      options: [
+        "The success criteria text (with the conformance requirements and glossary)",
+        "The Understanding WCAG documents",
+        "The Techniques for WCAG documents",
+        "The ARIA Authoring Practices Guide"
+      ],
+      correct: 0,
+      explanation: "Only the WCAG standard itself is normative: the success criteria, the conformance requirements, and the glossary definitions they depend on. The Understanding documents and Techniques are informative (non-normative) supporting materials — invaluable for interpretation, but never required.",
+      wrongExplanations: {
+        1: "Understanding documents explain intent, benefits, and examples for each SC — they are explicitly informative.",
+        2: "Techniques describe possible ways to meet criteria; the W3C states they are informative and not required.",
+        3: "The APG is a W3C informative resource about ARIA widget patterns; it is not even part of WCAG."
+      },
+      topicLinks: ['normative-vs-non-normative'],
+      difficulty: 'easy',
+      tags: ['normative', 'wcag-structure']
+    },
+    {
+      id: 1310,
+      question: "An auditor reports a failure of SC 1.1.1 because a team used a custom, undocumented method for providing text alternatives instead of W3C sufficient technique H37 (using alt attributes). The team's method demonstrably exposes correct text alternatives to assistive technology. Who is right?",
+      options: [
+        "The team — techniques are informative and not required; any method that satisfies the normative SC text conforms",
+        "The auditor — sufficient techniques are the only valid ways to meet a success criterion",
+        "The auditor — custom methods require prior W3C approval before they can be used",
+        "Neither — conformance can only be determined by automated testing tools"
+      ],
+      correct: 0,
+      explanation: "Techniques are non-normative. The W3C is explicit that authors may use other methods, including new or custom ones, as long as the success criterion itself is satisfied. Audit findings should cite the normative SC, not the absence of a particular documented technique.",
+      wrongExplanations: {
+        1: "Sufficient techniques are vetted, reliable ways to meet an SC, but the documented list is not exhaustive and is not mandatory.",
+        2: "There is no W3C approval process for individual authors' methods; conformance is judged against the SC text.",
+        3: "Automated tools can only detect a subset of issues; conformance is judged against the success criteria by any reliable means."
+      },
+      topicLinks: ['normative-vs-non-normative'],
+      difficulty: 'medium',
+      tags: ['techniques', 'auditing']
+    },
+    {
+      id: 1311,
+      question: "During an audit you find markup that exactly matches W3C documented failure F65 ('omitting the alt attribute on img elements'). What does matching a documented failure technique mean for conformance?",
+      options: [
+        "The content fails the related success criterion — documented failures are patterns the W3C has determined violate an SC",
+        "Nothing by itself — failure techniques are informative, so matching one has no implications",
+        "The content fails all of WCAG and no conformance claim can be made for the site",
+        "The content is conformant as long as at least one sufficient technique is used elsewhere on the page"
+      ],
+      correct: 0,
+      explanation: "Failure techniques document patterns known to violate specific success criteria. Content that matches a documented failure does not conform to that SC (unless a conforming alternative version is provided). While the failure documents are technically informative, they describe conditions under which the normative SC is not met.",
+      wrongExplanations: {
+        1: "This is the trap: the documents are informative, but what they DESCRIBE is a violation of the normative SC — so the content still fails the criterion.",
+        2: "A failure affects the specific success criterion (and the page's conformance claim at that level), not 'all of WCAG' as a blanket judgment.",
+        3: "Sufficient techniques elsewhere don't neutralize a failure — the failing content itself must be fixed or a conforming alternative provided."
+      },
+      topicLinks: ['normative-vs-non-normative', 'failures-vs-best-practices'],
+      difficulty: 'medium',
+      tags: ['techniques', 'failures', 'auditing']
+    },
+    {
+      id: 1312,
+      question: "A developer insists their tabs widget is 'non-conformant with WAI-ARIA' because it doesn't use the keyboard scheme in the ARIA Authoring Practices Guide (APG). What is the most accurate correction?",
+      options: [
+        "The ARIA specification is normative (e.g., allowed roles and attributes), but the APG is informative guidance — its patterns are recommended, not conformance requirements",
+        "Both the ARIA spec and the APG are normative, so the developer is right",
+        "Neither the ARIA spec nor the APG is normative, so ARIA usage can never be wrong",
+        "The APG is normative but only at WCAG Level AAA"
+      ],
+      correct: 0,
+      explanation: "The WAI-ARIA specification is a normative W3C standard: it defines roles, states, properties, and rules about their use. The APG (and the 'Using ARIA' document) are informative — they describe recommended interaction patterns. Deviating from APG isn't automatically a failure, though the widget must still meet WCAG criteria like 2.1.1 Keyboard and 4.1.2 Name, Role, Value.",
+      wrongExplanations: {
+        1: "The APG is explicitly informative; treating its patterns as a conformance standard is a common misconception.",
+        2: "The ARIA spec itself IS normative — misusing roles or attributes can create real failures (e.g., under 4.1.2).",
+        3: "The APG has no normative status in WCAG at any level — WCAG levels apply to success criteria, not external guides."
+      },
+      topicLinks: ['normative-vs-non-normative', 'aria-overview', 'aria-widget-patterns'],
+      difficulty: 'medium',
+      tags: ['aria', 'normative', 'apg']
+    },
+    // --- Accessibility-supported technologies (1313-1315) ---
+    {
+      id: 1313,
+      question: "What does WCAG conformance requirement 4 ('accessibility supported') require?",
+      options: [
+        "Only ways of using technologies that work with users' assistive technologies and browsers' accessibility features can be relied upon to satisfy success criteria",
+        "All content must be tested with every screen reader on the market before launch",
+        "Only W3C technologies (HTML, CSS, SVG) may be used on a conforming page",
+        "Pages must include a list of supported assistive technologies in the footer"
+      ],
+      correct: 0,
+      explanation: "Conformance requirement 4 says that only accessibility-supported ways of using technologies can be RELIED UPON to satisfy success criteria — meaning the technique must actually work in users' assistive technologies and in the accessibility features of browsers and other user agents, not merely be valid per a specification.",
+      wrongExplanations: {
+        1: "WCAG deliberately does not prescribe how many or which AT/browser combinations must be tested or supported.",
+        2: "Non-W3C technologies may be used, as long as the ways they are used are accessibility supported (and non-interfering).",
+        3: "Documenting tested AT is good audit practice, but it is not what the conformance requirement says."
+      },
+      topicLinks: ['accessibility-supported', 'wcag-conformance-requirements'],
+      difficulty: 'easy',
+      tags: ['accessibility-supported', 'wcag-conformance']
+    },
+    {
+      id: 1314,
+      question: "A team uses a brand-new ARIA attribute that is valid in the latest ARIA specification, but testing shows no major screen reader exposes it yet. Can the team rely on it to satisfy a WCAG success criterion?",
+      options: [
+        "No — per conformance requirement 4, an unsupported usage cannot be relied upon; they need an accessibility-supported method (and may keep the new attribute alongside it)",
+        "Yes — validity against the W3C specification is what WCAG conformance measures",
+        "Yes — screen reader vendors are required to implement W3C specifications within 12 months",
+        "No — and they must also remove the attribute, because unsupported attributes always violate WCAG"
+      ],
+      correct: 0,
+      explanation: "Being in the spec is not the same as being accessibility supported. Since users' AT cannot consume the attribute, it cannot be relied upon for conformance. The team should meet the SC through a supported technique; the newer attribute can remain as progressive enhancement provided it does not interfere (conformance requirement 5).",
+      wrongExplanations: {
+        1: "Spec validity is necessary but insufficient — conformance requirement 4 asks whether the usage actually works with users' AT and browsers.",
+        2: "No such mandate exists; AT support often lags specifications by years, which is exactly why this requirement exists.",
+        3: "Unsupported technologies may still be USED — they just cannot be relied upon, and must not block access to the conforming version."
+      },
+      topicLinks: ['accessibility-supported', 'aria-overview'],
+      difficulty: 'medium',
+      tags: ['accessibility-supported', 'aria', 'at-support']
+    },
+    {
+      id: 1315,
+      question: "How should a developer determine whether a particular HTML/ARIA feature is 'accessibility supported' enough to rely on?",
+      options: [
+        "Test it in the browser + assistive technology combinations their audience uses and consult community support data (e.g., a11ysupport.io) — WCAG itself doesn't define a required set of combinations",
+        "Check that the page passes the W3C HTML validator",
+        "Confirm the feature appears in the WCAG sufficient techniques list, which guarantees universal AT support",
+        "Verify support in one screen reader, since all screen readers expose the accessibility tree identically"
+      ],
+      correct: 0,
+      explanation: "WCAG deliberately leaves 'how much support counts' undefined — it depends on the audience's environments. In practice, developers test real pairings (NVDA + Chrome, JAWS + Edge, VoiceOver + Safari, TalkBack + Chrome) and consult community-maintained databases like a11ysupport.io, re-verifying as browsers and AT update.",
+      wrongExplanations: {
+        1: "Validation checks syntax against the spec; it says nothing about whether assistive technologies actually expose the feature.",
+        2: "Sufficient techniques are vetted ways to meet criteria, but they don't guarantee support in every AT — support still varies and changes over time.",
+        3: "Support differs significantly per screen reader AND per browser pairing — a feature can work in NVDA + Chrome yet fail in VoiceOver + Safari."
+      },
+      topicLinks: ['accessibility-supported', 'browser-at-interoperability', 'screen-reader-testing'],
+      difficulty: 'hard',
+      tags: ['accessibility-supported', 'testing', 'at-support']
+    },
+    // --- Roving tabindex & aria-activedescendant (1316-1319) ---
+    {
+      id: 1316,
+      question: "In a roving tabindex implementation of a toolbar, how are tabindex values managed?",
+      options: [
+        "The active control has tabindex='0' and all others have tabindex='-1'; arrow keys update the values and move real DOM focus to the new active control",
+        "Every control has tabindex='0' so users can Tab to each one",
+        "Controls are numbered tabindex='1', '2', '3'... to enforce the correct order",
+        "The container has tabindex='0' and aria-activedescendant points at the active control"
+      ],
+      correct: 0,
+      explanation: "Roving tabindex keeps the composite widget as a single Tab stop: exactly one item holds tabindex='0' (the roving position), the rest hold tabindex='-1'. On arrow key presses, the script swaps the values and calls .focus() on the new item, so DOM focus genuinely moves and screen readers announce the newly focused control.",
+      wrongExplanations: {
+        1: "Giving every control tabindex='0' makes each one a separate Tab stop, defeating the one-stop composite pattern.",
+        2: "Positive tabindex values hijack the page's global tab order and are a well-known anti-pattern.",
+        3: "That describes the aria-activedescendant pattern — the alternative approach where focus stays on the container instead of roving."
+      },
+      topicLinks: ['focus-management-patterns', 'aria-widget-patterns'],
+      difficulty: 'easy',
+      tags: ['roving-tabindex', 'focus-management', 'keyboard']
+    },
+    {
+      id: 1317,
+      question: "In a listbox using aria-activedescendant, what happens to DOM focus as the user presses arrow keys through the options?",
+      options: [
+        "DOM focus stays on the listbox container; the aria-activedescendant attribute is updated to the id of the active option, which screen readers announce as if focused",
+        "DOM focus moves to each option element in turn",
+        "DOM focus moves to the document body between key presses",
+        "Focus alternates between the container and the active option on every key press"
+      ],
+      correct: 0,
+      explanation: "With aria-activedescendant, document.activeElement never leaves the focusable container. Arrow key handlers update the container's aria-activedescendant value to reference the active option's unique id; assistive technologies then treat that referenced element as the point of interest and announce it.",
+      wrongExplanations: {
+        1: "Moving real focus to each option describes the roving tabindex pattern, not aria-activedescendant.",
+        2: "Focus never drops to the body — that would eject the user from the widget entirely.",
+        3: "There is no alternation; the whole point of the pattern is that focus remains stationary on the container."
+      },
+      topicLinks: ['focus-management-patterns', 'aria-states-properties'],
+      difficulty: 'medium',
+      tags: ['aria-activedescendant', 'focus-management', 'listbox']
+    },
+    {
+      id: 1318,
+      question: "Why must an editable combobox (a text input that filters a popup list of options) use aria-activedescendant rather than roving tabindex for its list options?",
+      options: [
+        "DOM focus must stay in the text input so the user can keep typing while arrow keys highlight options; moving real focus into the list would break text entry",
+        "Roving tabindex is deprecated in the ARIA specification",
+        "aria-activedescendant performs better because it avoids JavaScript event handlers",
+        "Screen readers cannot announce elements that receive real DOM focus inside a popup"
+      ],
+      correct: 0,
+      explanation: "In an editable combobox, typing and option navigation are interleaved — the user types to filter, arrows to a suggestion, types more to refine. That only works if DOM focus remains in the input. aria-activedescendant lets the input keep focus while telling AT which option in the popup is active.",
+      wrongExplanations: {
+        1: "Roving tabindex is not deprecated — it remains the recommended default for most composite widgets like toolbars and tab lists.",
+        2: "Both patterns require JavaScript key handling; performance is not the deciding factor.",
+        3: "Screen readers announce focused elements in popups fine — the issue is that the user could no longer type in the input."
+      },
+      topicLinks: ['focus-management-patterns', 'aria-widget-patterns'],
+      difficulty: 'hard',
+      tags: ['aria-activedescendant', 'combobox', 'focus-management']
+    },
+    {
+      id: 1319,
+      question: "A custom listbox uses aria-activedescendant correctly for announcements, but sighted keyboard users report two problems: they can't see which option is active, and arrowing past the visible area 'loses' the highlight. What is the likely cause?",
+      options: [
+        "Since real focus never moves, :focus styles never apply to options and the browser never auto-scrolls — the script must style the active option explicitly and call scrollIntoView()",
+        "aria-activedescendant is unsupported in all browsers, so the widget must be rebuilt with roving tabindex",
+        "The options are missing aria-live attributes, which control visual highlighting",
+        "The container needs tabindex='1' to enable scrolling behavior"
+      ],
+      correct: 0,
+      explanation: "These are the two classic aria-activedescendant pitfalls. DOM focus stays on the container, so the option never matches :focus and gets no native focus ring (risking SC 2.4.7 Focus Visible), and the browser has no reason to scroll an unfocused element into view. Authors must add explicit active styling (e.g., on [aria-selected='true']) and programmatically scroll the active option into view.",
+      wrongExplanations: {
+        1: "aria-activedescendant is broadly supported; the bug is missing visual styling and scrolling logic, not the pattern itself.",
+        2: "aria-live governs announcements of dynamic content changes — it has nothing to do with visual highlighting.",
+        3: "Positive tabindex values are an anti-pattern and have no effect on scrolling."
+      },
+      topicLinks: ['focus-management-patterns', 'focus-indicators'],
+      difficulty: 'hard',
+      tags: ['aria-activedescendant', 'focus-visible', 'pitfalls']
+    },
+    // --- EN 301 549 & EU Web Accessibility Directive (1320-1322) ---
+    {
+      id: 1320,
+      question: "How does EN 301 549 go beyond WCAG for a public-sector web team in the EU?",
+      options: [
+        "Besides clause 9 (which incorporates WCAG 2.1 AA for web content), other clauses add requirements — e.g., for non-web documents (clause 10), software (clause 11), and media player capabilities like caption playback (clause 7)",
+        "It upgrades all WCAG AAA criteria to mandatory for web pages",
+        "It only restates WCAG 2.1 AA with no additional requirements of any kind",
+        "It replaces WCAG entirely with an unrelated European test methodology"
+      ],
+      correct: 0,
+      explanation: "EN 301 549 is an ICT-wide standard. Clause 9 incorporates WCAG 2.1 Level AA for web content, but the standard also covers non-web documents (clause 10), software and mobile apps (clause 11), documentation and support services (clause 12), and functional requirements such as captioning playback and audio description capabilities for media players (clause 7) — obligations WCAG alone does not impose.",
+      wrongExplanations: {
+        1: "EN 301 549 does not raise the web requirement to AAA; the web baseline is WCAG 2.1 AA.",
+        2: "It is much broader than a restatement — its coverage of documents, software, hardware, and support services is precisely how it extends beyond WCAG.",
+        3: "It builds directly on WCAG rather than replacing it; clause 9 mirrors WCAG 2.1 AA."
+      },
+      topicLinks: ['en-301-549', 'wcag-overview'],
+      difficulty: 'medium',
+      tags: ['en-301-549', 'european-standards']
+    },
+    {
+      id: 1321,
+      question: "Beyond making content conform to the standard, what does the EU Web Accessibility Directive (2016/2102) require of public sector websites and mobile apps?",
+      options: [
+        "Publishing an accessibility statement (including known non-accessible content) and providing a feedback mechanism, with member states monitoring and reporting on compliance",
+        "Annual third-party certification of every page by a private auditor",
+        "Hosting all content on EU-based servers",
+        "Translating all content into every official EU language"
+      ],
+      correct: 0,
+      explanation: "The Web Accessibility Directive requires public sector bodies to publish and maintain an accessibility statement describing conformance status and known exceptions, to provide a feedback mechanism so users can report barriers and request inaccessible content, and it obligates member states to monitor compliance periodically and report to the European Commission. EN 301 549 is the harmonized standard giving presumption of conformity.",
+      wrongExplanations: {
+        1: "The directive establishes member-state monitoring, not mandatory private third-party certification of every page.",
+        2: "Server location is a data/sovereignty matter, not part of the accessibility directive.",
+        3: "Language translation requirements are unrelated to the directive's accessibility obligations."
+      },
+      topicLinks: ['en-301-549'],
+      difficulty: 'medium',
+      tags: ['web-accessibility-directive', 'european-standards', 'legal']
+    },
+    {
+      id: 1322,
+      question: "What is the purpose of Annex A of EN 301 549?",
+      options: [
+        "It contains tables mapping which of the standard's requirements apply for presumed conformity with the Web Accessibility Directive for websites and mobile apps",
+        "It is the full text of WCAG 2.1 reproduced verbatim",
+        "It lists the assistive technology products officially approved in the EU",
+        "It defines the financial penalties for non-compliance in each member state"
+      ],
+      correct: 0,
+      explanation: "Annex A of EN 301 549 contains the tables (e.g., Table A.1) that identify exactly which clauses and requirements of the standard are relevant to the essential requirements of the Web Accessibility Directive — i.e., what a public sector website or mobile app must satisfy to enjoy presumption of conformity with the directive.",
+      wrongExplanations: {
+        1: "WCAG criteria are incorporated by reference and restated within clause 9, not reproduced as Annex A.",
+        2: "Neither the EU nor the standard maintains an 'approved AT' product list.",
+        3: "Penalties are determined by individual member states' implementing legislation, not by the technical standard."
+      },
+      topicLinks: ['en-301-549'],
+      difficulty: 'hard',
+      tags: ['en-301-549', 'web-accessibility-directive', 'annex-a']
+    },
+    // --- SPA depth: history, announcements, AJAX updates (1323-1325) ---
+    {
+      id: 1323,
+      question: "A SPA swaps views without using the History API (no pushState or popstate handling). What accessibility and usability problem results?",
+      options: [
+        "The browser back button no longer maps to the user's navigation — pressing Back can exit the app entirely or land on stale state, breaking a deeply ingrained recovery mechanism",
+        "The page's CSS custom properties stop cascading",
+        "All ARIA attributes are removed from the DOM on each view swap",
+        "Screen readers refuse to render content that wasn't loaded with a full page request"
+      ],
+      correct: 0,
+      explanation: "Users — especially those with cognitive disabilities, and screen reader users who rely on predictable mental models — expect Back to undo their last navigation. If a SPA changes views without pushing history entries, Back leaves the site or restores a mismatched state. Integrating with the History API (as client-side routers do) preserves Back/Forward, bookmarks, and shareable URLs.",
+      wrongExplanations: {
+        1: "CSS behavior is unaffected by how navigation state is managed.",
+        2: "View swapping doesn't strip ARIA attributes; the markup is whatever the app renders.",
+        3: "Screen readers read whatever is in the DOM regardless of how it was loaded — the problem is navigation state, not rendering."
+      },
+      topicLinks: ['spa-accessibility', 'javascript-accessibility'],
+      difficulty: 'medium',
+      tags: ['spa', 'history-api', 'routing']
+    },
+    {
+      id: 1324,
+      question: "Compare two route-change strategies in a SPA: (A) move focus to the new view's h1 (tabindex='-1'); (B) announce the new view via an aria-live region while leaving focus untouched. What is the key trade-off?",
+      options: [
+        "A repositions keyboard and screen reader users in the new content but interrupts; B informs without repositioning, leaving keyboard users stranded in stale content — so robust implementations often combine announcement with focus management",
+        "A and B are functionally identical because focusing an element always triggers a live region announcement",
+        "B is strictly better because moving focus programmatically violates WCAG 3.2.1 On Focus",
+        "A is invalid because headings can never legally receive focus in HTML"
+      ],
+      correct: 0,
+      explanation: "Moving focus to the new h1 gives screen reader AND keyboard users a real foothold in the new view (announced via the focus event), at the cost of an abrupt context move. A live region only answers 'what changed?' — focus remains in the removed/old view, so the next Tab press goes somewhere unpredictable. Mature SPAs typically move focus and may supplement with an announcement.",
+      wrongExplanations: {
+        1: "They are not identical — live regions don't move focus, and focusing an element is announced through focus semantics, not through live region machinery.",
+        2: "3.2.1 On Focus prohibits unexpected context changes when a component RECEIVES focus; deliberately moving focus after a user-initiated navigation is accepted practice.",
+        3: "Any element can receive programmatic focus with tabindex='-1' — focusing the h1 is a widely recommended technique."
+      },
+      topicLinks: ['spa-accessibility', 'aria-live-regions'],
+      difficulty: 'hard',
+      tags: ['spa', 'focus-management', 'aria-live']
+    },
+    {
+      id: 1325,
+      question: "As a user types into a search field, results filter live in a region below. What is the most appropriate way to notify screen reader users of the updates?",
+      options: [
+        "A polite live region announcing a summary like '12 results shown' — without moving focus, which would disrupt typing",
+        "Move focus to the results list after every keystroke",
+        "Use role='alert' on the results container so every change interrupts immediately",
+        "Reload the entire page after each keystroke so screen readers start fresh"
+      ],
+      correct: 0,
+      explanation: "For frequent, non-critical AJAX updates, a polite live region with a concise summary (result count) informs users when they pause typing, without yanking focus from the input. Announcing the full result list or interrupting assertively would be overwhelming; moving focus would make typing impossible.",
+      wrongExplanations: {
+        1: "Stealing focus on every keystroke makes the search box unusable — users could never type more than one character.",
+        2: "role='alert' is assertive — it interrupts speech on every update, which is hostile for something that changes on each keystroke.",
+        3: "Full page reloads destroy the interaction model and are exactly what AJAX patterns exist to avoid; the task is to communicate updates accessibly, not eliminate them."
+      },
+      topicLinks: ['aria-live-regions', 'spa-accessibility', 'javascript-accessibility'],
+      difficulty: 'medium',
+      tags: ['aria-live', 'ajax', 'search']
+    },
+    // --- Screen reader modes & touch gestures (1326-1327) ---
+    {
+      id: 1326,
+      question: "A custom date picker works perfectly with a mouse, but NVDA users report that pressing arrow keys reads the page text instead of changing the date. What is the most likely explanation?",
+      options: [
+        "NVDA is in browse mode, where arrow keys are intercepted by the virtual buffer for reading; the widget needs proper interactive roles/focus so the screen reader switches to focus (forms) mode and passes keys through",
+        "Arrow keys can never be used by web applications while any screen reader is running",
+        "NVDA does not support JavaScript event handlers",
+        "The date picker needs aria-live='assertive' to receive keyboard events"
+      ],
+      correct: 0,
+      explanation: "Windows screen readers like NVDA and JAWS have two modes: browse/virtual mode, where keystrokes (arrows, H for headings, etc.) navigate a virtual copy of the page, and focus/forms mode, where keys pass through to the web app. Screen readers switch to focus mode automatically when the user moves into a recognized interactive widget — which requires correct roles (e.g., grid, spinbutton), focus management, and states. Without them, arrow presses never reach the widget's handlers.",
+      wrongExplanations: {
+        1: "Web apps receive arrow keys fine once the screen reader is in focus mode — composite widgets depend on exactly this.",
+        2: "NVDA runs against the browser's accessibility tree and DOM; JavaScript handlers work normally when keys pass through.",
+        3: "aria-live controls announcements of content changes; it has no effect on keyboard event routing or modes."
+      },
+      topicLinks: ['screen-reader-modes', 'focus-management-patterns', 'screen-readers'],
+      difficulty: 'hard',
+      tags: ['screen-reader-modes', 'nvda', 'keyboard']
+    },
+    {
+      id: 1327,
+      question: "How does a VoiceOver or TalkBack user typically move to the next element and activate a control on a touch screen?",
+      options: [
+        "Swipe right to move to the next element, then double-tap anywhere to activate the current item",
+        "Single-tap the control directly, exactly as without a screen reader",
+        "Triple-tap with two fingers to move, pinch to activate",
+        "Shake the device to advance and long-press to activate"
+      ],
+      correct: 0,
+      explanation: "Mobile screen readers intercept touch input: a right swipe moves the reading cursor to the next element (left swipe goes back), and a double-tap activates whatever currently has the screen reader cursor. Users can also explore by touch — dragging a finger to hear items under it. Standard single taps no longer activate controls directly.",
+      wrongExplanations: {
+        1: "With the screen reader running, a single tap moves the cursor/announces the item rather than activating it — activation requires double-tap.",
+        2: "These are not the standard navigation/activation gestures; multi-finger gestures perform other functions (e.g., scrolling, reading from top).",
+        3: "Shake and long-press are not the navigation model of VoiceOver or TalkBack."
+      },
+      topicLinks: ['screen-readers', 'disability-user-strategies'],
+      difficulty: 'easy',
+      tags: ['mobile', 'voiceover', 'talkback', 'touch']
+    },
+    // --- Deaf and deaf-blind user strategies (1328) ---
+    {
+      id: 1328,
+      question: "Your video content has accurate captions. A deaf-blind user reports they still cannot access it. Which addition serves them, and what serves Deaf users whose first language is sign language?",
+      options: [
+        "A text transcript, readable on a refreshable braille display, serves deaf-blind users; sign language interpretation (SC 1.2.6, Level AAA) serves Deaf signers",
+        "Higher-contrast captions serve deaf-blind users; transcripts serve sign language users",
+        "Audio description serves both groups",
+        "Nothing further is needed — captions satisfy every auditory-disability use case"
+      ],
+      correct: 0,
+      explanation: "Captions are visual, so a deaf-blind user cannot perceive them; a complete text transcript can be read line-by-line on a refreshable braille display. For many Deaf people, a national sign language is their first language and written text a second one — SC 1.2.6 Sign Language (Prerecorded), Level AAA, addresses providing sign language interpretation for prerecorded audio content.",
+      wrongExplanations: {
+        1: "Contrast doesn't help a user who cannot see the screen at all, and transcripts are not a sign-language substitute — this reverses the appropriate accommodations.",
+        2: "Audio description narrates visual information for blind users who can hear — it is inaccessible to both deaf-blind users and unnecessary for Deaf users.",
+        3: "Captions don't reach deaf-blind users (visual) and may be harder than signing for Deaf first-language signers — that's why transcripts and SC 1.2.6 exist."
+      },
+      topicLinks: ['disability-user-strategies', 'wcag-perceivable'],
+      difficulty: 'medium',
+      tags: ['deaf-blind', 'captions', 'transcripts', 'braille']
     }
   ]
 };

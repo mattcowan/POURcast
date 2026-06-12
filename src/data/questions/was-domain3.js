@@ -816,6 +816,369 @@ export const wasDomain3 = {
       topicLinks: ['accessibility-qa-lifecycle', 'maturity-models', 'procurement-accessibility'],
       difficulty: 'hard',
       tags: ['organizational', 'maturity-models', 'lifecycle', 'remediation']
+    },
+    // =============================================
+    // PROCUREMENT EXPERT ROLE & STAKEHOLDER COMMUNICATION (1501-1518)
+    // =============================================
+    {
+      id: 1501,
+      question: "A software vendor hires an accessibility expert to help them compete for government contracts. Which set of activities fits the expert's role on the VENDOR side of procurement?",
+      options: [
+        "Auditing the vendor's existing systems, remedying defects, creating an ACR, and responding to tender questions about accessibility",
+        "Drafting the government agency's RFP requirements and scoring competing bids",
+        "Approving the vendor's products for sale under Section 508",
+        "Writing the contract terms the purchasing agency will impose on the vendor"
+      ],
+      correct: 0,
+      explanation: "Accessibility experts can assist vendors by auditing existing systems, remedying defects, creating Accessibility Conformance Reports, and responding to tender questions regarding accessibility. These activities prepare the vendor to demonstrate and improve the accessibility of its products credibly.",
+      wrongExplanations: {
+        1: "Drafting RFP requirements and evaluating bids is the expert's role when working for the PURCHASER, not the vendor. An expert working for a bidding vendor would have a conflict of interest scoring the competition.",
+        2: "No individual expert 'approves' products under Section 508 — there is no certification authority. Section 508 conformance is documented (e.g., via ACRs) and verified by purchasing agencies.",
+        3: "Suggesting contract wording on accessibility is a service experts provide to purchasers, who impose the terms. The vendor side responds to those requirements rather than writing them."
+      },
+      topicLinks: ['procurement-expert-role', 'vpat'],
+      difficulty: 'easy',
+      tags: ['procurement', 'expertise', 'vendors']
+    },
+    {
+      id: 1502,
+      question: "A university is preparing a Request for Proposal (RFP) for a new learning management system. What is the accessibility expert's MOST useful contribution at this stage?",
+      options: [
+        "Waiting until a product is selected, then auditing it for accessibility defects",
+        "Supplying a list of suitable accessibility questions for inclusion in the tender documents and advising which procurement standard (e.g., EN 301 549 or Section 508) to reference",
+        "Requiring that all bidders demonstrate WCAG 2.1 Level AAA conformance",
+        "Recommending the university build the system in-house to avoid procurement entirely"
+      ],
+      correct: 1,
+      explanation: "At the RFP stage, accessibility experts provide purchasers with suitable questions for inclusion in tender documents and RFPs, plus advice on ICT procurement standards such as EN 301 549 and Section 508. Asking the right questions before vendors respond is what lets the organization compare accessibility credibly during selection.",
+      wrongExplanations: {
+        0: "Auditing only after selection forfeits the organization's maximum leverage. Accessibility should be built into the tender documents so it influences which product is chosen.",
+        2: "Requiring Level AAA is unrealistic — WCAG itself does not recommend requiring AAA for entire sites, and very few products fully support even all A/AA criteria. Procurement standards reference Level AA-based requirements.",
+        3: "Building in-house does not avoid the accessibility question — it just moves it to development. Procurement with strong accessibility requirements is a legitimate, often more practical path."
+      },
+      topicLinks: ['procurement-expert-role', 'procurement-accessibility'],
+      difficulty: 'easy',
+      tags: ['procurement', 'rfp', 'expertise']
+    },
+    {
+      id: 1503,
+      question: "Two vendors respond to a tender. Vendor A submits an in-house ACR claiming 'Supports' on every single criterion. Vendor B submits an ACR prepared by an independent accessibility consultancy showing several 'Partially Supports' entries with detailed remarks. How should the evaluating expert read this?",
+      options: [
+        "Vendor A is the safer choice because its report shows full conformance",
+        "Vendor B's report should be treated with more suspicion because it admits defects",
+        "Vendor B's report is more credible — independently produced ACRs are preferable, and very few products genuinely support every criterion, so a perfect in-house report warrants verification through direct testing",
+        "Both reports are equally reliable because the VPAT is a standardized template"
+      ],
+      correct: 2,
+      explanation: "The BoK states it is preferable that vendors use an independent accessibility professional to create their ACR rather than producing it in-house, and that in practice very few products fully support every single criterion. A perfect self-reported scorecard is a red flag to verify with direct product testing, while honest 'Partially Supports' entries with remarks give useful information about where to focus the review.",
+      wrongExplanations: {
+        0: "A blanket 'Supports' claim from an in-house report is more likely to reflect optimistic self-assessment than genuine full conformance. Claims should be verified by testing, not taken at face value.",
+        1: "Documented defects with remarks indicate a more rigorous evaluation, not a worse product. Transparency about partial support is expected in credible ACRs.",
+        3: "The template standardizes the format, not the quality or honesty of the assessment. Who performed the evaluation and how thoroughly still matters enormously."
+      },
+      topicLinks: ['procurement-expert-role', 'vpat'],
+      difficulty: 'medium',
+      tags: ['procurement', 'vpat', 'acr', 'verification']
+    },
+    {
+      id: 1504,
+      question: "An accessibility expert is asked to 'suggest contract wording regarding accessibility' for a software purchase. What should that wording accomplish?",
+      options: [
+        "State that the vendor 'values accessibility and will make reasonable efforts where feasible'",
+        "Make accessibility commitments binding — e.g., conformance obligations, defect remediation timelines, and consequences for non-compliance",
+        "Transfer all legal liability for accessibility complaints to the end users",
+        "Guarantee the product will never have any accessibility defects"
+      ],
+      correct: 1,
+      explanation: "The point of contract wording on accessibility is to convert vendor claims into binding accessibility commitments — one of the BoK's named mitigation strategies. Effective wording covers the conformance standard required, timelines for remediating known and future defects, and what happens if the vendor fails to deliver.",
+      wrongExplanations: {
+        0: "Vague aspirational language ('reasonable efforts where feasible') is unenforceable. It gives the purchaser no leverage when defects surface after signing.",
+        2: "Liability for an organization's inaccessible services cannot be shifted onto the very users who are excluded. Contract wording allocates responsibility between purchaser and vendor.",
+        3: "No vendor can guarantee zero defects, and demanding it produces either refusal or a meaningless promise. Binding commitments paired with remediation processes are the realistic mechanism."
+      },
+      topicLinks: ['procurement-expert-role', 'procurement-accessibility'],
+      difficulty: 'medium',
+      tags: ['procurement', 'contracts', 'mitigation']
+    },
+    {
+      id: 1505,
+      question: "A procured product's ACR lists 'Partially Supports' for SC 2.1.1 Keyboard. What does this conformance level mean, and what should the purchasing team do with that information?",
+      options: [
+        "The majority of the product's functionality fails the criterion; the product must be rejected",
+        "Some functionality of the product does not meet the criterion; the team should examine those areas during product review to judge the real impact on their users",
+        "The criterion is not relevant to this product, so the entry can be ignored",
+        "The product meets the criterion through equivalent facilitation, so no follow-up is needed"
+      ],
+      correct: 1,
+      explanation: "'Partially Supports' means some functionality of the product does not meet the criterion. The BoK frames such entries as helpful information about what areas to pay attention to during product reviews — the team should investigate which functionality is affected and how severely it would impact their actual users and tasks.",
+      wrongExplanations: {
+        0: "'The majority of product functionality does not meet the criterion' is the definition of 'Does Not Support', a more severe level. And even genuine defects trigger investigation and mitigation, not automatic rejection.",
+        2: "'Not Applicable' is the level for criteria that are not relevant to the product. 'Partially Supports' explicitly indicates a real, relevant gap.",
+        3: "Equivalent facilitation falls under 'Supports' — functionality that meets the criterion via at least one method. 'Partially Supports' signals known gaps that need follow-up."
+      },
+      topicLinks: ['procurement-expert-role', 'vpat'],
+      difficulty: 'medium',
+      tags: ['procurement', 'vpat', 'acr', 'conformance-levels']
+    },
+    {
+      id: 1506,
+      question: "A procurement officer announces: 'To be safe, we will only consider products whose ACR shows Supports for every single criterion.' Why is this policy impractical?",
+      options: [
+        "Because ACRs do not actually list individual criteria, only an overall score",
+        "Because in practice very few products fully support every WCAG or other criterion — the policy would eliminate nearly the whole market and reward dishonest self-reporting over transparent reporting",
+        "Because WCAG prohibits using conformance reports in purchasing decisions",
+        "Because 'Supports' is only available as a rating in the Section 508 edition of the VPAT"
+      ],
+      correct: 1,
+      explanation: "The BoK is explicit: ideally every criterion would be supported, but in practice very few products fully support every single WCAG or other criterion. A 'perfect ACR only' policy would disqualify almost everything — and perversely favor vendors who overstate conformance in-house over vendors who report honestly. Better practice: compare products realistically, weigh partial support by user impact, and mitigate remaining defects contractually.",
+      wrongExplanations: {
+        0: "ACRs are precisely a criterion-by-criterion reporting table (criteria, conformance level, remarks). There is no single overall score.",
+        2: "Nothing in WCAG prohibits this — conformance reports exist largely to inform purchasing decisions. The problem is the unrealistic threshold, not the use of ACRs.",
+        3: "All VPAT editions (508, EU, WCAG, INT) use the same conformance levels, including 'Supports'."
+      },
+      topicLinks: ['procurement-expert-role', 'vpat'],
+      difficulty: 'hard',
+      tags: ['procurement', 'vpat', 'acr', 'evaluation']
+    },
+    {
+      id: 1507,
+      question: "In an ACR, a product's audio player cannot be operated with standard keyboard commands, but the vendor provides a fully documented, equally capable keyboard-accessible alternative interface for the same functions. Which conformance level can the vendor legitimately report for the keyboard criterion?",
+      options: [
+        "Does Not Support, because the primary interface fails",
+        "Partially Supports, because only one of the two interfaces meets the criterion",
+        "Supports, because the functionality has at least one method that meets the criterion — equivalent facilitation counts",
+        "Not Applicable, because keyboard access is optional for media players"
+      ],
+      correct: 2,
+      explanation: "The VPAT definition of 'Supports' is that the product's functionality has at least one method that meets the criterion without known defects OR with equivalent facilitation. An alternative method providing equivalent access to the same functionality allows a 'Supports' rating, though the remarks column should explain how.",
+      wrongExplanations: {
+        0: "'Does Not Support' means the majority of product functionality does not meet the criterion. Here the functionality IS available through an accessible method.",
+        1: "'Partially Supports' would apply if some functionality had no accessible method at all. The conformance levels evaluate whether functionality is achievable accessibly, not whether every interface variant passes.",
+        3: "'Not Applicable' means the criterion is not relevant to the product. Keyboard operability is clearly relevant to an interactive media player."
+      },
+      topicLinks: ['procurement-expert-role', 'vpat'],
+      difficulty: 'hard',
+      tags: ['procurement', 'vpat', 'acr', 'equivalent-facilitation']
+    },
+    {
+      id: 1508,
+      question: "An organization's newly procured HR system has a defect that prevents screen reader users from submitting expense reports. The vendor's fix is six months away. What does the BoK recommend the organization put in place NOW?",
+      options: [
+        "Nothing — the remediation roadmap already covers the issue",
+        "An alternative access plan, so affected users have another way to complete the task while the defect is being fixed",
+        "A waiver exempting screen reader users from submitting expense reports",
+        "An immediate switch to a different HR system"
+      ],
+      correct: 1,
+      explanation: "Among the BoK's mitigation strategies for known defects in procured products is 'putting in place an alternative access plan for users.' A roadmap addresses the future; the alternative access plan (for example, an accessible form, email submission, or staffed assistance) addresses the exclusion happening right now.",
+      wrongExplanations: {
+        0: "A roadmap commits the vendor to a future fix but does nothing for users blocked today. Mitigation strategies are meant to be combined — roadmap plus interim access.",
+        2: "Exempting users from a work task doesn't give them access — it sidelines them. Employees need an equivalent way to do their job, not permission to skip it.",
+        3: "Switching systems mid-contract is rarely feasible (cost, contracts, migration) and a replacement system would have its own defects. Mitigation manages the gap pragmatically."
+      },
+      topicLinks: ['procurement-expert-role', 'procurement-accessibility'],
+      difficulty: 'medium',
+      tags: ['procurement', 'mitigation', 'alternative-access']
+    },
+    {
+      id: 1509,
+      question: "A vendor committed to a remediation roadmap a year ago but has repeatedly missed its deadlines. The annual contract renewal is approaching. What does the BoK suggest?",
+      options: [
+        "Renew as usual — the roadmap legally obligates the vendor regardless of renewals",
+        "Monitor vendor performance on defect management and make accessibility performance a factor in the renewal negotiation, where the organization regains leverage",
+        "Stop tracking the defects since the vendor owns the roadmap",
+        "Publicly report the vendor to a standards body that enforces VPAT accuracy"
+      ],
+      correct: 1,
+      explanation: "Two of the BoK's mitigation strategies apply directly: monitoring vendor performance in relation to defect management, and considering accessibility performance during contract negotiations and product renewals. Renewal is one of the few moments after purchase when the purchaser's leverage returns — missed roadmap deadlines should carry consequences there.",
+      wrongExplanations: {
+        0: "A roadmap is only as strong as the contract behind it, and automatic renewal squanders the organization's main recurring leverage point. Performance should inform renewal terms.",
+        2: "The vendor executes the roadmap, but the purchaser must monitor performance — unmonitored commitments are routinely deprioritized.",
+        3: "No standards body enforces VPAT accuracy — VPATs are voluntary self-reports. Leverage comes from the contractual relationship, not external enforcement."
+      },
+      topicLinks: ['procurement-expert-role', 'procurement-accessibility'],
+      difficulty: 'medium',
+      tags: ['procurement', 'vendor-management', 'contracts']
+    },
+    {
+      id: 1510,
+      question: "After product testing reveals several accessibility defects in software the organization still intends to buy, what is the FIRST artifact the accessibility expert should obtain from the vendor?",
+      options: [
+        "A press release announcing the vendor's commitment to accessibility",
+        "A remediation roadmap describing how and when the known accessibility issues will be addressed",
+        "A refund schedule for users with disabilities",
+        "A new VPAT omitting the criteria the product fails"
+      ],
+      correct: 1,
+      explanation: "The first of the BoK's defect-mitigation strategies is obtaining a roadmap for addressing known accessibility issues. The roadmap turns vague intentions into specific, trackable commitments — which can then be made binding in the contract and monitored over time.",
+      wrongExplanations: {
+        0: "Public statements of commitment are marketing, not mitigation. They create no specific, trackable obligation to fix the identified defects.",
+        2: "Refunds compensate; they don't provide access. The goal of mitigation is to get the defects fixed and provide alternative access in the meantime.",
+        3: "Omitting failed criteria from a VPAT is misrepresentation, not mitigation. An honest ACR documents the gaps that the roadmap then addresses."
+      },
+      topicLinks: ['procurement-expert-role', 'procurement-accessibility'],
+      difficulty: 'easy',
+      tags: ['procurement', 'mitigation', 'roadmap']
+    },
+    {
+      id: 1511,
+      question: "What is Policy Driven Adoption for Accessibility (PDAA)?",
+      options: [
+        "A W3C technical specification for accessible policy documents",
+        "An initiative by NASCIO (the National Association of State Chief Information Officers) that helps procurement organizations choose vendors who can meet accessibility requirements",
+        "A US federal law requiring states to adopt Section 508",
+        "An automated testing tool that scans vendor products for WCAG failures"
+      ],
+      correct: 1,
+      explanation: "PDAA — Policy Driven Adoption for Accessibility — is a NASCIO initiative and one of the two publicly available, free maturity models that specifically address procurement. It helps procurement organizations select vendors capable of meeting accessibility requirements by examining the maturity of vendors' accessibility policies and practices.",
+      wrongExplanations: {
+        0: "PDAA is not a W3C specification and is not about document formats. The W3C's contribution in this space is the Accessibility Maturity Model, which includes a procurement dimension.",
+        2: "PDAA is a voluntary initiative from NASCIO, an association of state CIOs — not legislation. Section 508 itself applies to US federal agencies.",
+        3: "PDAA is a policy/maturity framework for evaluating vendors, not a scanning tool. It assesses organizational practices rather than running technical tests."
+      },
+      topicLinks: ['procurement-expert-role', 'maturity-models'],
+      difficulty: 'medium',
+      tags: ['procurement', 'pdaa', 'maturity-models']
+    },
+    {
+      id: 1512,
+      question: "An organization wants to (a) assess how well its OWN purchasing processes embed accessibility, and (b) evaluate whether prospective VENDORS can meet accessibility requirements. Which maturity tools map to which goal?",
+      options: [
+        "(a) PDAA for its own processes; (b) the W3C maturity model for vendors",
+        "(a) The W3C Accessibility Maturity Model's procurement dimension for its own sourcing, negotiation, and selection practices; (b) PDAA for evaluating vendors",
+        "Both goals require the VPAT, since it is the only procurement assessment tool",
+        "Neither goal can use a maturity model; maturity models only measure website conformance"
+      ],
+      correct: 1,
+      explanation: "The W3C maturity model's procurement dimension assesses the organization's own procurement lifecycle — its use of accessibility processes, criteria, contract language, and decision-making in sourcing, negotiating, and selecting goods and services. PDAA, the NASCIO initiative, is oriented toward helping procurement organizations choose vendors who can meet accessibility requirements.",
+      wrongExplanations: {
+        0: "This reverses the two tools. PDAA is the vendor-facing instrument; the W3C procurement dimension is the self-assessment of the purchasing organization's own practices.",
+        2: "A VPAT/ACR documents one product's conformance — it assesses neither organizational process maturity nor a vendor's overall capability and policies.",
+        3: "Maturity models measure organizational capability, which is exactly what both goals require. Website conformance is measured by technical evaluation, not maturity models."
+      },
+      topicLinks: ['procurement-expert-role', 'maturity-models'],
+      difficulty: 'hard',
+      tags: ['procurement', 'pdaa', 'maturity-models', 'w3c']
+    },
+    {
+      id: 1513,
+      question: "An accessibility consultant delivers a flawless 80-page audit report, but six months later almost nothing has been fixed. Developers say they never understood what to change, and managers say they never knew why it mattered. Which BoK principle was violated?",
+      options: [
+        "The audit should have used automated tools to find more issues",
+        "The right stakeholders must be made aware, educated, and included in implementation recommendations",
+        "The report should have been longer and more technically detailed",
+        "Remediation should always be outsourced to the auditing consultant"
+      ],
+      correct: 1,
+      explanation: "The BoK stresses being able to communicate the purpose, approach, and strategy of remediation, and the importance of making the right stakeholders aware, educated, and included in implementation recommendations. A report that informs no one and includes no one produces no remediation, regardless of its technical quality.",
+      wrongExplanations: {
+        0: "Finding more issues would make the unread report longer. The failure here is communication and stakeholder engagement, not detection coverage.",
+        2: "More length and density would worsen the problem. Different audiences need appropriately framed information — precise fixes for developers, impact and risk for managers.",
+        3: "Outsourcing fixes can be a tactic, but the organization still needs informed, included stakeholders to sustain accessibility. The BoK principle is about engagement, not who writes the code."
+      },
+      topicLinks: ['stakeholder-communication', 'remediation-strategies'],
+      difficulty: 'easy',
+      tags: ['communication', 'stakeholders', 'remediation']
+    },
+    {
+      id: 1514,
+      question: "An accessibility specialist must present the same audit findings to the development team and then to the executive steering committee. How should the framing differ?",
+      options: [
+        "Use the identical slide deck for both, since the findings are the same",
+        "Developers: precisely where the problems are, what they are, and how to fix them. Executives: user impact, legal risk, and cost-benefit of remediation",
+        "Developers: legal risk statistics. Executives: code snippets showing correct ARIA usage",
+        "Tell executives only the good news so funding is not jeopardized"
+      ],
+      correct: 1,
+      explanation: "The BoK says that when communicating issues and recommendations, it is important to inform the developer precisely about where the problems are, what the problems are, and how to fix them. Decision-makers, by contrast, act on user impact, legal risk, and cost-benefit — the prioritization language of Domain 3A. Same findings, audience-appropriate framing.",
+      wrongExplanations: {
+        0: "Identical framing fails both audiences: executives drown in technical detail they can't act on, and developers get strategy slides without the precise locations and fixes they need.",
+        2: "This is exactly backwards. Code-level guidance belongs with the people writing code; risk and investment framing belongs with the people allocating budget.",
+        3: "Hiding problems from decision-makers prevents informed prioritization and undermines trust — and unaddressed legal risk eventually surfaces on its own terms."
+      },
+      topicLinks: ['stakeholder-communication', 'remediation-prioritization'],
+      difficulty: 'medium',
+      tags: ['communication', 'stakeholders', 'reporting']
+    },
+    {
+      id: 1515,
+      question: "An audit of a small nonprofit's donation site finds the custom date picker is unusable with screen readers. The IDEAL fix is rebuilding it on an accessible component library, but the nonprofit has one part-time developer and a fundraising deadline in three weeks. What distinguishes a defensible 'good enough' recommendation here?",
+      options: [
+        "It achieves the same end result as the ideal solution while respecting the project's environment, target groups, and resources — e.g., replacing the widget with a native input or plain text field users can complete now",
+        "It postpones all changes until the organization can afford the ideal rebuild",
+        "It is whatever the developer can finish fastest, regardless of whether users can complete the task",
+        "It documents the issue in the accessibility statement so users know the date picker is broken"
+      ],
+      correct: 0,
+      explanation: "The BoK asks specialists to characterize and differentiate the ideal/best solution from the 'good enough' solution, respecting the particular project, its environment, intended target groups, and resources. A simpler control that lets every user complete the donation before the deadline is good enough — it removes the barrier within real constraints, while the ideal rebuild can be planned for later.",
+      wrongExplanations: {
+        1: "Postponing everything leaves donors with disabilities blocked through the organization's most critical period. Feasible interim fixes exist and should be applied.",
+        2: "'Good enough' is judged against users completing the task, not against developer convenience. A fast change that still blocks screen reader users solves nothing.",
+        3: "Documenting a barrier is transparency, not remediation. An accessibility statement does not help a donor who still cannot enter a date."
+      },
+      topicLinks: ['stakeholder-communication', 'remediation-strategies'],
+      difficulty: 'medium',
+      tags: ['good-enough', 'remediation', 'feasibility']
+    },
+    {
+      id: 1516,
+      question: "A site's main navigation is fully keyboard-operable but forces users through dozens of tab stops before reaching the content, and every image has technically present but extremely verbose alt text. The site passes WCAG conformance testing. What should a good auditor do?",
+      options: [
+        "Nothing — if it conforms to WCAG, there is no issue to report",
+        "Report both as WCAG conformance failures, since they harm users",
+        "Recognize that minimal conformance can still be difficult to use, and recommend better practices (e.g., reducing tab stops, concise alt text) clearly labeled as recommendations rather than failures",
+        "Withhold the conformance pass until the usability problems are fixed"
+      ],
+      correct: 2,
+      explanation: "These are the BoK's own examples: navigation that is keyboard-operable but has dozens of tab stops, and alt text that is too verbose, technically meet WCAG while producing a poor experience. Beyond normative failures, a good auditor recognizes deficiencies that are not strictly failures and recommends a better practice for a more usable result — while keeping the conformance/best-practice distinction explicit.",
+      wrongExplanations: {
+        0: "Conformance is the floor, not the ceiling. The BoK explicitly warns that a minimally conforming site can still be difficult to use, and auditors should surface that.",
+        1: "Flagging conforming content as failures destroys the auditor's credibility and misstates the standard. A failure should be flagged only when content clearly fails the normative criterion.",
+        3: "An auditor cannot 'withhold' conformance that the content factually meets. The honest report is: conforms, with clearly labeled usability recommendations."
+      },
+      topicLinks: ['stakeholder-communication', 'failures-vs-best-practices'],
+      difficulty: 'hard',
+      tags: ['usability', 'conformance', 'best-practices', 'auditing']
+    },
+    {
+      id: 1517,
+      question: "A legacy intranet has hundreds of accessibility defects rooted in its templates, but employees with disabilities are blocked TODAY from requesting leave and viewing payslips. Which remediation strategy does the BoK describe as the common practical pattern?",
+      options: [
+        "A hybrid approach: immediately remediate the critical blocking issues while developing a longer-term plan for a comprehensive rewrite",
+        "Freeze all fixes until the full redesign budget is approved, to avoid duplicated work",
+        "Fix every defect in severity order and cancel any redesign plans",
+        "Rewrite the entire intranet first, since template-level defects make spot fixes pointless"
+      ],
+      correct: 0,
+      explanation: "The BoK states that in practice a hybrid approach is often used: immediate remediation addresses critical issues while a longer-term plan is developed for a comprehensive rewrite to ensure sustainable accessibility. Users get unblocked now; the systemic template problems get solved properly later.",
+      wrongExplanations: {
+        1: "Freezing fixes leaves employees unable to perform essential job tasks for the entire planning-and-budget cycle. Critical blockers warrant immediate remediation even if some work is later superseded.",
+        2: "Fixing hundreds of defects one by one in old, template-driven code may cost more than the rewrite while leaving the architecture fragile. Widespread template-level defects are precisely when a rewrite is warranted.",
+        3: "Spot fixes to critical blockers are not pointless — they restore access to essential tasks during the months a rewrite takes. Sequencing the rewrite first abandons users in the meantime."
+      },
+      topicLinks: ['stakeholder-communication', 'remediation-strategies'],
+      difficulty: 'medium',
+      tags: ['hybrid-approach', 'remediation', 'redesign']
+    },
+    {
+      id: 1518,
+      question: "A developer disputes an audit finding, arguing their custom disclosure widget is 'fine because WCAG doesn't say exactly how to code it.' The auditor is confident the widget fails SC 4.1.2 but the case is borderline. Which resources does the BoK say can settle whether this is a normative failure or a best-practice recommendation?",
+      options: [
+        "The WCAG supporting documents — the Understanding texts, the Techniques, and the ARIA Authoring Practices Guide",
+        "The auditor's preferred automated scanner, whose output is authoritative",
+        "The W3C Accessibility Maturity Model's procurement dimension",
+        "Annex B of EN 301 549, which lists required coding patterns for widgets"
+      ],
+      correct: 0,
+      explanation: "The BoK notes that WCAG's normative text defines the requirement without prescribing a particular coding solution, and that supporting documents — the Understanding texts, the Techniques, and the ARIA Authoring Practices Guidelines — can be consulted to determine whether an issue counts as a normative failure or should be considered 'not best practice.' A failure should be flagged only when the deficiency clearly maps to documented WCAG Failures or clearly fails the criterion.",
+      wrongExplanations: {
+        1: "Automated tool output is not authoritative — tools implement heuristics and miss context, especially for custom widgets. Borderline conformance calls require human judgment grounded in the normative text and its supporting documents.",
+        2: "The maturity model's procurement dimension assesses organizational purchasing processes. It says nothing about whether a specific widget fails a Success Criterion.",
+        3: "EN 301 549 Annex B maps requirements to user accessibility needs (useful for impact analysis); it does not prescribe coding patterns, and it isn't the reference for WCAG failure-vs-best-practice calls."
+      },
+      topicLinks: ['stakeholder-communication', 'failures-vs-best-practices', 'normative-vs-non-normative'],
+      difficulty: 'hard',
+      tags: ['wcag', 'understanding-docs', 'techniques', 'auditing']
     }
   ]
 };

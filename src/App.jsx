@@ -23,6 +23,7 @@ const KnowledgeHome = lazy(() => import('./components/knowledge/KnowledgeHome'))
 const TopicPage = lazy(() => import('./components/knowledge/TopicPage'));
 const FlaggedQuestionsPage = lazy(() => import('./components/flagged/FlaggedQuestionsPage'));
 const ActivityPage = lazy(() => import('./components/activity/ActivityPage'));
+const PracticeLayout = lazy(() => import('./components/practice/PracticeLayout'));
 
 const CPACC_DOMAINS = [domain1, domain2, domain3];
 const WAS_DOMAINS = [wasDomain1, wasDomain2, wasDomain3];
@@ -102,6 +103,26 @@ export default function App() {
     [setStats]
   );
 
+  // Mock exams award XP and count toward the streak, but stay out of
+  // domainStats/completedDomains/recentLessons (those are lesson-shaped).
+  const recordPracticeCompletion = useCallback((courseId, score) => {
+    setStats((prev) => {
+      const today = getLocalDateString();
+      const yesterday = getYesterdayDateString();
+      const isNewDay = prev.lastStudyDate !== today;
+      let streak = prev.streak || 0;
+      if (isNewDay) {
+        streak = prev.lastStudyDate === yesterday ? streak + 1 : 1;
+      }
+      return {
+        ...prev,
+        xp: (prev.xp || 0) + score * 10,
+        streak,
+        lastStudyDate: today,
+      };
+    });
+  }, [setStats]);
+
   const startReview = useCallback((courseId) => {
     const missedIds = missedBank.getMissedIds(courseId);
     const questions = getQuestionsByIds(missedIds, ALL_DOMAINS);
@@ -156,6 +177,16 @@ export default function App() {
             <Route
               path="/results"
               element={<SuccessScreen quiz={quiz} />}
+            />
+            <Route
+              path="/practice/*"
+              element={
+                <PracticeLayout
+                  allDomains={ALL_DOMAINS}
+                  domainsByCourse={DOMAINS_BY_COURSE}
+                  onPracticeComplete={recordPracticeCompletion}
+                />
+              }
             />
             <Route path="/learn" element={<KnowledgeHome />} />
             <Route path="/learn/:slug" element={<TopicPage />} />
