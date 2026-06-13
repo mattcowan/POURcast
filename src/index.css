@@ -400,6 +400,9 @@ body {
   padding: 1.5rem;
   max-width: 36rem;
   width: calc(100vw - 2rem);
+  margin: auto;                    /* restore centering — Tailwind v4 Preflight resets margin:0 on * */
+  max-height: calc(100vh - 2rem);  /* keep dialog within viewport at high zoom / many questions */
+  overflow-y: auto;
 }
 
 .practice-dialog::backdrop {
