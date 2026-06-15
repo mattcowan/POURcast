@@ -1,7 +1,8 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, BookOpen, ChevronDown, ChevronRight } from 'lucide-react';
+import { Search, BookOpen, ChevronDown, ChevronRight, Check } from 'lucide-react';
 import { usePageFocus } from '../../hooks/usePageFocus';
+import { useReviewedTopics } from '../../hooks/useReviewedTopics';
 import { topics, getAllCategories, getTopicsByCategory } from '../../data/knowledgeBase/index';
 
 const FILTERS = [
@@ -10,18 +11,30 @@ const FILTERS = [
   { value: 'was', label: 'WAS' },
 ];
 
+const REVIEW_FILTERS = [
+  { value: 'all', label: 'All' },
+  { value: 'unreviewed', label: 'Unreviewed' },
+  { value: 'reviewed', label: 'Reviewed' },
+];
+
 export default function KnowledgeHome() {
   const [search, setSearch] = useState('');
   const [testFilter, setTestFilter] = useState('all');
+  const [reviewFilter, setReviewFilter] = useState('all');
   const [expandedCategory, setExpandedCategory] = useState(null);
   const headingRef = useRef(null);
   const categories = getAllCategories();
+  const { isReviewed } = useReviewedTopics();
 
   usePageFocus(headingRef);
 
   function matchesFilter(topic) {
-    if (testFilter === 'all') return true;
-    return topic.applicableTo?.includes(testFilter);
+    const certOk = testFilter === 'all' || topic.applicableTo?.includes(testFilter);
+    const reviewed = isReviewed(topic.slug);
+    const reviewOk =
+      reviewFilter === 'all' ||
+      (reviewFilter === 'reviewed' ? reviewed : !reviewed);
+    return certOk && reviewOk;
   }
 
   const filteredTopics = search.trim()
@@ -53,9 +66,16 @@ export default function KnowledgeHome() {
         </p>
       </div>
 
+      <p
+        id="cert-filter-label"
+        className="text-base font-semibold mb-1"
+        style={{ color: 'var(--text-secondary)' }}
+      >
+        Certification
+      </p>
       <div
         role="group"
-        aria-label="Filter by certification"
+        aria-labelledby="cert-filter-label"
         className="flex rounded-xl p-1 mb-4 gap-1"
         style={{ backgroundColor: 'var(--bg-surface-hover)' }}
       >
@@ -69,6 +89,36 @@ export default function KnowledgeHome() {
               backgroundColor: testFilter === value ? 'var(--bg-surface)' : 'transparent',
               color: testFilter === value ? 'var(--text-accent)' : 'var(--text-secondary)',
               boxShadow: testFilter === value ? 'var(--shadow)' : 'none',
+            }}
+          >
+            {label}
+          </button>
+        ))}
+      </div>
+
+      <p
+        id="review-filter-label"
+        className="text-base font-semibold mb-1"
+        style={{ color: 'var(--text-secondary)' }}
+      >
+        Review status
+      </p>
+      <div
+        role="group"
+        aria-labelledby="review-filter-label"
+        className="flex rounded-xl p-1 mb-4 gap-1"
+        style={{ backgroundColor: 'var(--bg-surface-hover)' }}
+      >
+        {REVIEW_FILTERS.map(({ value, label }) => (
+          <button
+            key={value}
+            onClick={() => setReviewFilter(value)}
+            aria-pressed={reviewFilter === value}
+            className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
+            style={{
+              backgroundColor: reviewFilter === value ? 'var(--bg-surface)' : 'transparent',
+              color: reviewFilter === value ? 'var(--text-accent)' : 'var(--text-secondary)',
+              boxShadow: reviewFilter === value ? 'var(--shadow)' : 'none',
             }}
           >
             {label}
@@ -113,7 +163,7 @@ export default function KnowledgeHome() {
           ) : (
             <div className="space-y-2">
               {filteredTopics.map((topic) => (
-                <TopicRow key={topic.slug} topic={topic} />
+                <TopicRow key={topic.slug} topic={topic} reviewed={isReviewed(topic.slug)} />
               ))}
             </div>
           )}
@@ -159,7 +209,7 @@ export default function KnowledgeHome() {
                       }}
                     >
                       {catTopics.map((topic) => (
-                        <TopicRow key={topic.slug} topic={topic} />
+                        <TopicRow key={topic.slug} topic={topic} reviewed={isReviewed(topic.slug)} />
                       ))}
                     </div>
                   )}
@@ -173,7 +223,7 @@ export default function KnowledgeHome() {
   );
 }
 
-function TopicRow({ topic }) {
+function TopicRow({ topic, reviewed }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -192,9 +242,19 @@ function TopicRow({ topic }) {
         <h3 className="font-medium text-base" style={{ color: hovered ? 'var(--text-accent)' : 'var(--text-primary)' }}>
           {topic.title}
         </h3>
-        {topic.applicableTo && (
-          <div className="flex gap-1 shrink-0">
-            {topic.applicableTo.map((tag) => (
+        <div className="flex items-center gap-1 shrink-0">
+          {reviewed && (
+            <span
+              className="inline-flex items-center gap-1"
+              style={{ color: 'var(--text-accent)' }}
+            >
+              <Check size={16} aria-hidden="true" />
+              <span className="sr-only">Reviewed</span>
+            </span>
+          )}
+          {topic.applicableTo && (
+            <div className="flex gap-1">
+              {topic.applicableTo.map((tag) => (
               <span
                 key={tag}
                 className="px-2 py-0.5 rounded-full text-base font-medium"
@@ -206,9 +266,10 @@ function TopicRow({ topic }) {
               >
                 {tag.toUpperCase()}
               </span>
-            ))}
-          </div>
-        )}
+              ))}
+            </div>
+          )}
+        </div>
       </div>
       <p className="text-base mt-0.5 line-clamp-1" style={{ color: 'var(--text-secondary)' }}>{topic.summary}</p>
     </Link>
