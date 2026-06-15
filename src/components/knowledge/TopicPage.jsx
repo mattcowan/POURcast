@@ -2,11 +2,13 @@ import { useRef, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Lightbulb } from 'lucide-react';
 import { getTopicBySlug } from '../../data/knowledgeBase/index';
+import { useReviewedTopics } from '../../hooks/useReviewedTopics';
 
 export default function TopicPage() {
   const { slug } = useParams();
   const topic = getTopicBySlug(slug);
   const headingRef = useRef(null);
+  const { isReviewed, setReviewedStatus } = useReviewedTopics();
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -118,6 +120,24 @@ export default function TopicPage() {
       )}
 
       <div className="mt-10 pt-6 border-t" style={{ borderColor: 'var(--border-default)' }}>
+        <label
+          htmlFor="mark-reviewed"
+          className="flex items-center gap-3 cursor-pointer text-base font-medium"
+          style={{ color: 'var(--text-primary)' }}
+        >
+          <input
+            id="mark-reviewed"
+            type="checkbox"
+            checked={isReviewed(topic.slug)}
+            onChange={(e) => setReviewedStatus(topic.slug, e.target.checked)}
+            className="w-5 h-5 shrink-0"
+            style={{ accentColor: 'var(--text-accent)' }}
+          />
+          Mark this topic as reviewed
+        </label>
+      </div>
+
+      <div className="mt-6">
         <Link
           to="/learn"
           className="inline-flex items-center gap-2 font-medium no-underline"
