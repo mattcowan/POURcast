@@ -27,8 +27,18 @@ export default function KnowledgeHome() {
     cert: 'all',
     review: 'all',
   });
-  const testFilter = filters.cert;
-  const reviewFilter = filters.review;
+  // Coerce to a safe object — a corrupted or imported non-object value (e.g. the
+  // string "null") must not crash the page on read or on the spread-update.
+  const safeFilters = filters && typeof filters === 'object' ? filters : {};
+  const testFilter = safeFilters.cert ?? 'all';
+  const reviewFilter = safeFilters.review ?? 'all';
+  const updateFilter = (patch) =>
+    setFilters((f) => ({
+      cert: 'all',
+      review: 'all',
+      ...(f && typeof f === 'object' ? f : {}),
+      ...patch,
+    }));
   const [expandedCategory, setExpandedCategory] = useState(null);
   const headingRef = useRef(null);
   const categories = getAllCategories();
@@ -90,7 +100,7 @@ export default function KnowledgeHome() {
         {FILTERS.map(({ value, label }) => (
           <button
             key={value}
-            onClick={() => setFilters((f) => ({ ...f, cert: value }))}
+            onClick={() => updateFilter({ cert: value })}
             aria-pressed={testFilter === value}
             className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
             style={{
@@ -120,7 +130,7 @@ export default function KnowledgeHome() {
         {REVIEW_FILTERS.map(({ value, label }) => (
           <button
             key={value}
-            onClick={() => setFilters((f) => ({ ...f, review: value }))}
+            onClick={() => updateFilter({ review: value })}
             aria-pressed={reviewFilter === value}
             className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
             style={{

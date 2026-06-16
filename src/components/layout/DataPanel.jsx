@@ -61,7 +61,12 @@ export default function DataPanel() {
     reader.onload = () => {
       try {
         const envelope = parseImport(String(reader.result));
-        mergeImport(envelope);
+        const merged = mergeImport(envelope);
+        if (merged.length === 0) {
+          // Valid backup but nothing applied (no recognized keys, or writes failed).
+          announce('Nothing was imported: no usable data in this file.', 'assertive');
+          return;
+        }
         announce('Data imported and merged. Reloading.');
         // Hooks read storage once at mount; reload so everything reflects the merge.
         window.location.reload();

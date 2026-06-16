@@ -50,7 +50,10 @@ function mergeStats(local, incoming) {
     };
   }
 
-  // recentLessons: combine, drop duplicates (same lesson on same day), keep newest.
+  // recentLessons: combine both logs and drop only exact-duplicate entries
+  // (same date, domain, and score) so an entry shared by both devices isn't
+  // counted twice; two genuine same-day attempts with different scores are
+  // distinct activity and both kept. Newest first, capped.
   const seen = new Set();
   const recentLessons = [...(incoming.recentLessons || []), ...(local.recentLessons || [])]
     .filter((l) => {
@@ -243,6 +246,10 @@ export function mergeImport(envelope) {
     if (!strategy) continue;
     const local = readKey(key);
     const result = strategy(local, incoming);
+    // A strategy can return undefined for a malformed value with no local copy;
+    // JSON.stringify(undefined) is undefined, which would store the literal
+    // string "undefined" and corrupt the key. Skip it instead.
+    if (result === undefined) continue;
     try {
       window.localStorage.setItem(key, JSON.stringify(result));
       merged.push(key);
