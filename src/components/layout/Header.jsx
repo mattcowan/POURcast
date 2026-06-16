@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BookOpen, GraduationCap, Trophy, Star, Flame, Dumbbell, TrendingUp, ClipboardCheck } from 'lucide-react';
 import AccessibilityPanel from './AccessibilityPanel';
+import DataPanel from './DataPanel';
 
 export default function Header({ stats }) {
   const location = useLocation();
@@ -55,6 +56,7 @@ export default function Header({ stats }) {
           </nav>
 
           <StatsPopover stats={stats} />
+          <DataPanel />
           <AccessibilityPanel />
         </div>
       </div>

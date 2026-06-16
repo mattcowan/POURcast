@@ -36,3 +36,21 @@ export function downloadCsv(filename, headers, rows) {
   document.body.removeChild(link);
   URL.revokeObjectURL(url);
 }
+
+/**
+ * Serializes an object to pretty-printed JSON and triggers a browser download.
+ * @param {string} filename - The download filename (e.g., "backup.json")
+ * @param {unknown} data - Any JSON-serializable value
+ */
+export function downloadJson(filename, data) {
+  const json = JSON.stringify(data, null, 2);
+  const blob = new Blob([json], { type: 'application/json;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = filename;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+  URL.revokeObjectURL(url);
+}

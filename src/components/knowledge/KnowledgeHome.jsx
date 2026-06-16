@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Search, BookOpen, ChevronDown, ChevronRight, Check } from 'lucide-react';
 import { usePageFocus } from '../../hooks/usePageFocus';
 import { useReviewedTopics } from '../../hooks/useReviewedTopics';
+import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { topics, getAllCategories, getTopicsByCategory } from '../../data/knowledgeBase/index';
 
 const FILTERS = [
@@ -19,8 +20,15 @@ const REVIEW_FILTERS = [
 
 export default function KnowledgeHome() {
   const [search, setSearch] = useState('');
-  const [testFilter, setTestFilter] = useState('all');
-  const [reviewFilter, setReviewFilter] = useState('all');
+  // Persisted so the Study Shelf remembers cert + review filters across visits
+  // (the page is lazy-loaded and unmounts on navigation). Search and the open
+  // category stay ephemeral on purpose.
+  const [filters, setFilters] = useLocalStorage('pourcast-knowledge-filters', {
+    cert: 'all',
+    review: 'all',
+  });
+  const testFilter = filters.cert;
+  const reviewFilter = filters.review;
   const [expandedCategory, setExpandedCategory] = useState(null);
   const headingRef = useRef(null);
   const categories = getAllCategories();
@@ -82,7 +90,7 @@ export default function KnowledgeHome() {
         {FILTERS.map(({ value, label }) => (
           <button
             key={value}
-            onClick={() => setTestFilter(value)}
+            onClick={() => setFilters((f) => ({ ...f, cert: value }))}
             aria-pressed={testFilter === value}
             className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
             style={{
@@ -112,7 +120,7 @@ export default function KnowledgeHome() {
         {REVIEW_FILTERS.map(({ value, label }) => (
           <button
             key={value}
-            onClick={() => setReviewFilter(value)}
+            onClick={() => setFilters((f) => ({ ...f, review: value }))}
             aria-pressed={reviewFilter === value}
             className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
             style={{
