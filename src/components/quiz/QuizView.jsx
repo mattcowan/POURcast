@@ -110,25 +110,34 @@ export default function QuizView({ quiz, domains, onUpdateStats, missedBank, fla
         onAnswer={quiz.submitAnswer}
       />
 
-      {quiz.feedback && (
-        <FeedbackPanel
-          question={quiz.currentQuestion}
-          feedback={quiz.feedback}
-          onNext={quiz.nextQuestion}
-          isFlagged={flaggedBank?.isFlagged(quiz.domain?.courseId || 'cpacc', quiz.currentQuestion?.id)}
-          onToggleFlag={(note) => {
-            const courseId = quiz.domain?.courseId || 'cpacc';
-            const qId = quiz.currentQuestion?.id;
-            if (flaggedBank?.isFlagged(courseId, qId)) {
-              flaggedBank.unflagQuestion(courseId, qId);
-              announce('Question unflagged');
-            } else {
-              flaggedBank.flagQuestion(courseId, qId, note);
-              announce('Question flagged');
-            }
-          }}
-        />
-      )}
+      {quiz.feedback && (() => {
+        const courseId = quiz.domain?.courseId || 'cpacc';
+        const qId = quiz.currentQuestion?.id;
+        const isFlagged = flaggedBank?.isFlagged(courseId, qId);
+        const flagNote = isFlagged ? flaggedBank.getFlaggedEntries(courseId)[qId] ?? null : null;
+        return (
+          <FeedbackPanel
+            question={quiz.currentQuestion}
+            feedback={quiz.feedback}
+            onNext={quiz.nextQuestion}
+            isFlagged={isFlagged}
+            flagNote={flagNote}
+            onToggleFlag={(note) => {
+              if (flaggedBank?.isFlagged(courseId, qId)) {
+                flaggedBank.unflagQuestion(courseId, qId);
+                announce('Question unflagged');
+              } else {
+                flaggedBank.flagQuestion(courseId, qId, note);
+                announce('Question flagged');
+              }
+            }}
+            onSaveNote={(note) => {
+              flaggedBank?.flagQuestion(courseId, qId, note);
+              announce(note ? 'Note saved' : 'Note removed');
+            }}
+          />
+        );
+      })()}
     </div>
   );
 }

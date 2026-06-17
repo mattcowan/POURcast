@@ -59,8 +59,10 @@ function foldToPaused(session, nowMs) {
  * @param {string|null} activeCourseId - course of the session currently being
  *   taken (from the route), or null outside the test view
  * @param {function} [onComplete] - called with (courseId, score) when a test is submitted
+ * @param {object} [flaggedBank] - useFlaggedBank instance; exam flags are mirrored
+ *   into it so they appear on the dashboard / flagged page alongside lesson flags
  */
-export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onComplete) {
+export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onComplete, flaggedBank) {
   const [rawSessions, setRawSessions] = useLocalStorage('pourcast-practice-session', INITIAL_SESSIONS);
   const [rawHistory, setRawHistory] = useLocalStorage('pourcast-practice-history', INITIAL_HISTORY);
   // Notices surfaced on PracticeHome (e.g. "time expired while you were away")
@@ -274,6 +276,8 @@ export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onC
 
   const toggleFlag = useCallback((qid) => {
     if (!activeCourseId) return;
+    const session = sessionsData.sessions[activeCourseId];
+    const currentlyFlagged = (session?.flagged || []).includes(qid);
     updateSession(activeCourseId, (s) => {
       if (!s) return s;
       const flagged = s.flagged || [];
@@ -282,7 +286,11 @@ export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onC
         flagged: flagged.includes(qid) ? flagged.filter((id) => id !== qid) : [...flagged, qid],
       };
     });
-  }, [activeCourseId, updateSession]);
+    // Mirror into the persistent flagged bank so exam flags are unified with
+    // lesson flags on the dashboard card and /flagged page.
+    if (currentlyFlagged) flaggedBank?.unflagQuestion(activeCourseId, qid);
+    else flaggedBank?.flagQuestion(activeCourseId, qid);
+  }, [activeCourseId, sessionsData, updateSession, flaggedBank]);
 
   const toggleEliminate = useCallback((qid, optionIndex) => {
     if (!activeCourseId) return;
