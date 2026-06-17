@@ -73,6 +73,9 @@ export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onC
   const sessionsData = sanitizeSessions(rawSessions);
   const historyData = sanitizeHistory(rawHistory);
   const onCompleteRef = useRef(onComplete);
+  // Queue of flag-mirror ops to apply to the persistent bank, decided inside the
+  // session's functional updater and flushed after commit (see toggleFlag).
+  const pendingFlagMirror = useRef([]);
   useEffect(() => {
     onCompleteRef.current = onComplete;
   }, [onComplete]);
@@ -276,21 +279,34 @@ export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onC
 
   const toggleFlag = useCallback((qid) => {
     if (!activeCourseId) return;
-    const session = sessionsData.sessions[activeCourseId];
-    const currentlyFlagged = (session?.flagged || []).includes(qid);
-    updateSession(activeCourseId, (s) => {
+    const course = activeCourseId;
+    updateSession(course, (s) => {
       if (!s) return s;
       const flagged = s.flagged || [];
+      const has = flagged.includes(qid);
+      // Decide the bank mirror from the real previous state, in order, so rapid
+      // toggles batched before a re-render stay consistent with the session.
+      pendingFlagMirror.current.push({ course, qid, flagged: !has });
       return {
         ...s,
-        flagged: flagged.includes(qid) ? flagged.filter((id) => id !== qid) : [...flagged, qid],
+        flagged: has ? flagged.filter((id) => id !== qid) : [...flagged, qid],
       };
     });
-    // Mirror into the persistent flagged bank so exam flags are unified with
-    // lesson flags on the dashboard card and /flagged page.
-    if (currentlyFlagged) flaggedBank?.unflagQuestion(activeCourseId, qid);
-    else flaggedBank?.flagQuestion(activeCourseId, qid);
-  }, [activeCourseId, sessionsData, updateSession, flaggedBank]);
+  }, [activeCourseId, updateSession]);
+
+  // Flush queued flag mirrors into the persistent bank after the session commits,
+  // applying them in dispatch order so the bank reflects the session's final state.
+  // flag/unflag are idempotent, so a duplicated op (e.g. StrictMode) is harmless.
+  useEffect(() => {
+    if (pendingFlagMirror.current.length === 0) return;
+    const ops = pendingFlagMirror.current;
+    pendingFlagMirror.current = [];
+    if (!flaggedBank) return;
+    for (const { course, qid, flagged } of ops) {
+      if (flagged) flaggedBank.flagQuestion(course, qid);
+      else flaggedBank.unflagQuestion(course, qid);
+    }
+  });
 
   const toggleEliminate = useCallback((qid, optionIndex) => {
     if (!activeCourseId) return;
