@@ -1,4 +1,4 @@
-import { useCallback } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useLocalStorage } from './useLocalStorage';
 
 /**
@@ -7,17 +7,25 @@ import { useLocalStorage } from './useLocalStorage';
  * Shape: { 'medical-model': true, 'wcag-principles': true }
  */
 export function useBookmarkedTopics() {
-  const [bookmarks, setBookmarks] = useLocalStorage('pourcast-bookmarks', {});
+  const [stored, setBookmarks] = useLocalStorage('pourcast-bookmarks', {});
+  // Coerce to a safe object — a corrupted or imported non-object value (e.g. the
+  // JSON literal null) must not crash indexing or the spread/destructure below.
+  // Callers receive the coerced map, never the invalid shape.
+  const bookmarks = useMemo(
+    () => (stored && typeof stored === 'object' ? stored : {}),
+    [stored]
+  );
 
   const isBookmarked = useCallback((slug) => bookmarks[slug] === true, [bookmarks]);
 
   const toggleBookmark = useCallback((slug) => {
     setBookmarks((prev) => {
-      if (prev[slug]) {
-        const { [slug]: _omit, ...rest } = prev;
+      const safe = prev && typeof prev === 'object' ? prev : {};
+      if (safe[slug]) {
+        const { [slug]: _omit, ...rest } = safe;
         return rest;
       }
-      return { ...prev, [slug]: true };
+      return { ...safe, [slug]: true };
     });
   }, [setBookmarks]);
 

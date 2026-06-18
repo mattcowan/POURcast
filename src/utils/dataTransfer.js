@@ -116,7 +116,16 @@ function mergeMissed(local, incoming) {
 function mergeSlugFlags(local, incoming) {
   if (!isObject(incoming)) return local;
   if (!isObject(local)) return incoming;
-  return { ...local, ...incoming };
+  // Union of truthy flags only: a key survives when either side has it set to
+  // exactly true. This prevents a corrupted incoming `false`/null from clearing a
+  // flag already set on this device, matching the "set on either side wins" intent.
+  const out = {};
+  for (const map of [local, incoming]) {
+    for (const [slug, value] of Object.entries(map)) {
+      if (value === true) out[slug] = true;
+    }
+  }
+  return out;
 }
 
 /**
