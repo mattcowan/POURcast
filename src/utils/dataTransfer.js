@@ -109,11 +109,23 @@ function mergeMissed(local, incoming) {
   return out;
 }
 
-/** pourcast-reviewed-topics: { slug: true } — reviewed on either device wins. */
-function mergeReviewed(local, incoming) {
+/**
+ * Slug-flag maps ({ slug: true }) such as reviewed-topics and bookmarks — union
+ * the two maps so a flag set on either device wins.
+ */
+function mergeSlugFlags(local, incoming) {
   if (!isObject(incoming)) return local;
   if (!isObject(local)) return incoming;
-  return { ...local, ...incoming };
+  // Union of truthy flags only: a key survives when either side has it set to
+  // exactly true. This prevents a corrupted incoming `false`/null from clearing a
+  // flag already set on this device, matching the "set on either side wins" intent.
+  const out = {};
+  for (const map of [local, incoming]) {
+    for (const [slug, value] of Object.entries(map)) {
+      if (value === true) out[slug] = true;
+    }
+  }
+  return out;
 }
 
 /**
@@ -186,7 +198,8 @@ const STRATEGIES = {
   'pourcast-a11y': takeIncoming,
   'pourcast-flagged': mergeFlagged,
   'pourcast-missed': mergeMissed,
-  'pourcast-reviewed-topics': mergeReviewed,
+  'pourcast-reviewed-topics': mergeSlugFlags,
+  'pourcast-bookmarks': mergeSlugFlags,
   'pourcast-practice-history': mergeHistory,
   'pourcast-practice-session': mergeSessions,
   'pourcast-practice-prefs': takeIncoming,
