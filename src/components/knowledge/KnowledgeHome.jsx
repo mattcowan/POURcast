@@ -1,8 +1,9 @@
 import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, BookOpen, ChevronDown, ChevronRight, Check } from 'lucide-react';
+import { Search, BookOpen, ChevronDown, ChevronRight, Check, Bookmark } from 'lucide-react';
 import { usePageFocus } from '../../hooks/usePageFocus';
 import { useReviewedTopics } from '../../hooks/useReviewedTopics';
+import { useBookmarkedTopics } from '../../hooks/useBookmarkedTopics';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
 import { topics, getAllCategories, getTopicsByCategory } from '../../data/knowledgeBase/index';
 
@@ -18,6 +19,11 @@ const REVIEW_FILTERS = [
   { value: 'reviewed', label: 'Reviewed' },
 ];
 
+const BOOKMARK_FILTERS = [
+  { value: 'all', label: 'All' },
+  { value: 'bookmarked', label: 'Bookmarked' },
+];
+
 export default function KnowledgeHome() {
   const [search, setSearch] = useState('');
   // Persisted so the Study Shelf remembers cert + review filters across visits
@@ -26,16 +32,19 @@ export default function KnowledgeHome() {
   const [filters, setFilters] = useLocalStorage('pourcast-knowledge-filters', {
     cert: 'all',
     review: 'all',
+    bookmark: 'all',
   });
   // Coerce to a safe object — a corrupted or imported non-object value (e.g. the
   // string "null") must not crash the page on read or on the spread-update.
   const safeFilters = filters && typeof filters === 'object' ? filters : {};
   const testFilter = safeFilters.cert ?? 'all';
   const reviewFilter = safeFilters.review ?? 'all';
+  const bookmarkFilter = safeFilters.bookmark ?? 'all';
   const updateFilter = (patch) =>
     setFilters((f) => ({
       cert: 'all',
       review: 'all',
+      bookmark: 'all',
       ...(f && typeof f === 'object' ? f : {}),
       ...patch,
     }));
@@ -43,16 +52,26 @@ export default function KnowledgeHome() {
   const headingRef = useRef(null);
   const categories = getAllCategories();
   const { isReviewed } = useReviewedTopics();
+  const { isBookmarked } = useBookmarkedTopics();
 
   usePageFocus(headingRef);
 
+  // Each status filter is self-hiding: it only appears once at least one topic
+  // qualifies. A hidden filter is treated as inactive below so a stale persisted
+  // value (e.g. "bookmarked" after every bookmark is removed) can't hide the
+  // entire list.
+  const hasAnyReviewed = topics.some((t) => isReviewed(t.slug));
+  const hasAnyBookmarked = topics.some((t) => isBookmarked(t.slug));
+
   function matchesFilter(topic) {
     const certOk = testFilter === 'all' || topic.applicableTo?.includes(testFilter);
+    const reviewActive = hasAnyReviewed && reviewFilter !== 'all';
+    const bookmarkActive = hasAnyBookmarked && bookmarkFilter !== 'all';
     const reviewed = isReviewed(topic.slug);
     const reviewOk =
-      reviewFilter === 'all' ||
-      (reviewFilter === 'reviewed' ? reviewed : !reviewed);
-    return certOk && reviewOk;
+      !reviewActive || (reviewFilter === 'reviewed' ? reviewed : !reviewed);
+    const bookmarkOk = !bookmarkActive || isBookmarked(topic.slug);
+    return certOk && reviewOk && bookmarkOk;
   }
 
   const filteredTopics = search.trim()
@@ -114,35 +133,73 @@ export default function KnowledgeHome() {
         ))}
       </div>
 
-      <p
-        id="review-filter-label"
-        className="text-base font-semibold mb-1"
-        style={{ color: 'var(--text-secondary)' }}
-      >
-        Review status
-      </p>
-      <div
-        role="group"
-        aria-labelledby="review-filter-label"
-        className="flex rounded-xl p-1 mb-4 gap-1"
-        style={{ backgroundColor: 'var(--bg-surface-hover)' }}
-      >
-        {REVIEW_FILTERS.map(({ value, label }) => (
-          <button
-            key={value}
-            onClick={() => updateFilter({ review: value })}
-            aria-pressed={reviewFilter === value}
-            className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
-            style={{
-              backgroundColor: reviewFilter === value ? 'var(--bg-surface)' : 'transparent',
-              color: reviewFilter === value ? 'var(--text-accent)' : 'var(--text-secondary)',
-              boxShadow: reviewFilter === value ? 'var(--shadow)' : 'none',
-            }}
+      {hasAnyReviewed && (
+        <>
+          <p
+            id="review-filter-label"
+            className="text-base font-semibold mb-1"
+            style={{ color: 'var(--text-secondary)' }}
           >
-            {label}
-          </button>
-        ))}
-      </div>
+            Review status
+          </p>
+          <div
+            role="group"
+            aria-labelledby="review-filter-label"
+            className="flex rounded-xl p-1 mb-4 gap-1"
+            style={{ backgroundColor: 'var(--bg-surface-hover)' }}
+          >
+            {REVIEW_FILTERS.map(({ value, label }) => (
+              <button
+                key={value}
+                onClick={() => updateFilter({ review: value })}
+                aria-pressed={reviewFilter === value}
+                className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
+                style={{
+                  backgroundColor: reviewFilter === value ? 'var(--bg-surface)' : 'transparent',
+                  color: reviewFilter === value ? 'var(--text-accent)' : 'var(--text-secondary)',
+                  boxShadow: reviewFilter === value ? 'var(--shadow)' : 'none',
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
+
+      {hasAnyBookmarked && (
+        <>
+          <p
+            id="bookmark-filter-label"
+            className="text-base font-semibold mb-1"
+            style={{ color: 'var(--text-secondary)' }}
+          >
+            Bookmarks
+          </p>
+          <div
+            role="group"
+            aria-labelledby="bookmark-filter-label"
+            className="flex rounded-xl p-1 mb-4 gap-1"
+            style={{ backgroundColor: 'var(--bg-surface-hover)' }}
+          >
+            {BOOKMARK_FILTERS.map(({ value, label }) => (
+              <button
+                key={value}
+                onClick={() => updateFilter({ bookmark: value })}
+                aria-pressed={bookmarkFilter === value}
+                className="flex-1 py-2 px-3 rounded-lg text-base font-semibold transition-colors text-center"
+                style={{
+                  backgroundColor: bookmarkFilter === value ? 'var(--bg-surface)' : 'transparent',
+                  color: bookmarkFilter === value ? 'var(--text-accent)' : 'var(--text-secondary)',
+                  boxShadow: bookmarkFilter === value ? 'var(--shadow)' : 'none',
+                }}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
+        </>
+      )}
 
       <div className="relative mb-8">
         <label htmlFor="topic-search" className="sr-only">
@@ -181,7 +238,12 @@ export default function KnowledgeHome() {
           ) : (
             <div className="space-y-2">
               {filteredTopics.map((topic) => (
-                <TopicRow key={topic.slug} topic={topic} reviewed={isReviewed(topic.slug)} />
+                <TopicRow
+                  key={topic.slug}
+                  topic={topic}
+                  reviewed={isReviewed(topic.slug)}
+                  bookmarked={isBookmarked(topic.slug)}
+                />
               ))}
             </div>
           )}
@@ -227,7 +289,12 @@ export default function KnowledgeHome() {
                       }}
                     >
                       {catTopics.map((topic) => (
-                        <TopicRow key={topic.slug} topic={topic} reviewed={isReviewed(topic.slug)} />
+                        <TopicRow
+                          key={topic.slug}
+                          topic={topic}
+                          reviewed={isReviewed(topic.slug)}
+                          bookmarked={isBookmarked(topic.slug)}
+                        />
                       ))}
                     </div>
                   )}
@@ -241,7 +308,7 @@ export default function KnowledgeHome() {
   );
 }
 
-function TopicRow({ topic, reviewed }) {
+function TopicRow({ topic, reviewed, bookmarked }) {
   const [hovered, setHovered] = useState(false);
 
   return (
@@ -261,6 +328,15 @@ function TopicRow({ topic, reviewed }) {
           {topic.title}
         </h3>
         <div className="flex items-center gap-1 shrink-0">
+          {bookmarked && (
+            <span
+              className="inline-flex items-center gap-1"
+              style={{ color: 'var(--text-accent)' }}
+            >
+              <Bookmark size={16} aria-hidden="true" fill="currentColor" />
+              <span className="sr-only">Bookmarked</span>
+            </span>
+          )}
           {reviewed && (
             <span
               className="inline-flex items-center gap-1"

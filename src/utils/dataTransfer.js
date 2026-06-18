@@ -109,8 +109,11 @@ function mergeMissed(local, incoming) {
   return out;
 }
 
-/** pourcast-reviewed-topics: { slug: true } — reviewed on either device wins. */
-function mergeReviewed(local, incoming) {
+/**
+ * Slug-flag maps ({ slug: true }) such as reviewed-topics and bookmarks — union
+ * the two maps so a flag set on either device wins.
+ */
+function mergeSlugFlags(local, incoming) {
   if (!isObject(incoming)) return local;
   if (!isObject(local)) return incoming;
   return { ...local, ...incoming };
@@ -186,7 +189,8 @@ const STRATEGIES = {
   'pourcast-a11y': takeIncoming,
   'pourcast-flagged': mergeFlagged,
   'pourcast-missed': mergeMissed,
-  'pourcast-reviewed-topics': mergeReviewed,
+  'pourcast-reviewed-topics': mergeSlugFlags,
+  'pourcast-bookmarks': mergeSlugFlags,
   'pourcast-practice-history': mergeHistory,
   'pourcast-practice-session': mergeSessions,
   'pourcast-practice-prefs': takeIncoming,

@@ -1,14 +1,16 @@
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, BookOpen, Lightbulb } from 'lucide-react';
+import { ArrowLeft, BookOpen, Lightbulb, Bookmark } from 'lucide-react';
 import { getTopicBySlug } from '../../data/knowledgeBase/index';
 import { useReviewedTopics } from '../../hooks/useReviewedTopics';
+import { useBookmarkedTopics } from '../../hooks/useBookmarkedTopics';
 
 export default function TopicPage() {
   const { slug } = useParams();
   const topic = getTopicBySlug(slug);
   const headingRef = useRef(null);
   const { isReviewed, setReviewedStatus } = useReviewedTopics();
+  const { isBookmarked, toggleBookmark } = useBookmarkedTopics();
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -52,14 +54,20 @@ export default function TopicPage() {
         </ol>
       </nav>
 
-      <h1
-        ref={headingRef}
-        tabIndex={-1}
-        className="text-2xl font-bold mb-2"
-        style={{ color: 'var(--text-primary)' }}
-      >
-        {topic.title}
-      </h1>
+      <div className="flex items-start justify-between gap-3 mb-2">
+        <h1
+          ref={headingRef}
+          tabIndex={-1}
+          className="text-2xl font-bold"
+          style={{ color: 'var(--text-primary)' }}
+        >
+          {topic.title}
+        </h1>
+        <BookmarkButton
+          bookmarked={isBookmarked(topic.slug)}
+          onToggle={() => toggleBookmark(topic.slug)}
+        />
+      </div>
       <p className="text-base font-medium mb-6" style={{ color: 'var(--text-accent)' }}>{topic.category}</p>
 
       <article className="space-y-4">
@@ -148,6 +156,35 @@ export default function TopicPage() {
         </Link>
       </div>
     </div>
+  );
+}
+
+function BookmarkButton({ bookmarked, onToggle }) {
+  const [hovered, setHovered] = useState(false);
+  const active = bookmarked || hovered;
+  return (
+    <button
+      type="button"
+      aria-pressed={bookmarked}
+      onClick={onToggle}
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      onFocus={() => setHovered(true)}
+      onBlur={() => setHovered(false)}
+      className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-base font-medium shrink-0 transition-colors"
+      style={{
+        backgroundColor: bookmarked ? 'var(--bg-accent)' : 'transparent',
+        color: active ? 'var(--text-accent)' : 'var(--text-secondary)',
+        border: '1px solid var(--border-default)',
+      }}
+    >
+      <Bookmark
+        size={16}
+        aria-hidden="true"
+        fill={bookmarked ? 'currentColor' : 'none'}
+      />
+      {bookmarked ? 'Bookmarked' : 'Bookmark'}
+    </button>
   );
 }
 
