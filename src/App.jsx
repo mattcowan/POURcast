@@ -185,6 +185,7 @@ export default function App() {
                   allDomains={ALL_DOMAINS}
                   domainsByCourse={DOMAINS_BY_COURSE}
                   onPracticeComplete={recordPracticeCompletion}
+                  flaggedBank={flaggedBank}
                 />
               }
             />

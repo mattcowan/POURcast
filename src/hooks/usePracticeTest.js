@@ -59,8 +59,10 @@ function foldToPaused(session, nowMs) {
  * @param {string|null} activeCourseId - course of the session currently being
  *   taken (from the route), or null outside the test view
  * @param {function} [onComplete] - called with (courseId, score) when a test is submitted
+ * @param {object} [flaggedBank] - useFlaggedBank instance; exam flags are mirrored
+ *   into it so they appear on the dashboard / flagged page alongside lesson flags
  */
-export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onComplete) {
+export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onComplete, flaggedBank) {
   const [rawSessions, setRawSessions] = useLocalStorage('pourcast-practice-session', INITIAL_SESSIONS);
   const [rawHistory, setRawHistory] = useLocalStorage('pourcast-practice-history', INITIAL_HISTORY);
   // Notices surfaced on PracticeHome (e.g. "time expired while you were away")
@@ -71,6 +73,9 @@ export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onC
   const sessionsData = sanitizeSessions(rawSessions);
   const historyData = sanitizeHistory(rawHistory);
   const onCompleteRef = useRef(onComplete);
+  // Queue of flag-mirror ops to apply to the persistent bank, decided inside the
+  // session's functional updater and flushed after commit (see toggleFlag).
+  const pendingFlagMirror = useRef([]);
   useEffect(() => {
     onCompleteRef.current = onComplete;
   }, [onComplete]);
@@ -274,15 +279,34 @@ export function usePracticeTest(allDomains, domainsByCourse, activeCourseId, onC
 
   const toggleFlag = useCallback((qid) => {
     if (!activeCourseId) return;
-    updateSession(activeCourseId, (s) => {
+    const course = activeCourseId;
+    updateSession(course, (s) => {
       if (!s) return s;
       const flagged = s.flagged || [];
+      const has = flagged.includes(qid);
+      // Decide the bank mirror from the real previous state, in order, so rapid
+      // toggles batched before a re-render stay consistent with the session.
+      pendingFlagMirror.current.push({ course, qid, flagged: !has });
       return {
         ...s,
-        flagged: flagged.includes(qid) ? flagged.filter((id) => id !== qid) : [...flagged, qid],
+        flagged: has ? flagged.filter((id) => id !== qid) : [...flagged, qid],
       };
     });
   }, [activeCourseId, updateSession]);
+
+  // Flush queued flag mirrors into the persistent bank after the session commits,
+  // applying them in dispatch order so the bank reflects the session's final state.
+  // flag/unflag are idempotent, so a duplicated op (e.g. StrictMode) is harmless.
+  useEffect(() => {
+    if (pendingFlagMirror.current.length === 0) return;
+    const ops = pendingFlagMirror.current;
+    pendingFlagMirror.current = [];
+    if (!flaggedBank) return;
+    for (const { course, qid, flagged } of ops) {
+      if (flagged) flaggedBank.flagQuestion(course, qid);
+      else flaggedBank.unflagQuestion(course, qid);
+    }
+  });
 
   const toggleEliminate = useCallback((qid, optionIndex) => {
     if (!activeCourseId) return;

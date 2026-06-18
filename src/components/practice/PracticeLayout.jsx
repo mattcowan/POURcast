@@ -10,12 +10,12 @@ import PracticeResults from './PracticeResults';
  * session, timer, and history state are shared (and never duplicated against
  * the same localStorage keys).
  */
-export default function PracticeLayout({ allDomains, domainsByCourse, onPracticeComplete }) {
+export default function PracticeLayout({ allDomains, domainsByCourse, onPracticeComplete, flaggedBank }) {
   const match = useMatch('/practice/test/:courseId');
   const matchedCourse = match?.params?.courseId;
   const activeCourseId = matchedCourse && PRACTICE_CONFIG[matchedCourse] ? matchedCourse : null;
 
-  const practice = usePracticeTest(allDomains, domainsByCourse, activeCourseId, onPracticeComplete);
+  const practice = usePracticeTest(allDomains, domainsByCourse, activeCourseId, onPracticeComplete, flaggedBank);
 
   return (
     <Routes>
