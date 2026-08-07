@@ -9,6 +9,7 @@ const DEFAULTS = {
   lineHeight: 'default',    // default | increased
   underlineLinks: false,
   reduceMotion: 'system',   // system | reduce | no-preference
+  keyboardShortcuts: false, // single-key quiz shortcuts are opt-in (WCAG 2.1.4)
 };
 
 const AccessibilityContext = createContext({

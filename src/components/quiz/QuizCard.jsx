@@ -1,8 +1,12 @@
 import { useRef, useEffect } from 'react';
 import { CheckCircle, XCircle } from 'lucide-react';
+import { useAccessibility } from '../../hooks/useAccessibility';
+import KeyboardShortcutsDisclosure from '../common/KeyboardShortcutsDisclosure';
 
 export default function QuizCard({ question, questionIndex, totalQuestions, feedback, onAnswer }) {
   const headingRef = useRef(null);
+  const { prefs } = useAccessibility();
+  const shortcutsEnabled = prefs.keyboardShortcuts;
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -68,7 +72,11 @@ export default function QuizCard({ question, questionIndex, totalQuestions, feed
   }
 
   function handleKeyDown(e) {
-    if (hasAnswered || e.ctrlKey || e.metaKey || e.altKey) return;
+    // Single-key shortcuts are opt-in (WCAG 2.1.4): a stray letter or digit
+    // submits a scored answer, so they must never fire unless chosen.
+    if (!shortcutsEnabled || hasAnswered) return;
+    if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || e.repeat) return;
+    if (e.target.isContentEditable || ['INPUT', 'TEXTAREA', 'SELECT'].includes(e.target.tagName)) return;
 
     const key = e.key.toLowerCase();
     if (/^[a-z]$/.test(key)) {
@@ -108,17 +116,23 @@ export default function QuizCard({ question, questionIndex, totalQuestions, feed
             >
               {getOptionSymbol(state, i)}
               <span className="flex-1">{option}</span>
-              <kbd
-                className="hidden sm:inline text-base px-1.5 py-0.5 rounded font-mono"
-                style={{ backgroundColor: 'var(--bg-surface-hover)', color: 'var(--text-muted)', opacity: hasAnswered ? 0.4 : 1 }}
-                aria-hidden="true"
-              >
-                {i + 1}
-              </kbd>
+              {shortcutsEnabled && (
+                <kbd
+                  className="hidden sm:inline text-base px-1.5 py-0.5 rounded font-mono"
+                  style={{ backgroundColor: 'var(--bg-surface-hover)', color: 'var(--text-muted)', opacity: hasAnswered ? 0.4 : 1 }}
+                  aria-hidden="true"
+                >
+                  {i + 1}
+                </kbd>
+              )}
             </button>
           );
         })}
       </div>
+
+      <KeyboardShortcutsDisclosure
+        items={['1–4 or A–D: choose an answer (submits immediately)']}
+      />
     </div>
   );
 }

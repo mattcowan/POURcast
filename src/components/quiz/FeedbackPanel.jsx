@@ -8,8 +8,16 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
   const [showNoteInput, setShowNoteInput] = useState(false);
   const [noteText, setNoteText] = useState('');
   const noteInputRef = useRef(null);
+  const noteButtonRef = useRef(null);
   const panelRef = useRef(null);
   const { isCorrect, selected } = feedback;
+
+  // Closing unmounts the input, so focus would fall to <body> without this.
+  function closeNoteInput({ save }) {
+    if (save) onSaveNote(noteText.trim() || null);
+    setShowNoteInput(false);
+    setTimeout(() => noteButtonRef.current?.focus(), 0);
+  }
 
   useEffect(() => {
     panelRef.current?.focus();
@@ -128,6 +136,7 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
                 </button>
                 {!showNoteInput && (
                   <button
+                    ref={noteButtonRef}
                     onClick={() => {
                       setNoteText(flagNote || '');
                       setShowNoteInput(true);
@@ -170,9 +179,13 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
                     value={noteText}
                     onChange={(e) => setNoteText(e.target.value)}
                     onKeyDown={(e) => {
+                      // Ignore the Enter that commits an IME composition
+                      if (e.isComposing || e.keyCode === 229) return;
                       if (e.key === 'Enter') {
-                        onSaveNote(noteText.trim() || null);
-                        setShowNoteInput(false);
+                        e.preventDefault();
+                        closeNoteInput({ save: true });
+                      } else if (e.key === 'Escape') {
+                        closeNoteInput({ save: false });
                       }
                     }}
                     placeholder="e.g., Seems like WAS material"
@@ -185,10 +198,7 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
                   />
                   <div className="flex gap-2">
                     <button
-                      onClick={() => {
-                        onSaveNote(noteText.trim() || null);
-                        setShowNoteInput(false);
-                      }}
+                      onClick={() => closeNoteInput({ save: true })}
                       className="py-2 px-3 rounded-lg text-base font-medium transition-colors border-0 cursor-pointer"
                       style={{
                         backgroundColor: 'var(--info-border)',
@@ -198,7 +208,7 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
                       Save note
                     </button>
                     <button
-                      onClick={() => setShowNoteInput(false)}
+                      onClick={() => closeNoteInput({ save: false })}
                       className="py-2 px-3 rounded-lg text-base font-medium transition-colors border-2 bg-transparent cursor-pointer"
                       style={{
                         borderColor: 'var(--border-default)',

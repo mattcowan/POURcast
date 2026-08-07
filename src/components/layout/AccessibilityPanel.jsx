@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect } from 'react';
+import { useId } from 'react';
 import { Settings, RotateCcw, Sun, Moon, Eye, EyeOff } from 'lucide-react';
 import { useAccessibility } from '../../hooks/useAccessibility.jsx';
+import { usePopover } from '../../hooks/usePopover';
 
 const THEMES = [
   { value: 'light', label: 'Light', Icon: Sun },
@@ -39,44 +40,13 @@ const MOTION = [
 ];
 
 export default function AccessibilityPanel() {
-  const [isOpen, setIsOpen] = useState(false);
-  const panelRef = useRef(null);
-  const buttonRef = useRef(null);
-  const dialogRef = useRef(null);
+  const { isOpen, setIsOpen, containerRef, triggerRef, panelRef } = usePopover();
   const { prefs, updatePref, resetPrefs } = useAccessibility();
 
-  // Close on Escape, focus dialog on open
-  useEffect(() => {
-    if (!isOpen) return;
-
-    // Move focus into dialog on open
-    dialogRef.current?.focus();
-
-    function handleKeyDown(e) {
-      if (e.key === 'Escape') {
-        setIsOpen(false);
-        buttonRef.current?.focus();
-      }
-    }
-
-    function handleClickOutside(e) {
-      if (panelRef.current && !panelRef.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
-
   return (
-    <div className="relative" ref={panelRef}>
+    <div className="relative" ref={containerRef}>
       <button
-        ref={buttonRef}
+        ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="dialog"
@@ -92,7 +62,7 @@ export default function AccessibilityPanel() {
 
       {isOpen && (
         <div
-          ref={dialogRef}
+          ref={panelRef}
           tabIndex={-1}
           role="dialog"
           aria-label="Accessibility preferences"
@@ -211,6 +181,19 @@ export default function AccessibilityPanel() {
             />
           </SettingGroup>
 
+          {/* Quiz keyboard shortcuts */}
+          <SettingGroup label="Quiz shortcuts">
+            <ToggleSwitch
+              checked={prefs.keyboardShortcuts}
+              onChange={(val) => updatePref('keyboardShortcuts', val)}
+              label="Single-key answer shortcuts"
+            />
+            <p className="text-base mt-1" style={{ color: 'var(--text-muted)' }}>
+              1&ndash;4, A&ndash;D, and F while a question is shown. Off by default so
+              they can&rsquo;t clash with assistive-technology or browser keys.
+            </p>
+          </SettingGroup>
+
           {/* Reduce motion */}
           <SettingGroup label="Motion">
             <div className="flex flex-col gap-2">
@@ -263,14 +246,17 @@ function OptionButton({ selected, onClick, children, className = '' }) {
 }
 
 function ToggleSwitch({ checked, onChange, label }) {
+  // A <label> can't name a <button>, so associate the text via aria-labelledby.
+  const labelId = useId();
   return (
-    <label className="flex items-center justify-between cursor-pointer">
-      <span className="text-base" style={{ color: 'var(--text-secondary)' }}>
+    <div className="flex items-center justify-between">
+      <span id={labelId} className="text-base" style={{ color: 'var(--text-secondary)' }}>
         {label}
       </span>
       <button
         role="switch"
         aria-checked={checked}
+        aria-labelledby={labelId}
         onClick={() => onChange(!checked)}
         className="relative w-11 h-6 rounded-full transition-colors border-2"
         style={{
@@ -286,6 +272,6 @@ function ToggleSwitch({ checked, onChange, label }) {
           }}
         />
       </button>
-    </label>
+    </div>
   );
 }

@@ -1,10 +1,12 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { CheckCircle, XCircle, TrendingUp } from 'lucide-react';
 
 /** Past mock exam attempts for one course, newest first. */
 export default function ScoreHistory({ courseLabel, attempts, onClear }) {
   const [confirmingClear, setConfirmingClear] = useState(false);
+  const cancelBtnRef = useRef(null);
+  const clearBtnRef = useRef(null);
 
   if (attempts.length === 0) {
     return (
@@ -100,7 +102,11 @@ export default function ScoreHistory({ courseLabel, attempts, onClear }) {
             Yes, delete
           </button>
           <button
-            onClick={() => setConfirmingClear(false)}
+            ref={cancelBtnRef}
+            onClick={() => {
+              setConfirmingClear(false);
+              setTimeout(() => clearBtnRef.current?.focus(), 0);
+            }}
             className="px-3 py-1.5 rounded-lg text-base font-medium border-2 hover-surface"
             style={{ borderColor: 'var(--border-default)', color: 'var(--text-primary)' }}
           >
@@ -109,7 +115,12 @@ export default function ScoreHistory({ courseLabel, attempts, onClear }) {
         </span>
       ) : (
         <button
-          onClick={() => setConfirmingClear(true)}
+          ref={clearBtnRef}
+          onClick={() => {
+            setConfirmingClear(true);
+            // Move focus to the safe choice so the confirmation isn't missed
+            setTimeout(() => cancelBtnRef.current?.focus(), 0);
+          }}
           className="text-base font-medium underline"
           style={{ color: 'var(--text-muted)' }}
         >
