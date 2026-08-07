@@ -1,5 +1,7 @@
 import { useRef, useEffect } from 'react';
 import { Flag, Ban } from 'lucide-react';
+import { useAccessibility } from '../../hooks/useAccessibility';
+import KeyboardShortcutsDisclosure from '../common/KeyboardShortcutsDisclosure';
 
 /**
  * Exam-mode question card: no feedback, answers can be changed, options can
@@ -20,13 +22,21 @@ export default function PracticeQuestionCard({
   onToggleFlag,
 }) {
   const headingRef = useRef(null);
+  const { prefs } = useAccessibility();
+  const shortcutsEnabled = prefs.keyboardShortcuts;
 
   useEffect(() => {
     headingRef.current?.focus();
   }, [question.id]);
 
   function handleKeyDown(e) {
-    if (e.ctrlKey || e.metaKey || e.altKey) return;
+    // Single-key shortcuts are opt-in (WCAG 2.1.4). Arrow-key movement is
+    // native radio-group behavior and stays available regardless.
+    if (!shortcutsEnabled) return;
+    if (e.ctrlKey || e.metaKey || e.altKey || e.repeat) return;
+    const t = e.target;
+    if (t.isContentEditable || t.tagName === 'TEXTAREA' || t.tagName === 'SELECT') return;
+    if (t.tagName === 'INPUT' && t.type !== 'radio' && t.type !== 'checkbox') return;
     const key = e.key.toLowerCase();
 
     if (key === 'f') {
@@ -162,20 +172,14 @@ export default function PracticeQuestionCard({
         </div>
       </fieldset>
 
-      <details className="mt-5">
-        <summary
-          className="text-base font-medium cursor-pointer"
-          style={{ color: 'var(--text-muted)' }}
-        >
-          Keyboard shortcuts
-        </summary>
-        <ul className="mt-2 ml-4 space-y-1 list-disc text-base" style={{ color: 'var(--text-secondary)' }}>
-          <li>1–4 or A–D: select an answer</li>
-          <li>Shift + 1–4 (or Shift + A–D): eliminate or restore an answer</li>
-          <li>F: flag or unflag this question</li>
-          <li>Arrow keys: move between answer choices</li>
-        </ul>
-      </details>
+      <KeyboardShortcutsDisclosure
+        items={[
+          '1–4 or A–D: select an answer',
+          'Shift + 1–4 (or Shift + A–D): eliminate or restore an answer',
+          'F: flag or unflag this question',
+        ]}
+        alwaysOnItems={['Arrow keys: move between answer choices']}
+      />
     </div>
   );
 }

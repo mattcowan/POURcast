@@ -57,7 +57,9 @@ This app studies accessibility, so it must be accessible itself:
 - **Screen reader announcements**: `LiveRegion` provides `aria-live="polite"` region; `useAnnounce` hook used throughout quiz flow.
 - **Color independence**: feedback always uses symbols + text alongside color (checkmark/X icons).
 - **Dialogs** (AccessibilityPanel, StatsPopover): `aria-haspopup="dialog"`, focus moves into dialog on open, Escape returns focus to trigger.
-- **Tab pattern** (CourseSelector/Dashboard): both tabpanels always rendered with `hidden` on inactive; `aria-labelledby` connects tabs to panels via stable IDs.
+- **Tab pattern** (CourseSelector/Dashboard): both tabpanels always rendered with `hidden` on inactive; `aria-labelledby` connects tabs to panels via stable IDs; roving tabindex + arrow keys per the APG tabs pattern.
+- **Single-key quiz shortcuts are opt-in** (WCAG 2.1.4): gated on the `keyboardShortcuts` a11y pref (default off). Any new shortcut must check it. The toggle surfaces in `KeyboardShortcutsDisclosure` (on the quiz cards) and the AccessibilityPanel.
+- **Header popovers** (stats/data/a11y) share the `usePopover` hook — Escape, focus-out, and outside-click close with focus restore. Never hand-roll `document` key listeners for these.
 
 ### Key Conventions
 

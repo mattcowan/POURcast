@@ -1,8 +1,9 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { BookOpen, GraduationCap, Trophy, Star, Flame, Dumbbell, TrendingUp, ClipboardCheck } from 'lucide-react';
 import AccessibilityPanel from './AccessibilityPanel';
 import DataPanel from './DataPanel';
+import { usePopover } from '../../hooks/usePopover';
 
 export default function Header({ stats }) {
   const location = useLocation();
@@ -88,42 +89,12 @@ function NavLink({ to, active, label, children }) {
 }
 
 function StatsPopover({ stats }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const popoverRef = useRef(null);
-  const buttonRef = useRef(null);
-  const dialogRef = useRef(null);
-
-  useEffect(() => {
-    if (!isOpen) return;
-
-    // Move focus into dialog on open
-    dialogRef.current?.focus();
-
-    function handleKeyDown(e) {
-      if (e.key === 'Escape') {
-        setIsOpen(false);
-        buttonRef.current?.focus();
-      }
-    }
-
-    function handleClickOutside(e) {
-      if (popoverRef.current && !popoverRef.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
+  const { isOpen, setIsOpen, containerRef, triggerRef, panelRef } = usePopover();
 
   return (
-    <div className="relative" ref={popoverRef}>
+    <div className="relative" ref={containerRef}>
       <button
-        ref={buttonRef}
+        ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="dialog"
@@ -139,7 +110,7 @@ function StatsPopover({ stats }) {
 
       {isOpen && (
         <div
-          ref={dialogRef}
+          ref={panelRef}
           tabIndex={-1}
           role="dialog"
           aria-label="Your progress"

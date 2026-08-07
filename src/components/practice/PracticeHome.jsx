@@ -155,6 +155,8 @@ function StartControls({ courseId, practice }) {
 function ResumeControls({ courseId, summary, practice }) {
   const [confirmingAbandon, setConfirmingAbandon] = useState(false);
   const announce = useAnnounce();
+  const keepBtnRef = useRef(null);
+  const abandonBtnRef = useRef(null);
 
   return (
     <div>
@@ -189,7 +191,11 @@ function ResumeControls({ courseId, summary, practice }) {
               Yes, abandon
             </button>
             <button
-              onClick={() => setConfirmingAbandon(false)}
+              ref={keepBtnRef}
+              onClick={() => {
+                setConfirmingAbandon(false);
+                setTimeout(() => abandonBtnRef.current?.focus(), 0);
+              }}
               className="px-3 py-1.5 rounded-lg text-base font-medium border-2 hover-surface"
               style={{ borderColor: 'var(--border-default)', color: 'var(--text-primary)' }}
             >
@@ -198,7 +204,12 @@ function ResumeControls({ courseId, summary, practice }) {
           </span>
         ) : (
           <button
-            onClick={() => setConfirmingAbandon(true)}
+            ref={abandonBtnRef}
+            onClick={() => {
+              setConfirmingAbandon(true);
+              // Move focus to the safe choice so the confirmation isn't missed
+              setTimeout(() => keepBtnRef.current?.focus(), 0);
+            }}
             className="px-4 py-2.5 rounded-xl text-base font-medium border-2 hover-surface"
             style={{ borderColor: 'var(--border-default)', color: 'var(--text-secondary)' }}
           >

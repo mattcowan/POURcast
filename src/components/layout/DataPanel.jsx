@@ -1,6 +1,7 @@
-import { useState, useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { DatabaseBackup, Download, Upload } from 'lucide-react';
 import { useAnnounce } from '../../hooks/useAnnounce';
+import { usePopover } from '../../hooks/usePopover';
 import { downloadJson } from '../../utils/exportCsv';
 import { gatherExport, parseImport, mergeImport } from '../../utils/dataTransfer';
 
@@ -13,39 +14,9 @@ function backupFilename() {
 }
 
 export default function DataPanel() {
-  const [isOpen, setIsOpen] = useState(false);
-  const panelRef = useRef(null);
-  const buttonRef = useRef(null);
-  const dialogRef = useRef(null);
+  const { isOpen, setIsOpen, containerRef, triggerRef, panelRef } = usePopover();
   const fileRef = useRef(null);
   const announce = useAnnounce();
-
-  // Close on Escape, focus dialog on open, close on outside click — mirrors AccessibilityPanel.
-  useEffect(() => {
-    if (!isOpen) return;
-
-    dialogRef.current?.focus();
-
-    function handleKeyDown(e) {
-      if (e.key === 'Escape') {
-        setIsOpen(false);
-        buttonRef.current?.focus();
-      }
-    }
-
-    function handleClickOutside(e) {
-      if (panelRef.current && !panelRef.current.contains(e.target)) {
-        setIsOpen(false);
-      }
-    }
-
-    document.addEventListener('keydown', handleKeyDown);
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown);
-      document.removeEventListener('mousedown', handleClickOutside);
-    };
-  }, [isOpen]);
 
   function handleExport() {
     downloadJson(backupFilename(), gatherExport());
@@ -81,9 +52,9 @@ export default function DataPanel() {
   }
 
   return (
-    <div className="relative" ref={panelRef}>
+    <div className="relative" ref={containerRef}>
       <button
-        ref={buttonRef}
+        ref={triggerRef}
         onClick={() => setIsOpen(!isOpen)}
         aria-expanded={isOpen}
         aria-haspopup="dialog"
@@ -99,7 +70,7 @@ export default function DataPanel() {
 
       {isOpen && (
         <div
-          ref={dialogRef}
+          ref={panelRef}
           tabIndex={-1}
           role="dialog"
           aria-label="Export or import data"
