@@ -9,10 +9,10 @@ export default function CourseSelector({ activeCourse, onSelect }) {
 
   // APG tabs pattern: the selected tab is the only Tab stop; arrow keys move
   // between tabs and select as they go (panels are always rendered, so
-  // automatic activation is cheap).
-  function handleKeyDown(e) {
+  // automatic activation is cheap). The pressed tab's own index is the source
+  // of truth so navigation stays deterministic even if a re-render is pending.
+  function handleKeyDown(e, currentIndex) {
     let nextIndex;
-    const currentIndex = courses.findIndex(({ id }) => id === activeCourse);
     switch (e.key) {
       case 'ArrowLeft':
         nextIndex = (currentIndex - 1 + courses.length) % courses.length;
@@ -53,7 +53,7 @@ export default function CourseSelector({ activeCourse, onSelect }) {
             aria-controls={`${id}-panel`}
             tabIndex={isActive ? 0 : -1}
             onClick={() => onSelect(id)}
-            onKeyDown={handleKeyDown}
+            onKeyDown={(e) => handleKeyDown(e, i)}
             className="flex-1 py-2.5 px-4 rounded-lg text-base font-semibold transition-colors text-center"
             style={{
               backgroundColor: isActive ? 'var(--bg-surface)' : 'transparent',

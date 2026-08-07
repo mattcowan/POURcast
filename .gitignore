@@ -6,3 +6,4 @@ src/assets/fonts/
 *.log
 .playwright-mcp/
 playwright-profile/
+_private/

@@ -35,6 +35,14 @@ export function usePopover() {
 
     function handleClickOutside(e) {
       if (containerRef.current && !containerRef.current.contains(e.target)) {
+        // Browsers that don't move focus when clicking non-focusable areas
+        // (Safari, Firefox on macOS) can leave focus inside the panel as it
+        // unmounts, dropping it to <body>. Restore it to the trigger — but
+        // only then, so browsers that already moved focus keep it where the
+        // user clicked.
+        if (containerRef.current.contains(document.activeElement)) {
+          triggerRef.current?.focus();
+        }
         setIsOpen(false);
       }
     }
