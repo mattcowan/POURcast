@@ -27,14 +27,7 @@ export function downloadCsv(filename, headers, rows) {
   ];
   const csv = lines.join('\n');
   const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
-  const url = URL.createObjectURL(blob);
-  const link = document.createElement('a');
-  link.href = url;
-  link.download = filename;
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-  URL.revokeObjectURL(url);
+  triggerDownload(filename, blob);
 }
 
 /**
@@ -45,10 +38,17 @@ export function downloadCsv(filename, headers, rows) {
 export function downloadJson(filename, data) {
   const json = JSON.stringify(data, null, 2);
   const blob = new Blob([json], { type: 'application/json;charset=utf-8;' });
+  triggerDownload(filename, blob);
+}
+
+function triggerDownload(filename, blob) {
   const url = URL.createObjectURL(blob);
   const link = document.createElement('a');
   link.href = url;
   link.download = filename;
+  // The synthetic click must not bubble to document-level listeners — the
+  // header popovers close on outside clicks, and this link counts as one.
+  link.addEventListener('click', (e) => e.stopPropagation());
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);

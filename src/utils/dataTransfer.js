@@ -10,6 +10,7 @@
  */
 
 import { MAX_HISTORY_PER_COURSE } from '../data/practiceConfig';
+import { getLocalDateString } from './localDate';
 
 const ENVELOPE_TYPE = 'pourcast-backup';
 const ENVELOPE_VERSION = 1;
@@ -246,6 +247,39 @@ export function parseImport(text) {
     throw new Error('this is not a POURcast backup file');
   }
   return parsed;
+}
+
+// Device-local stamp of the last export, deliberately NOT in STRATEGIES/EXPORT_KEYS:
+// each device tracks its own backup recency, and importing someone's file must not
+// make this device look freshly backed up.
+const LAST_EXPORT_KEY = 'pourcast-last-export';
+
+/** Stamp today as the last time this device exported a backup. */
+export function recordLastExport() {
+  try {
+    window.localStorage.setItem(LAST_EXPORT_KEY, getLocalDateString());
+  } catch {
+    // Storage full or unavailable — the nudge just stays visible.
+  }
+}
+
+/**
+ * Whole days since this device last exported a backup, or null if it never has
+ * (or the stamp is unreadable). Both dates are local YYYY-MM-DD strings parsed
+ * the same way, so the difference is always a clean day count.
+ */
+export function daysSinceLastExport() {
+  let raw;
+  try {
+    raw = window.localStorage.getItem(LAST_EXPORT_KEY);
+  } catch {
+    return null;
+  }
+  if (!raw) return null;
+  const then = Date.parse(raw);
+  if (Number.isNaN(then)) return null;
+  const today = Date.parse(getLocalDateString());
+  return Math.max(0, Math.round((today - then) / 86400000));
 }
 
 /**

@@ -1,9 +1,29 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { DatabaseBackup, Download, Upload } from 'lucide-react';
 import { useAnnounce } from '../../hooks/useAnnounce';
 import { usePopover } from '../../hooks/usePopover';
 import { downloadJson } from '../../utils/exportCsv';
-import { gatherExport, parseImport, mergeImport } from '../../utils/dataTransfer';
+import {
+  gatherExport,
+  parseImport,
+  mergeImport,
+  recordLastExport,
+  daysSinceLastExport,
+} from '../../utils/dataTransfer';
+
+// After this many days without an export, the status line switches to a
+// warning-styled nudge. Progress only exists in this browser's storage.
+const STALE_AFTER_DAYS = 14;
+
+function backupStatusMessage(daysSince) {
+  if (daysSince === null) return 'No backup yet — your progress only exists in this browser.';
+  if (daysSince === 0) return 'Last backup: today.';
+  if (daysSince === 1) return 'Last backup: yesterday.';
+  if (daysSince >= STALE_AFTER_DAYS) {
+    return `Last backup: ${daysSince} days ago — consider exporting a fresh one.`;
+  }
+  return `Last backup: ${daysSince} days ago.`;
+}
 
 function backupFilename() {
   const d = new Date();
@@ -17,9 +37,16 @@ export default function DataPanel() {
   const { isOpen, setIsOpen, containerRef, triggerRef, panelRef } = usePopover();
   const fileRef = useRef(null);
   const announce = useAnnounce();
+  const [, bumpBackupStamp] = useState(0);
+
+  // Read fresh on every render while open (cheap) so the count stays honest
+  // even in a tab that's been sitting open for days.
+  const daysSince = isOpen ? daysSinceLastExport() : null;
 
   function handleExport() {
     downloadJson(backupFilename(), gatherExport());
+    recordLastExport();
+    bumpBackupStamp((n) => n + 1); // re-render so the status line reads "today"
     announce('Data exported. File downloaded.');
   }
 
@@ -83,10 +110,27 @@ export default function DataPanel() {
           <h2 className="text-lg font-bold mb-1" style={{ color: 'var(--text-primary)' }}>
             Export &amp; import
           </h2>
-          <p className="text-base mb-4" style={{ color: 'var(--text-muted)' }}>
+          <p className="text-base mb-3" style={{ color: 'var(--text-muted)' }}>
             Move your settings, progress, and test history between devices. Importing merges
             into this device. Nothing is uploaded anywhere.
           </p>
+
+          {daysSince === null || daysSince >= STALE_AFTER_DAYS ? (
+            <p
+              className="text-base mb-4 px-3 py-2 rounded-lg border-2"
+              style={{
+                backgroundColor: 'var(--warning-bg)',
+                borderColor: 'var(--warning-border)',
+                color: 'var(--warning-text)',
+              }}
+            >
+              {backupStatusMessage(daysSince)}
+            </p>
+          ) : (
+            <p className="text-base mb-4" style={{ color: 'var(--text-muted)' }}>
+              {backupStatusMessage(daysSince)}
+            </p>
+          )}
 
           <div className="flex flex-col gap-2">
             <button
