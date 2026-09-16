@@ -181,6 +181,19 @@ export default function AccessibilityPanel() {
             />
           </SettingGroup>
 
+          {/* Quiz answer confirmation */}
+          <SettingGroup label="Quiz answers">
+            <ToggleSwitch
+              checked={prefs.quizAutoGrade}
+              onChange={(val) => updatePref('quizAutoGrade', val)}
+              label="Grade as soon as I pick an answer"
+            />
+            <p className="text-base mt-1" style={{ color: 'var(--text-muted)' }}>
+              Off by default: pick an answer, then choose Check answer, so a
+              mis-click can be corrected. Turn on to skip that step.
+            </p>
+          </SettingGroup>
+
           {/* Quiz keyboard shortcuts */}
           <SettingGroup label="Quiz shortcuts">
             <ToggleSwitch

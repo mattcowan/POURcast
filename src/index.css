@@ -409,8 +409,10 @@ body {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
-/* The answer radio is visually hidden, so draw its focus ring on the card */
-.practice-option:has(input:focus-visible) {
+/* The answer radio is visually hidden, so draw its focus ring on the card
+   (mock exam options and quick-quiz options in confirm mode) */
+.practice-option:has(input:focus-visible),
+.quiz-option:has(input:focus-visible) {
   outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }

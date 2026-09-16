@@ -7,3 +7,13 @@ src/assets/fonts/
 .playwright-mcp/
 playwright-profile/
 _private/
+
+# Personal study notes stay local (canonical copy lives in _private/)
+cpacc-study-notes.txt
+
+# QA harness output (Playwright + NVDA journeys)
+test-results/
+playwright-report/
+playwright-report-sr/
+tests/e2e-sr/logs/
+tests/e2e/qa-output/

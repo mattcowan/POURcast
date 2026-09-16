@@ -59,6 +59,7 @@ This app studies accessibility, so it must be accessible itself:
 - **Dialogs** (AccessibilityPanel, StatsPopover): `aria-haspopup="dialog"`, focus moves into dialog on open, Escape returns focus to trigger.
 - **Tab pattern** (CourseSelector/Dashboard): both tabpanels always rendered with `hidden` on inactive; `aria-labelledby` connects tabs to panels via stable IDs; roving tabindex + arrow keys per the APG tabs pattern.
 - **Single-key quiz shortcuts are opt-in** (WCAG 2.1.4): gated on the `keyboardShortcuts` a11y pref (default off). Any new shortcut must check it. The toggle surfaces in `KeyboardShortcutsDisclosure` (on the quiz cards) and the AccessibilityPanel.
+- **Quick-quiz answers need confirmation by default**: the `quizAutoGrade` a11y pref (default off) makes QuizCard render native radios plus a "Check answer" button, so a mis-click is correctable before scoring. Turning it on restores instant grading with buttons. Never let radios auto-submit — arrow keys check radios, so each arrow press would score an answer.
 - **Header popovers** (stats/data/a11y) share the `usePopover` hook — Escape, focus-out, and outside-click close with focus restore. Never hand-roll `document` key listeners for these.
 
 ### Key Conventions

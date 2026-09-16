@@ -10,6 +10,7 @@ const DEFAULTS = {
   underlineLinks: false,
   reduceMotion: 'system',   // system | reduce | no-preference
   keyboardShortcuts: false, // single-key quiz shortcuts are opt-in (WCAG 2.1.4)
+  quizAutoGrade: false,     // false: pick then "Check answer"; true: grade on first selection
 };
 
 const AccessibilityContext = createContext({

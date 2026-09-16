@@ -6,7 +6,7 @@ A study app for IAAP accessibility certifications, built with accessibility at i
 
 POURcast helps you prepare for the **CPACC** (Certified Professional in Accessibility Core Competencies) and **WAS** (Web Accessibility Specialist) certification exams through:
 
-- **Practice quizzes** — 300 questions across 5 domains (3 CPACC, 2 WAS), with detailed feedback explaining why each answer is right or wrong
+- **Practice quizzes** — 300 questions across 5 domains (3 CPACC, 2 WAS), with detailed feedback explaining why each answer is right or wrong. Pick an answer, then select **Check answer**; an accessibility setting can grade on the first selection instead
 - **Missed questions bank** — Questions you get wrong are saved to a persistent review bank; get them right and they're automatically removed
 - **The Study Shelf** — A knowledge base of 65 reference topics covering disability models, WCAG, universal design, legal frameworks, ARIA, and more
 - **Progress tracking** — XP, study streaks, and score history per domain stored locally
@@ -39,6 +39,15 @@ To use a different port, pass it to Vite:
 ```bash
 npm run dev -- --port 3000
 ```
+
+## QA Checks
+
+```bash
+npm run test:qa   # headless Playwright sweep: structure, keyboard, axe per theme, reflow
+npm run test:sr   # NVDA screen-reader journeys (headed Firefox; takes the keyboard)
+```
+
+Both commands start the preview server if it is not running. Run `npm run build` first. The NVDA journeys need a one-time setup: `npx @guidepup/setup setup --ci`, `npx @guidepup/setup install nvda`, `npx playwright install firefox`.
 
 ## Production Build
 
