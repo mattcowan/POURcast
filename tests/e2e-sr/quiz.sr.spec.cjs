@@ -50,7 +50,7 @@ test.describe('Quick quiz (confirm mode) with NVDA', () => {
       await h.delay(500);
       const phrase = await nvda.lastSpokenPhrase();
       readBack.push(phrase);
-      if (/heading, level 2/i.test(phrase)) break; // reached the question
+      if (/level 2/i.test(phrase)) break; // reached the question heading (the only level-2 heading on the card)
     }
 
     // Walk the feedback panel to Continue (Tab from wherever browse mode left us).

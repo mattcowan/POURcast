@@ -66,7 +66,7 @@ test.describe('Mock exam with NVDA', () => {
     const resultsPhrase = await h.reportFocus(nvda);
 
     const summary = h.summarizeStops([...toRadio, ...navStops]);
-    await h.saveSpeechLog(nvda, 'mock-exam', {
+    const log = await h.saveSpeechLog(nvda, 'mock-exam', {
       focusTitles, startPhrase, questionFocus, questionPhrase, toRadio, selectPhrase, checked, eliminatePhrase, eliminated,
       flagPhrase, flagged, navPhrase, navFocus, navFocusPhrase, navStops, navClose, afterNavClose, submitPhrase, submitDialogFocus, confirmPhrase, resultsFocus, resultsPhrase, ...summary,
     });
@@ -85,8 +85,13 @@ test.describe('Mock exam with NVDA', () => {
     expect(toRadio[toRadio.length - 1].phrase, 'radio announced with the legend').toMatch(/answer choices/i);
     expect(selectPhrase).toMatch(/checked/i);
     expect(eliminatePhrase, 'eliminate button state spoken').toMatch(/pressed/i);
-    expect(navPhrase, 'navigator announced as a dialog on open (D1: needs the grid to mount after the entry announcement)').toMatch(/Question navigator, dialog/i);
-    expect(navFocusPhrase, 'focus ends on the current question button').toMatch(/current question, button/i);
+    // The deferred grid mount and focus move produce later utterances, so the
+    // dialog announcement is checked against the whole log rather than the
+    // single last phrase (D1: the grid must mount after the entry announcement).
+    expect(h.spoke(log, /Question navigator/), 'navigator dialog name spoken on open').toBe(true);
+    expect(h.spoke(log, /dialog/i), 'navigator announced as a dialog').toBe(true);
+    expect(navFocusPhrase, 'focus ends on the current question button').toMatch(/current question/i);
+    expect(navFocusPhrase).toMatch(/button/i);
     expect(submitPhrase, 'submit confirm announced as a dialog').toMatch(/dialog/i);
     expect(resultsPhrase, 'results heading spoken').toMatch(/passed/i);
     expect(summary.silentStops, `silent Tab stops: ${JSON.stringify(summary.silentStops)}`).toEqual([]);

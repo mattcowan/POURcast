@@ -28,8 +28,13 @@ export default function QuestionNavigator({
   // against a small tree (heading, description, Close, Submit), then focus
   // moves to the current question's button once the grid exists.
   const [gridReady, setGridReady] = useState(false);
+  // Where showModal() put focus at open (the Close button, since the grid
+  // is not mounted yet). ModalDialog's effect runs before this one (child
+  // effects first), so the implicit focus has already happened here.
+  const initialFocusRef = useRef(null);
   useEffect(() => {
     if (!isOpen) return undefined;
+    initialFocusRef.current = document.activeElement;
     const t = setTimeout(() => setGridReady(true), DIALOG_GRID_MOUNT_DELAY_MS);
     return () => {
       clearTimeout(t);
@@ -42,7 +47,10 @@ export default function QuestionNavigator({
     const t = setTimeout(() => {
       const el = currentButtonRef.current;
       if (!el) return;
-      if (document.activeElement === el) el.blur();
+      // Only move focus if the user has not moved it themselves since the
+      // dialog opened (e.g. Tab to "Submit test…" during the delay); the
+      // same guard usePopover applies to its deferred restore.
+      if (document.activeElement !== initialFocusRef.current) return;
       el.focus();
     }, FOCUS_AFTER_A11Y_TREE_MS);
     return () => clearTimeout(t);

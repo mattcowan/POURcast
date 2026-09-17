@@ -242,6 +242,37 @@ test('letter shortcut stages a pick and Enter checks it', async ({ page }) => {
   await page.evaluate((key) => localStorage.removeItem(key), A11Y_KEY);
 });
 
+test('question navigator focuses the current question unless the user moved first', async ({ page }) => {
+  await page.goto('#/practice');
+  await page.evaluate(() => localStorage.removeItem('pourcast-practice-session'));
+  await page.reload();
+  await page.waitForTimeout(400);
+  await page.getByRole('button', { name: 'Start mock exam' }).first().click();
+  await page.waitForTimeout(500);
+  const focusName = () => page.evaluate(() => { const a = document.activeElement; return (a.getAttribute('aria-label') || a.textContent.trim()).slice(0, 40); });
+  // Untouched: after the grid mounts, focus lands on the current question.
+  await page.getByRole('button', { name: /All questions/ }).focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(600);
+  const untouched = await focusName();
+  await page.keyboard.press('Escape');
+  await page.waitForTimeout(200);
+  // User tabs right away: the deferred focus must not steal it back.
+  await page.getByRole('button', { name: /All questions/ }).focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(60);
+  await page.keyboard.press('Tab');
+  const afterTab = await focusName();
+  await page.waitForTimeout(600);
+  const afterDelay = await focusName();
+  await page.keyboard.press('Escape');
+  await page.evaluate(() => localStorage.removeItem('pourcast-practice-session'));
+  results.journeys.navigatorFocus = { untouched, afterTab, afterDelay };
+  expect(untouched).toMatch(/^Question 1:/);
+  expect(afterDelay, 'focus stays where the user put it').toBe(afterTab);
+  expect(afterDelay).not.toMatch(/^Question 1:/);
+});
+
 test('confirm-answer mode grades only on request', async ({ page }) => {
   await page.goto('#/quiz/domain1');
   await page.evaluate((key) => localStorage.removeItem(key), A11Y_KEY);
