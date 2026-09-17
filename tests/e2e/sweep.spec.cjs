@@ -92,12 +92,22 @@ for (const route of ROUTES) {
       await seedTheme(page, theme);
       const applied = await page.evaluate(() => document.documentElement.getAttribute('data-theme'));
       expect(applied, 'theme must be applied before axe runs').toBe(theme);
-      if (route === '#/quiz/domain1') await answerFirstOption(page);
-      const builder = new AxeBuilder({ page });
-      const run = theme === 'light'
-        ? await builder.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze()
-        : await builder.withRules(['color-contrast']).analyze();
-      axe[theme] = run.violations.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.slice(0, 5).map((n) => ({ target: n.target.join(' '), data: n.any[0] && n.any[0].data ? { fg: n.any[0].data.fgColor, bg: n.any[0].data.bgColor, ratio: n.any[0].data.contrastRatio } : null })) }));
+      const analyze = async () => {
+        const builder = new AxeBuilder({ page });
+        const run = theme === 'light'
+          ? await builder.withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa', 'best-practice']).analyze()
+          : await builder.withRules(['color-contrast']).analyze();
+        return run.violations.map((v) => ({ id: v.id, impact: v.impact, nodes: v.nodes.slice(0, 5).map((n) => ({ target: n.target.join(' '), data: n.any[0] && n.any[0].data ? { fg: n.any[0].data.fgColor, bg: n.any[0].data.bgColor, ratio: n.any[0].data.contrastRatio } : null })) }));
+      };
+      // axe skips disabled controls, so the quiz must be scanned both before
+      // answering (radios + "Check answer" live) and after (feedback panel).
+      axe[theme] = await analyze();
+      if (route === '#/quiz/domain1') {
+        await page.locator('label.quiz-option').first().click();
+        axe[`${theme} (option picked)`] = await analyze();
+        await answerFirstOption(page);
+        axe[`${theme} (answered)`] = await analyze();
+      }
     }
     results.routes[route] = { ...(results.routes[route] || {}), axe };
     const serious = Object.entries(axe).flatMap(([t, vs]) => vs.filter((v) => ['serious', 'critical'].includes(v.impact)).map((v) => `${t}:${v.id}`));
@@ -144,6 +154,41 @@ test('results page retry buttons start a quiz', async ({ page }) => {
   await page.waitForTimeout(900);
   results.journeys.retryAll = { url: page.url() };
   expect(page.url(), 'Retry All should land on the quiz, not the dashboard').toMatch(/#\/quiz\/domain2/);
+});
+
+test('flagging a question keeps keyboard focus on the toggle', async ({ page }) => {
+  await page.goto('#/quiz/domain1');
+  await page.waitForTimeout(500);
+  await answerFirstOption(page);
+  const flag = page.getByRole('button', { name: 'Flag this question' });
+  await flag.focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(200);
+  const focused = await page.evaluate(() => ({ tag: document.activeElement.tagName, text: document.activeElement.textContent.trim(), pressed: document.activeElement.getAttribute('aria-pressed') }));
+  results.journeys.flagFocus = focused;
+  expect(focused.tag).toBe('BUTTON');
+  expect(focused.text).toBe('Flagged');
+  expect(focused.pressed).toBe('true');
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(200);
+  const unflagged = await page.evaluate(() => document.activeElement.textContent.trim());
+  expect(unflagged, 'unflagging keeps focus on the same button').toBe('Flag this question');
+});
+
+test('heading receives focus after a reload on a page without the page-focus hook', async ({ page }) => {
+  await page.goto('#/quiz/domain3');
+  await page.reload();
+  await page.waitForTimeout(500);
+  for (let i = 0; i < 10; i++) {
+    await answerFirstOption(page);
+    await page.getByRole('button', { name: 'Continue' }).click();
+    await page.waitForTimeout(200);
+  }
+  await expect(page).toHaveURL(/#\/results/);
+  await page.waitForTimeout(300);
+  const focused = await page.evaluate(() => document.activeElement.tagName);
+  results.journeys.reloadFocus = focused;
+  expect(focused, 'results H1 focused even though the quiz page was reloaded').toBe('H1');
 });
 
 test('confirm-answer mode grades only on request', async ({ page }) => {

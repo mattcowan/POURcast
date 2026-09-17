@@ -20,6 +20,21 @@ export function usePopover() {
   const containerRef = useRef(null);
   const triggerRef = useRef(null);
   const panelRef = useRef(null);
+  const restoreFocusRef = useRef(false);
+
+  // Restore focus to the trigger only after the close has committed, so the
+  // trigger's aria-expanded is already "false" when the screen reader reads
+  // it. Focusing synchronously in the close handler made NVDA announce the
+  // button as still "expanded" (QA 2026-09-16, D2).
+  useEffect(() => {
+    if (isOpen || !restoreFocusRef.current) return undefined;
+    restoreFocusRef.current = false;
+    // Deferred past the commit: Firefox delivers the focus event to the
+    // screen reader before the aria-expanded change when both happen in the
+    // same task, so NVDA still read "expanded" with a synchronous focus().
+    const t = setTimeout(() => triggerRef.current?.focus(), 50);
+    return () => clearTimeout(t);
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -28,8 +43,8 @@ export function usePopover() {
 
     function handleKeyDown(e) {
       if (e.key === 'Escape') {
+        restoreFocusRef.current = true;
         setIsOpen(false);
-        triggerRef.current?.focus();
       }
     }
 
@@ -41,7 +56,7 @@ export function usePopover() {
         // only then, so browsers that already moved focus keep it where the
         // user clicked.
         if (containerRef.current.contains(document.activeElement)) {
-          triggerRef.current?.focus();
+          restoreFocusRef.current = true;
         }
         setIsOpen(false);
       }

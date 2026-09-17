@@ -5,7 +5,17 @@ export default function AppShell({ stats, children }) {
   return (
     <LiveRegion>
       <div className="min-h-screen flex flex-col" style={{ backgroundColor: 'var(--bg-primary)', color: 'var(--text-primary)' }}>
-        <a href="#main-content" className="skip-nav">
+        <a
+          href="#main-content"
+          className="skip-nav"
+          onClick={(e) => {
+            // HashRouter owns the fragment: letting the browser navigate to
+            // "#main-content" would change the route to /main-content and
+            // render nothing. Move focus directly instead.
+            e.preventDefault();
+            document.getElementById('main-content')?.focus();
+          }}
+        >
           Skip to main content
         </a>
         <Header stats={stats} />

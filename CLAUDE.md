@@ -52,8 +52,8 @@ Additional CSS-driven accessibility axes: font-family (4 options, Atkinson Hyper
 
 This app studies accessibility, so it must be accessible itself:
 
-- **Skip nav** in AppShell targets `<main tabIndex={-1}>`
-- **Focus management**: `usePageFocus` hook skips auto-focus on initial load (preserving skip-nav as first Tab stop) but focuses page headings on in-app route changes. QuizCard focuses on each new question.
+- **Skip nav** in AppShell targets `<main tabIndex={-1}>` by calling `focus()` in its click handler, never by letting the browser follow `#main-content`: under HashRouter that fragment is a route and renders nothing.
+- **Focus management**: `usePageFocus` hook skips auto-focus on the initial load (preserving skip-nav as first Tab stop) but focuses page headings on in-app route changes. It decides "has navigated" from the router's `useNavigationType` (POP = load/reload), not from its own mount count, so a reload on a page without the hook (quiz, mock exam) does not suppress focus on the next page. QuizCard focuses on each new question. Results-page guards that redirect on "no finished quiz" must run once on mount only: React Router 7 commits navigation in a transition, so a reactive guard fires between a synchronous state reset and the route change.
 - **Screen reader announcements**: `LiveRegion` provides `aria-live="polite"` region; `useAnnounce` hook used throughout quiz flow.
 - **Color independence**: feedback always uses symbols + text alongside color (checkmark/X icons).
 - **Dialogs** (AccessibilityPanel, StatsPopover): `aria-haspopup="dialog"`, focus moves into dialog on open, Escape returns focus to trigger.

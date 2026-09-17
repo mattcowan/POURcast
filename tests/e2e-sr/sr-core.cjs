@@ -1,9 +1,9 @@
 /**
  * Screen-reader helper core for NVDA journeys (Guidepup + Playwright).
  *
- * Copy to tests/e2e-sr/sr-core.js. Product-specific helpers (a WordPress
+ * Copy to tests/e2e-sr/sr-core.cjs. Product-specific helpers (a WordPress
  * login and block helpers, an app's route and state seeding) live in the
- * project's tests/e2e-sr/helpers.js, which requires this file.
+ * project's tests/e2e-sr/helpers.cjs, which requires this file.
  *
  * How Guidepup captures speech (read from @guidepup/guidepup NVDAClient):
  * a phrase is recorded ONLY around a Guidepup command (`nvda.press`,
@@ -30,8 +30,9 @@ const delay = (ms) => new Promise((r) => setTimeout(r, ms));
  * Bring the browser window to the front so NVDA's keystrokes land in it.
  * Guidepup's navigateToWebContent() also clicks the page body (which has
  * hung in headed Firefox) and presses Ctrl+Home; this only checks the window
- * title through NVDA and Alt+Esc-cycles applications until it matches
- * `wanted`. Throws when it never does: every later keystroke would otherwise
+ * title through NVDA, requires document.hasFocus() in the page, and
+ * Alt+Esc-cycles applications until both hold. Pick a `wanted` regex that
+ * cannot match your editor's window title (VS Code shows the folder name). Throws when it never does: every later keystroke would otherwise
  * land in whatever application is in the foreground.
  */
 async function focusBrowser(page, nvda, wanted) {
@@ -42,13 +43,20 @@ async function focusBrowser(page, nvda, wanted) {
   for (let i = 0; i < 8; i++) {
     await nvda.perform(nvda.keyboardCommands.reportTitle);
     const title = await nvda.lastSpokenPhrase();
-    seen.push(title);
-    if (wanted.test(title)) { focused = true; break; }
+    // Two independent checks: NVDA's title must match AND the page itself
+    // must report OS focus. A loose regex once matched the code editor's
+    // window title (it shows the repo folder name) and every keystroke went
+    // into a chat box; document.hasFocus() is false in that case.
+    const pageHasFocus = await page.evaluate(() => document.hasFocus()).catch(() => false);
+    seen.push({ title, pageHasFocus });
+    if (wanted.test(title) && pageHasFocus) { focused = true; break; }
     await nvda.perform({ keyCode: [WindowsKeyCodes.Escape], modifiers: [WindowsModifiers.Alt] }, { capture: false });
     await delay(500);
+    await page.bringToFront();
+    await delay(300);
   }
   if (!focused) {
-    throw new Error(`Could not bring the browser to the front for NVDA. Titles seen: ${JSON.stringify(seen)}`);
+    throw new Error(`Could not bring the browser to the front for NVDA (title regex ${wanted}). Seen: ${JSON.stringify(seen)}`);
   }
   await nvda.clearSpokenPhraseLog();
   return seen;
@@ -77,6 +85,22 @@ async function ensureFocusMode(nvda, probe) {
     }
   }
   return heard;
+}
+
+/**
+ * Refuse to send a key unless the page still owns OS focus. Every NVDA
+ * keystroke goes to whatever window is in front; if the browser lost focus
+ * mid-journey (a notification, another app), the keys would land there.
+ */
+async function assertPageFocused(page, what) {
+  const ok = await page.evaluate(() => document.hasFocus()).catch(() => false);
+  if (!ok) throw new Error(`Browser lost OS focus before "${what}"; refusing to send keys to another window.`);
+}
+
+/** nvda.press with the focus guard. Use this in journeys instead of nvda.press directly. */
+async function press(page, nvda, key) {
+  await assertPageFocused(page, `press ${key}`);
+  await nvda.press(key);
 }
 
 /** Describe document.activeElement in the top document. */
@@ -110,7 +134,7 @@ async function liveText(page) {
 async function tabUntil(page, nvda, predicate, max) {
   const stops = [];
   for (let i = 0; i < max; i++) {
-    await nvda.press('Tab');
+    await press(page, nvda, 'Tab');
     await delay(450);
     const el = await describeFocus(page);
     stops.push({ phrase: await nvda.lastSpokenPhrase(), el });
@@ -124,7 +148,7 @@ async function activate(page, nvda, locator, key = 'Enter') {
   await locator.waitFor({ timeout: 15000 });
   await locator.focus();
   await delay(300);
-  await nvda.press(key);
+  await press(page, nvda, key);
   await delay(400);
   return nvda.lastSpokenPhrase();
 }
@@ -138,7 +162,7 @@ async function closeModalWithEscape(page, nvda, openSelector) {
   const phrases = [];
   let closed = false;
   for (let i = 0; i < 2 && !closed; i++) {
-    await nvda.press('Escape');
+    await press(page, nvda, 'Escape');
     await delay(700);
     phrases.push(await nvda.lastSpokenPhrase());
     closed = (await page.locator(openSelector).count()) === 0;
@@ -176,6 +200,6 @@ function summarizeStops(stops) {
 }
 
 module.exports = {
-  LOG_DIR, delay, focusBrowser, ensureFocusMode, describeFocus, focusInside, liveText,
+  LOG_DIR, delay, focusBrowser, ensureFocusMode, assertPageFocused, press, describeFocus, focusInside, liveText,
   tabUntil, activate, closeModalWithEscape, saveSpeechLog, spoke, summarizeStops,
 };

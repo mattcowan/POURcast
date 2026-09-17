@@ -1,7 +1,8 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, BookOpen, ChevronDown, ChevronRight, Check, Bookmark } from 'lucide-react';
 import { usePageFocus } from '../../hooks/usePageFocus';
+import { useAnnounce } from '../../hooks/useAnnounce';
 import { useReviewedTopics } from '../../hooks/useReviewedTopics';
 import { useBookmarkedTopics } from '../../hooks/useBookmarkedTopics';
 import { useLocalStorage } from '../../hooks/useLocalStorage';
@@ -83,8 +84,25 @@ export default function KnowledgeHome() {
       )
     : null;
 
+  // The result count is visible as a heading but nothing spoke it while
+  // typing; announce it once the search settles (QA 2026-09-16, C1).
+  const announce = useAnnounce();
+  const resultCount = filteredTopics ? filteredTopics.length : null;
+  const searchTerm = search.trim();
+  useEffect(() => {
+    if (resultCount === null) return undefined;
+    const t = setTimeout(() => {
+      announce(`${resultCount} result${resultCount === 1 ? '' : 's'} for ${searchTerm}`);
+    }, 500);
+    return () => clearTimeout(t);
+  }, [resultCount, searchTerm, announce]);
+
   function toggleCategory(cat) {
     setExpandedCategory(expandedCategory === cat ? null : cat);
+  }
+
+  function categoryPanelId(cat) {
+    return `category-${cat.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
   }
 
   return (
@@ -263,25 +281,30 @@ export default function KnowledgeHome() {
                   className="border rounded-xl overflow-hidden"
                   style={{ borderColor: 'var(--border-default)' }}
                 >
-                  <button
-                    onClick={() => toggleCategory(cat)}
-                    aria-expanded={isExpanded}
-                    className="w-full flex items-center justify-between p-4 transition-colors text-left hover-surface"
-                    style={{ backgroundColor: 'var(--bg-surface)' }}
-                  >
-                    <div className="flex items-center gap-2">
-                      <BookOpen size={18} style={{ color: 'var(--text-accent)' }} aria-hidden="true" />
-                      <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>{cat}</span>
-                      <span className="text-base" style={{ color: 'var(--text-muted)' }}>({catTopics.length})</span>
-                    </div>
-                    {isExpanded ? (
-                      <ChevronDown size={18} style={{ color: 'var(--text-muted)' }} aria-hidden="true" />
-                    ) : (
-                      <ChevronRight size={18} style={{ color: 'var(--text-muted)' }} aria-hidden="true" />
-                    )}
-                  </button>
+                  {/* APG disclosure/accordion: heading wraps the trigger, which names the panel it controls */}
+                  <h2 className="m-0 text-base font-normal">
+                    <button
+                      onClick={() => toggleCategory(cat)}
+                      aria-expanded={isExpanded}
+                      aria-controls={categoryPanelId(cat)}
+                      className="w-full flex items-center justify-between p-4 transition-colors text-left hover-surface"
+                      style={{ backgroundColor: 'var(--bg-surface)' }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <BookOpen size={18} style={{ color: 'var(--text-accent)' }} aria-hidden="true" />
+                        <span className="font-semibold" style={{ color: 'var(--text-primary)' }}>{cat}</span>
+                        <span className="text-base" style={{ color: 'var(--text-muted)' }}>({catTopics.length})</span>
+                      </div>
+                      {isExpanded ? (
+                        <ChevronDown size={18} style={{ color: 'var(--text-muted)' }} aria-hidden="true" />
+                      ) : (
+                        <ChevronRight size={18} style={{ color: 'var(--text-muted)' }} aria-hidden="true" />
+                      )}
+                    </button>
+                  </h2>
                   {isExpanded && (
                     <div
+                      id={categoryPanelId(cat)}
                       className="border-t p-2 space-y-1"
                       style={{
                         borderColor: 'var(--border-default)',

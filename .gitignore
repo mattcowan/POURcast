@@ -9,7 +9,7 @@ playwright-profile/
 _private/
 
 # Personal study notes stay local (canonical copy lives in _private/)
-cpacc-study-notes.txt
+/cpacc-study-notes.txt
 
 # QA harness output (Playwright + NVDA journeys)
 test-results/

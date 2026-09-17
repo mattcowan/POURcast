@@ -27,13 +27,13 @@ test.describe('Quick quiz (confirm mode) with NVDA', () => {
     const firstRadio = stops[stops.length - 1];
 
     // Arrow to the second option (checks it), then Enter to check the answer.
-    await nvda.press('ArrowDown');
+    await h.press(page, nvda, 'ArrowDown');
     await h.delay(600);
     const arrowPhrase = await nvda.lastSpokenPhrase();
     const pendingChecked = await page.locator('input[type="radio"]').nth(1).isChecked();
     const noFeedbackYet = (await page.locator('[role="region"]').count()) === 0;
 
-    await nvda.press('Enter');
+    await h.press(page, nvda, 'Enter');
     await h.delay(1200);
     const checkPhrase = await nvda.lastSpokenPhrase();
     const feedbackFocus = await h.describeFocus(page);
@@ -42,7 +42,7 @@ test.describe('Quick quiz (confirm mode) with NVDA', () => {
 
     // Walk the feedback panel to Continue.
     const feedbackStops = await h.tabUntil(page, nvda, (el) => /^Continue$/.test(el.text), 8);
-    await nvda.press('Enter');
+    await h.press(page, nvda, 'Enter');
     await h.delay(1000);
     const nextPhrase = await nvda.lastSpokenPhrase();
     const nextFocus = await h.describeFocus(page);

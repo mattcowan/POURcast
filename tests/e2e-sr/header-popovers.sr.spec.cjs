@@ -32,10 +32,10 @@ test.describe('Header popovers with NVDA', () => {
     await sw.focus();
     await h.delay(400);
     const switchFocusPhrase = await h.reportFocus(nvda);
-    await nvda.press('Space');
+    await h.press(page, nvda, 'Space');
     await h.delay(800);
     const toggled = { phrase: await nvda.lastSpokenPhrase(), checked: await sw.getAttribute('aria-checked'), inside: await h.focusInside(page, DIALOG) };
-    await nvda.press('Space');
+    await h.press(page, nvda, 'Space');
     await h.delay(600);
     const toggledBack = { phrase: await nvda.lastSpokenPhrase(), checked: await sw.getAttribute('aria-checked') };
 
@@ -65,7 +65,9 @@ test.describe('Header popovers with NVDA', () => {
     await h.focusBrowser(page, nvda, h.TITLE);
     const openPhrase = await h.activate(page, nvda, page.getByRole('button', { name: 'Your stats' }));
     await page.waitForSelector(DIALOG, { timeout: 10000 });
-    const stops = await h.tabUntil(page, nvda, () => false, 3);
+    // With no lessons recorded the popover has no focusable children, so a
+    // Tab would leave it (and close it). Read the content, then Escape.
+    const stops = [];
     const close = await h.closeModalWithEscape(page, nvda, DIALOG);
     const focusAfterClose = await h.describeFocus(page);
     await h.saveSpeechLog(nvda, 'stats-popover', { openPhrase, stops, close, focusAfterClose });

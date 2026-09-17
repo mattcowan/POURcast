@@ -23,18 +23,18 @@ test.describe('Course selector tabs with NVDA', () => {
     await h.delay(300);
     const cpaccPhrase = await h.reportFocus(nvda);
 
-    await nvda.press('ArrowRight');
+    await h.press(page, nvda, 'ArrowRight');
     await h.delay(700);
     const wasPhrase = await nvda.lastSpokenPhrase();
     const afterRight = { focus: await h.describeFocus(page), wasSelected: await page.locator('#was-tab').getAttribute('aria-selected'), h1: await page.locator('h1:visible').first().textContent() };
 
-    await nvda.press('Home');
+    await h.press(page, nvda, 'Home');
     await h.delay(700);
     const homePhrase = await nvda.lastSpokenPhrase();
     const afterHome = { cpaccSelected: await page.locator('#cpacc-tab').getAttribute('aria-selected') };
 
     // Tab out of the tablist should land in the visible panel, not the hidden one.
-    await nvda.press('Tab');
+    await h.press(page, nvda, 'Tab');
     await h.delay(500);
     const afterTab = { phrase: await nvda.lastSpokenPhrase(), focus: await h.describeFocus(page) };
 

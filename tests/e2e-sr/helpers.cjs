@@ -1,6 +1,6 @@
 /**
  * POURcast-specific helpers for the NVDA journeys. The screen-reader core
- * (focus the browser, Tab walks, Escape handling, speech logs) is ./sr-core.js,
+ * (focus the browser, Tab walks, Escape handling, speech logs) is ./sr-core.cjs,
  * copied from ~/.claude/skills/shared/qa/templates/sr-core.js.
  *
  * Everything the app knows lives in localStorage, so a journey seeds the keys
@@ -8,7 +8,10 @@
  */
 const core = require('./sr-core.cjs');
 
-const TITLE = /POURcast/i;
+// Must NOT match the editor's window title: VS Code shows the repo folder
+// ("pourcast - Visual Studio Code"), and a loose /POURcast/i once sent every
+// NVDA keystroke into the Claude chat box instead of Firefox.
+const TITLE = /Curb Cut to Certification/;
 
 const A11Y_KEY = 'pourcast-a11y';
 const PRACTICE_KEYS = ['pourcast-practice-session', 'pourcast-practice-history', 'pourcast-practice-prefs'];

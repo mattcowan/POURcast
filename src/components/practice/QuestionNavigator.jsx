@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Flag } from 'lucide-react';
 import ModalDialog from '../common/ModalDialog';
 
@@ -17,6 +18,25 @@ export default function QuestionNavigator({
   onRequestSubmit,
   answeredCount,
 }) {
+  const currentButtonRef = useRef(null);
+
+  // showModal() moves focus to the first button implicitly, and NVDA on
+  // Firefox announced nothing for that move (QA 2026-09-16, D1). An explicit
+  // focus() after the dialog is shown fires a real focus event inside the
+  // named dialog, and landing on the current question is the better start.
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    const t = setTimeout(() => {
+      const el = currentButtonRef.current;
+      if (!el) return;
+      // showModal() may already have put focus here; re-focusing the same
+      // element fires no event, so step off it first to force a real one.
+      if (document.activeElement === el) el.blur();
+      el.focus();
+    }, 50);
+    return () => clearTimeout(t);
+  }, [isOpen]);
+
   return (
     <ModalDialog isOpen={isOpen} onClose={onClose} labelledBy="question-navigator-title">
       <h2
@@ -40,6 +60,7 @@ export default function QuestionNavigator({
           return (
             <button
               key={q.id}
+              ref={isCurrent ? currentButtonRef : null}
               onClick={() => onNavigate(i)}
               aria-label={`Question ${i + 1}: ${isAnswered ? 'answered' : 'unanswered'}${isFlagged ? ', flagged' : ''}${isCurrent ? ', current question' : ''}`}
               aria-current={isCurrent ? 'true' : undefined}

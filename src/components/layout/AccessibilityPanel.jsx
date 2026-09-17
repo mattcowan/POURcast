@@ -70,6 +70,7 @@ export default function AccessibilityPanel() {
           style={{
             backgroundColor: 'var(--bg-surface)',
             borderColor: 'var(--border-default)',
+            maxWidth: 'calc(100vw - 2rem)',
           }}
         >
           <div className="flex items-center justify-between mb-4">

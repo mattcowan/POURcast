@@ -16,7 +16,7 @@ export default function Header({ stats }) {
       className="border-b sticky top-0 z-50"
       style={{ backgroundColor: 'var(--bg-surface)', borderColor: 'var(--border-default)' }}
     >
-      <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between gap-2 flex-wrap">
         <Link
           to="/"
           className="flex items-center gap-2 no-underline transition-colors"
@@ -35,9 +35,9 @@ export default function Header({ stats }) {
           </div>
         </Link>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
           <nav aria-label="Main navigation">
-            <ul className="flex items-center gap-2 list-none m-0 p-0">
+            <ul className="flex items-center gap-1 sm:gap-2 list-none m-0 p-0">
               <li>
                 <NavLink to="/" active={isHome} label="Quizzes">
                   <Dumbbell size={16} aria-hidden="true" />
@@ -71,7 +71,7 @@ function NavLink({ to, active, label, children }) {
   return (
     <Link
       to={to}
-      className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-base font-medium no-underline transition-colors"
+      className="flex items-center gap-1 px-2 sm:px-3 py-1.5 rounded-lg text-base font-medium no-underline transition-colors"
       style={{
         backgroundColor: active ? 'var(--bg-accent)' : hovered ? 'var(--bg-surface-hover)' : 'transparent',
         color: active || hovered ? 'var(--text-accent)' : 'var(--text-muted)',
@@ -118,6 +118,7 @@ function StatsPopover({ stats }) {
           style={{
             backgroundColor: 'var(--bg-surface)',
             borderColor: 'var(--border-default)',
+            maxWidth: 'calc(100vw - 2rem)',
           }}
         >
           <h2 className="text-base font-bold mb-3" style={{ color: 'var(--text-primary)' }}>
