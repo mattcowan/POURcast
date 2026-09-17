@@ -11,7 +11,12 @@ npm run preview    # Preview production build
 npm run lint       # ESLint
 ```
 
-No test framework is configured yet.
+```bash
+npm run test:qa    # Headless Playwright sweep (tests/e2e): structure, keyboard walks, axe per theme, reflow, focus journeys
+npm run test:sr    # NVDA screen-reader journeys (tests/e2e-sr) in headed Firefox via Guidepup; takes the desktop, run on demand
+```
+
+Both start `vite preview` on port 4173 if nothing is listening. Run `npm run build` first. No unit-test framework is configured.
 
 ## Architecture
 

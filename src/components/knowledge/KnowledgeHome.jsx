@@ -302,25 +302,25 @@ export default function KnowledgeHome() {
                       )}
                     </button>
                   </h2>
-                  {isExpanded && (
-                    <div
-                      id={categoryPanelId(cat)}
-                      className="border-t p-2 space-y-1"
-                      style={{
-                        borderColor: 'var(--border-default)',
-                        backgroundColor: 'var(--bg-surface-hover)',
-                      }}
-                    >
-                      {catTopics.map((topic) => (
-                        <TopicRow
-                          key={topic.slug}
-                          topic={topic}
-                          reviewed={isReviewed(topic.slug)}
-                          bookmarked={isBookmarked(topic.slug)}
-                        />
-                      ))}
-                    </div>
-                  )}
+                  {/* Always in the DOM so aria-controls resolves; hidden when collapsed */}
+                  <div
+                    id={categoryPanelId(cat)}
+                    hidden={!isExpanded}
+                    className="border-t p-2 space-y-1"
+                    style={{
+                      borderColor: 'var(--border-default)',
+                      backgroundColor: 'var(--bg-surface-hover)',
+                    }}
+                  >
+                    {catTopics.map((topic) => (
+                      <TopicRow
+                        key={topic.slug}
+                        topic={topic}
+                        reviewed={isReviewed(topic.slug)}
+                        bookmarked={isBookmarked(topic.slug)}
+                      />
+                    ))}
+                  </div>
                 </div>
               );
             })}

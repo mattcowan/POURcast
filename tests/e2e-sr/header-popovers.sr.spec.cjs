@@ -73,5 +73,10 @@ test.describe('Header popovers with NVDA', () => {
     await h.saveSpeechLog(nvda, 'stats-popover', { openPhrase, stops, close, focusAfterClose });
     expect(openPhrase).toMatch(/dialog/i);
     expect(openPhrase).toMatch(/your progress/i);
+    expect(close.closed, 'Escape closes the stats popover').toBe(true);
+    expect(
+      focusAfterClose && (focusAfterClose.ariaLabel || focusAfterClose.text),
+      'focus returns to the stats trigger',
+    ).toMatch(/Your stats/i);
   });
 });

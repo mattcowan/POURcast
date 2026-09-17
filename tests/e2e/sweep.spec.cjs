@@ -80,7 +80,21 @@ for (const route of ROUTES) {
       if (el && el.tag === 'BODY') break;
     }
     const noRing = stops.filter((s) => s && s.tag !== 'BODY' && s.focusVisible && !s.ringed);
-    results.routes[route] = { ...(results.routes[route] || {}), structure, stops, noRing };
+    // Every aria-controls / aria-labelledby / aria-describedby must resolve to
+    // an element (hidden is fine; absent is not).
+    const unresolvedRefs = await page.evaluate(() => {
+      const out = [];
+      for (const attr of ['aria-controls', 'aria-labelledby', 'aria-describedby']) {
+        for (const el of document.querySelectorAll(`[${attr}]`)) {
+          for (const id of el.getAttribute(attr).split(/\s+/)) {
+            if (id && !document.getElementById(id)) out.push(`${attr}=${id}`);
+          }
+        }
+      }
+      return out;
+    });
+    results.routes[route] = { ...(results.routes[route] || {}), structure, stops, noRing, unresolvedRefs };
+    expect(unresolvedRefs, `ARIA id references that do not resolve: ${unresolvedRefs.join(', ')}`).toEqual([]);
     expect(structure.headings.filter((h) => h.startsWith('H1')).length, 'exactly one H1').toBe(1);
     expect(noRing, `focus-visible stops with no outline: ${JSON.stringify(noRing)}`).toEqual([]);
   });

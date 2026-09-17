@@ -54,6 +54,9 @@ test.describe('Mock exam with NVDA', () => {
     const navStops = await h.tabUntil(page, nvda, () => false, 3);
     const navClose = await h.closeModalWithEscape(page, nvda, DIALOG);
     const afterNavClose = await h.describeFocus(page);
+    // Snapshot the log here: the Submit dialog below also says "dialog", so
+    // the navigator assertions must not read the final, combined log.
+    const navLog = await nvda.spokenPhraseLog();
 
     const submitPhrase = await h.activate(page, nvda, page.getByRole('button', { name: 'Submit', exact: true }));
     await page.waitForSelector(DIALOG, { timeout: 10000 });
@@ -88,8 +91,8 @@ test.describe('Mock exam with NVDA', () => {
     // The deferred grid mount and focus move produce later utterances, so the
     // dialog announcement is checked against the whole log rather than the
     // single last phrase (D1: the grid must mount after the entry announcement).
-    expect(h.spoke(log, /Question navigator/), 'navigator dialog name spoken on open').toBe(true);
-    expect(h.spoke(log, /dialog/i), 'navigator announced as a dialog').toBe(true);
+    expect(h.spoke(navLog, /Question navigator/), 'navigator dialog name spoken on open').toBe(true);
+    expect(h.spoke(navLog, /dialog/i), 'navigator announced as a dialog').toBe(true);
     expect(navFocusPhrase, 'focus ends on the current question button').toMatch(/current question/i);
     expect(navFocusPhrase).toMatch(/button/i);
     expect(submitPhrase, 'submit confirm announced as a dialog').toMatch(/dialog/i);
