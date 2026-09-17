@@ -1,6 +1,7 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Flag } from 'lucide-react';
 import ModalDialog from '../common/ModalDialog';
+import { FOCUS_AFTER_A11Y_TREE_MS, DIALOG_GRID_MOUNT_DELAY_MS } from '../../utils/a11yTiming';
 
 /**
  * Jump-to-question dialog. Plain buttons in a wrapping grid — every state
@@ -20,22 +21,32 @@ export default function QuestionNavigator({
 }) {
   const currentButtonRef = useRef(null);
 
-  // showModal() moves focus to the first button implicitly, and NVDA on
-  // Firefox announced nothing for that move (QA 2026-09-16, D1). An explicit
-  // focus() after the dialog is shown fires a real focus event inside the
-  // named dialog, and landing on the current question is the better start.
+  // With all 100 question buttons in the dialog at the moment it opens,
+  // NVDA on Firefox announced nothing at all on entry; with 10 it read the
+  // dialog name and description (QA 2026-09-17, D1 experiment). So the grid
+  // mounts a beat after the dialog opens: the entry announcement happens
+  // against a small tree (heading, description, Close, Submit), then focus
+  // moves to the current question's button once the grid exists.
+  const [gridReady, setGridReady] = useState(false);
   useEffect(() => {
     if (!isOpen) return undefined;
+    const t = setTimeout(() => setGridReady(true), DIALOG_GRID_MOUNT_DELAY_MS);
+    return () => {
+      clearTimeout(t);
+      setGridReady(false);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || !gridReady) return undefined;
     const t = setTimeout(() => {
       const el = currentButtonRef.current;
       if (!el) return;
-      // showModal() may already have put focus here; re-focusing the same
-      // element fires no event, so step off it first to force a real one.
       if (document.activeElement === el) el.blur();
       el.focus();
-    }, 50);
+    }, FOCUS_AFTER_A11Y_TREE_MS);
     return () => clearTimeout(t);
-  }, [isOpen]);
+  }, [isOpen, gridReady]);
 
   return (
     <ModalDialog isOpen={isOpen} onClose={onClose} labelledBy="question-navigator-title">
@@ -52,8 +63,8 @@ export default function QuestionNavigator({
         Filled numbers are answered; a flag marks flagged questions.
       </p>
 
-      <div className="flex flex-wrap gap-2 mb-5">
-        {questions.map((q, i) => {
+      <div className="flex flex-wrap gap-2 mb-5" style={{ minHeight: gridReady ? undefined : '3rem' }}>
+        {gridReady && questions.map((q, i) => {
           const isAnswered = answers[q.id] !== undefined;
           const isFlagged = flaggedIds.includes(q.id);
           const isCurrent = i === currentIndex;

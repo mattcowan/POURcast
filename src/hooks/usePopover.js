@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { FOCUS_AFTER_A11Y_TREE_MS } from '../utils/a11yTiming';
 
 /**
  * Non-modal popover behavior for the header panels (stats, data, a11y prefs).
@@ -32,7 +33,15 @@ export function usePopover() {
     // Deferred past the commit: Firefox delivers the focus event to the
     // screen reader before the aria-expanded change when both happen in the
     // same task, so NVDA still read "expanded" with a synchronous focus().
-    const t = setTimeout(() => triggerRef.current?.focus(), 50);
+    const t = setTimeout(() => {
+      // Only restore if focus is still nowhere (the panel unmounted and
+      // left it on <body>). If a sibling popover opened inside the delay,
+      // focus is in its panel and must not be stolen back to this trigger.
+      const active = document.activeElement;
+      if (!active || active === document.body) {
+        triggerRef.current?.focus();
+      }
+    }, FOCUS_AFTER_A11Y_TREE_MS);
     return () => clearTimeout(t);
   }, [isOpen]);
 

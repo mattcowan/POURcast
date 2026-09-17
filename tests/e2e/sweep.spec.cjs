@@ -104,8 +104,12 @@ for (const route of ROUTES) {
       axe[theme] = await analyze();
       if (route === '#/quiz/domain1') {
         await page.locator('label.quiz-option').first().click();
+        // Buttons animate their colors (transition-colors, 150 ms); axe
+        // samples the interpolated values if it runs before they settle.
+        await page.waitForTimeout(300);
         axe[`${theme} (option picked)`] = await analyze();
         await answerFirstOption(page);
+        await page.waitForTimeout(300);
         axe[`${theme} (answered)`] = await analyze();
       }
     }
@@ -189,6 +193,53 @@ test('heading receives focus after a reload on a page without the page-focus hoo
   const focused = await page.evaluate(() => document.activeElement.tagName);
   results.journeys.reloadFocus = focused;
   expect(focused, 'results H1 focused even though the quiz page was reloaded').toBe('H1');
+});
+
+test('Back to the first entry still focuses the heading', async ({ page }) => {
+  await page.goto('#/');
+  await page.reload();
+  await page.waitForTimeout(400);
+  await page.getByRole('link', { name: /Disabilities, Barriers/ }).click(); // PUSH into a page without the hook
+  await page.waitForTimeout(400);
+  await page.goBack(); // POP back to the load entry
+  await page.waitForTimeout(500);
+  const focused = await page.evaluate(() => ({ tag: document.activeElement.tagName, text: document.activeElement.textContent.trim() }));
+  results.journeys.backFocus = focused;
+  expect(focused.tag, 'dashboard H1 focused after Back').toBe('H1');
+});
+
+test('closing one popover does not steal focus from a sibling opened right after', async ({ page }) => {
+  await page.goto('#/');
+  await page.waitForTimeout(400);
+  await page.getByRole('button', { name: 'Your stats' }).focus();
+  await page.keyboard.press('Enter');
+  await page.waitForTimeout(150);
+  // Escape (schedules the deferred focus restore) and open the sibling in the same tick.
+  await page.evaluate(() => {
+    document.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+    document.querySelector('button[aria-label="Accessibility settings"]').click();
+  });
+  await page.waitForTimeout(300);
+  const state = await page.evaluate(() => ({ dialog: document.querySelector('[role="dialog"]')?.getAttribute('aria-label') || null, focusInDialog: !!document.activeElement.closest('[role="dialog"]') }));
+  results.journeys.popoverRace = state;
+  expect(state.dialog).toBe('Accessibility preferences');
+  expect(state.focusInDialog, 'focus stays in the newly opened popover').toBe(true);
+});
+
+test('letter shortcut stages a pick and Enter checks it', async ({ page }) => {
+  await page.goto('#/quiz/domain1');
+  await page.evaluate((key) => localStorage.setItem(key, JSON.stringify({ keyboardShortcuts: true, quizAutoGrade: false })), A11Y_KEY);
+  await page.reload();
+  await page.waitForTimeout(500);
+  await page.locator('h2').first().focus();
+  await page.keyboard.press('b');
+  await page.waitForTimeout(100);
+  const afterKey = await page.evaluate(() => ({ tag: document.activeElement.tagName, type: document.activeElement.type, checked: document.activeElement.checked }));
+  expect(afterKey, 'the picked radio has focus').toEqual({ tag: 'INPUT', type: 'radio', checked: true });
+  await expect(page.locator('[role="region"]')).toHaveCount(0);
+  await page.keyboard.press('Enter');
+  await expect(page.locator('[role="region"]')).toHaveAttribute('aria-label', /answer feedback/);
+  await page.evaluate((key) => localStorage.removeItem(key), A11Y_KEY);
 });
 
 test('confirm-answer mode grades only on request', async ({ page }) => {

@@ -1,25 +1,20 @@
 import { useEffect } from 'react';
-import { useNavigationType } from 'react-router-dom';
+import { useHasNavigated } from './useHasNavigated';
 
 // On the initial page load (and on a reload) focus stays where the browser
 // put it, so the skip link is the first Tab stop. After any in-app
 // navigation, the destination page's heading receives focus for screen
 // reader users.
 //
-// "Has the user navigated yet" is decided from the router's navigation type,
-// not from whether this hook has mounted before: pages such as the quiz and
-// the mock exam do not use the hook, and a reload on one of them used to make
-// the next page look like the initial load, leaving focus on <body>.
-let hasNavigated = false;
-
+// Whether the app has navigated is tracked once, at the router level in
+// AppShell, not by this hook's own mount history: pages such as the quiz and
+// the mock exam do not use the hook, and deciding from "has this hook run
+// before" made a reload on one of them (or a Back from one of them to the
+// first entry) look like the initial load, leaving focus on <body>.
 export function usePageFocus(ref) {
-  const navigationType = useNavigationType();
+  const hasNavigated = useHasNavigated();
 
   useEffect(() => {
-    // PUSH and REPLACE are in-app navigations; POP is the initial load, a
-    // reload, or Back/Forward (which also deserve focus once the app has
-    // navigated at least once).
-    if (navigationType !== 'POP') hasNavigated = true;
     if (!hasNavigated) return;
     ref.current?.focus();
   }, []); // eslint-disable-line react-hooks/exhaustive-deps

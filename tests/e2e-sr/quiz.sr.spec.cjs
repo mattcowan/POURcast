@@ -40,8 +40,21 @@ test.describe('Quick quiz (confirm mode) with NVDA', () => {
     const feedbackLabel = await page.locator('[role="region"]').first().getAttribute('aria-label').catch(() => null);
     const live = await h.liveText(page);
 
-    // Walk the feedback panel to Continue.
-    const feedbackStops = await h.tabUntil(page, nvda, (el) => /^Continue$/.test(el.text), 8);
+    // Browse-mode read back up through the graded options: the disabled
+    // radios are not Tab stops, so this is how a screen-reader user learns
+    // which option was correct. Focus is on the feedback region (not a form
+    // control), so NVDA is in browse mode and ArrowUp moves by line.
+    const readBack = [];
+    for (let i = 0; i < 20; i++) {
+      await h.press(page, nvda, 'ArrowUp');
+      await h.delay(500);
+      const phrase = await nvda.lastSpokenPhrase();
+      readBack.push(phrase);
+      if (/heading, level 2/i.test(phrase)) break; // reached the question
+    }
+
+    // Walk the feedback panel to Continue (Tab from wherever browse mode left us).
+    const feedbackStops = await h.tabUntil(page, nvda, (el) => /^Continue$/.test(el.text), 12);
     await h.press(page, nvda, 'Enter');
     await h.delay(1000);
     const nextPhrase = await nvda.lastSpokenPhrase();
@@ -51,7 +64,7 @@ test.describe('Quick quiz (confirm mode) with NVDA', () => {
     const summary = h.summarizeStops([...stops, ...feedbackStops]);
     const log = await h.saveSpeechLog(nvda, 'quiz-confirm-mode', {
       focusTitles, landingPhrase, landingFocus, stops, firstRadio, arrowPhrase, pendingChecked, noFeedbackYet,
-      checkPhrase, feedbackFocus, feedbackLabel, live, feedbackStops, nextPhrase, nextFocus, nextLive, ...summary,
+      checkPhrase, feedbackFocus, feedbackLabel, live, readBack, feedbackStops, nextPhrase, nextFocus, nextLive, ...summary,
     });
 
     // Product.
@@ -68,6 +81,7 @@ test.describe('Quick quiz (confirm mode) with NVDA', () => {
     expect(firstRadio.phrase, 'radio group named by the legend').toMatch(/answer options/i);
     expect(checkPhrase, 'feedback region announced by name').toMatch(/feedback/i);
     expect(h.spoke(log, /correct|incorrect|not quite/i), 'the result was spoken').toBe(true);
+    expect(readBack.join(' | '), 'browse mode reads the result icons on the graded options').toMatch(/Correct answer|incorrect selection/i);
     expect(summary.silentStops, `silent Tab stops: ${JSON.stringify(summary.silentStops)}`).toEqual([]);
     expect(summary.unnamedControls, `unnamed controls: ${JSON.stringify(summary.unnamedControls)}`).toEqual([]);
   });

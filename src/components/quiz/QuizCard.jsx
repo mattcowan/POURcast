@@ -28,12 +28,15 @@ export default function QuizCard({ question, feedback, onAnswer }) {
   const shortcutsEnabled = prefs.keyboardShortcuts;
   const instantMode = Boolean(prefs.quizAutoGrade);
   const radioGroupName = useId();
+  const radioRefs = useRef([]);
 
   // The option the user has picked but not yet checked (confirm mode only).
   // Keyed by question id so a new question starts with nothing selected
-  // without an effect that resets state after render.
+  // without an effect that resets state after render. Ignored in instant
+  // mode so a pick made before the preference was switched mid-question
+  // does not linger as a "selected" highlight on a button.
   const [picked, setPicked] = useState({ questionId: null, index: null });
-  const pending = picked.questionId === question.id ? picked.index : null;
+  const pending = !instantMode && picked.questionId === question.id ? picked.index : null;
 
   useEffect(() => {
     headingRef.current?.focus();
@@ -155,19 +158,30 @@ export default function QuizCard({ question, feedback, onAnswer }) {
     if (e.ctrlKey || e.metaKey || e.altKey || e.shiftKey || e.repeat) return;
 
     const key = e.key.toLowerCase();
+    let index = -1;
     if (/^[a-z]$/.test(key)) {
-      const letterIndex = key.charCodeAt(0) - 97; // a=0, b=1, c=2, d=3
-      if (letterIndex >= 0 && letterIndex < question.options.length) {
-        e.preventDefault();
-        choose(letterIndex);
-        return;
-      }
+      index = key.charCodeAt(0) - 97; // a=0, b=1, c=2, d=3
+    } else {
+      const num = parseInt(e.key, 10);
+      if (num >= 1) index = num - 1;
     }
-    const num = parseInt(e.key, 10);
-    if (num >= 1 && num <= question.options.length) {
-      e.preventDefault();
-      choose(num - 1);
-    }
+    if (index < 0 || index >= question.options.length) return;
+    e.preventDefault();
+    choose(index);
+    // In confirm mode the pick is only staged, so put focus on that radio:
+    // the Enter-to-check shortcut and the arrow keys then work from where
+    // the user's attention is, instead of from the heading.
+    if (!instantMode) radioRefs.current[index]?.focus();
+  }
+
+  function renderOptionBody(state, i, option) {
+    return (
+      <>
+        {getOptionSymbol(state, i)}
+        <span className="flex-1">{option}</span>
+        {renderShortcutHint(i)}
+      </>
+    );
   }
 
   const shortcutItems = instantMode
@@ -200,9 +214,7 @@ export default function QuizCard({ question, feedback, onAnswer }) {
                 disabled={hasAnswered}
                 style={getOptionStyles(state)}
               >
-                {getOptionSymbol(state, i)}
-                <span className="flex-1">{option}</span>
-                {renderShortcutHint(i)}
+                {renderOptionBody(state, i, option)}
               </button>
             );
           })}
@@ -217,6 +229,7 @@ export default function QuizCard({ question, feedback, onAnswer }) {
               return (
                 <label key={i} className="quiz-option" style={getOptionStyles(state)}>
                   <input
+                    ref={(el) => { radioRefs.current[i] = el; }}
                     type="radio"
                     className="sr-only"
                     name={radioGroupName}
@@ -225,9 +238,7 @@ export default function QuizCard({ question, feedback, onAnswer }) {
                     disabled={hasAnswered}
                     onChange={() => choose(i)}
                   />
-                  {getOptionSymbol(state, i)}
-                  <span className="flex-1">{option}</span>
-                  {renderShortcutHint(i)}
+                  {renderOptionBody(state, i, option)}
                 </label>
               );
             })}

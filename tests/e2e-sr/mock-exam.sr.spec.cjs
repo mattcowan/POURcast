@@ -85,7 +85,8 @@ test.describe('Mock exam with NVDA', () => {
     expect(toRadio[toRadio.length - 1].phrase, 'radio announced with the legend').toMatch(/answer choices/i);
     expect(selectPhrase).toMatch(/checked/i);
     expect(eliminatePhrase, 'eliminate button state spoken').toMatch(/pressed/i);
-    expect(navPhrase || navFocusPhrase, 'navigator announced (dialog name on open, or at least the focused question button)').toMatch(/dialog|Question 1/i);
+    expect(navPhrase, 'navigator announced as a dialog on open (D1: needs the grid to mount after the entry announcement)').toMatch(/Question navigator, dialog/i);
+    expect(navFocusPhrase, 'focus ends on the current question button').toMatch(/current question, button/i);
     expect(submitPhrase, 'submit confirm announced as a dialog').toMatch(/dialog/i);
     expect(resultsPhrase, 'results heading spoken').toMatch(/passed/i);
     expect(summary.silentStops, `silent Tab stops: ${JSON.stringify(summary.silentStops)}`).toEqual([]);
