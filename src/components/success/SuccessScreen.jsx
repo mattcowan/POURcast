@@ -12,11 +12,17 @@ export default function SuccessScreen({ quiz }) {
 
   const { score, totalQuestions, missedQuestions, domain, isComplete, isReview } = quiz;
 
+  // Guard direct visits to /results with no finished quiz, checked once on
+  // mount. It must not re-run when `isComplete` flips: the retry buttons call
+  // startQuiz (synchronous, isComplete -> false) and then navigate, and React
+  // Router 7 commits the navigation in a transition, so a reactive guard would
+  // see the reset first and bounce the user to the dashboard.
+  const hadResultOnMount = useRef(isComplete && Boolean(domain));
   useEffect(() => {
-    if (!isComplete || !domain) {
+    if (!hadResultOnMount.current) {
       navigate('/');
     }
-  }, [isComplete, domain, navigate]);
+  }, [navigate]);
 
   if (!isComplete || !domain) {
     return null;

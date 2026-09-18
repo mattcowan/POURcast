@@ -70,6 +70,7 @@ export default function AccessibilityPanel() {
           style={{
             backgroundColor: 'var(--bg-surface)',
             borderColor: 'var(--border-default)',
+            maxWidth: 'calc(100vw - 2rem)',
           }}
         >
           <div className="flex items-center justify-between mb-4">
@@ -179,6 +180,19 @@ export default function AccessibilityPanel() {
               onChange={(val) => updatePref('underlineLinks', val)}
               label="Underline all links"
             />
+          </SettingGroup>
+
+          {/* Quiz answer confirmation */}
+          <SettingGroup label="Quiz answers">
+            <ToggleSwitch
+              checked={prefs.quizAutoGrade}
+              onChange={(val) => updatePref('quizAutoGrade', val)}
+              label="Grade as soon as I pick an answer"
+            />
+            <p className="text-base mt-1" style={{ color: 'var(--text-muted)' }}>
+              Off by default: pick an answer, then choose Check answer, so a
+              mis-click can be corrected. Turn on to skip that step.
+            </p>
           </SettingGroup>
 
           {/* Quiz keyboard shortcuts */}

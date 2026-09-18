@@ -7,7 +7,9 @@
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "test:qa": "playwright test -c playwright.config.cjs",
+    "test:sr": "playwright test -c playwright.nvda.config.cjs"
   },
   "dependencies": {
     "lucide-react": "^0.577.0",
@@ -16,11 +18,16 @@
     "react-router-dom": "^7.13.1"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
     "@eslint/js": "^9.39.4",
+    "@guidepup/guidepup": "^0.34.0",
+    "@guidepup/playwright": "^0.19.1",
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/vite": "^4.2.2",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.1",
+    "axe-core": "^4.13.0",
     "eslint": "^9.39.4",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",

@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { FOCUS_AFTER_A11Y_TREE_MS } from '../utils/a11yTiming';
 
 /**
  * Non-modal popover behavior for the header panels (stats, data, a11y prefs).
@@ -20,6 +21,29 @@ export function usePopover() {
   const containerRef = useRef(null);
   const triggerRef = useRef(null);
   const panelRef = useRef(null);
+  const restoreFocusRef = useRef(false);
+
+  // Restore focus to the trigger only after the close has committed, so the
+  // trigger's aria-expanded is already "false" when the screen reader reads
+  // it. Focusing synchronously in the close handler made NVDA announce the
+  // button as still "expanded" (QA 2026-09-16, D2).
+  useEffect(() => {
+    if (isOpen || !restoreFocusRef.current) return undefined;
+    restoreFocusRef.current = false;
+    // Deferred past the commit: Firefox delivers the focus event to the
+    // screen reader before the aria-expanded change when both happen in the
+    // same task, so NVDA still read "expanded" with a synchronous focus().
+    const t = setTimeout(() => {
+      // Only restore if focus is still nowhere (the panel unmounted and
+      // left it on <body>). If a sibling popover opened inside the delay,
+      // focus is in its panel and must not be stolen back to this trigger.
+      const active = document.activeElement;
+      if (!active || active === document.body) {
+        triggerRef.current?.focus();
+      }
+    }, FOCUS_AFTER_A11Y_TREE_MS);
+    return () => clearTimeout(t);
+  }, [isOpen]);
 
   useEffect(() => {
     if (!isOpen) return undefined;
@@ -28,8 +52,8 @@ export function usePopover() {
 
     function handleKeyDown(e) {
       if (e.key === 'Escape') {
+        restoreFocusRef.current = true;
         setIsOpen(false);
-        triggerRef.current?.focus();
       }
     }
 
@@ -41,7 +65,7 @@ export function usePopover() {
         // only then, so browsers that already moved focus keep it where the
         // user clicked.
         if (containerRef.current.contains(document.activeElement)) {
-          triggerRef.current?.focus();
+          restoreFocusRef.current = true;
         }
         setIsOpen(false);
       }

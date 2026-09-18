@@ -1,5 +1,7 @@
+import { useEffect, useRef, useState } from 'react';
 import { Flag } from 'lucide-react';
 import ModalDialog from '../common/ModalDialog';
+import { FOCUS_AFTER_A11Y_TREE_MS, DIALOG_GRID_MOUNT_DELAY_MS } from '../../utils/a11yTiming';
 
 /**
  * Jump-to-question dialog. Plain buttons in a wrapping grid — every state
@@ -17,6 +19,43 @@ export default function QuestionNavigator({
   onRequestSubmit,
   answeredCount,
 }) {
+  const currentButtonRef = useRef(null);
+
+  // With all 100 question buttons in the dialog at the moment it opens,
+  // NVDA on Firefox announced nothing at all on entry; with 10 it read the
+  // dialog name and description (QA 2026-09-17, D1 experiment). So the grid
+  // mounts a beat after the dialog opens: the entry announcement happens
+  // against a small tree (heading, description, Close, Submit), then focus
+  // moves to the current question's button once the grid exists.
+  const [gridReady, setGridReady] = useState(false);
+  // Where showModal() put focus at open (the Close button, since the grid
+  // is not mounted yet). ModalDialog's effect runs before this one (child
+  // effects first), so the implicit focus has already happened here.
+  const initialFocusRef = useRef(null);
+  useEffect(() => {
+    if (!isOpen) return undefined;
+    initialFocusRef.current = document.activeElement;
+    const t = setTimeout(() => setGridReady(true), DIALOG_GRID_MOUNT_DELAY_MS);
+    return () => {
+      clearTimeout(t);
+      setGridReady(false);
+    };
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (!isOpen || !gridReady) return undefined;
+    const t = setTimeout(() => {
+      const el = currentButtonRef.current;
+      if (!el) return;
+      // Only move focus if the user has not moved it themselves since the
+      // dialog opened (e.g. Tab to "Submit test…" during the delay); the
+      // same guard usePopover applies to its deferred restore.
+      if (document.activeElement !== initialFocusRef.current) return;
+      el.focus();
+    }, FOCUS_AFTER_A11Y_TREE_MS);
+    return () => clearTimeout(t);
+  }, [isOpen, gridReady]);
+
   return (
     <ModalDialog isOpen={isOpen} onClose={onClose} labelledBy="question-navigator-title">
       <h2
@@ -32,14 +71,15 @@ export default function QuestionNavigator({
         Filled numbers are answered; a flag marks flagged questions.
       </p>
 
-      <div className="flex flex-wrap gap-2 mb-5">
-        {questions.map((q, i) => {
+      <div className="flex flex-wrap gap-2 mb-5" style={{ minHeight: gridReady ? undefined : '3rem' }}>
+        {gridReady && questions.map((q, i) => {
           const isAnswered = answers[q.id] !== undefined;
           const isFlagged = flaggedIds.includes(q.id);
           const isCurrent = i === currentIndex;
           return (
             <button
               key={q.id}
+              ref={isCurrent ? currentButtonRef : null}
               onClick={() => onNavigate(i)}
               aria-label={`Question ${i + 1}: ${isAnswered ? 'answered' : 'unanswered'}${isFlagged ? ', flagged' : ''}${isCurrent ? ', current question' : ''}`}
               aria-current={isCurrent ? 'true' : undefined}

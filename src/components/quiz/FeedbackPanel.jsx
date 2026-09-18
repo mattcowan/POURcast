@@ -99,42 +99,36 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
 
       {onToggleFlag && (
         <div className="mt-4">
-          {!isFlagged ? (
-            // One click flags the question immediately — no second confirmation
-            // step, so a flag can never be silently lost by navigating away.
-            <button
-              onClick={() => onToggleFlag(null)}
-              aria-pressed={false}
-              className="flex items-center gap-2 py-2 px-3 rounded-lg text-base font-medium transition-colors border-2 bg-transparent cursor-pointer"
-              style={{
-                borderColor: 'var(--info-border)',
-                color: 'var(--info-text)',
-              }}
-            >
-              <Flag size={16} aria-hidden="true" />
-              Flag this question
-            </button>
-          ) : (
-            <div className="flex flex-col gap-2">
+          {/*
+            One persistent toggle button: flagging is a single click with no
+            confirmation step, and the element that was activated stays
+            mounted so keyboard focus is not dropped to <body> when its
+            label and pressed state change.
+          */}
+          <div className="flex flex-col gap-2">
               <div className="flex flex-wrap gap-2">
                 <button
                   onClick={() => {
-                    onToggleFlag();
-                    setShowNoteInput(false);
-                    setNoteText('');
+                    if (isFlagged) {
+                      onToggleFlag();
+                      setShowNoteInput(false);
+                      setNoteText('');
+                    } else {
+                      onToggleFlag(null);
+                    }
                   }}
-                  aria-pressed={true}
+                  aria-pressed={isFlagged}
                   className="flex items-center gap-2 py-2 px-3 rounded-lg text-base font-medium transition-colors border-2 cursor-pointer"
                   style={{
                     borderColor: 'var(--info-border)',
-                    backgroundColor: 'var(--info-bg)',
+                    backgroundColor: isFlagged ? 'var(--info-bg)' : 'transparent',
                     color: 'var(--info-text)',
                   }}
                 >
-                  <Flag size={16} aria-hidden="true" fill="currentColor" />
-                  Flagged
+                  <Flag size={16} aria-hidden="true" fill={isFlagged ? 'currentColor' : 'none'} />
+                  {isFlagged ? 'Flagged' : 'Flag this question'}
                 </button>
-                {!showNoteInput && (
+                {isFlagged && !showNoteInput && (
                   <button
                     ref={noteButtonRef}
                     onClick={() => {
@@ -153,7 +147,7 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
                 )}
               </div>
 
-              {flagNote && !showNoteInput && (
+              {isFlagged && flagNote && !showNoteInput && (
                 <p
                   className="text-base italic px-3 py-2 rounded-lg"
                   style={{ color: 'var(--info-text)', backgroundColor: 'var(--info-bg)' }}
@@ -162,7 +156,7 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
                 </p>
               )}
 
-              {showNoteInput && (
+              {isFlagged && showNoteInput && (
                 <div className="flex flex-col gap-2">
                   <label
                     htmlFor="flag-note"
@@ -201,8 +195,8 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
                       onClick={() => closeNoteInput({ save: true })}
                       className="py-2 px-3 rounded-lg text-base font-medium transition-colors border-0 cursor-pointer"
                       style={{
-                        backgroundColor: 'var(--info-border)',
-                        color: '#fff',
+                        backgroundColor: 'var(--btn-accent)',
+                        color: 'var(--text-on-accent)',
                       }}
                     >
                       Save note
@@ -220,8 +214,7 @@ export default function FeedbackPanel({ question, feedback, onNext, isFlagged, f
                   </div>
                 </div>
               )}
-            </div>
-          )}
+          </div>
         </div>
       )}
 

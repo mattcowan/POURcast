@@ -78,6 +78,7 @@ export default function DataPanel() {
           style={{
             backgroundColor: 'var(--bg-surface)',
             borderColor: 'var(--border-default)',
+            maxWidth: 'calc(100vw - 2rem)',
           }}
         >
           <h2 className="text-lg font-bold mb-1" style={{ color: 'var(--text-primary)' }}>

@@ -104,8 +104,6 @@ export default function QuizView({ quiz, domains, onUpdateStats, missedBank, fla
 
       <QuizCard
         question={quiz.currentQuestion}
-        questionIndex={quiz.currentIndex}
-        totalQuestions={quiz.totalQuestions}
         feedback={quiz.feedback}
         onAnswer={quiz.submitAnswer}
       />
